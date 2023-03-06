@@ -3,7 +3,7 @@
     which is the main class of the simulation.
 
     The Engine class is responsible for running the simulation.
-    It is responsible for creating the drivers, cars, and road.
+    It is responsible for creating the drivers, and road.
     It is also responsible for running the simulation and
     updating the state of the simulation.
 
@@ -34,13 +34,13 @@ def initialize_drivers(population_size: int) -> List[Driver]:
     stats = st.lognorm.rvs(0.5, size=population_size)
 
     # Create the histogram
-    hist, bins = np.histogram(stats, bins=5)
+    hist, _ = np.histogram(stats, bins=5)
 
     # Create the drivers
     drivers = []
 
     for i in range(len(hist)):
-        for j in range(hist[i]):
+        for _ in range(hist[i]):
             dconfig = DriverConfig(driver_type=i)
             drivers.append(Driver(config=dconfig))
 
@@ -84,14 +84,7 @@ class Model:
     def __init__(self, run_config: RunConfig):
         self.run_config = run_config
         self.road = Road(self.run_config.road_length, self.run_config.lanes)
-        self.drivers = []
-        self.cars = []
-
-        drivers = initialize_drivers(self.run_config.population_size)
-
-        # Initialize the drivers
-        for i in range(self.run_config.population_size):
-            self.drivers.append(Driver())
+        self.drivers = initialize_drivers(self.run_config.population_size)
 
     @property
     def run_config(self) -> "RunConfig":
@@ -104,10 +97,6 @@ class Model:
     @property
     def drivers(self) -> list:
         return self.drivers
-
-    @property
-    def cars(self) -> list:
-        return self.cars
 
 
 class Engine:
@@ -125,7 +114,7 @@ class Engine:
     @property
     def trace(self) -> "Trace":
         return self.trace
-    
+
     @property
     def model(self) -> "Model":
         return self.model
