@@ -4,7 +4,7 @@
 
 
 class Road:
-    def __init__(self, length, lanes, **kwargs):
+    def __init__(self, length: float, lanes: int, **kwargs):
         """
         Constructor for the Road class.
 

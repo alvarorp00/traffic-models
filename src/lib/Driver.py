@@ -92,7 +92,7 @@ class DriverConfig:
         if 'driver_type' not in kwargs:
             raise ValueError("driver_type not passed to the constructor")
         self.driver_type = kwargs['driver_type']
-        
+
         if 'car_type' not in kwargs:
             raise ValueError("car_type not passed to the constructor")
         self.car_type = kwargs['car_type']

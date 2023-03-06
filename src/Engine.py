@@ -14,8 +14,35 @@
 """
 
 
-from lib.Driver import Driver
+from typing import List
+from lib.Driver import Driver, DriverConfig
 from lib.Road import Road
+import numpy as np
+import scipy.stats as st
+
+
+def initialize_drivers(population_size: int) -> List[Driver]:
+    """
+    Initializes the drivers for the simulation.
+
+    Take the population size and obtain a random sample from
+    the log-normal distribution. Then create an histogram
+    of the sample (5 bins), where each bin represents a
+    driver type. Then create the drivers based on the
+    histogram.
+    """
+    stats = st.lognorm.rvs(0.5, size=population_size)
+
+    # Create the histogram
+    hist, bins = np.histogram(stats, bins=5)
+
+    # Create the drivers
+    drivers = []
+
+    for i in range(len(hist)):
+        for j in range(hist[i]):
+            dconfig = DriverConfig(driver_type=i)
+            drivers.append(Driver(config=dconfig))
 
 
 class RunConfig:
@@ -60,9 +87,27 @@ class Model:
         self.drivers = []
         self.cars = []
 
+        drivers = initialize_drivers(self.run_config.population_size)
+
         # Initialize the drivers
         for i in range(self.run_config.population_size):
-            self.drivers.append(Driver(self.run_config))
+            self.drivers.append(Driver())
+
+    @property
+    def run_config(self) -> "RunConfig":
+        return self.run_config
+
+    @property
+    def road(self) -> "Road":
+        return self.road
+
+    @property
+    def drivers(self) -> list:
+        return self.drivers
+
+    @property
+    def cars(self) -> list:
+        return self.cars
 
 
 class Engine:
@@ -80,6 +125,10 @@ class Engine:
     @property
     def trace(self) -> "Trace":
         return self.trace
+    
+    @property
+    def model(self) -> "Model":
+        return self.model
 
     def run(self):
         for t in range(self.run_config.time_steps):
