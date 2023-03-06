@@ -30,6 +30,15 @@ def initialize_drivers(population_size: int) -> List[Driver]:
     of the sample (5 bins), where each bin represents a
     driver type. Then create the drivers based on the
     histogram.
+
+    Then, the car type is randomly selected for each driver.
+
+    NOTE: This way of selecting drivers & cars might change
+
+    Parameters
+    ----------
+    population_size : int
+        The number of drivers in the simulation.
     """
     stats = st.lognorm.rvs(0.5, size=population_size)
 
@@ -41,7 +50,10 @@ def initialize_drivers(population_size: int) -> List[Driver]:
 
     for i in range(len(hist)):
         for _ in range(hist[i]):
-            dconfig = DriverConfig(driver_type=i)
+            dconfig = DriverConfig(
+                driver_type=i,
+                car_type=np.random.randint(0, 4)
+            )
             drivers.append(Driver(config=dconfig))
 
 
