@@ -14,14 +14,14 @@
 """
 
 
-from typing import List
+from typing import Dict
 from lib.Driver import Driver, DriverConfig
 from lib.Road import Road
 import numpy as np
 import scipy.stats as st
 
 
-def initialize_drivers(population_size: int) -> List[Driver]:
+def initialize_drivers(population_size: int) -> Dict[int, Driver]:
     """
     Initializes the drivers for the simulation.
 
@@ -30,6 +30,10 @@ def initialize_drivers(population_size: int) -> List[Driver]:
     of the sample (5 bins), where each bin represents a
     driver type. Then create the drivers based on the
     histogram.
+
+    The id assigned to the drivers is the index of the
+    driver in the list of drivers. They are unique and are
+    assigned in the order of creation.
 
     Then, the car selection follows a multinomial distribution
     with the following probabilities:
@@ -51,18 +55,21 @@ def initialize_drivers(population_size: int) -> List[Driver]:
     hist, _ = np.histogram(stats, bins=5)
 
     # Create the drivers
-    drivers = []
+    drivers = {}
 
+    id = 0
     for i in range(len(hist)):
-        for _ in range(hist[i]):
+        for j in range(hist[i]):
             dconfig = DriverConfig(
+                id=id,
                 driver_type=i,
                 car_type=np.random.choice(
                     a=np.arange(0, 4),
                     p=[.2, .4, .3, .1]
                 )
             )
-            drivers.append(Driver(config=dconfig))
+            drivers[id] = Driver(config=dconfig)
+            id += 1
 
     return drivers
 
@@ -85,52 +92,121 @@ class RunConfig:
         """
 
         if 'population_size' in kwargs:
+            assert isinstance(kwargs['population_size'], int)
             self.population_size = kwargs['population_size']
         else:
             self.population_size = 100  # default value
         if 'road_length' in kwargs:
+            assert isinstance(kwargs['road_length'], float) or \
+                        isinstance(kwargs['road_length'], int)
             self.road_length = kwargs['road_length']
         else:
             self.road_length = 1e4  # default value --> in meters
         if 'time_steps' in kwargs:
+            assert isinstance(kwargs['time_steps'], int)
             self.time_steps = kwargs['time_steps']
         else:
             self.time_steps = 1000
         if 'lanes' in kwargs:
+            assert isinstance(kwargs['lanes'], int)
             self.lanes = kwargs['lanes']
         else:
             self.lanes = 1
+        if 'lane_priority' in kwargs:
+            assert len(kwargs['lane_priority']) == self.lanes
+            assert isinstance(kwargs['lane_priority'], np.ndarray)
+            self.lane_priority = kwargs['lane_priority']
+        else:
+            self.lane_priority = np.array([1])  # By default just one lane
+        if 'max_speed' in kwargs:
+            assert isinstance(kwargs['max_speed'], float) or \
+                     isinstance(kwargs['max_speed'], int)
+            self.max_speed = kwargs['max_speed']
+        else:
+            self.max_speed = 120  # In km/h
 
 
 class Model:
     def __init__(self, run_config: RunConfig):
         self.run_config = run_config
-        self.road = Road(self.run_config.road_length, self.run_config.lanes)
-        self.drivers = initialize_drivers(self.run_config.population_size)
+
+        self.info = {}
+
+        self.info['drivers'] = initialize_drivers(
+            population_size=self.run_config.population_size
+        )
+
+        # Change the location of the drivers, speed and lane
+        for d in self.info['drivers'].values():
+            d.config.location = np.random.uniform(
+                low=0,
+                high=self.run_config.road_length
+            )
+            d.config.speed = np.random.uniform(
+                low=0,
+                high=30
+            )
+            d.config.lane = np.random.choice(
+                a=np.arange(0, self.run_config.lanes),
+                p=self.run_config.lane_priority
+            )
+
+        self.info['road'] = Road(
+            length=self.run_config.road_length,
+            lanes=self.run_config.lanes,
+            max_speed=self.run_config.max_speed
+        )
+
+        self.info['locations'] = dict(zip(
+            self.info['drivers'].keys(),
+            [d.config.location for d in self.info['drivers'].values()]
+        ))
+
+        self.info['speeds'] = dict(zip(
+            self.info['drivers'].keys(),
+            [d.config.speed for d in self.info['drivers'].values()]
+        ))
+
+        self.info['lanes'] = dict(zip(
+            self.info['drivers'].keys(),
+            [d.config.lane for d in self.info['drivers'].values()]
+        ))
 
     @property
     def run_config(self) -> "RunConfig":
-        return self.run_config
+        return self._run_config
 
     @run_config.setter
-    def run_config(self, run_config):
-        self.run_config = run_config
+    def run_config(self, run_config: "RunConfig"):
+        self._run_config = run_config
+
+    @property
+    def info(self) -> Dict:
+        return self._info
+
+    @info.setter
+    def info(self, info: Dict):
+        self._info = info
 
     @property
     def road(self) -> "Road":
-        return self.road
-
-    @road.setter
-    def road(self, road):
-        self.road = road
+        return self.info['road']
 
     @property
-    def drivers(self) -> list:
-        return self.drivers
+    def drivers(self) -> Dict[int, "Driver"]:
+        return self.info['drivers']
 
-    @drivers.setter
-    def drivers(self, drivers):
-        self.drivers = drivers
+    @property
+    def locations(self) -> Dict[int, float]:
+        return self.info['locations']
+
+    @property
+    def speeds(self) -> Dict[int, float]:
+        return self.info['speeds']
+
+    @property
+    def lanes(self) -> Dict[int, int]:
+        return self.info['lanes']
 
 
 class Engine:
@@ -143,32 +219,32 @@ class Engine:
 
     @property
     def run_config(self) -> "RunConfig":
-        return self.run_config
+        return self._run_config
 
     @run_config.setter
     def run_config(self, run_config):
-        self.run_config = run_config
+        self._run_config = run_config
 
     @property
     def trace(self) -> "Trace":
-        return self.trace
+        return self._trace
 
     @trace.setter
     def trace(self, trace):
-        self.trace = trace
+        self._trace = trace
 
     @property
     def model(self) -> "Model":
-        return self.model
+        return self._model
 
     @model.setter
     def model(self, model):
-        self.model = model
+        self._model = model
 
     def run(self):
         for t in range(self.run_config.time_steps):
-            # TODO: update the state of the simulation
-            self.trace.add(self.model)  # Record the state of the simulation
+            # TODO: update the state of the model
+            self.trace.add(self.model)  # Record the state of the model
 
 
 class Trace:
@@ -177,11 +253,11 @@ class Trace:
 
     @property
     def data(self):
-        return self.data
+        return self._data
 
     @data.setter
     def data(self, data):
-        self.data = data
+        self._data = data
 
     def add(self, data):
         self.data.append(data)

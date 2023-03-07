@@ -4,7 +4,9 @@ and the configuration specified in the Config module.
 """
 
 from Engine import Engine, RunConfig
-from Config import POPULATION_SIZE, ROAD_LENGTH, TIME_STEPS, LANES
+from Config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
+        TIME_STEPS, LANES, LANES_PRIORITY
+from lib.Graphics import print_model
 
 
 def run():
@@ -14,15 +16,20 @@ def run():
 
     run_config = RunConfig(
         population_size=POPULATION_SIZE,
-        road_length=ROAD_LENGTH,
         time_steps=TIME_STEPS,
-        lanes=LANES
+        road_length=ROAD_LENGTH,
+        max_speed=MAX_SPEED,
+        lanes=LANES,
+        lane_priority=LANES_PRIORITY,
     )
 
-    model = Engine(run_config)
-    model.run()
+    engine = Engine(run_config)
+    engine.run()
 
     print("Simulation complete")
+
+    # Print the results
+    print_model(engine.model)
 
 
 if __name__ == "__main__":

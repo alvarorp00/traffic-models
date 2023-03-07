@@ -80,7 +80,7 @@ class DriverConfig:
     driver_type : DriverType
         The type of driver.
     """
-    def __init__(self, **kwargs):
+    def __init__(self, id, **kwargs):
         """
         Constructor for the DriverConfig class.
 
@@ -89,6 +89,8 @@ class DriverConfig:
         driver_type : DriverType
             The type of driver.
         """
+        self.id = id
+
         if 'driver_type' not in kwargs:
             raise ValueError("driver_type not passed to the constructor")
         self.driver_type = kwargs['driver_type']
@@ -103,11 +105,11 @@ class DriverConfig:
         else:
             self.location = 0
 
-        if 'velocity' in kwargs:
-            assert isinstance(kwargs['velocity'], float)
-            self.velocity = kwargs['velocity']
+        if 'speed' in kwargs:
+            assert isinstance(kwargs['speed'], float)
+            self.speed = kwargs['speed']
         else:
-            self.velocity = 0
+            self.speed = 0
 
         if 'lane' in kwargs:
             assert isinstance(kwargs['lane'], int)
@@ -117,43 +119,43 @@ class DriverConfig:
 
     @property
     def driver_type(self) -> DriverType:
-        return self.driver_type
+        return self._driver_type
 
     @driver_type.setter
     def driver_type(self, driver_type: DriverType):
-        self.driver_type = driver_type
+        self._driver_type = driver_type
 
     @property
     def car_type(self) -> CarType:
-        return self.car_type
+        return self._car_type
 
     @car_type.setter
     def car_type(self, car_type: CarType):
-        self.car_type = car_type
+        self._car_type = car_type
 
     @property
     def location(self) -> float:
-        return self.location
+        return self._location
 
     @location.setter
     def location(self, location: float):
-        self.location = location
+        self._location = location
 
     @property
-    def velocity(self) -> float:
-        return self.velocity
+    def speed(self) -> float:
+        return self._speed
 
-    @velocity.setter
-    def velocity(self, velocity: float):
-        self.velocity = velocity
+    @speed.setter
+    def speed(self, speed: float):
+        self._speed = speed
 
     @property
     def lane(self) -> int:
-        return self.lane
+        return self._lane
 
     @lane.setter
     def lane(self, lane: int):
-        self.lane = lane
+        self._lane = lane
 
 
 class Driver:
@@ -175,16 +177,13 @@ class Driver:
         assert isinstance(kwargs['config'], DriverConfig)
         self.config = kwargs['config']
 
-    def get_config(self) -> DriverConfig:
-        """
-        Returns the configuration of the driver.
+    @property
+    def config(self) -> DriverConfig:
+        return self._config
 
-        Returns
-        -------
-        DriverConfig
-            The configuration of the driver.
-        """
-        return self.config
+    @config.setter
+    def config(self, config: DriverConfig):
+        self._config = config
 
     def action(self, state, **kwargs):
         # TODO
