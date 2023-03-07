@@ -3,6 +3,10 @@
 """
 
 
+from typing import List
+from lib.Driver import Driver
+
+
 class Road:
     def __init__(self, length: float, lanes: int, **kwargs):
         """
@@ -20,16 +24,31 @@ class Road:
         self.drivers = []
 
     @property
-    def drivers(self):
+    def drivers(self) -> List[Driver]:
         return self.drivers
+
+    @drivers.setter
+    def drivers(self, drivers):
+        self.drivers = drivers
 
     def add_driver(self, driver):
         self.drivers.append(driver)
+
+    def del_driver(self, driver):
+        self.drivers.remove(driver)
 
     @property
     def length(self):
         return self.length
 
+    @length.setter
+    def length(self, length):
+        self.length = length
+
     @property
     def lanes(self):
         return self.lanes
+
+    @lanes.setter
+    def lanes(self, lanes):
+        self.lanes = lanes

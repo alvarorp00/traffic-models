@@ -97,6 +97,64 @@ class DriverConfig:
             raise ValueError("car_type not passed to the constructor")
         self.car_type = kwargs['car_type']
 
+        if 'location' in kwargs:
+            assert isinstance(kwargs['location'], float)
+            self.location = kwargs['location']
+        else:
+            self.location = 0
+
+        if 'velocity' in kwargs:
+            assert isinstance(kwargs['velocity'], float)
+            self.velocity = kwargs['velocity']
+        else:
+            self.velocity = 0
+
+        if 'lane' in kwargs:
+            assert isinstance(kwargs['lane'], int)
+            self.lane = kwargs['lane']
+        else:
+            self.lane = 0
+
+    @property
+    def driver_type(self) -> DriverType:
+        return self.driver_type
+
+    @driver_type.setter
+    def driver_type(self, driver_type: DriverType):
+        self.driver_type = driver_type
+
+    @property
+    def car_type(self) -> CarType:
+        return self.car_type
+
+    @car_type.setter
+    def car_type(self, car_type: CarType):
+        self.car_type = car_type
+
+    @property
+    def location(self) -> float:
+        return self.location
+
+    @location.setter
+    def location(self, location: float):
+        self.location = location
+
+    @property
+    def velocity(self) -> float:
+        return self.velocity
+
+    @velocity.setter
+    def velocity(self, velocity: float):
+        self.velocity = velocity
+
+    @property
+    def lane(self) -> int:
+        return self.lane
+
+    @lane.setter
+    def lane(self, lane: int):
+        self.lane = lane
+
 
 class Driver:
     def __init__(self, *args, **kwargs):
@@ -114,6 +172,7 @@ class Driver:
         """
         if 'config' not in kwargs:
             raise ValueError("config not passed to the constructor")
+        assert isinstance(kwargs['config'], DriverConfig)
         self.config = kwargs['config']
 
     def get_config(self) -> DriverConfig:

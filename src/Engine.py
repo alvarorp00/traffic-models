@@ -31,9 +31,14 @@ def initialize_drivers(population_size: int) -> List[Driver]:
     driver type. Then create the drivers based on the
     histogram.
 
-    Then, the car type is randomly selected for each driver.
+    Then, the car selection follows a multinomial distribution
+    with the following probabilities:
+    - 20% of the drivers have a car type 0  (MOTORCYCLE)
+    - 40% of the drivers have a car type 1  (SEDAN)
+    - 30% of the drivers have a car type 2  (SUV)
+    - 10% of the drivers have a car type 3  (TRACK)
 
-    NOTE: This way of selecting drivers & cars might change
+    NOTE: Drivers & cars selection might change in the future.
 
     Parameters
     ----------
@@ -52,9 +57,14 @@ def initialize_drivers(population_size: int) -> List[Driver]:
         for _ in range(hist[i]):
             dconfig = DriverConfig(
                 driver_type=i,
-                car_type=np.random.randint(0, 4)
+                car_type=np.random.choice(
+                    a=np.arange(0, 4),
+                    p=[.2, .4, .3, .1]
+                )
             )
             drivers.append(Driver(config=dconfig))
+
+    return drivers
 
 
 class RunConfig:
@@ -102,13 +112,25 @@ class Model:
     def run_config(self) -> "RunConfig":
         return self.run_config
 
+    @run_config.setter
+    def run_config(self, run_config):
+        self.run_config = run_config
+
     @property
     def road(self) -> "Road":
         return self.road
 
+    @road.setter
+    def road(self, road):
+        self.road = road
+
     @property
     def drivers(self) -> list:
         return self.drivers
+
+    @drivers.setter
+    def drivers(self, drivers):
+        self.drivers = drivers
 
 
 class Engine:
@@ -123,19 +145,30 @@ class Engine:
     def run_config(self) -> "RunConfig":
         return self.run_config
 
+    @run_config.setter
+    def run_config(self, run_config):
+        self.run_config = run_config
+
     @property
     def trace(self) -> "Trace":
         return self.trace
+
+    @trace.setter
+    def trace(self, trace):
+        self.trace = trace
 
     @property
     def model(self) -> "Model":
         return self.model
 
+    @model.setter
+    def model(self, model):
+        self.model = model
+
     def run(self):
         for t in range(self.run_config.time_steps):
             # TODO: update the state of the simulation
             self.trace.add(self.model)  # Record the state of the simulation
-            pass
 
 
 class Trace:
