@@ -19,6 +19,9 @@ and so are required to be passed as arguments to the constructor.
 """
 
 import enum
+from typing import List
+import numpy as np
+from scipy import stats as st
 
 
 class CarType(enum.Enum):
@@ -56,6 +59,18 @@ class CarType(enum.Enum):
         else:
             raise ValueError("Invalid car type")
 
+    @staticmethod
+    def max_speed() -> float:
+        """
+        Returns the maximum speed of any car.
+
+        Returns
+        -------
+        float
+            The maximum speed of any car.
+        """
+        return CarType.get_max_speed(CarType.MOTORCYCLE)
+
 
 class DriverType(enum.Enum):
     """
@@ -66,6 +81,62 @@ class DriverType(enum.Enum):
     RISKY = 3
     AGGRESSIVE = 4
     RECKLESS = 5
+
+
+class DriverDistributions:
+    @staticmethod
+    def risk_overtake_distance(driver_type: DriverType,
+                               car_type: CarType, size=1):
+        """
+        Returns a random rample gathered from a halfnormal distribution
+        (a normal distribution with only right side values so we control
+        the minimum distances that a driver will consider overtaking)
+        that represents the minimum distance that a driver will
+        consider overtaking another vehicle. This distance will be
+        considered both for overtaking in front and the car comming
+        from behind on left lane.
+
+        It considers the type of driver and the type of car.
+
+        Parameters
+        ----------
+        driver_type : DriverType
+            The type of driver.
+        car_type : CarType
+            The type of car.
+        size : int
+
+        Formula:
+            mean = 25 - 5 * (driver_type.value - 1)
+            std = 1 / (CarType.get_max_speed(car_type) / CarType.max_speed())
+
+        Returns
+        -------
+        ndarray: A random sample from the normal distribution.
+
+        Notes:
+            Mean --> 25 meters for CAUTIOUS driver, decreasing by 5 meters
+            for each driver type.
+
+            Standard deviation --> 1 /
+                                    (
+                                        CarType.get_max_speed(car_type) /
+                                        CarType.max_speed()
+                                    ),
+            so that the standard deviation is 1 meter for the fastest
+            car and increases as the car gets slower, which has sense as
+            the slower the car, the more time it takes to overtake,
+            and a bigger standard deviation increases the probability
+            of taking bigger thresholds.
+        """
+        MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
+        GAP = 5  # 5 meters per driver_type
+        mean = MINIMUM - GAP * (driver_type.value - 1)
+        std = 1 / (CarType.get_max_speed(car_type) / CarType.max_speed())
+        rvs = st.halfnorm.rvs(loc=mean, scale=std, size=size)
+        return rvs
+
+    # def risk_overtake_distance_back(driver_type: DriverType, size=1)
 
 
 class DriverConfig:
