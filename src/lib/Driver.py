@@ -34,6 +34,21 @@ class CarType(enum.Enum):
     TRUCK = 4
 
     @staticmethod
+    def random() -> 'CarType':
+        """
+        Returns a random car type.
+
+        Returns
+        -------
+        CarType
+            A random car type.
+        """
+        return np.random.choice(
+                    a=list(CarType),
+                    p=[.2, .4, .3, .1]
+                )
+
+    @staticmethod
     def get_max_speed(car_type: 'CarType') -> float:
         """
         Returns the maximum speed of the car.
@@ -85,8 +100,7 @@ class DriverType(enum.Enum):
 
 class DriverDistributions:
     @staticmethod
-    def risk_overtake_distance(driver_type: DriverType,
-                               car_type: CarType, size=1):
+    def risk_overtake_distance(driver: "Driver", size=1):
         """
         Returns a random rample gathered from a halfnormal distribution
         (a normal distribution with only right side values so we control
@@ -119,24 +133,25 @@ class DriverDistributions:
             for each driver type.
 
             Standard deviation --> 1 /
-                                    (
-                                        CarType.get_max_speed(car_type) /
-                                        CarType.max_speed()
-                                    ),
-            so that the standard deviation is 1 meter for the fastest
-            car and increases as the car gets slower, which has sense as
-            the slower the car, the more time it takes to overtake,
-            and a bigger standard deviation increases the probability
-            of taking bigger thresholds.
+                                    (CarType.get_max_speed(car_type) /
+                                    CarType.max_speed()),
+            For std is considered the current speed of the car and
+            the maximum speed it can reach, so that the standard deviation
+            is 1 meter for the fastest car and increases as the car
+            gets slower, which has sense as the
+
+            Size --> The number of samples to be generated. For example, two
+                     samples: one to the car in front and one to the car in
+                     the left lane.
         """
         MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
         GAP = 5  # 5 meters per driver_type
-        mean = MINIMUM - GAP * (driver_type.value - 1)
-        std = 1 / (CarType.get_max_speed(car_type) / CarType.max_speed())
+        mean = MINIMUM - GAP * (driver.config.driver_type.value - 1)
+        std = 1 / (driver.config.speed
+                   /
+                   CarType.get_max_speed(driver.config.car_type))
         rvs = st.halfnorm.rvs(loc=mean, scale=std, size=size)
         return rvs
-
-    # def risk_overtake_distance_back(driver_type: DriverType, size=1)
 
 
 class DriverConfig:
@@ -150,6 +165,13 @@ class DriverConfig:
     ----------
     driver_type : DriverType
         The type of driver.
+    car_type : CarType
+        The type of car.
+    location : float
+        The initial location of the driver.
+    speed : float
+        The initial speed of the driver.
+    lane : int
     """
     def __init__(self, id, **kwargs):
         """
@@ -242,6 +264,7 @@ class Driver:
         ----------
         params : dict
             A dictionary containing the parameters of the driver.
+            --> "config": DriverConfig
         """
         if 'config' not in kwargs:
             raise ValueError("config not passed to the constructor")
