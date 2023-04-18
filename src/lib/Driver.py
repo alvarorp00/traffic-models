@@ -72,7 +72,24 @@ class CarType(enum.Enum):
         elif car_type == CarType.TRUCK:
             return 80
         else:
-            raise ValueError("Invalid car type")
+            raise ValueError(f"Invalid car type @ {car_type}")
+
+    @staticmethod
+    def get_min_speed(car_type: 'CarType') -> float:
+        """
+        Returns the minimum speed of the car.
+
+        Parameters
+        ----------
+        car_type : CarType
+            The type of car.
+
+        Returns
+        -------
+        float
+            The minimum speed of the car.
+        """
+        return 60  # All cars have a minimum speed of 60 km/h
 
     @staticmethod
     def max_speed() -> float:
@@ -100,7 +117,38 @@ class DriverType(enum.Enum):
 
 class DriverDistributions:
     @staticmethod
-    def risk_overtake_distance(driver: "Driver", size=1):
+    def speed_initialize(driver: 'Driver', size=1):
+        """
+        Returns a random rample gathered from a normal distribution
+        that represents the initial speed of the driver.
+
+        It considers the type of driver and the type of car.
+
+        Parameters
+        ----------
+        driver_type : DriverType
+        car_type : CarType
+        size : int
+
+        Formula:
+            mean = (2 / 3) * (max_speed - min_speed) + min_speed
+            std = 1 / random_between(.75, 1.25)
+        """
+        max_speed = CarType.get_max_speed(driver.config.car_type)
+        min_speed = CarType.get_min_speed(driver.config.car_type)
+
+        two_thirds = (2 / 3) * (max_speed - min_speed)
+        avg_speeds = two_thirds + min_speed
+
+        mean = avg_speeds
+        std = 1 / (np.random.uniform(low=.75, high=1.25))
+
+        rvs = st.norm.rvs(loc=mean, scale=std, size=size)
+
+        return rvs
+
+    @staticmethod
+    def risk_overtake_distance(driver: 'Driver', size=1):
         """
         Returns a random rample gathered from a halfnormal distribution
         (a normal distribution with only right side values so we control
@@ -121,7 +169,7 @@ class DriverDistributions:
         size : int
 
         Formula:
-            mean = 25 - 5 * (driver_type.value - 1)
+            mean = 25 - 5 * (driver_type - 1)
             std = 1 / (CarType.get_max_speed(car_type) / CarType.max_speed())
 
         Returns
@@ -146,7 +194,7 @@ class DriverDistributions:
         """
         MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
         GAP = 5  # 5 meters per driver_type
-        mean = MINIMUM - GAP * (driver.config.driver_type.value - 1)
+        mean = MINIMUM - GAP * (driver.config.driver_type - 1)
         std = 1 / (driver.config.speed
                    /
                    CarType.get_max_speed(driver.config.car_type))

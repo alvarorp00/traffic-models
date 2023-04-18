@@ -15,7 +15,7 @@
 
 
 from typing import Dict
-from lib.Driver import Driver, DriverConfig
+from lib.Driver import Driver, DriverConfig, CarType
 from lib.Road import Road
 import numpy as np
 import scipy.stats as st
@@ -59,14 +59,11 @@ def initialize_drivers(population_size: int) -> Dict[int, Driver]:
 
     id = 0
     for i in range(len(hist)):
-        for j in range(hist[i]):
+        for _ in range(hist[i]):
             dconfig = DriverConfig(
                 id=id,
                 driver_type=i,
-                car_type=np.random.choice(
-                    a=np.arange(0, 4),
-                    p=[.2, .4, .3, .1]
-                )
+                car_type=CarType.random(),
             )
             drivers[id] = Driver(config=dconfig)
             id += 1
