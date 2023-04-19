@@ -130,6 +130,16 @@ class DriverType(enum.Enum):
     AGGRESSIVE = 4
     RECKLESS = 5
 
+    def __str__(self) -> str:
+        return self.name
+
+    def __repr__(self) -> str:
+        return self.name
+
+    @staticmethod
+    def from_int(int) -> 'DriverType':
+        return DriverType(int)
+
 
 class DriverDistributions:
     @staticmethod
@@ -211,7 +221,7 @@ class DriverDistributions:
         MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
         GAP = 5  # 5 meters per driver_type
         mean = MINIMUM - GAP * (
-            driver.config.driver_type - 1)  # type: ignore
+            driver.config.driver_type.value - 1)
         std = 1 / (driver.config.speed
                    /
                    CarType.get_max_speed(driver.config.car_type))
