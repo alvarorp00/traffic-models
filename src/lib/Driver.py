@@ -19,8 +19,9 @@ and so are required to be passed as arguments to the constructor.
 """
 
 import enum
-from typing import List
+import random
 import numpy as np
+from typing import List, Sequence, Union
 from scipy import stats as st
 
 
@@ -34,7 +35,19 @@ class CarType(enum.Enum):
     TRUCK = 4
 
     @staticmethod
-    def random() -> 'CarType':
+    def as_list() -> list['CarType']:
+        """
+        Returns a list of all the car types.
+
+        Returns
+        -------
+        List[CarType]
+            A list of all the car types.
+        """
+        return list(CarType)
+
+    @staticmethod
+    def random(size=1) -> list['CarType']:
         """
         Returns a random car type.
 
@@ -43,10 +56,13 @@ class CarType(enum.Enum):
         CarType
             A random car type.
         """
-        return np.random.choice(
-                    a=list(CarType),
-                    p=[.2, .4, .3, .1]
-                )
+        choice = random.choices(
+            population=CarType.as_list(),
+            weights=[.2, .4, .3, .1],
+            k=size
+        )
+
+        return choice
 
     @staticmethod
     def get_max_speed(car_type: 'CarType') -> float:
@@ -117,7 +133,7 @@ class DriverType(enum.Enum):
 
 class DriverDistributions:
     @staticmethod
-    def speed_initialize(driver: 'Driver', size=1):
+    def speed_initialize(car_type: CarType, size=1):
         """
         Returns a random rample gathered from a normal distribution
         that represents the initial speed of the driver.
@@ -134,8 +150,8 @@ class DriverDistributions:
             mean = (2 / 3) * (max_speed - min_speed) + min_speed
             std = 1 / random_between(.75, 1.25)
         """
-        max_speed = CarType.get_max_speed(driver.config.car_type)
-        min_speed = CarType.get_min_speed(driver.config.car_type)
+        max_speed = CarType.get_max_speed(car_type)
+        min_speed = CarType.get_min_speed(car_type)
 
         two_thirds = (2 / 3) * (max_speed - min_speed)
         avg_speeds = two_thirds + min_speed
@@ -145,7 +161,7 @@ class DriverDistributions:
 
         rvs = st.norm.rvs(loc=mean, scale=std, size=size)
 
-        return rvs
+        return float(rvs)
 
     @staticmethod
     def risk_overtake_distance(driver: 'Driver', size=1):
@@ -194,7 +210,8 @@ class DriverDistributions:
         """
         MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
         GAP = 5  # 5 meters per driver_type
-        mean = MINIMUM - GAP * (driver.config.driver_type - 1)
+        mean = MINIMUM - GAP * (
+            driver.config.driver_type - 1)  # type: ignore
         std = 1 / (driver.config.speed
                    /
                    CarType.get_max_speed(driver.config.car_type))
