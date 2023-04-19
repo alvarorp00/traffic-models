@@ -10,11 +10,12 @@ from matplotlib import pyplot as plt
 from Engine import Model
 
 
-def print_model(model: Model, n_drivers: int = 0, fname: str = None):
-    if fname is None:
+def print_model(model: Model, n_drivers: int = 0,
+                fname: str = ''):
+    if fname == '':
         file = sys.stdout
     else:
-        file = open(fname, 'w')
+        file = open(fname, 'w+')
 
     # Print driver information
     print("Driver information:", file=file)

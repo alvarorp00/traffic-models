@@ -68,6 +68,7 @@ def initialize_drivers(population_size: int) -> Dict[int, Driver]:
                 car_type=car_type,
                 speed=DriverDistributions.speed_initialize(
                     car_type=car_type,
+                    driver_type=DriverType(i + 1),
                     size=1
                 )
             )

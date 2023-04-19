@@ -24,10 +24,8 @@ def test_distances(iters=ITERS, fname=None):
 
         distance = Driver.DriverDistributions.risk_overtake_distance(driver)
 
-        print(f"DriverType is {driver.config.driver_type.name}")
-
         print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
-              f"\n\tdriver driving a {driver.config.car_type} car."
+              f"\n\tdriver driving a {driver.config.car_type} car @ {driver.config.speed} m/s"
               f"\n\tOvertake distance: {distance} m\n", file=file)
 
 

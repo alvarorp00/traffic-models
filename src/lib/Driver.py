@@ -143,7 +143,8 @@ class DriverType(enum.Enum):
 
 class DriverDistributions:
     @staticmethod
-    def speed_initialize(car_type: CarType, size=1):
+    def speed_initialize(car_type: CarType,
+                         driver_type: DriverType, size=1):
         """
         Returns a random rample gathered from a normal distribution
         that represents the initial speed of the driver.
@@ -157,14 +158,21 @@ class DriverDistributions:
         size : int
 
         Formula:
-            mean = (2 / 3) * (max_speed - min_speed) + min_speed
+            mean = (driver_type.value / driver_type.RISKY.value) *\
+                     (max_speed - min_speed) + min_speed
             std = 1 / random_between(.75, 1.25)
+
+        Notes:
+            If velocity is greater than max_speed, it will be because
+            there is a random factor in the formula. So we will
+            admit that this is a valid velocity.
         """
         max_speed = CarType.get_max_speed(car_type)
         min_speed = CarType.get_min_speed(car_type)
 
-        two_thirds = (2 / 3) * (max_speed - min_speed)
-        avg_speeds = two_thirds + min_speed
+        portion = (driver_type.value / driver_type.RISKY.value) *\
+                  (max_speed - min_speed)
+        avg_speeds = portion + min_speed
 
         mean = avg_speeds
         std = 1 / (np.random.uniform(low=.75, high=1.25))
