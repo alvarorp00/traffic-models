@@ -22,7 +22,8 @@ rc('text', usetex=True)
 
 def style_set(ax,
               title: str = '',
-              axis: bool = True,
+              xaxis: bool = True,
+              yaxis: bool = True,
               xlabel: str = '',
               ylabel: str = '',
               legend: bool = False,
@@ -47,10 +48,8 @@ def style_set(ax,
     if legend:
         ax.legend(fontsize=legend_size)
 
-    if axis:
-        ax.axis('on')
-    else:
-        ax.axis('off')
+    ax.xaxis.set_visible(xaxis)
+    ax.yaxis.set_visible(yaxis)
 
     if xlabels is not None:
         ax.set_xticklabels(xlabels)
@@ -131,8 +130,7 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
     style_set(
         ax,
         title='Average driver velocity by car type',
-        xlabel='Average driver velocity (m/s)',
-        ylabel='Car type',
+        ylabel='Average driver velocity (km/h)',
         legend=True,
         xlabels=[f'{d.name}' for d in list(lib.driver.DriverType)],
         xticks=X+0.25,

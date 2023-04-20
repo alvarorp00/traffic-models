@@ -28,10 +28,10 @@ class CarType(enum.Enum):
     """
     Enum for the type of car. 4 types are defined:
     """
-    MOTORCYCLE = 1
-    SEDAN = 2
-    SUV = 3
-    TRUCK = 4
+    TRUCK = 1
+    SUV = 2
+    SEDAN = 3
+    MOTORCYCLE = 4
 
     @staticmethod
     def as_list() -> list['CarType']:
