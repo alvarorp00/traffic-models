@@ -50,6 +50,9 @@ class CarType(enum.Enum):
         """
         Returns a random car type.
 
+        Probability distribution is defined by a multinomial
+        distribution.
+
         Returns
         -------
         CarType
@@ -61,6 +64,36 @@ class CarType(enum.Enum):
             k=size
         )
 
+        return choice
+
+    @staticmethod
+    def random_lognormal(size=1) -> list['CarType']:
+        """
+        Returns a random car type.
+
+        Probability distribution is defined by a log-normal
+        distribution.
+
+        Returns
+        -------
+        CarType
+            A random car type.
+        """
+        stats = st.lognorm.rvs(0.5, size=int(1e5))
+
+        # Create the histogram
+        hist, _ = np.histogram(stats, bins=5)
+
+        # Get probs
+        probs = hist / hist.sum()
+
+        choice = random.choices(
+            population=CarType.as_list(),
+            weights=probs,
+            k=size
+        )
+
+        # return choice
         return choice
 
     @staticmethod
@@ -136,6 +169,69 @@ class DriverType(enum.Enum):
         return self.name
 
     @staticmethod
+    def as_list() -> list['DriverType']:
+        """
+        Returns a list of all the driver types.
+
+        Returns
+        -------
+        List[DriverType]
+            A list of all the driver types.
+        """
+        return list(DriverType)
+
+    @staticmethod
+    def random(size=1) -> list['DriverType']:
+        """
+        Returns a random driver type.
+
+        Probability distribution is defined by a multinomial
+        distribution.
+
+        Returns
+        -------
+        DriverType
+            A random driver type.
+        """
+        choice = random.choices(
+            population=DriverType.as_list(),
+            weights=[.4, .3, .15, .1, .05],
+            k=size
+        )
+
+        return choice
+
+    @staticmethod
+    def random_lognormal(size=1) -> list['DriverType']:
+        """
+        Returns a random driver type.
+
+        Probability distribution is defined by a log-normal
+        distribution.
+
+        Returns
+        -------
+        DriverType
+            A random driver type.
+        """
+        stats = st.lognorm.rvs(0.5, size=int(1e5))
+
+        # Create the histogram
+        hist, _ = np.histogram(stats, bins=5)
+
+        # Get probs
+        probs = hist / hist.sum()
+
+        choice = random.choices(
+            population=DriverType.as_list(),
+            weights=probs,
+            k=size
+        )
+
+        # return choice
+        return choice
+
+    @staticmethod
     def from_int(int) -> 'DriverType':
         return DriverType(int)
 
@@ -198,6 +294,13 @@ class DriverDistributions:
         return float(rvs)
 
     @staticmethod
+    def location_initialize(start, end, size=1) -> float:
+        """
+        Returns a random position in the road.
+        """
+        return float(np.random.uniform(low=start, high=end, size=size))
+
+    @staticmethod
     def risk_overtake_distance(driver: 'Driver', size=1):
         """
         Returns a random rample gathered from a halfnormal distribution
@@ -242,15 +345,38 @@ class DriverDistributions:
                      samples: one to the car in front and one to the car in
                      the left lane.
         """
-        MINIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
+        MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
         GAP = 5  # 5 meters per driver_type
-        mean = MINIMUM - GAP * (
+        mean = MAXIMUM - GAP * (
             driver.config.driver_type.value - 1)
         std = 1 / (driver.config.speed
                    /
                    CarType.get_max_speed(driver.config.car_type))
         rvs = st.halfnorm.rvs(loc=mean, scale=std, size=size)
         return rvs
+
+    @staticmethod
+    def speed_change(driver: 'Driver', free_space: float,
+                     size=1, increase=True):
+        """
+        Returns a random sample gathered from a halfnormal distribution
+        that represents the speed change (increase or decrease) of the
+        driver.
+
+        Parameters
+        ----------
+        driver: Driver
+            The driver.
+        free_space: float
+            The free space at front or back of the driver.
+        size: int
+            The number of samples to be generated.
+        increase: bool
+            If True, the speed change will be an increase. If False,
+            the speed change will be a decrease.
+        """
+        current_speed = driver.config.speed
+        # TODO
 
 
 class DriverConfig:

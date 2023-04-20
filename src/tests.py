@@ -34,4 +34,36 @@ def test_distances(iters=ITERS, fname=None, plot=False):
         plot_velocities(drivers=drivers, fname='img/out/test_velocities.png')
 
 
-drivers = test_distances(fname='out/test_distances.txt', plot=True)
+def test_velocities(iters=ITERS, fname=None, plot=False):
+    # In one line
+    file = open(fname, 'w+') if fname is not None else sys.stdout
+
+    drivers_dict = engine.initialize_drivers(population_size=iters)
+    drivers = list(drivers_dict.values())
+
+    for driver in drivers:
+
+        velocity = lib.driver.DriverDistributions.risk_overtake_velocity(driver)
+
+        print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
+              f"\n\tdriver driving a {driver.config.car_type} car @ {driver.config.speed} m/s"
+              f"\n\tOvertake velocity: {velocity} m/s\n", file=file)
+
+    if plot:
+        plot_velocities(drivers=drivers, fname='img/out/test_velocities.png')
+
+
+# test_distances(fname='out/test_distances.txt', plot=True)
+# test_velocities(fname='out/test_velocities.txt', plot=True)
+
+# drivers = engine.initialize_drivers(population_size=50)
+
+# for d in drivers.values():
+#     print(f'- Driver [{d.config.id}] @ {d.config.location}')
+
+# print("\nquick_sort\n")
+
+# unsorted = list(drivers.values())
+# engine.Utils.quicksort_d(unsorted)
+# for d in unsorted:
+#     print(f'- Driver [{d.config.id}] @ {d.config.location}')

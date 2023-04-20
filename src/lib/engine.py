@@ -22,7 +22,10 @@ import numpy as np
 import scipy.stats as st
 
 
-def initialize_drivers(population_size: int) -> Dict[int, Driver]:
+def initialize_drivers(population_size: int,
+                       position_low: float = 0.0,
+                       position_high: float = 1e4,
+                       lognormal_mode=False,) -> Dict[int, Driver]:
     """
     Initializes the drivers for the simulation.
 
@@ -36,12 +39,7 @@ def initialize_drivers(population_size: int) -> Dict[int, Driver]:
     driver in the list of drivers. They are unique and are
     assigned in the order of creation.
 
-    Then, the car selection follows a multinomial distribution
-    with the following probabilities:
-    - 20% of the drivers have a car type 0  (MOTORCYCLE)
-    - 40% of the drivers have a car type 1  (SEDAN)
-    - 30% of the drivers have a car type 2  (SUV)
-    - 10% of the drivers have a car type 3  (TRACK)
+    The car seleccion is retrieved from CarType.random().
 
     NOTE: Drivers & cars selection might change in the future.
 
@@ -49,31 +47,37 @@ def initialize_drivers(population_size: int) -> Dict[int, Driver]:
     ----------
     population_size : int
         The number of drivers in the simulation.
+    lognormal_mode : bool
+        If True, the drivers are selected from a log-normal
+        distribution. If False, the drivers are selected
+        from a multinomial distribution:
+            - 40% of the drivers are type 1
+            - 30% of the drivers are type 2
+            - 15% of the drivers are type 3
+            - 10% of the drivers are type 4
+            - 5% of the drivers are type 5
     """
-    stats = st.lognorm.rvs(0.5, size=population_size)
-
-    # Create the histogram
-    hist, _ = np.histogram(stats, bins=5)
-
-    # Create the drivers
+    driver_types = DriverType.random_lognormal(size=population_size)
     drivers = {}
 
-    id = 0
-    for i in range(len(hist)):
-        for _ in range(hist[i]):
-            car_type = CarType.random()[0]  # random car type list
-            dconfig = DriverConfig(
-                id=id,
-                driver_type=DriverType(i + 1),
+    for i in range(population_size):
+        car_type = CarType.random()[0]
+        dconfig = DriverConfig(
+            id=i,
+            driver_type=driver_types[i],
+            car_type=car_type,
+            location=DriverDistributions.location_initialize(
+                start=position_low,
+                end=position_high,
+                size=1
+            ),
+            speed=DriverDistributions.speed_initialize(
                 car_type=car_type,
-                speed=DriverDistributions.speed_initialize(
-                    car_type=car_type,
-                    driver_type=DriverType(i + 1),
-                    size=1
-                )
+                driver_type=driver_types[i],
+                size=1
             )
-            drivers[id] = Driver(config=dconfig)
-            id += 1
+        )
+        drivers[i] = Driver(config=dconfig)
 
     return drivers
 
@@ -212,6 +216,16 @@ class Model:
     def lanes(self) -> Dict[int, int]:
         return self.info['lanes']
 
+    def sort_by_position(self, lane: int) -> List[Driver]:
+        """
+        Returns a list of drivers sorted by their position on the road.
+        """
+        drivers_in_lane = [
+            filter(lambda d: d.config.lane == lane, self.drivers.values())
+        ]
+
+
+
     @staticmethod
     def classify_by_driver(drivers: list[Driver]) ->\
             Dict[DriverType, List[Driver]]:
@@ -290,3 +304,28 @@ class Trace:
 
     def add(self, data):
         self.data.append(data)
+
+
+class Utils:
+    @staticmethod
+    def partition_d(array: List[Driver], begin: int, end: int):
+        pivot = begin
+        for i in range(begin+1, end+1):
+            if array[i].config.location <= array[begin].config.location:
+                pivot += 1
+                array[i], array[pivot] = array[pivot], array[i]
+        array[pivot], array[begin] = array[begin], array[pivot]
+        return pivot
+
+    @staticmethod
+    def quicksort_d(array, begin=0, end=None):
+        if end is None:
+            end = len(array) - 1
+
+        def _quicksort_d(array, begin, end):
+            if begin >= end:
+                return
+            pivot = Utils.partition_d(array, begin, end)
+            _quicksort_d(array, begin, pivot-1)
+            _quicksort_d(array, pivot+1, end)
+        return _quicksort_d(array, begin, end)
