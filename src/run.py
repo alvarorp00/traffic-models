@@ -3,10 +3,10 @@ This module runs the simulation, using the Engine class
 and the configuration specified in the Config module.
 """
 
-from Engine import Engine, RunConfig
-from Config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
+from lib.engine import Engine, RunConfig
+from config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
         TIME_STEPS, LANES, LANES_PRIORITY
-from lib.Graphics import print_model
+from lib.graphics import print_model
 
 
 def run():

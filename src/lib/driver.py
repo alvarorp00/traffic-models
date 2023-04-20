@@ -21,7 +21,6 @@ and so are required to be passed as arguments to the constructor.
 import enum
 import random
 import numpy as np
-from typing import List, Sequence, Union
 from scipy import stats as st
 
 
@@ -139,6 +138,23 @@ class DriverType(enum.Enum):
     @staticmethod
     def from_int(int) -> 'DriverType':
         return DriverType(int)
+
+    @staticmethod
+    def as_index(driver_type: 'DriverType') -> int:
+        """
+        Returns the index of the driver type.
+
+        Parameters
+        ----------
+        driver_type : DriverType
+            The driver type.
+
+        Returns
+        -------
+        int
+            The index of the driver type.
+        """
+        return driver_type.value - 1
 
 
 class DriverDistributions:

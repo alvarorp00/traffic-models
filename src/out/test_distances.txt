@@ -1,0 +1,4000 @@
+Driver 0 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 87.07601523653672 m/s
+	Overtake distance: [26.05340053] m
+
+Driver 1 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.90958316552472 m/s
+	Overtake distance: [26.50987398] m
+
+Driver 2 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.71143258954581 m/s
+	Overtake distance: [27.09870422] m
+
+Driver 3 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.3579638455121 m/s
+	Overtake distance: [25.37005062] m
+
+Driver 4 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.48872349023446 m/s
+	Overtake distance: [25.60550469] m
+
+Driver 5 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.29126328202904 m/s
+	Overtake distance: [26.11037121] m
+
+Driver 6 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.74297459934236 m/s
+	Overtake distance: [25.24822648] m
+
+Driver 7 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.30886356488594 m/s
+	Overtake distance: [26.37860704] m
+
+Driver 8 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.00627881459768 m/s
+	Overtake distance: [25.29029839] m
+
+Driver 9 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.23177162410258 m/s
+	Overtake distance: [26.71973197] m
+
+Driver 10 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.5151620005008 m/s
+	Overtake distance: [25.37861248] m
+
+Driver 11 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.41339677931941 m/s
+	Overtake distance: [25.34842212] m
+
+Driver 12 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.8708560434741 m/s
+	Overtake distance: [25.64258956] m
+
+Driver 13 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.7877202296553 m/s
+	Overtake distance: [25.09671201] m
+
+Driver 14 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.93224673241431 m/s
+	Overtake distance: [26.14207391] m
+
+Driver 15 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.216191189988 m/s
+	Overtake distance: [27.88391887] m
+
+Driver 16 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.65000676273901 m/s
+	Overtake distance: [26.02625288] m
+
+Driver 17 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.10893275540766 m/s
+	Overtake distance: [26.94168801] m
+
+Driver 18 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.29238115412892 m/s
+	Overtake distance: [25.85227504] m
+
+Driver 19 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.75145270664466 m/s
+	Overtake distance: [26.17098203] m
+
+Driver 20 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.43310545007834 m/s
+	Overtake distance: [27.18909421] m
+
+Driver 21 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.2104563411865 m/s
+	Overtake distance: [25.38506743] m
+
+Driver 22 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.86294789396683 m/s
+	Overtake distance: [25.236805] m
+
+Driver 23 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.01095823934179 m/s
+	Overtake distance: [25.39525972] m
+
+Driver 24 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.45521654957841 m/s
+	Overtake distance: [27.62802765] m
+
+Driver 25 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.09267521484685 m/s
+	Overtake distance: [25.07743961] m
+
+Driver 26 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.80766945371839 m/s
+	Overtake distance: [25.09600696] m
+
+Driver 27 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.85950489797264 m/s
+	Overtake distance: [27.11487103] m
+
+Driver 28 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.31241230065525 m/s
+	Overtake distance: [25.14026372] m
+
+Driver 29 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.9626586625612 m/s
+	Overtake distance: [25.32906309] m
+
+Driver 30 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.44336263365174 m/s
+	Overtake distance: [26.63417243] m
+
+Driver 31 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.38636455246039 m/s
+	Overtake distance: [25.32582199] m
+
+Driver 32 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.94697791310949 m/s
+	Overtake distance: [26.24346707] m
+
+Driver 33 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.99920442928791 m/s
+	Overtake distance: [25.78669233] m
+
+Driver 34 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.57600769242607 m/s
+	Overtake distance: [25.60737129] m
+
+Driver 35 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.5072884609266 m/s
+	Overtake distance: [25.35027662] m
+
+Driver 36 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 64.76018591337345 m/s
+	Overtake distance: [26.14925124] m
+
+Driver 37 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.29231167578415 m/s
+	Overtake distance: [25.81714968] m
+
+Driver 38 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.40872905333222 m/s
+	Overtake distance: [25.55836429] m
+
+Driver 39 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.44665205219313 m/s
+	Overtake distance: [25.01302441] m
+
+Driver 40 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.36213950498325 m/s
+	Overtake distance: [26.18165176] m
+
+Driver 41 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.69099034307796 m/s
+	Overtake distance: [26.83652175] m
+
+Driver 42 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.20901769976044 m/s
+	Overtake distance: [26.53587038] m
+
+Driver 43 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.18411866723532 m/s
+	Overtake distance: [26.60504655] m
+
+Driver 44 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.84722474900961 m/s
+	Overtake distance: [25.16980299] m
+
+Driver 45 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.35636920507149 m/s
+	Overtake distance: [27.05911503] m
+
+Driver 46 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.8303317187213 m/s
+	Overtake distance: [26.32284748] m
+
+Driver 47 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.55935114304943 m/s
+	Overtake distance: [25.33844089] m
+
+Driver 48 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.40382824518711 m/s
+	Overtake distance: [26.71717318] m
+
+Driver 49 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.41751830531737 m/s
+	Overtake distance: [26.74785687] m
+
+Driver 50 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.30076112260382 m/s
+	Overtake distance: [25.90919216] m
+
+Driver 51 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.09041459733224 m/s
+	Overtake distance: [26.65956506] m
+
+Driver 52 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.25271039020163 m/s
+	Overtake distance: [25.035994] m
+
+Driver 53 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.99651535499683 m/s
+	Overtake distance: [25.12047803] m
+
+Driver 54 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.78215960064037 m/s
+	Overtake distance: [25.40592528] m
+
+Driver 55 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.00685766120716 m/s
+	Overtake distance: [25.62752023] m
+
+Driver 56 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.93796233312075 m/s
+	Overtake distance: [25.91670211] m
+
+Driver 57 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.7563801259627 m/s
+	Overtake distance: [25.80527458] m
+
+Driver 58 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.17044254500132 m/s
+	Overtake distance: [25.79639194] m
+
+Driver 59 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.37323788283264 m/s
+	Overtake distance: [25.27534478] m
+
+Driver 60 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.04966489497505 m/s
+	Overtake distance: [25.96427767] m
+
+Driver 61 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.74464541958824 m/s
+	Overtake distance: [25.89102328] m
+
+Driver 62 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.92534165109538 m/s
+	Overtake distance: [26.23963419] m
+
+Driver 63 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.62129029339624 m/s
+	Overtake distance: [25.68497975] m
+
+Driver 64 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.97453161858614 m/s
+	Overtake distance: [27.79214671] m
+
+Driver 65 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.50659556905265 m/s
+	Overtake distance: [25.60280441] m
+
+Driver 66 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.65407756811686 m/s
+	Overtake distance: [25.08724462] m
+
+Driver 67 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.42799538424421 m/s
+	Overtake distance: [26.50863896] m
+
+Driver 68 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.90802439161124 m/s
+	Overtake distance: [25.36834687] m
+
+Driver 69 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.46311361858909 m/s
+	Overtake distance: [25.62225528] m
+
+Driver 70 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.53941106632462 m/s
+	Overtake distance: [25.54542522] m
+
+Driver 71 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.33955219512369 m/s
+	Overtake distance: [26.32482259] m
+
+Driver 72 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.0471465953321 m/s
+	Overtake distance: [25.29247704] m
+
+Driver 73 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.18664126398758 m/s
+	Overtake distance: [25.33008371] m
+
+Driver 74 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.15021008961504 m/s
+	Overtake distance: [26.49368373] m
+
+Driver 75 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.01131729027747 m/s
+	Overtake distance: [26.94276489] m
+
+Driver 76 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.44566821871423 m/s
+	Overtake distance: [26.87779185] m
+
+Driver 77 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.48254629786696 m/s
+	Overtake distance: [25.5016583] m
+
+Driver 78 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.87781858014465 m/s
+	Overtake distance: [27.32894636] m
+
+Driver 79 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.5091455889007 m/s
+	Overtake distance: [25.00728208] m
+
+Driver 80 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.86364051664617 m/s
+	Overtake distance: [26.1993177] m
+
+Driver 81 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.04411131444715 m/s
+	Overtake distance: [27.4125083] m
+
+Driver 82 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.43424815411345 m/s
+	Overtake distance: [25.33062444] m
+
+Driver 83 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.85742684583226 m/s
+	Overtake distance: [25.51484712] m
+
+Driver 84 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.74079935154691 m/s
+	Overtake distance: [25.12719536] m
+
+Driver 85 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.578448922148 m/s
+	Overtake distance: [26.56881382] m
+
+Driver 86 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.49929254877374 m/s
+	Overtake distance: [25.48924563] m
+
+Driver 87 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.58505921084625 m/s
+	Overtake distance: [27.09612873] m
+
+Driver 88 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.89438890634271 m/s
+	Overtake distance: [25.5540379] m
+
+Driver 89 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.8547256939537 m/s
+	Overtake distance: [26.59401041] m
+
+Driver 90 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.6611708450232 m/s
+	Overtake distance: [25.69308914] m
+
+Driver 91 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.21620744809623 m/s
+	Overtake distance: [25.4723783] m
+
+Driver 92 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.1236652803009 m/s
+	Overtake distance: [26.06914767] m
+
+Driver 93 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.24856080716764 m/s
+	Overtake distance: [25.59376597] m
+
+Driver 94 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.56471605067405 m/s
+	Overtake distance: [25.36592352] m
+
+Driver 95 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.33995635373314 m/s
+	Overtake distance: [25.70565633] m
+
+Driver 96 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.0953709545422 m/s
+	Overtake distance: [25.47977137] m
+
+Driver 97 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.26085805526246 m/s
+	Overtake distance: [25.9604642] m
+
+Driver 98 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.36183368550878 m/s
+	Overtake distance: [26.89059361] m
+
+Driver 99 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.29999241015548 m/s
+	Overtake distance: [25.57821711] m
+
+Driver 100 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.62001898357896 m/s
+	Overtake distance: [26.08450711] m
+
+Driver 101 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.47159292913787 m/s
+	Overtake distance: [25.24102256] m
+
+Driver 102 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.28837761306318 m/s
+	Overtake distance: [26.50010137] m
+
+Driver 103 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.85854911375529 m/s
+	Overtake distance: [26.28740487] m
+
+Driver 104 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.52108012314638 m/s
+	Overtake distance: [25.32773616] m
+
+Driver 105 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.5965958324876 m/s
+	Overtake distance: [26.43735775] m
+
+Driver 106 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.62556775640829 m/s
+	Overtake distance: [28.11391493] m
+
+Driver 107 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.25641674666834 m/s
+	Overtake distance: [27.0721871] m
+
+Driver 108 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.76274302717269 m/s
+	Overtake distance: [25.30964474] m
+
+Driver 109 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.53237943164095 m/s
+	Overtake distance: [26.33588855] m
+
+Driver 110 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.46764236279913 m/s
+	Overtake distance: [25.1035467] m
+
+Driver 111 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.26232399590344 m/s
+	Overtake distance: [29.2030868] m
+
+Driver 112 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.26675983874395 m/s
+	Overtake distance: [26.1209617] m
+
+Driver 113 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.87914409286202 m/s
+	Overtake distance: [26.07192392] m
+
+Driver 114 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.02183338725088 m/s
+	Overtake distance: [25.30721407] m
+
+Driver 115 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.4123637473866 m/s
+	Overtake distance: [26.14128984] m
+
+Driver 116 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.959906093924 m/s
+	Overtake distance: [25.7623241] m
+
+Driver 117 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.42565701959488 m/s
+	Overtake distance: [25.15256572] m
+
+Driver 118 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.24411736120966 m/s
+	Overtake distance: [25.57596915] m
+
+Driver 119 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.8439289775035 m/s
+	Overtake distance: [25.94128907] m
+
+Driver 120 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.81064579470736 m/s
+	Overtake distance: [25.12256746] m
+
+Driver 121 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.28403286195052 m/s
+	Overtake distance: [26.37861354] m
+
+Driver 122 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.17925778276164 m/s
+	Overtake distance: [26.35238316] m
+
+Driver 123 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.4215504908205 m/s
+	Overtake distance: [25.25138417] m
+
+Driver 124 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.27875948935475 m/s
+	Overtake distance: [25.38906183] m
+
+Driver 125 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.53631626425494 m/s
+	Overtake distance: [25.19225748] m
+
+Driver 126 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 77.95520708717622 m/s
+	Overtake distance: [25.05533349] m
+
+Driver 127 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.12063862689214 m/s
+	Overtake distance: [27.01438027] m
+
+Driver 128 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.49624363345413 m/s
+	Overtake distance: [25.99162064] m
+
+Driver 129 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.04442619975583 m/s
+	Overtake distance: [26.34297887] m
+
+Driver 130 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.84587193393766 m/s
+	Overtake distance: [25.58203508] m
+
+Driver 131 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.93562155553863 m/s
+	Overtake distance: [25.11135093] m
+
+Driver 132 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.40766594443548 m/s
+	Overtake distance: [26.06316075] m
+
+Driver 133 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.45350017529796 m/s
+	Overtake distance: [25.97973573] m
+
+Driver 134 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.62130302106576 m/s
+	Overtake distance: [26.43150483] m
+
+Driver 135 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.4216149477208 m/s
+	Overtake distance: [26.97305852] m
+
+Driver 136 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.72898497757285 m/s
+	Overtake distance: [25.43171517] m
+
+Driver 137 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.81647099227231 m/s
+	Overtake distance: [26.68662023] m
+
+Driver 138 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.12253022444072 m/s
+	Overtake distance: [26.13300207] m
+
+Driver 139 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.10499741656618 m/s
+	Overtake distance: [26.21884888] m
+
+Driver 140 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.78182386563968 m/s
+	Overtake distance: [25.60906512] m
+
+Driver 141 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.49932555719019 m/s
+	Overtake distance: [29.12368552] m
+
+Driver 142 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.85465761766349 m/s
+	Overtake distance: [25.36247975] m
+
+Driver 143 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.10366442750721 m/s
+	Overtake distance: [25.79109463] m
+
+Driver 144 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 70.58969343739733 m/s
+	Overtake distance: [25.68242701] m
+
+Driver 145 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.54770522763746 m/s
+	Overtake distance: [26.71628375] m
+
+Driver 146 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.4251163855042 m/s
+	Overtake distance: [25.80661251] m
+
+Driver 147 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.02259069581596 m/s
+	Overtake distance: [25.52820529] m
+
+Driver 148 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.3544712649304 m/s
+	Overtake distance: [25.30431139] m
+
+Driver 149 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.9841101425281 m/s
+	Overtake distance: [27.02006291] m
+
+Driver 150 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.05128125841297 m/s
+	Overtake distance: [26.38819878] m
+
+Driver 151 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.72567093917769 m/s
+	Overtake distance: [25.25660957] m
+
+Driver 152 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.51999192837808 m/s
+	Overtake distance: [25.50898842] m
+
+Driver 153 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.88068146010914 m/s
+	Overtake distance: [25.2226189] m
+
+Driver 154 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.49928553938265 m/s
+	Overtake distance: [26.90154944] m
+
+Driver 155 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.49866546651114 m/s
+	Overtake distance: [26.14404083] m
+
+Driver 156 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.30224879141564 m/s
+	Overtake distance: [26.22293643] m
+
+Driver 157 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 82.56786227394947 m/s
+	Overtake distance: [27.0222513] m
+
+Driver 158 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.18088809585824 m/s
+	Overtake distance: [27.23312083] m
+
+Driver 159 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.94616721812501 m/s
+	Overtake distance: [27.12705731] m
+
+Driver 160 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.57396906340422 m/s
+	Overtake distance: [25.52907802] m
+
+Driver 161 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.64851465259667 m/s
+	Overtake distance: [26.2923173] m
+
+Driver 162 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.80961054759267 m/s
+	Overtake distance: [26.77559192] m
+
+Driver 163 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.1768963170482 m/s
+	Overtake distance: [26.16768436] m
+
+Driver 164 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.30894003755922 m/s
+	Overtake distance: [26.39254201] m
+
+Driver 165 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.81890793007192 m/s
+	Overtake distance: [26.20096363] m
+
+Driver 166 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.22288588750801 m/s
+	Overtake distance: [25.39217477] m
+
+Driver 167 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.93490838514315 m/s
+	Overtake distance: [25.73109789] m
+
+Driver 168 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.87420927189437 m/s
+	Overtake distance: [27.20865034] m
+
+Driver 169 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.85552800183117 m/s
+	Overtake distance: [25.4075196] m
+
+Driver 170 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.38400295354121 m/s
+	Overtake distance: [25.3253843] m
+
+Driver 171 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.98860245054016 m/s
+	Overtake distance: [25.13622635] m
+
+Driver 172 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.3105660820927 m/s
+	Overtake distance: [25.48980157] m
+
+Driver 173 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.10882208229025 m/s
+	Overtake distance: [26.33686351] m
+
+Driver 174 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 82.39240124844189 m/s
+	Overtake distance: [26.15042869] m
+
+Driver 175 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.04884015518704 m/s
+	Overtake distance: [25.32467471] m
+
+Driver 176 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.21508957689788 m/s
+	Overtake distance: [25.61434894] m
+
+Driver 177 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.60197760970718 m/s
+	Overtake distance: [25.91291367] m
+
+Driver 178 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.18267170887806 m/s
+	Overtake distance: [26.31654593] m
+
+Driver 179 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.73982758476873 m/s
+	Overtake distance: [25.45045066] m
+
+Driver 180 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.29171498004456 m/s
+	Overtake distance: [25.81130654] m
+
+Driver 181 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.02678372583163 m/s
+	Overtake distance: [26.32283757] m
+
+Driver 182 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.96950623898039 m/s
+	Overtake distance: [25.09250259] m
+
+Driver 183 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.6046031120621 m/s
+	Overtake distance: [25.57992597] m
+
+Driver 184 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.31740709271492 m/s
+	Overtake distance: [25.38462477] m
+
+Driver 185 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.18947571525149 m/s
+	Overtake distance: [26.48404491] m
+
+Driver 186 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.33694945862362 m/s
+	Overtake distance: [26.80148953] m
+
+Driver 187 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.61869734172808 m/s
+	Overtake distance: [26.78995963] m
+
+Driver 188 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.3158742084536 m/s
+	Overtake distance: [26.53695108] m
+
+Driver 189 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.53711875468348 m/s
+	Overtake distance: [26.14930587] m
+
+Driver 190 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.3270696699093 m/s
+	Overtake distance: [26.80694792] m
+
+Driver 191 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.82865525318388 m/s
+	Overtake distance: [25.45082936] m
+
+Driver 192 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.48486724585925 m/s
+	Overtake distance: [26.66419233] m
+
+Driver 193 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.26063856434428 m/s
+	Overtake distance: [25.25501198] m
+
+Driver 194 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.17266544743401 m/s
+	Overtake distance: [26.25131656] m
+
+Driver 195 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 82.53866817745163 m/s
+	Overtake distance: [27.77596484] m
+
+Driver 196 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.62475710802937 m/s
+	Overtake distance: [25.62041592] m
+
+Driver 197 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.79630064790555 m/s
+	Overtake distance: [26.66856488] m
+
+Driver 198 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.85579036111024 m/s
+	Overtake distance: [25.95442609] m
+
+Driver 199 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.81814168875863 m/s
+	Overtake distance: [26.54035894] m
+
+Driver 200 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.30365031510371 m/s
+	Overtake distance: [25.80132449] m
+
+Driver 201 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.71148707277284 m/s
+	Overtake distance: [27.20105974] m
+
+Driver 202 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.12450493290838 m/s
+	Overtake distance: [26.253643] m
+
+Driver 203 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.8602333870128 m/s
+	Overtake distance: [27.31866355] m
+
+Driver 204 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.35446691202463 m/s
+	Overtake distance: [26.09996232] m
+
+Driver 205 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.08695631179828 m/s
+	Overtake distance: [25.00798917] m
+
+Driver 206 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.57089061794389 m/s
+	Overtake distance: [27.32023396] m
+
+Driver 207 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.61809468024167 m/s
+	Overtake distance: [27.57426376] m
+
+Driver 208 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 80.63121971464206 m/s
+	Overtake distance: [25.93389511] m
+
+Driver 209 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.1778788440078 m/s
+	Overtake distance: [25.91296949] m
+
+Driver 210 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.33332939803087 m/s
+	Overtake distance: [25.90740287] m
+
+Driver 211 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.70848394168927 m/s
+	Overtake distance: [25.08734682] m
+
+Driver 212 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.72660039462217 m/s
+	Overtake distance: [25.29946382] m
+
+Driver 213 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.18331943992237 m/s
+	Overtake distance: [26.37701102] m
+
+Driver 214 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.9905165136716 m/s
+	Overtake distance: [26.75126481] m
+
+Driver 215 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.88687196555695 m/s
+	Overtake distance: [25.25268018] m
+
+Driver 216 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.66992005930224 m/s
+	Overtake distance: [26.059437] m
+
+Driver 217 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.47141044895893 m/s
+	Overtake distance: [25.06910597] m
+
+Driver 218 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.45305126680968 m/s
+	Overtake distance: [25.72391539] m
+
+Driver 219 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.23443061295876 m/s
+	Overtake distance: [27.35579303] m
+
+Driver 220 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.50735285235788 m/s
+	Overtake distance: [27.54253023] m
+
+Driver 221 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.05534663889743 m/s
+	Overtake distance: [25.38340638] m
+
+Driver 222 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.89311533656709 m/s
+	Overtake distance: [27.37404569] m
+
+Driver 223 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 68.85792488798705 m/s
+	Overtake distance: [25.67862499] m
+
+Driver 224 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.700303050619 m/s
+	Overtake distance: [25.89625288] m
+
+Driver 225 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.52903804878954 m/s
+	Overtake distance: [26.68390052] m
+
+Driver 226 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.66711569825782 m/s
+	Overtake distance: [27.53198515] m
+
+Driver 227 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.47441693501675 m/s
+	Overtake distance: [26.61887879] m
+
+Driver 228 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.05784188108863 m/s
+	Overtake distance: [25.17327917] m
+
+Driver 229 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.70717884703015 m/s
+	Overtake distance: [26.25403214] m
+
+Driver 230 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.41854684527122 m/s
+	Overtake distance: [27.63550749] m
+
+Driver 231 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.28036095881117 m/s
+	Overtake distance: [26.26073931] m
+
+Driver 232 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.74707594710304 m/s
+	Overtake distance: [26.27279048] m
+
+Driver 233 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.3602518122644 m/s
+	Overtake distance: [28.80896908] m
+
+Driver 234 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.2746650931258 m/s
+	Overtake distance: [25.23861671] m
+
+Driver 235 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.07122259275549 m/s
+	Overtake distance: [25.65493837] m
+
+Driver 236 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 80.82549083631952 m/s
+	Overtake distance: [26.78375095] m
+
+Driver 237 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.36630987914735 m/s
+	Overtake distance: [25.68008974] m
+
+Driver 238 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.29498939697424 m/s
+	Overtake distance: [26.22450759] m
+
+Driver 239 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.77231330595933 m/s
+	Overtake distance: [27.69257459] m
+
+Driver 240 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.15030522543682 m/s
+	Overtake distance: [25.27980469] m
+
+Driver 241 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.2459007481458 m/s
+	Overtake distance: [25.88536383] m
+
+Driver 242 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.0502035804307 m/s
+	Overtake distance: [26.08443717] m
+
+Driver 243 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.32302050556288 m/s
+	Overtake distance: [26.484657] m
+
+Driver 244 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.57088035494172 m/s
+	Overtake distance: [25.08224751] m
+
+Driver 245 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.57478635910365 m/s
+	Overtake distance: [27.07534152] m
+
+Driver 246 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.25805754080814 m/s
+	Overtake distance: [25.67226543] m
+
+Driver 247 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.27853750677917 m/s
+	Overtake distance: [26.43780031] m
+
+Driver 248 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.92450230277593 m/s
+	Overtake distance: [26.89354972] m
+
+Driver 249 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.12735068555091 m/s
+	Overtake distance: [25.20227477] m
+
+Driver 250 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.99785739694153 m/s
+	Overtake distance: [26.05702319] m
+
+Driver 251 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.5590894096673 m/s
+	Overtake distance: [25.30114507] m
+
+Driver 252 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.16772223211662 m/s
+	Overtake distance: [25.63354508] m
+
+Driver 253 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 68.1783557648685 m/s
+	Overtake distance: [25.75782291] m
+
+Driver 254 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.30739315711679 m/s
+	Overtake distance: [25.29890174] m
+
+Driver 255 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.30027330925854 m/s
+	Overtake distance: [26.71658283] m
+
+Driver 256 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.35183369669544 m/s
+	Overtake distance: [25.18126253] m
+
+Driver 257 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.6518422736796 m/s
+	Overtake distance: [25.28871433] m
+
+Driver 258 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.98599808498439 m/s
+	Overtake distance: [26.89035148] m
+
+Driver 259 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.94047441559115 m/s
+	Overtake distance: [25.183719] m
+
+Driver 260 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.72495540556986 m/s
+	Overtake distance: [25.43914711] m
+
+Driver 261 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.52065735653393 m/s
+	Overtake distance: [25.06470589] m
+
+Driver 262 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.12306522869714 m/s
+	Overtake distance: [26.95077603] m
+
+Driver 263 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.16013251927832 m/s
+	Overtake distance: [25.81871116] m
+
+Driver 264 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.93891791725528 m/s
+	Overtake distance: [26.44961697] m
+
+Driver 265 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.70802478633217 m/s
+	Overtake distance: [25.7296488] m
+
+Driver 266 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.34325431439022 m/s
+	Overtake distance: [26.07124088] m
+
+Driver 267 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.03575715262218 m/s
+	Overtake distance: [26.40360025] m
+
+Driver 268 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.83089875262934 m/s
+	Overtake distance: [26.08379125] m
+
+Driver 269 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.35791164304587 m/s
+	Overtake distance: [26.89461342] m
+
+Driver 270 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.75819502588058 m/s
+	Overtake distance: [25.08929843] m
+
+Driver 271 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 70.68386682452682 m/s
+	Overtake distance: [25.55371179] m
+
+Driver 272 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.23979727781632 m/s
+	Overtake distance: [25.88466016] m
+
+Driver 273 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.12013607206426 m/s
+	Overtake distance: [25.72079948] m
+
+Driver 274 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.09440761019103 m/s
+	Overtake distance: [25.15654171] m
+
+Driver 275 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.4354477603594 m/s
+	Overtake distance: [25.91619789] m
+
+Driver 276 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.28059805800552 m/s
+	Overtake distance: [26.99644258] m
+
+Driver 277 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.51333474451948 m/s
+	Overtake distance: [25.14065719] m
+
+Driver 278 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.70505683080818 m/s
+	Overtake distance: [25.55452333] m
+
+Driver 279 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.45509896453933 m/s
+	Overtake distance: [26.26793217] m
+
+Driver 280 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.78303134686243 m/s
+	Overtake distance: [25.09874019] m
+
+Driver 281 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.95691791372226 m/s
+	Overtake distance: [25.1624307] m
+
+Driver 282 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.03076834320343 m/s
+	Overtake distance: [26.10144885] m
+
+Driver 283 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.33329137010205 m/s
+	Overtake distance: [29.2908062] m
+
+Driver 284 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.19080057166022 m/s
+	Overtake distance: [26.88881661] m
+
+Driver 285 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.85331614015372 m/s
+	Overtake distance: [27.30716817] m
+
+Driver 286 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.32369767375297 m/s
+	Overtake distance: [25.94290234] m
+
+Driver 287 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.85355239700603 m/s
+	Overtake distance: [25.08813698] m
+
+Driver 288 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.56556687175834 m/s
+	Overtake distance: [25.79674124] m
+
+Driver 289 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.5035252990941 m/s
+	Overtake distance: [25.58408664] m
+
+Driver 290 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.87450351305277 m/s
+	Overtake distance: [26.0277966] m
+
+Driver 291 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.32779985765735 m/s
+	Overtake distance: [25.90490624] m
+
+Driver 292 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.58364139933049 m/s
+	Overtake distance: [26.01320492] m
+
+Driver 293 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.78383438991781 m/s
+	Overtake distance: [25.41428164] m
+
+Driver 294 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.89350831978038 m/s
+	Overtake distance: [26.74532654] m
+
+Driver 295 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.04909190538669 m/s
+	Overtake distance: [25.61997319] m
+
+Driver 296 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.53699270993745 m/s
+	Overtake distance: [26.24388863] m
+
+Driver 297 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 82.04516820533829 m/s
+	Overtake distance: [25.18832499] m
+
+Driver 298 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.1603404329466 m/s
+	Overtake distance: [26.47810982] m
+
+Driver 299 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.85762367987803 m/s
+	Overtake distance: [26.12852964] m
+
+Driver 300 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.48059028206087 m/s
+	Overtake distance: [26.79145253] m
+
+Driver 301 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.74781990981433 m/s
+	Overtake distance: [25.46416635] m
+
+Driver 302 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.80373296309277 m/s
+	Overtake distance: [26.63192634] m
+
+Driver 303 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.99797006902939 m/s
+	Overtake distance: [25.67353085] m
+
+Driver 304 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.66554281830832 m/s
+	Overtake distance: [25.83434173] m
+
+Driver 305 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.6724951270659 m/s
+	Overtake distance: [26.84753312] m
+
+Driver 306 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.07777180533215 m/s
+	Overtake distance: [25.85337079] m
+
+Driver 307 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.02068783199599 m/s
+	Overtake distance: [27.26227158] m
+
+Driver 308 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.8662770414761 m/s
+	Overtake distance: [27.72481634] m
+
+Driver 309 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.83150280313443 m/s
+	Overtake distance: [25.27453985] m
+
+Driver 310 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.49534256368054 m/s
+	Overtake distance: [26.055632] m
+
+Driver 311 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.60251133263597 m/s
+	Overtake distance: [25.62747817] m
+
+Driver 312 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 82.38359767181007 m/s
+	Overtake distance: [26.49665776] m
+
+Driver 313 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.04860929404504 m/s
+	Overtake distance: [25.02062372] m
+
+Driver 314 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.94716668285787 m/s
+	Overtake distance: [25.05912255] m
+
+Driver 315 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.35330277545216 m/s
+	Overtake distance: [26.93952263] m
+
+Driver 316 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.8705466739706 m/s
+	Overtake distance: [25.26658148] m
+
+Driver 317 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.3984736480119 m/s
+	Overtake distance: [26.21206658] m
+
+Driver 318 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.80225976706248 m/s
+	Overtake distance: [25.73445256] m
+
+Driver 319 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.15651489034228 m/s
+	Overtake distance: [25.59671973] m
+
+Driver 320 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.0117337141605 m/s
+	Overtake distance: [25.21551024] m
+
+Driver 321 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.19849755747398 m/s
+	Overtake distance: [26.78699149] m
+
+Driver 322 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.41774539264696 m/s
+	Overtake distance: [27.10468607] m
+
+Driver 323 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.95482403247944 m/s
+	Overtake distance: [26.85171387] m
+
+Driver 324 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.54370353134867 m/s
+	Overtake distance: [28.21574462] m
+
+Driver 325 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.22726353422946 m/s
+	Overtake distance: [25.82612589] m
+
+Driver 326 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.61203860297618 m/s
+	Overtake distance: [26.25632611] m
+
+Driver 327 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.4229925851569 m/s
+	Overtake distance: [26.13372079] m
+
+Driver 328 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.9263453339573 m/s
+	Overtake distance: [25.1297643] m
+
+Driver 329 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.87980346616159 m/s
+	Overtake distance: [26.96196755] m
+
+Driver 330 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.35631232539357 m/s
+	Overtake distance: [25.94063368] m
+
+Driver 331 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.6874041443075 m/s
+	Overtake distance: [25.2076101] m
+
+Driver 332 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.83048813817273 m/s
+	Overtake distance: [26.33166557] m
+
+Driver 333 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 69.2971219196662 m/s
+	Overtake distance: [25.76882067] m
+
+Driver 334 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.66601715970101 m/s
+	Overtake distance: [26.10906764] m
+
+Driver 335 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.83767284490949 m/s
+	Overtake distance: [25.85397755] m
+
+Driver 336 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.94270434564285 m/s
+	Overtake distance: [25.14428685] m
+
+Driver 337 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.22383761507724 m/s
+	Overtake distance: [28.27600687] m
+
+Driver 338 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.3353449061945 m/s
+	Overtake distance: [27.03356829] m
+
+Driver 339 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.55577445034925 m/s
+	Overtake distance: [25.88016733] m
+
+Driver 340 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.12717286046453 m/s
+	Overtake distance: [25.16791754] m
+
+Driver 341 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.45112858569793 m/s
+	Overtake distance: [26.78661572] m
+
+Driver 342 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.46380584147485 m/s
+	Overtake distance: [25.92733878] m
+
+Driver 343 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.21173960468661 m/s
+	Overtake distance: [26.10555112] m
+
+Driver 344 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.09505900687203 m/s
+	Overtake distance: [28.54369106] m
+
+Driver 345 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.31220716254944 m/s
+	Overtake distance: [26.42505388] m
+
+Driver 346 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.67199872825209 m/s
+	Overtake distance: [25.68397107] m
+
+Driver 347 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.17074485954419 m/s
+	Overtake distance: [26.02584605] m
+
+Driver 348 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.4810933145141 m/s
+	Overtake distance: [25.2645245] m
+
+Driver 349 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.11414226432169 m/s
+	Overtake distance: [25.85433655] m
+
+Driver 350 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.61793833242992 m/s
+	Overtake distance: [25.70404393] m
+
+Driver 351 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.74908751325621 m/s
+	Overtake distance: [25.57612164] m
+
+Driver 352 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.4616803175566 m/s
+	Overtake distance: [27.17691697] m
+
+Driver 353 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.41156231418644 m/s
+	Overtake distance: [25.81360597] m
+
+Driver 354 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.89416567142109 m/s
+	Overtake distance: [27.39863166] m
+
+Driver 355 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.15966437897333 m/s
+	Overtake distance: [26.10765861] m
+
+Driver 356 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.05757495336456 m/s
+	Overtake distance: [25.01719488] m
+
+Driver 357 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.83826272276447 m/s
+	Overtake distance: [25.32687108] m
+
+Driver 358 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.56854421799956 m/s
+	Overtake distance: [25.62766958] m
+
+Driver 359 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.06577170617122 m/s
+	Overtake distance: [27.27574846] m
+
+Driver 360 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.35034200917852 m/s
+	Overtake distance: [26.0430634] m
+
+Driver 361 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.30692589169122 m/s
+	Overtake distance: [26.9751103] m
+
+Driver 362 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 81.68346141565196 m/s
+	Overtake distance: [27.34262929] m
+
+Driver 363 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.17020668694457 m/s
+	Overtake distance: [27.11158945] m
+
+Driver 364 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.30977217130716 m/s
+	Overtake distance: [26.37544778] m
+
+Driver 365 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.02720912567709 m/s
+	Overtake distance: [25.39651188] m
+
+Driver 366 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.48986044530213 m/s
+	Overtake distance: [25.54567377] m
+
+Driver 367 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.72086722380281 m/s
+	Overtake distance: [25.82179414] m
+
+Driver 368 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.29884083010813 m/s
+	Overtake distance: [25.67755021] m
+
+Driver 369 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.07143369032325 m/s
+	Overtake distance: [25.16001647] m
+
+Driver 370 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.76088473934192 m/s
+	Overtake distance: [26.04066411] m
+
+Driver 371 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.01345265392028 m/s
+	Overtake distance: [26.42489692] m
+
+Driver 372 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.94739460103605 m/s
+	Overtake distance: [25.22533898] m
+
+Driver 373 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.83709548168865 m/s
+	Overtake distance: [25.63336073] m
+
+Driver 374 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.99030537415244 m/s
+	Overtake distance: [26.19440145] m
+
+Driver 375 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.84670348558916 m/s
+	Overtake distance: [27.62106458] m
+
+Driver 376 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.95368652385281 m/s
+	Overtake distance: [27.21656294] m
+
+Driver 377 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 68.54625888394882 m/s
+	Overtake distance: [25.30973282] m
+
+Driver 378 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.70299112698622 m/s
+	Overtake distance: [25.7910406] m
+
+Driver 379 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 68.94012396735995 m/s
+	Overtake distance: [25.69643521] m
+
+Driver 380 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.2067942678856 m/s
+	Overtake distance: [25.88732827] m
+
+Driver 381 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.42900491224964 m/s
+	Overtake distance: [26.70492377] m
+
+Driver 382 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.38362776345085 m/s
+	Overtake distance: [25.97324411] m
+
+Driver 383 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.09027466225186 m/s
+	Overtake distance: [25.58732676] m
+
+Driver 384 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.40395494856709 m/s
+	Overtake distance: [25.22180158] m
+
+Driver 385 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.15981554371828 m/s
+	Overtake distance: [26.01124893] m
+
+Driver 386 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.11240384980559 m/s
+	Overtake distance: [26.01036858] m
+
+Driver 387 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.25374520201392 m/s
+	Overtake distance: [27.37483495] m
+
+Driver 388 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.81284057588256 m/s
+	Overtake distance: [26.49459272] m
+
+Driver 389 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.72004665703881 m/s
+	Overtake distance: [27.22567161] m
+
+Driver 390 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.42999827071415 m/s
+	Overtake distance: [26.79582799] m
+
+Driver 391 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.69158494241788 m/s
+	Overtake distance: [26.467767] m
+
+Driver 392 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.81510819205822 m/s
+	Overtake distance: [25.57001612] m
+
+Driver 393 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.02488306437279 m/s
+	Overtake distance: [26.09868699] m
+
+Driver 394 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.11839096494546 m/s
+	Overtake distance: [26.38900096] m
+
+Driver 395 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.01987440970728 m/s
+	Overtake distance: [25.28447356] m
+
+Driver 396 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.93492087632131 m/s
+	Overtake distance: [25.56842764] m
+
+Driver 397 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.5040373929042 m/s
+	Overtake distance: [28.7464752] m
+
+Driver 398 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.3866434678 m/s
+	Overtake distance: [26.23977019] m
+
+Driver 399 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.85298732204312 m/s
+	Overtake distance: [26.48330471] m
+
+Driver 400 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.0493756361532 m/s
+	Overtake distance: [26.01916555] m
+
+Driver 401 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.10255719072526 m/s
+	Overtake distance: [25.02276419] m
+
+Driver 402 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.2285950012045 m/s
+	Overtake distance: [25.33207996] m
+
+Driver 403 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.9451352765163 m/s
+	Overtake distance: [25.37727956] m
+
+Driver 404 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.79082340022964 m/s
+	Overtake distance: [25.8986151] m
+
+Driver 405 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.32621814434377 m/s
+	Overtake distance: [25.0427007] m
+
+Driver 406 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.25304956993965 m/s
+	Overtake distance: [25.4645075] m
+
+Driver 407 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.84486582193416 m/s
+	Overtake distance: [25.08650566] m
+
+Driver 408 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.43886600403988 m/s
+	Overtake distance: [27.17155741] m
+
+Driver 409 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.9382528609778 m/s
+	Overtake distance: [25.08085482] m
+
+Driver 410 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.13438115094492 m/s
+	Overtake distance: [25.32220496] m
+
+Driver 411 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.51563412657785 m/s
+	Overtake distance: [25.62919921] m
+
+Driver 412 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.03979492834341 m/s
+	Overtake distance: [25.72556037] m
+
+Driver 413 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.22897936096541 m/s
+	Overtake distance: [27.82353933] m
+
+Driver 414 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.44527329749125 m/s
+	Overtake distance: [25.15227772] m
+
+Driver 415 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.47365064747407 m/s
+	Overtake distance: [27.84390574] m
+
+Driver 416 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.40507846111291 m/s
+	Overtake distance: [25.44142464] m
+
+Driver 417 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.475458202131 m/s
+	Overtake distance: [25.80811124] m
+
+Driver 418 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.56359578270907 m/s
+	Overtake distance: [26.2321247] m
+
+Driver 419 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.15393456459543 m/s
+	Overtake distance: [25.27620965] m
+
+Driver 420 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.06540798260794 m/s
+	Overtake distance: [25.97193432] m
+
+Driver 421 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.25427127861379 m/s
+	Overtake distance: [25.25581593] m
+
+Driver 422 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.97176183113314 m/s
+	Overtake distance: [26.80964041] m
+
+Driver 423 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.41449641224702 m/s
+	Overtake distance: [25.23265772] m
+
+Driver 424 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.00875692841397 m/s
+	Overtake distance: [26.15460356] m
+
+Driver 425 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.65687263194131 m/s
+	Overtake distance: [25.65549928] m
+
+Driver 426 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.47854021626465 m/s
+	Overtake distance: [25.39701215] m
+
+Driver 427 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.01419367033371 m/s
+	Overtake distance: [26.78212465] m
+
+Driver 428 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.9620722961979 m/s
+	Overtake distance: [25.36463597] m
+
+Driver 429 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.97774582802137 m/s
+	Overtake distance: [25.53938904] m
+
+Driver 430 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.24841600923543 m/s
+	Overtake distance: [25.77931556] m
+
+Driver 431 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.36166364720235 m/s
+	Overtake distance: [27.14570245] m
+
+Driver 432 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.63992772654642 m/s
+	Overtake distance: [26.22541035] m
+
+Driver 433 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.24115329009123 m/s
+	Overtake distance: [25.7913485] m
+
+Driver 434 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.77387838941691 m/s
+	Overtake distance: [25.28586269] m
+
+Driver 435 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.12450126895746 m/s
+	Overtake distance: [25.9249517] m
+
+Driver 436 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.56117478012607 m/s
+	Overtake distance: [25.55680939] m
+
+Driver 437 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.140998251519 m/s
+	Overtake distance: [26.35236147] m
+
+Driver 438 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.19615713450166 m/s
+	Overtake distance: [26.9294925] m
+
+Driver 439 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.08843730316136 m/s
+	Overtake distance: [27.50324526] m
+
+Driver 440 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.19373977794662 m/s
+	Overtake distance: [27.25475566] m
+
+Driver 441 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.42274273436026 m/s
+	Overtake distance: [28.1658535] m
+
+Driver 442 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.34186278084424 m/s
+	Overtake distance: [26.1956965] m
+
+Driver 443 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 77.62114675155 m/s
+	Overtake distance: [27.59777368] m
+
+Driver 444 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.14799220652249 m/s
+	Overtake distance: [26.64661977] m
+
+Driver 445 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.85543869459882 m/s
+	Overtake distance: [26.14209474] m
+
+Driver 446 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.32974350118643 m/s
+	Overtake distance: [27.13998864] m
+
+Driver 447 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.94757421070813 m/s
+	Overtake distance: [29.80698621] m
+
+Driver 448 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.77692883951103 m/s
+	Overtake distance: [27.96709076] m
+
+Driver 449 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.52493799575244 m/s
+	Overtake distance: [29.12788462] m
+
+Driver 450 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 85.24781612503592 m/s
+	Overtake distance: [25.09268197] m
+
+Driver 451 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 82.74675929836151 m/s
+	Overtake distance: [25.63161035] m
+
+Driver 452 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 71.73505809322928 m/s
+	Overtake distance: [25.28947042] m
+
+Driver 453 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.40700278331249 m/s
+	Overtake distance: [25.13754128] m
+
+Driver 454 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.45310975196391 m/s
+	Overtake distance: [27.1077817] m
+
+Driver 455 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.26640323630346 m/s
+	Overtake distance: [26.20621012] m
+
+Driver 456 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.93503960927815 m/s
+	Overtake distance: [27.32225776] m
+
+Driver 457 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.99954935138251 m/s
+	Overtake distance: [28.36849539] m
+
+Driver 458 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 83.04717409370646 m/s
+	Overtake distance: [25.91308718] m
+
+Driver 459 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.08426582385333 m/s
+	Overtake distance: [27.83701279] m
+
+Driver 460 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.76304575497144 m/s
+	Overtake distance: [25.64243433] m
+
+Driver 461 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.13399124637714 m/s
+	Overtake distance: [25.34318187] m
+
+Driver 462 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.21694037536753 m/s
+	Overtake distance: [25.38909404] m
+
+Driver 463 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.08784726187211 m/s
+	Overtake distance: [27.91778157] m
+
+Driver 464 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.01935127221715 m/s
+	Overtake distance: [25.67040675] m
+
+Driver 465 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.11410683738814 m/s
+	Overtake distance: [27.35856495] m
+
+Driver 466 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 69.23858871367968 m/s
+	Overtake distance: [25.71189575] m
+
+Driver 467 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.18487647132623 m/s
+	Overtake distance: [25.51187649] m
+
+Driver 468 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.09548219958295 m/s
+	Overtake distance: [26.79275674] m
+
+Driver 469 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.11812507361586 m/s
+	Overtake distance: [29.08621588] m
+
+Driver 470 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.25256501832938 m/s
+	Overtake distance: [25.79469707] m
+
+Driver 471 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.6421793089775 m/s
+	Overtake distance: [26.29463304] m
+
+Driver 472 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.43163476409141 m/s
+	Overtake distance: [27.88309767] m
+
+Driver 473 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.86724480712361 m/s
+	Overtake distance: [26.9645441] m
+
+Driver 474 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.22769934165056 m/s
+	Overtake distance: [26.30529006] m
+
+Driver 475 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.12231752754322 m/s
+	Overtake distance: [25.03783146] m
+
+Driver 476 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.44924675028325 m/s
+	Overtake distance: [26.90844855] m
+
+Driver 477 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.31372953116792 m/s
+	Overtake distance: [26.80159827] m
+
+Driver 478 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.44072722335073 m/s
+	Overtake distance: [26.12013617] m
+
+Driver 479 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.66283498978223 m/s
+	Overtake distance: [26.25368454] m
+
+Driver 480 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 76.14195731306314 m/s
+	Overtake distance: [26.32015708] m
+
+Driver 481 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.26745225463762 m/s
+	Overtake distance: [28.25235398] m
+
+Driver 482 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 75.98120441295342 m/s
+	Overtake distance: [26.34320639] m
+
+Driver 483 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 74.44764808247939 m/s
+	Overtake distance: [25.04518433] m
+
+Driver 484 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.72641056138988 m/s
+	Overtake distance: [26.51587822] m
+
+Driver 485 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.88977004334278 m/s
+	Overtake distance: [25.397181] m
+
+Driver 486 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.40051576510503 m/s
+	Overtake distance: [25.13900204] m
+
+Driver 487 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.62555537203194 m/s
+	Overtake distance: [26.42045361] m
+
+Driver 488 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.51260044645507 m/s
+	Overtake distance: [27.28906603] m
+
+Driver 489 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.62863096656717 m/s
+	Overtake distance: [26.03048534] m
+
+Driver 490 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.5225247891531 m/s
+	Overtake distance: [26.04028772] m
+
+Driver 491 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.2207135957802 m/s
+	Overtake distance: [26.68368632] m
+
+Driver 492 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 73.52829455501448 m/s
+	Overtake distance: [25.60692177] m
+
+Driver 493 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.18576898810994 m/s
+	Overtake distance: [25.30982144] m
+
+Driver 494 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.53277610708257 m/s
+	Overtake distance: [27.59979841] m
+
+Driver 495 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.7905895453252 m/s
+	Overtake distance: [25.72607369] m
+
+Driver 496 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 78.8114077077109 m/s
+	Overtake distance: [26.64618709] m
+
+Driver 497 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 79.34172320607118 m/s
+	Overtake distance: [26.76293768] m
+
+Driver 498 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 67.98451770598992 m/s
+	Overtake distance: [26.35336071] m
+
+Driver 499 is a CAUTIOUS
+	driver driving a CarType.SUV car @ 72.81030645909628 m/s
+	Overtake distance: [26.97175709] m
+
+Driver 500 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 80.72404421972136 m/s
+	Overtake distance: [27.66608036] m
+
+Driver 501 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 65.6460627949318 m/s
+	Overtake distance: [25.37577258] m
+
+Driver 502 is a CAUTIOUS
+	driver driving a CarType.TRUCK car @ 66.96690496649717 m/s
+	Overtake distance: [25.75274445] m
+
+Driver 503 is a CAUTIOUS
+	driver driving a CarType.MOTORCYCLE car @ 84.67269298752689 m/s
+	Overtake distance: [27.45109272] m
+
+Driver 504 is a CAUTIOUS
+	driver driving a CarType.SEDAN car @ 81.64525019693978 m/s
+	Overtake distance: [25.11303962] m
+
+Driver 505 is a NORMAL
+	driver driving a CarType.SUV car @ 85.86062003981786 m/s
+	Overtake distance: [20.31352859] m
+
+Driver 506 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.34043046879707 m/s
+	Overtake distance: [22.12357148] m
+
+Driver 507 is a NORMAL
+	driver driving a CarType.SUV car @ 87.47897435606266 m/s
+	Overtake distance: [20.6157421] m
+
+Driver 508 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.62730197474845 m/s
+	Overtake distance: [21.61142605] m
+
+Driver 509 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.99080297858127 m/s
+	Overtake distance: [20.33358953] m
+
+Driver 510 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.38165509912598 m/s
+	Overtake distance: [20.27976343] m
+
+Driver 511 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.89925420327145 m/s
+	Overtake distance: [21.53624487] m
+
+Driver 512 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.80029516382216 m/s
+	Overtake distance: [20.47441995] m
+
+Driver 513 is a NORMAL
+	driver driving a CarType.SUV car @ 86.51489229978492 m/s
+	Overtake distance: [20.99383994] m
+
+Driver 514 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.59393157957477 m/s
+	Overtake distance: [21.02904822] m
+
+Driver 515 is a NORMAL
+	driver driving a CarType.SUV car @ 87.12532586445957 m/s
+	Overtake distance: [22.41439853] m
+
+Driver 516 is a NORMAL
+	driver driving a CarType.SUV car @ 86.94048768090857 m/s
+	Overtake distance: [21.1065726] m
+
+Driver 517 is a NORMAL
+	driver driving a CarType.SUV car @ 87.58528664325624 m/s
+	Overtake distance: [20.89870772] m
+
+Driver 518 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.75675033996087 m/s
+	Overtake distance: [20.41686184] m
+
+Driver 519 is a NORMAL
+	driver driving a CarType.TRUCK car @ 70.74668364228549 m/s
+	Overtake distance: [20.677529] m
+
+Driver 520 is a NORMAL
+	driver driving a CarType.SUV car @ 85.52277469042103 m/s
+	Overtake distance: [20.58892573] m
+
+Driver 521 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.87202452043338 m/s
+	Overtake distance: [20.04924844] m
+
+Driver 522 is a NORMAL
+	driver driving a CarType.TRUCK car @ 74.09526942345485 m/s
+	Overtake distance: [21.88237554] m
+
+Driver 523 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.67732743051971 m/s
+	Overtake distance: [21.53883181] m
+
+Driver 524 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.05468639499773 m/s
+	Overtake distance: [23.27867477] m
+
+Driver 525 is a NORMAL
+	driver driving a CarType.SUV car @ 87.33319392466598 m/s
+	Overtake distance: [21.35766567] m
+
+Driver 526 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.32736241660864 m/s
+	Overtake distance: [22.10952063] m
+
+Driver 527 is a NORMAL
+	driver driving a CarType.SUV car @ 86.97698426954979 m/s
+	Overtake distance: [20.43575904] m
+
+Driver 528 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.11339629367542 m/s
+	Overtake distance: [20.51866889] m
+
+Driver 529 is a NORMAL
+	driver driving a CarType.SUV car @ 87.80099872289415 m/s
+	Overtake distance: [21.75554867] m
+
+Driver 530 is a NORMAL
+	driver driving a CarType.SUV car @ 88.32530365234989 m/s
+	Overtake distance: [22.98435089] m
+
+Driver 531 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.89057362146696 m/s
+	Overtake distance: [20.40154845] m
+
+Driver 532 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.52671723122883 m/s
+	Overtake distance: [21.22939894] m
+
+Driver 533 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.56736850580708 m/s
+	Overtake distance: [20.89463619] m
+
+Driver 534 is a NORMAL
+	driver driving a CarType.SUV car @ 87.78697795596646 m/s
+	Overtake distance: [21.97675504] m
+
+Driver 535 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.96713440415851 m/s
+	Overtake distance: [21.15945364] m
+
+Driver 536 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.34512072917661 m/s
+	Overtake distance: [20.80098201] m
+
+Driver 537 is a NORMAL
+	driver driving a CarType.SEDAN car @ 102.05020848420635 m/s
+	Overtake distance: [21.13121845] m
+
+Driver 538 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.58521838825634 m/s
+	Overtake distance: [20.64797409] m
+
+Driver 539 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.5115595322687 m/s
+	Overtake distance: [22.04718607] m
+
+Driver 540 is a NORMAL
+	driver driving a CarType.SUV car @ 85.81953351337366 m/s
+	Overtake distance: [21.49220561] m
+
+Driver 541 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.89341144087611 m/s
+	Overtake distance: [20.12115951] m
+
+Driver 542 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.99711049447274 m/s
+	Overtake distance: [20.25770042] m
+
+Driver 543 is a NORMAL
+	driver driving a CarType.SUV car @ 85.04916014652045 m/s
+	Overtake distance: [20.36933727] m
+
+Driver 544 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.83526052594108 m/s
+	Overtake distance: [21.46039014] m
+
+Driver 545 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.96834857077877 m/s
+	Overtake distance: [21.36504829] m
+
+Driver 546 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.37332555202711 m/s
+	Overtake distance: [20.1307104] m
+
+Driver 547 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.96548620093209 m/s
+	Overtake distance: [20.04958754] m
+
+Driver 548 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.63713025617628 m/s
+	Overtake distance: [20.44556983] m
+
+Driver 549 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.50511822150209 m/s
+	Overtake distance: [20.81854661] m
+
+Driver 550 is a NORMAL
+	driver driving a CarType.SUV car @ 85.68716602518354 m/s
+	Overtake distance: [21.8629294] m
+
+Driver 551 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.70861260419154 m/s
+	Overtake distance: [20.08878899] m
+
+Driver 552 is a NORMAL
+	driver driving a CarType.SUV car @ 85.4515030056804 m/s
+	Overtake distance: [20.14197578] m
+
+Driver 553 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.25174703101675 m/s
+	Overtake distance: [20.14601105] m
+
+Driver 554 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.12552998113519 m/s
+	Overtake distance: [20.85411078] m
+
+Driver 555 is a NORMAL
+	driver driving a CarType.SUV car @ 88.05885654352512 m/s
+	Overtake distance: [21.96696621] m
+
+Driver 556 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.45090844896154 m/s
+	Overtake distance: [20.32801232] m
+
+Driver 557 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.30491495185638 m/s
+	Overtake distance: [20.47626973] m
+
+Driver 558 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.71397047452928 m/s
+	Overtake distance: [22.1761026] m
+
+Driver 559 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.74444297623182 m/s
+	Overtake distance: [20.16263659] m
+
+Driver 560 is a NORMAL
+	driver driving a CarType.SUV car @ 87.75171445987668 m/s
+	Overtake distance: [20.99696408] m
+
+Driver 561 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.01467361785484 m/s
+	Overtake distance: [20.66852725] m
+
+Driver 562 is a NORMAL
+	driver driving a CarType.SUV car @ 87.48319145268113 m/s
+	Overtake distance: [20.50966308] m
+
+Driver 563 is a NORMAL
+	driver driving a CarType.SUV car @ 87.20920192467423 m/s
+	Overtake distance: [21.49920114] m
+
+Driver 564 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.60417552864706 m/s
+	Overtake distance: [20.97371291] m
+
+Driver 565 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.07120858569627 m/s
+	Overtake distance: [22.1079292] m
+
+Driver 566 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.11926706421261 m/s
+	Overtake distance: [22.58066966] m
+
+Driver 567 is a NORMAL
+	driver driving a CarType.SUV car @ 88.42975035314397 m/s
+	Overtake distance: [20.15103273] m
+
+Driver 568 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.88985400989776 m/s
+	Overtake distance: [20.16581005] m
+
+Driver 569 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.57740947756905 m/s
+	Overtake distance: [20.31466628] m
+
+Driver 570 is a NORMAL
+	driver driving a CarType.SUV car @ 86.25842571225817 m/s
+	Overtake distance: [20.35786176] m
+
+Driver 571 is a NORMAL
+	driver driving a CarType.SEDAN car @ 96.63242828507518 m/s
+	Overtake distance: [20.05467057] m
+
+Driver 572 is a NORMAL
+	driver driving a CarType.SEDAN car @ 96.87051158077355 m/s
+	Overtake distance: [20.30348624] m
+
+Driver 573 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.44120351311271 m/s
+	Overtake distance: [21.44115118] m
+
+Driver 574 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.1735127202178 m/s
+	Overtake distance: [20.31013403] m
+
+Driver 575 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.79904310626726 m/s
+	Overtake distance: [22.30291473] m
+
+Driver 576 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.15355589601288 m/s
+	Overtake distance: [20.06024608] m
+
+Driver 577 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.0514219280938 m/s
+	Overtake distance: [20.79807092] m
+
+Driver 578 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.89722209116111 m/s
+	Overtake distance: [22.95334069] m
+
+Driver 579 is a NORMAL
+	driver driving a CarType.SUV car @ 87.78469010634785 m/s
+	Overtake distance: [21.23806682] m
+
+Driver 580 is a NORMAL
+	driver driving a CarType.SUV car @ 87.33138242936154 m/s
+	Overtake distance: [23.07860273] m
+
+Driver 581 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.2509053345796 m/s
+	Overtake distance: [21.81696363] m
+
+Driver 582 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.82912650156757 m/s
+	Overtake distance: [21.55109969] m
+
+Driver 583 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.54516834053547 m/s
+	Overtake distance: [20.46098975] m
+
+Driver 584 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.46473927815542 m/s
+	Overtake distance: [20.09104502] m
+
+Driver 585 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.15466131831715 m/s
+	Overtake distance: [20.93506123] m
+
+Driver 586 is a NORMAL
+	driver driving a CarType.SUV car @ 86.56591255934971 m/s
+	Overtake distance: [20.76433102] m
+
+Driver 587 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.12550990910329 m/s
+	Overtake distance: [21.70551718] m
+
+Driver 588 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.56078536226583 m/s
+	Overtake distance: [21.40046163] m
+
+Driver 589 is a NORMAL
+	driver driving a CarType.SUV car @ 86.4509568581034 m/s
+	Overtake distance: [21.30597958] m
+
+Driver 590 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.95235453775787 m/s
+	Overtake distance: [20.93251597] m
+
+Driver 591 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.1079287360016 m/s
+	Overtake distance: [21.27917358] m
+
+Driver 592 is a NORMAL
+	driver driving a CarType.SUV car @ 84.34909966530431 m/s
+	Overtake distance: [20.81058325] m
+
+Driver 593 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.47902970597315 m/s
+	Overtake distance: [20.04245415] m
+
+Driver 594 is a NORMAL
+	driver driving a CarType.SUV car @ 88.63257819550908 m/s
+	Overtake distance: [20.7774433] m
+
+Driver 595 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.48571329853287 m/s
+	Overtake distance: [20.71370103] m
+
+Driver 596 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.88589206718821 m/s
+	Overtake distance: [20.67594414] m
+
+Driver 597 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.52043858232396 m/s
+	Overtake distance: [20.59346388] m
+
+Driver 598 is a NORMAL
+	driver driving a CarType.SUV car @ 84.54205301903643 m/s
+	Overtake distance: [22.17095734] m
+
+Driver 599 is a NORMAL
+	driver driving a CarType.TRUCK car @ 74.52566504631264 m/s
+	Overtake distance: [21.56016203] m
+
+Driver 600 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.03272017607154 m/s
+	Overtake distance: [20.05254958] m
+
+Driver 601 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.64076428750843 m/s
+	Overtake distance: [20.49869015] m
+
+Driver 602 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.18870337055718 m/s
+	Overtake distance: [20.3831473] m
+
+Driver 603 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.24566559757359 m/s
+	Overtake distance: [21.32958612] m
+
+Driver 604 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.04162410555658 m/s
+	Overtake distance: [21.61757239] m
+
+Driver 605 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.1858852636439 m/s
+	Overtake distance: [20.86202483] m
+
+Driver 606 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.15475773912584 m/s
+	Overtake distance: [22.86441496] m
+
+Driver 607 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.8609192419959 m/s
+	Overtake distance: [20.30881457] m
+
+Driver 608 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.87382957268561 m/s
+	Overtake distance: [20.19930534] m
+
+Driver 609 is a NORMAL
+	driver driving a CarType.SUV car @ 86.65578069301662 m/s
+	Overtake distance: [21.30752241] m
+
+Driver 610 is a NORMAL
+	driver driving a CarType.SUV car @ 87.41391121054767 m/s
+	Overtake distance: [22.51704558] m
+
+Driver 611 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.5593290680784 m/s
+	Overtake distance: [21.65939301] m
+
+Driver 612 is a NORMAL
+	driver driving a CarType.SUV car @ 87.59864144961804 m/s
+	Overtake distance: [21.07475361] m
+
+Driver 613 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.86878049733522 m/s
+	Overtake distance: [21.82010023] m
+
+Driver 614 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.42617695516539 m/s
+	Overtake distance: [21.62529995] m
+
+Driver 615 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.71605084748836 m/s
+	Overtake distance: [21.11952119] m
+
+Driver 616 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.04777136618864 m/s
+	Overtake distance: [21.99912097] m
+
+Driver 617 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.78872849139752 m/s
+	Overtake distance: [20.26520693] m
+
+Driver 618 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.21875842228768 m/s
+	Overtake distance: [21.37804328] m
+
+Driver 619 is a NORMAL
+	driver driving a CarType.SUV car @ 86.00953638187653 m/s
+	Overtake distance: [21.44969688] m
+
+Driver 620 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.04963978988978 m/s
+	Overtake distance: [20.74905836] m
+
+Driver 621 is a NORMAL
+	driver driving a CarType.SUV car @ 86.23447160057303 m/s
+	Overtake distance: [21.32596528] m
+
+Driver 622 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.00017464959646 m/s
+	Overtake distance: [20.14057537] m
+
+Driver 623 is a NORMAL
+	driver driving a CarType.SUV car @ 86.2882759931262 m/s
+	Overtake distance: [20.5481208] m
+
+Driver 624 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.175368007151 m/s
+	Overtake distance: [20.14632254] m
+
+Driver 625 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.28110990400684 m/s
+	Overtake distance: [20.82871955] m
+
+Driver 626 is a NORMAL
+	driver driving a CarType.SUV car @ 87.33439216504998 m/s
+	Overtake distance: [20.99956493] m
+
+Driver 627 is a NORMAL
+	driver driving a CarType.SUV car @ 87.45896266723335 m/s
+	Overtake distance: [20.14413399] m
+
+Driver 628 is a NORMAL
+	driver driving a CarType.SUV car @ 87.16544303683581 m/s
+	Overtake distance: [21.20175747] m
+
+Driver 629 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.2411079420801 m/s
+	Overtake distance: [22.44217215] m
+
+Driver 630 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.89050504195777 m/s
+	Overtake distance: [21.44534183] m
+
+Driver 631 is a NORMAL
+	driver driving a CarType.SUV car @ 86.30665473807598 m/s
+	Overtake distance: [22.32871107] m
+
+Driver 632 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.48326474599406 m/s
+	Overtake distance: [21.0902547] m
+
+Driver 633 is a NORMAL
+	driver driving a CarType.SUV car @ 87.13054571477169 m/s
+	Overtake distance: [20.35787915] m
+
+Driver 634 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.28540271661545 m/s
+	Overtake distance: [20.92608109] m
+
+Driver 635 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.26575026385352 m/s
+	Overtake distance: [20.98886866] m
+
+Driver 636 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.08650387984157 m/s
+	Overtake distance: [20.36641663] m
+
+Driver 637 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.71147665798807 m/s
+	Overtake distance: [20.19143625] m
+
+Driver 638 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.10274424181839 m/s
+	Overtake distance: [20.49708065] m
+
+Driver 639 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.6419691825462 m/s
+	Overtake distance: [21.12741962] m
+
+Driver 640 is a NORMAL
+	driver driving a CarType.SUV car @ 86.35547656699042 m/s
+	Overtake distance: [21.11870084] m
+
+Driver 641 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.35955390625507 m/s
+	Overtake distance: [20.41836949] m
+
+Driver 642 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.56968914797397 m/s
+	Overtake distance: [20.97323172] m
+
+Driver 643 is a NORMAL
+	driver driving a CarType.SUV car @ 87.09462269937612 m/s
+	Overtake distance: [20.553742] m
+
+Driver 644 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.32721818295364 m/s
+	Overtake distance: [22.13795423] m
+
+Driver 645 is a NORMAL
+	driver driving a CarType.SUV car @ 86.8907108755566 m/s
+	Overtake distance: [20.5246653] m
+
+Driver 646 is a NORMAL
+	driver driving a CarType.SUV car @ 88.21686322308013 m/s
+	Overtake distance: [20.13079246] m
+
+Driver 647 is a NORMAL
+	driver driving a CarType.SUV car @ 84.19647115514616 m/s
+	Overtake distance: [22.02278366] m
+
+Driver 648 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.628974271532 m/s
+	Overtake distance: [20.66466406] m
+
+Driver 649 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.78643860941034 m/s
+	Overtake distance: [22.81611348] m
+
+Driver 650 is a NORMAL
+	driver driving a CarType.SUV car @ 83.8132369802208 m/s
+	Overtake distance: [23.02821423] m
+
+Driver 651 is a NORMAL
+	driver driving a CarType.SEDAN car @ 95.91117592032882 m/s
+	Overtake distance: [21.29557926] m
+
+Driver 652 is a NORMAL
+	driver driving a CarType.SUV car @ 86.47160827498134 m/s
+	Overtake distance: [20.80603385] m
+
+Driver 653 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.48913948500018 m/s
+	Overtake distance: [20.11277828] m
+
+Driver 654 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.15688598580351 m/s
+	Overtake distance: [20.55308159] m
+
+Driver 655 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.64201719726562 m/s
+	Overtake distance: [21.11447017] m
+
+Driver 656 is a NORMAL
+	driver driving a CarType.SUV car @ 87.17220215921282 m/s
+	Overtake distance: [20.54983902] m
+
+Driver 657 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.40002269728737 m/s
+	Overtake distance: [21.60691178] m
+
+Driver 658 is a NORMAL
+	driver driving a CarType.SUV car @ 86.89111469405796 m/s
+	Overtake distance: [20.4490678] m
+
+Driver 659 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.67740835064583 m/s
+	Overtake distance: [20.54578541] m
+
+Driver 660 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.52317878194917 m/s
+	Overtake distance: [20.06902377] m
+
+Driver 661 is a NORMAL
+	driver driving a CarType.SUV car @ 88.78228176851033 m/s
+	Overtake distance: [20.41739802] m
+
+Driver 662 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.08831607318193 m/s
+	Overtake distance: [20.65632246] m
+
+Driver 663 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.11982298809978 m/s
+	Overtake distance: [20.55615477] m
+
+Driver 664 is a NORMAL
+	driver driving a CarType.SUV car @ 86.39951783460195 m/s
+	Overtake distance: [21.70250638] m
+
+Driver 665 is a NORMAL
+	driver driving a CarType.SUV car @ 87.59738328435678 m/s
+	Overtake distance: [20.73503699] m
+
+Driver 666 is a NORMAL
+	driver driving a CarType.SUV car @ 86.26096049957472 m/s
+	Overtake distance: [20.80357235] m
+
+Driver 667 is a NORMAL
+	driver driving a CarType.SUV car @ 85.91979295597827 m/s
+	Overtake distance: [20.06510215] m
+
+Driver 668 is a NORMAL
+	driver driving a CarType.SUV car @ 85.33606014039131 m/s
+	Overtake distance: [21.46661503] m
+
+Driver 669 is a NORMAL
+	driver driving a CarType.SUV car @ 86.2639941758571 m/s
+	Overtake distance: [20.17537151] m
+
+Driver 670 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.4131280529223 m/s
+	Overtake distance: [21.49515011] m
+
+Driver 671 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.46365340728951 m/s
+	Overtake distance: [20.66132693] m
+
+Driver 672 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.94014869969884 m/s
+	Overtake distance: [20.78131207] m
+
+Driver 673 is a NORMAL
+	driver driving a CarType.SUV car @ 87.42304023306463 m/s
+	Overtake distance: [20.65787494] m
+
+Driver 674 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.58923049805192 m/s
+	Overtake distance: [20.72313192] m
+
+Driver 675 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.330767299865 m/s
+	Overtake distance: [20.28737544] m
+
+Driver 676 is a NORMAL
+	driver driving a CarType.SEDAN car @ 97.6060000305628 m/s
+	Overtake distance: [21.42620352] m
+
+Driver 677 is a NORMAL
+	driver driving a CarType.SUV car @ 86.48070317101252 m/s
+	Overtake distance: [21.67479742] m
+
+Driver 678 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.99180906903808 m/s
+	Overtake distance: [20.77116066] m
+
+Driver 679 is a NORMAL
+	driver driving a CarType.SUV car @ 87.61997473822447 m/s
+	Overtake distance: [20.76251645] m
+
+Driver 680 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.66461212503098 m/s
+	Overtake distance: [20.68722155] m
+
+Driver 681 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.43073538904882 m/s
+	Overtake distance: [20.04060881] m
+
+Driver 682 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.03696438172324 m/s
+	Overtake distance: [20.04437238] m
+
+Driver 683 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.18394347696174 m/s
+	Overtake distance: [20.43982568] m
+
+Driver 684 is a NORMAL
+	driver driving a CarType.TRUCK car @ 71.8877396417762 m/s
+	Overtake distance: [20.732258] m
+
+Driver 685 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.3023262701186 m/s
+	Overtake distance: [20.01336058] m
+
+Driver 686 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.38585953249678 m/s
+	Overtake distance: [20.63300712] m
+
+Driver 687 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.39256866945934 m/s
+	Overtake distance: [20.80669328] m
+
+Driver 688 is a NORMAL
+	driver driving a CarType.SUV car @ 85.87507269043594 m/s
+	Overtake distance: [20.94620584] m
+
+Driver 689 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.41665729564218 m/s
+	Overtake distance: [21.71253823] m
+
+Driver 690 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.88112960328893 m/s
+	Overtake distance: [20.90383475] m
+
+Driver 691 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.4280323467243 m/s
+	Overtake distance: [21.5605462] m
+
+Driver 692 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.84316307187946 m/s
+	Overtake distance: [20.83248877] m
+
+Driver 693 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.93850262940892 m/s
+	Overtake distance: [21.10192101] m
+
+Driver 694 is a NORMAL
+	driver driving a CarType.SUV car @ 87.60712143407385 m/s
+	Overtake distance: [21.49254847] m
+
+Driver 695 is a NORMAL
+	driver driving a CarType.SUV car @ 86.44044976264055 m/s
+	Overtake distance: [22.43956308] m
+
+Driver 696 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.97951257370045 m/s
+	Overtake distance: [21.64333712] m
+
+Driver 697 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.62677835821532 m/s
+	Overtake distance: [23.54235252] m
+
+Driver 698 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.5673453767519 m/s
+	Overtake distance: [20.0438495] m
+
+Driver 699 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.7934896251891 m/s
+	Overtake distance: [20.32880509] m
+
+Driver 700 is a NORMAL
+	driver driving a CarType.SUV car @ 86.11594525350722 m/s
+	Overtake distance: [20.26643104] m
+
+Driver 701 is a NORMAL
+	driver driving a CarType.SUV car @ 86.31439905151117 m/s
+	Overtake distance: [21.47675639] m
+
+Driver 702 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.24273903266747 m/s
+	Overtake distance: [21.07133496] m
+
+Driver 703 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.71723817797039 m/s
+	Overtake distance: [20.63624975] m
+
+Driver 704 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.63002120036859 m/s
+	Overtake distance: [20.68873724] m
+
+Driver 705 is a NORMAL
+	driver driving a CarType.SEDAN car @ 102.00642599210812 m/s
+	Overtake distance: [21.00040429] m
+
+Driver 706 is a NORMAL
+	driver driving a CarType.SUV car @ 88.35211343757508 m/s
+	Overtake distance: [21.52356487] m
+
+Driver 707 is a NORMAL
+	driver driving a CarType.SEDAN car @ 102.49948689936849 m/s
+	Overtake distance: [21.26721742] m
+
+Driver 708 is a NORMAL
+	driver driving a CarType.TRUCK car @ 71.95049352792066 m/s
+	Overtake distance: [22.17688293] m
+
+Driver 709 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.14468954001536 m/s
+	Overtake distance: [21.46539588] m
+
+Driver 710 is a NORMAL
+	driver driving a CarType.TRUCK car @ 71.67200430209289 m/s
+	Overtake distance: [21.24056481] m
+
+Driver 711 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.42505108310012 m/s
+	Overtake distance: [21.04575983] m
+
+Driver 712 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.54541904167142 m/s
+	Overtake distance: [20.32686298] m
+
+Driver 713 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.76865418869004 m/s
+	Overtake distance: [21.10827345] m
+
+Driver 714 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.85182127451202 m/s
+	Overtake distance: [20.76046062] m
+
+Driver 715 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.85469444202144 m/s
+	Overtake distance: [20.09460537] m
+
+Driver 716 is a NORMAL
+	driver driving a CarType.SUV car @ 86.42257242138992 m/s
+	Overtake distance: [20.14050705] m
+
+Driver 717 is a NORMAL
+	driver driving a CarType.SUV car @ 86.95228872208811 m/s
+	Overtake distance: [21.98446203] m
+
+Driver 718 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.17712347769573 m/s
+	Overtake distance: [22.22802849] m
+
+Driver 719 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.13012757677545 m/s
+	Overtake distance: [20.67978496] m
+
+Driver 720 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.57638487543954 m/s
+	Overtake distance: [21.55286305] m
+
+Driver 721 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.68579702933206 m/s
+	Overtake distance: [20.96920689] m
+
+Driver 722 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.12033163972315 m/s
+	Overtake distance: [22.37367305] m
+
+Driver 723 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.1888626548823 m/s
+	Overtake distance: [21.77465167] m
+
+Driver 724 is a NORMAL
+	driver driving a CarType.TRUCK car @ 74.54969010220051 m/s
+	Overtake distance: [21.07693883] m
+
+Driver 725 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.06893201819007 m/s
+	Overtake distance: [21.34934363] m
+
+Driver 726 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.63032262357578 m/s
+	Overtake distance: [20.11829048] m
+
+Driver 727 is a NORMAL
+	driver driving a CarType.SUV car @ 86.56508814687596 m/s
+	Overtake distance: [20.18388624] m
+
+Driver 728 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.6690290524916 m/s
+	Overtake distance: [20.79856094] m
+
+Driver 729 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.34586448833184 m/s
+	Overtake distance: [20.21015209] m
+
+Driver 730 is a NORMAL
+	driver driving a CarType.SUV car @ 85.40194855194392 m/s
+	Overtake distance: [21.08372976] m
+
+Driver 731 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.58953408251593 m/s
+	Overtake distance: [20.49294075] m
+
+Driver 732 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.23264563514492 m/s
+	Overtake distance: [21.47347477] m
+
+Driver 733 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.80485843421988 m/s
+	Overtake distance: [20.54097988] m
+
+Driver 734 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.61434684333464 m/s
+	Overtake distance: [20.8009763] m
+
+Driver 735 is a NORMAL
+	driver driving a CarType.SUV car @ 85.18392545551892 m/s
+	Overtake distance: [20.30783748] m
+
+Driver 736 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.75794247267578 m/s
+	Overtake distance: [20.03879835] m
+
+Driver 737 is a NORMAL
+	driver driving a CarType.SUV car @ 87.70533624963697 m/s
+	Overtake distance: [20.41617422] m
+
+Driver 738 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.11279984939972 m/s
+	Overtake distance: [23.09465747] m
+
+Driver 739 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.67079780261608 m/s
+	Overtake distance: [20.38329303] m
+
+Driver 740 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.42886691870112 m/s
+	Overtake distance: [20.19198566] m
+
+Driver 741 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.85661095111377 m/s
+	Overtake distance: [20.98604667] m
+
+Driver 742 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.01297918920396 m/s
+	Overtake distance: [20.07665084] m
+
+Driver 743 is a NORMAL
+	driver driving a CarType.SUV car @ 84.2682920643554 m/s
+	Overtake distance: [20.80659084] m
+
+Driver 744 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.15313844685727 m/s
+	Overtake distance: [20.7007625] m
+
+Driver 745 is a NORMAL
+	driver driving a CarType.SUV car @ 86.4104507055181 m/s
+	Overtake distance: [20.76454572] m
+
+Driver 746 is a NORMAL
+	driver driving a CarType.SUV car @ 87.2673816314519 m/s
+	Overtake distance: [21.35654515] m
+
+Driver 747 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.76221316361085 m/s
+	Overtake distance: [20.22791761] m
+
+Driver 748 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.92674416647951 m/s
+	Overtake distance: [20.59499237] m
+
+Driver 749 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.6651939369084 m/s
+	Overtake distance: [21.11513519] m
+
+Driver 750 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.76914885848291 m/s
+	Overtake distance: [20.20525735] m
+
+Driver 751 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.89824685351248 m/s
+	Overtake distance: [20.19944584] m
+
+Driver 752 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.59758348808164 m/s
+	Overtake distance: [20.22315707] m
+
+Driver 753 is a NORMAL
+	driver driving a CarType.SUV car @ 86.17613966556152 m/s
+	Overtake distance: [20.29791709] m
+
+Driver 754 is a NORMAL
+	driver driving a CarType.SUV car @ 85.68256663446763 m/s
+	Overtake distance: [22.69070065] m
+
+Driver 755 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.9664089535445 m/s
+	Overtake distance: [20.49222139] m
+
+Driver 756 is a NORMAL
+	driver driving a CarType.SUV car @ 85.61029992718264 m/s
+	Overtake distance: [20.3979909] m
+
+Driver 757 is a NORMAL
+	driver driving a CarType.SEDAN car @ 97.75583675306594 m/s
+	Overtake distance: [20.05298157] m
+
+Driver 758 is a NORMAL
+	driver driving a CarType.SUV car @ 86.14683017774011 m/s
+	Overtake distance: [20.68520195] m
+
+Driver 759 is a NORMAL
+	driver driving a CarType.TRUCK car @ 71.3809201004358 m/s
+	Overtake distance: [20.52483678] m
+
+Driver 760 is a NORMAL
+	driver driving a CarType.SUV car @ 85.45890802970119 m/s
+	Overtake distance: [20.90967909] m
+
+Driver 761 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.73417535467601 m/s
+	Overtake distance: [21.40239137] m
+
+Driver 762 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.76195431952748 m/s
+	Overtake distance: [20.11849473] m
+
+Driver 763 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.63663148029937 m/s
+	Overtake distance: [20.20833579] m
+
+Driver 764 is a NORMAL
+	driver driving a CarType.SUV car @ 85.7126425730284 m/s
+	Overtake distance: [21.57654768] m
+
+Driver 765 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.0144500072606 m/s
+	Overtake distance: [20.41386929] m
+
+Driver 766 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.29832078986225 m/s
+	Overtake distance: [20.16722944] m
+
+Driver 767 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.93098280494675 m/s
+	Overtake distance: [20.52384956] m
+
+Driver 768 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.17968817300586 m/s
+	Overtake distance: [21.3826516] m
+
+Driver 769 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.10532881379683 m/s
+	Overtake distance: [20.14309365] m
+
+Driver 770 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.35507634647418 m/s
+	Overtake distance: [20.25304205] m
+
+Driver 771 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.51943330387931 m/s
+	Overtake distance: [20.05292316] m
+
+Driver 772 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.49597713471606 m/s
+	Overtake distance: [20.78737854] m
+
+Driver 773 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.5394529497704 m/s
+	Overtake distance: [20.14313932] m
+
+Driver 774 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.76690918087343 m/s
+	Overtake distance: [20.72209292] m
+
+Driver 775 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.19580648443839 m/s
+	Overtake distance: [20.73876515] m
+
+Driver 776 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.4064201746704 m/s
+	Overtake distance: [20.46336952] m
+
+Driver 777 is a NORMAL
+	driver driving a CarType.SUV car @ 86.92451161967237 m/s
+	Overtake distance: [20.99776044] m
+
+Driver 778 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.89266613124896 m/s
+	Overtake distance: [20.44531028] m
+
+Driver 779 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.51293040505797 m/s
+	Overtake distance: [20.26436498] m
+
+Driver 780 is a NORMAL
+	driver driving a CarType.SUV car @ 87.60721416132797 m/s
+	Overtake distance: [21.79146051] m
+
+Driver 781 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.508715039425 m/s
+	Overtake distance: [21.25730126] m
+
+Driver 782 is a NORMAL
+	driver driving a CarType.SUV car @ 86.02774427504846 m/s
+	Overtake distance: [21.15771161] m
+
+Driver 783 is a NORMAL
+	driver driving a CarType.SUV car @ 85.1219904144232 m/s
+	Overtake distance: [20.14528052] m
+
+Driver 784 is a NORMAL
+	driver driving a CarType.SEDAN car @ 97.90864689486823 m/s
+	Overtake distance: [20.5780713] m
+
+Driver 785 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.21238707642006 m/s
+	Overtake distance: [20.52329593] m
+
+Driver 786 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.85467261608086 m/s
+	Overtake distance: [20.73094521] m
+
+Driver 787 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.99215552196617 m/s
+	Overtake distance: [20.24828403] m
+
+Driver 788 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.62260671688392 m/s
+	Overtake distance: [21.0426589] m
+
+Driver 789 is a NORMAL
+	driver driving a CarType.SUV car @ 87.77796131292148 m/s
+	Overtake distance: [21.30708422] m
+
+Driver 790 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.61291912914224 m/s
+	Overtake distance: [21.41078179] m
+
+Driver 791 is a NORMAL
+	driver driving a CarType.SUV car @ 86.01894248770124 m/s
+	Overtake distance: [20.80065848] m
+
+Driver 792 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.22267280766128 m/s
+	Overtake distance: [20.76650885] m
+
+Driver 793 is a NORMAL
+	driver driving a CarType.SUV car @ 86.45698589812079 m/s
+	Overtake distance: [22.13584205] m
+
+Driver 794 is a NORMAL
+	driver driving a CarType.SUV car @ 87.25975256551759 m/s
+	Overtake distance: [21.47912235] m
+
+Driver 795 is a NORMAL
+	driver driving a CarType.SUV car @ 85.42205685752538 m/s
+	Overtake distance: [21.24167118] m
+
+Driver 796 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.37459156735473 m/s
+	Overtake distance: [20.27656566] m
+
+Driver 797 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.49906535715296 m/s
+	Overtake distance: [20.43295309] m
+
+Driver 798 is a NORMAL
+	driver driving a CarType.SUV car @ 86.24772703062766 m/s
+	Overtake distance: [20.66078858] m
+
+Driver 799 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.02825829347383 m/s
+	Overtake distance: [20.75287761] m
+
+Driver 800 is a NORMAL
+	driver driving a CarType.SUV car @ 86.18878385268889 m/s
+	Overtake distance: [20.39804212] m
+
+Driver 801 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.80548683008251 m/s
+	Overtake distance: [22.39998955] m
+
+Driver 802 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.60553051203014 m/s
+	Overtake distance: [20.93214075] m
+
+Driver 803 is a NORMAL
+	driver driving a CarType.TRUCK car @ 74.3850824929299 m/s
+	Overtake distance: [20.08371032] m
+
+Driver 804 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.22355922056494 m/s
+	Overtake distance: [21.67150486] m
+
+Driver 805 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.53169119285793 m/s
+	Overtake distance: [20.21695667] m
+
+Driver 806 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.40799262300524 m/s
+	Overtake distance: [22.25104299] m
+
+Driver 807 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.91128530583828 m/s
+	Overtake distance: [20.41109646] m
+
+Driver 808 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.90377834644987 m/s
+	Overtake distance: [21.18449355] m
+
+Driver 809 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.56010911653442 m/s
+	Overtake distance: [20.98460226] m
+
+Driver 810 is a NORMAL
+	driver driving a CarType.SUV car @ 85.80586953000622 m/s
+	Overtake distance: [21.19349719] m
+
+Driver 811 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.77077966215323 m/s
+	Overtake distance: [20.90234389] m
+
+Driver 812 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.07008083340055 m/s
+	Overtake distance: [20.5627488] m
+
+Driver 813 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.57872950450704 m/s
+	Overtake distance: [21.75764216] m
+
+Driver 814 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.62090693936156 m/s
+	Overtake distance: [21.29008054] m
+
+Driver 815 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.83285533037346 m/s
+	Overtake distance: [21.0357086] m
+
+Driver 816 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.92263990681161 m/s
+	Overtake distance: [21.72430293] m
+
+Driver 817 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.17100972921516 m/s
+	Overtake distance: [21.55057247] m
+
+Driver 818 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.52744273643765 m/s
+	Overtake distance: [20.25138593] m
+
+Driver 819 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.70958481766708 m/s
+	Overtake distance: [21.28773361] m
+
+Driver 820 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.76774507907963 m/s
+	Overtake distance: [23.37534027] m
+
+Driver 821 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.04902474975592 m/s
+	Overtake distance: [21.01172585] m
+
+Driver 822 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.77913081387113 m/s
+	Overtake distance: [20.78758261] m
+
+Driver 823 is a NORMAL
+	driver driving a CarType.SUV car @ 86.25311668711468 m/s
+	Overtake distance: [20.92180094] m
+
+Driver 824 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.88513710159064 m/s
+	Overtake distance: [20.8744197] m
+
+Driver 825 is a NORMAL
+	driver driving a CarType.SUV car @ 84.92568392005289 m/s
+	Overtake distance: [21.33355204] m
+
+Driver 826 is a NORMAL
+	driver driving a CarType.SUV car @ 86.86067574507885 m/s
+	Overtake distance: [21.5004436] m
+
+Driver 827 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 104.84768359463561 m/s
+	Overtake distance: [20.98834375] m
+
+Driver 828 is a NORMAL
+	driver driving a CarType.SUV car @ 85.51945365041574 m/s
+	Overtake distance: [21.53695513] m
+
+Driver 829 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.38300139867754 m/s
+	Overtake distance: [20.93298132] m
+
+Driver 830 is a NORMAL
+	driver driving a CarType.SUV car @ 85.9016833441923 m/s
+	Overtake distance: [21.40914808] m
+
+Driver 831 is a NORMAL
+	driver driving a CarType.TRUCK car @ 75.50056155499053 m/s
+	Overtake distance: [21.40637024] m
+
+Driver 832 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.45553103997241 m/s
+	Overtake distance: [20.20012707] m
+
+Driver 833 is a NORMAL
+	driver driving a CarType.SUV car @ 85.32265557137684 m/s
+	Overtake distance: [20.88614409] m
+
+Driver 834 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.80781460931877 m/s
+	Overtake distance: [21.26618579] m
+
+Driver 835 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.96152437875777 m/s
+	Overtake distance: [20.96321923] m
+
+Driver 836 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.33333208503004 m/s
+	Overtake distance: [21.77832358] m
+
+Driver 837 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.71090691451951 m/s
+	Overtake distance: [20.16565314] m
+
+Driver 838 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.23041527424996 m/s
+	Overtake distance: [20.48343629] m
+
+Driver 839 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.38973236069766 m/s
+	Overtake distance: [21.56557621] m
+
+Driver 840 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.69275869747165 m/s
+	Overtake distance: [20.86951743] m
+
+Driver 841 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.5907568935116 m/s
+	Overtake distance: [21.25903506] m
+
+Driver 842 is a NORMAL
+	driver driving a CarType.SUV car @ 87.96139740184758 m/s
+	Overtake distance: [21.33705402] m
+
+Driver 843 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 108.25054695464848 m/s
+	Overtake distance: [20.69320935] m
+
+Driver 844 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.19230476919488 m/s
+	Overtake distance: [20.46471916] m
+
+Driver 845 is a NORMAL
+	driver driving a CarType.SUV car @ 86.95447680447138 m/s
+	Overtake distance: [21.51142864] m
+
+Driver 846 is a NORMAL
+	driver driving a CarType.SUV car @ 87.96917221553377 m/s
+	Overtake distance: [20.17414538] m
+
+Driver 847 is a NORMAL
+	driver driving a CarType.SUV car @ 88.67602426687066 m/s
+	Overtake distance: [20.57171573] m
+
+Driver 848 is a NORMAL
+	driver driving a CarType.SEDAN car @ 101.00829794108574 m/s
+	Overtake distance: [20.42563028] m
+
+Driver 849 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.75720565188908 m/s
+	Overtake distance: [20.52790065] m
+
+Driver 850 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.61215932072211 m/s
+	Overtake distance: [21.0752325] m
+
+Driver 851 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.15395560979374 m/s
+	Overtake distance: [20.36516185] m
+
+Driver 852 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.40016267196934 m/s
+	Overtake distance: [20.83524895] m
+
+Driver 853 is a NORMAL
+	driver driving a CarType.SUV car @ 86.48982419837965 m/s
+	Overtake distance: [20.23634507] m
+
+Driver 854 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.8066453259693 m/s
+	Overtake distance: [20.77926043] m
+
+Driver 855 is a NORMAL
+	driver driving a CarType.SUV car @ 86.71439286116792 m/s
+	Overtake distance: [21.10648606] m
+
+Driver 856 is a NORMAL
+	driver driving a CarType.SUV car @ 86.21506346468757 m/s
+	Overtake distance: [20.20125262] m
+
+Driver 857 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.10803815612626 m/s
+	Overtake distance: [20.36580568] m
+
+Driver 858 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.07329762234012 m/s
+	Overtake distance: [21.41447292] m
+
+Driver 859 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.86042329096311 m/s
+	Overtake distance: [20.5175302] m
+
+Driver 860 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.89215121354582 m/s
+	Overtake distance: [20.07385672] m
+
+Driver 861 is a NORMAL
+	driver driving a CarType.SUV car @ 87.99681644626347 m/s
+	Overtake distance: [21.0557928] m
+
+Driver 862 is a NORMAL
+	driver driving a CarType.SEDAN car @ 98.73926002638791 m/s
+	Overtake distance: [20.76674133] m
+
+Driver 863 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.7954002595111 m/s
+	Overtake distance: [21.09157766] m
+
+Driver 864 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.944646468176 m/s
+	Overtake distance: [20.44786753] m
+
+Driver 865 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.43837257484307 m/s
+	Overtake distance: [20.15902096] m
+
+Driver 866 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.99076474708103 m/s
+	Overtake distance: [22.01041553] m
+
+Driver 867 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.74180575359922 m/s
+	Overtake distance: [21.49371599] m
+
+Driver 868 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.44026568149577 m/s
+	Overtake distance: [21.2989105] m
+
+Driver 869 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.23282821763584 m/s
+	Overtake distance: [21.60998102] m
+
+Driver 870 is a NORMAL
+	driver driving a CarType.TRUCK car @ 73.2188428177906 m/s
+	Overtake distance: [20.9274415] m
+
+Driver 871 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.39933858538745 m/s
+	Overtake distance: [21.46629566] m
+
+Driver 872 is a NORMAL
+	driver driving a CarType.SEDAN car @ 99.54511155452597 m/s
+	Overtake distance: [20.9668685] m
+
+Driver 873 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.85444169058769 m/s
+	Overtake distance: [20.49899913] m
+
+Driver 874 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 107.30219537076118 m/s
+	Overtake distance: [21.61768358] m
+
+Driver 875 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.72454929213278 m/s
+	Overtake distance: [21.66549993] m
+
+Driver 876 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.20596637758752 m/s
+	Overtake distance: [21.02415119] m
+
+Driver 877 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.25828178585962 m/s
+	Overtake distance: [20.19882715] m
+
+Driver 878 is a NORMAL
+	driver driving a CarType.SEDAN car @ 100.63311509806401 m/s
+	Overtake distance: [20.67615644] m
+
+Driver 879 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 105.57287280138641 m/s
+	Overtake distance: [20.16539676] m
+
+Driver 880 is a NORMAL
+	driver driving a CarType.MOTORCYCLE car @ 106.8910345418939 m/s
+	Overtake distance: [20.85987758] m
+
+Driver 881 is a NORMAL
+	driver driving a CarType.TRUCK car @ 72.77935181338913 m/s
+	Overtake distance: [20.15376782] m
+
+Driver 882 is a NORMAL
+	driver driving a CarType.SUV car @ 86.29031499607522 m/s
+	Overtake distance: [20.64192664] m
+
+Driver 883 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 128.94408622940233 m/s
+	Overtake distance: [15.90439504] m
+
+Driver 884 is a RISKY
+	driver driving a CarType.SUV car @ 99.48441517021077 m/s
+	Overtake distance: [16.79388475] m
+
+Driver 885 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.43643472173854 m/s
+	Overtake distance: [15.35698404] m
+
+Driver 886 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.89735728541747 m/s
+	Overtake distance: [15.83693866] m
+
+Driver 887 is a RISKY
+	driver driving a CarType.TRUCK car @ 80.62678129866991 m/s
+	Overtake distance: [16.80497326] m
+
+Driver 888 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.16329654699099 m/s
+	Overtake distance: [15.63166124] m
+
+Driver 889 is a RISKY
+	driver driving a CarType.SUV car @ 100.42827456101122 m/s
+	Overtake distance: [15.45481073] m
+
+Driver 890 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.30769544772195 m/s
+	Overtake distance: [16.17524544] m
+
+Driver 891 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.15794563250998 m/s
+	Overtake distance: [15.7152695] m
+
+Driver 892 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 128.43055141595565 m/s
+	Overtake distance: [16.35816067] m
+
+Driver 893 is a RISKY
+	driver driving a CarType.SUV car @ 98.58187087716999 m/s
+	Overtake distance: [16.16669227] m
+
+Driver 894 is a RISKY
+	driver driving a CarType.SUV car @ 99.39330520446681 m/s
+	Overtake distance: [16.10442823] m
+
+Driver 895 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 131.84560397369748 m/s
+	Overtake distance: [16.25078563] m
+
+Driver 896 is a RISKY
+	driver driving a CarType.SUV car @ 101.00666453402692 m/s
+	Overtake distance: [15.7191624] m
+
+Driver 897 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 128.71650652764794 m/s
+	Overtake distance: [15.31309857] m
+
+Driver 898 is a RISKY
+	driver driving a CarType.SUV car @ 98.9729187939683 m/s
+	Overtake distance: [15.28788914] m
+
+Driver 899 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.47531445856927 m/s
+	Overtake distance: [15.96715131] m
+
+Driver 900 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.86564201929036 m/s
+	Overtake distance: [16.06098714] m
+
+Driver 901 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 131.5346310512938 m/s
+	Overtake distance: [15.82415556] m
+
+Driver 902 is a RISKY
+	driver driving a CarType.SUV car @ 100.03860877600236 m/s
+	Overtake distance: [15.6667241] m
+
+Driver 903 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.42210714139388 m/s
+	Overtake distance: [15.21882431] m
+
+Driver 904 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.50714467959845 m/s
+	Overtake distance: [16.07250759] m
+
+Driver 905 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 131.16321846984383 m/s
+	Overtake distance: [15.8633644] m
+
+Driver 906 is a RISKY
+	driver driving a CarType.SUV car @ 99.735203974834 m/s
+	Overtake distance: [16.30507273] m
+
+Driver 907 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.62809734563754 m/s
+	Overtake distance: [15.17749752] m
+
+Driver 908 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.49887619661315 m/s
+	Overtake distance: [15.11399453] m
+
+Driver 909 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.98390231954613 m/s
+	Overtake distance: [17.10053108] m
+
+Driver 910 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.68315078805777 m/s
+	Overtake distance: [17.48213203] m
+
+Driver 911 is a RISKY
+	driver driving a CarType.SUV car @ 101.34988255054557 m/s
+	Overtake distance: [15.37162064] m
+
+Driver 912 is a RISKY
+	driver driving a CarType.TRUCK car @ 81.11402723887629 m/s
+	Overtake distance: [16.02953008] m
+
+Driver 913 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 130.998354771364 m/s
+	Overtake distance: [15.02690163] m
+
+Driver 914 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.07681085434938 m/s
+	Overtake distance: [17.20770404] m
+
+Driver 915 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.53913890773991 m/s
+	Overtake distance: [16.19701225] m
+
+Driver 916 is a RISKY
+	driver driving a CarType.SUV car @ 101.06121914287172 m/s
+	Overtake distance: [15.59655061] m
+
+Driver 917 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.31855261675706 m/s
+	Overtake distance: [15.32772071] m
+
+Driver 918 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.42634349599287 m/s
+	Overtake distance: [15.08163144] m
+
+Driver 919 is a RISKY
+	driver driving a CarType.TRUCK car @ 79.34707900570976 m/s
+	Overtake distance: [16.34342328] m
+
+Driver 920 is a RISKY
+	driver driving a CarType.TRUCK car @ 80.614864186574 m/s
+	Overtake distance: [15.62649492] m
+
+Driver 921 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.3203377782697 m/s
+	Overtake distance: [16.90267773] m
+
+Driver 922 is a RISKY
+	driver driving a CarType.SUV car @ 100.02465418170627 m/s
+	Overtake distance: [16.37049517] m
+
+Driver 923 is a RISKY
+	driver driving a CarType.TRUCK car @ 81.64035731844369 m/s
+	Overtake distance: [15.71197552] m
+
+Driver 924 is a RISKY
+	driver driving a CarType.SUV car @ 100.41417660738529 m/s
+	Overtake distance: [15.36571242] m
+
+Driver 925 is a RISKY
+	driver driving a CarType.TRUCK car @ 79.78704247874404 m/s
+	Overtake distance: [17.16224964] m
+
+Driver 926 is a RISKY
+	driver driving a CarType.SUV car @ 99.92619667654888 m/s
+	Overtake distance: [15.05823052] m
+
+Driver 927 is a RISKY
+	driver driving a CarType.SUV car @ 101.20737965285284 m/s
+	Overtake distance: [15.22282747] m
+
+Driver 928 is a RISKY
+	driver driving a CarType.SUV car @ 101.61126437776917 m/s
+	Overtake distance: [15.16058386] m
+
+Driver 929 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 128.51515377515545 m/s
+	Overtake distance: [16.31309027] m
+
+Driver 930 is a RISKY
+	driver driving a CarType.SUV car @ 98.57114730292096 m/s
+	Overtake distance: [15.4287446] m
+
+Driver 931 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.65507231223229 m/s
+	Overtake distance: [15.36404178] m
+
+Driver 932 is a RISKY
+	driver driving a CarType.SUV car @ 101.96331946882061 m/s
+	Overtake distance: [15.0232009] m
+
+Driver 933 is a RISKY
+	driver driving a CarType.SUV car @ 100.32452163858534 m/s
+	Overtake distance: [15.88422112] m
+
+Driver 934 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.98309890442414 m/s
+	Overtake distance: [15.99368204] m
+
+Driver 935 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.45264317699632 m/s
+	Overtake distance: [15.06425634] m
+
+Driver 936 is a RISKY
+	driver driving a CarType.TRUCK car @ 81.97618402884129 m/s
+	Overtake distance: [15.57588927] m
+
+Driver 937 is a RISKY
+	driver driving a CarType.SUV car @ 100.76230621467339 m/s
+	Overtake distance: [15.35864316] m
+
+Driver 938 is a RISKY
+	driver driving a CarType.SUV car @ 99.28390653093172 m/s
+	Overtake distance: [16.11619353] m
+
+Driver 939 is a RISKY
+	driver driving a CarType.SUV car @ 99.12466242906943 m/s
+	Overtake distance: [15.75452709] m
+
+Driver 940 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.52275520204955 m/s
+	Overtake distance: [16.38832878] m
+
+Driver 941 is a RISKY
+	driver driving a CarType.SUV car @ 101.19333941019171 m/s
+	Overtake distance: [15.54350903] m
+
+Driver 942 is a RISKY
+	driver driving a CarType.SUV car @ 99.83798195102892 m/s
+	Overtake distance: [15.38388538] m
+
+Driver 943 is a RISKY
+	driver driving a CarType.SEDAN car @ 118.4257753314419 m/s
+	Overtake distance: [16.29991479] m
+
+Driver 944 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.00386842426394 m/s
+	Overtake distance: [15.71699499] m
+
+Driver 945 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.72470044219438 m/s
+	Overtake distance: [15.41962358] m
+
+Driver 946 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 130.55229440833943 m/s
+	Overtake distance: [15.69689226] m
+
+Driver 947 is a RISKY
+	driver driving a CarType.SUV car @ 100.68219380541267 m/s
+	Overtake distance: [16.16554785] m
+
+Driver 948 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 130.44170004940818 m/s
+	Overtake distance: [15.61892268] m
+
+Driver 949 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.738104636553 m/s
+	Overtake distance: [15.40598214] m
+
+Driver 950 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.00799907842887 m/s
+	Overtake distance: [16.36608393] m
+
+Driver 951 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 130.87293942194404 m/s
+	Overtake distance: [15.62392273] m
+
+Driver 952 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.12054689224438 m/s
+	Overtake distance: [16.5345319] m
+
+Driver 953 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.61726632039276 m/s
+	Overtake distance: [16.41696091] m
+
+Driver 954 is a RISKY
+	driver driving a CarType.SUV car @ 101.8124933728034 m/s
+	Overtake distance: [15.5692318] m
+
+Driver 955 is a RISKY
+	driver driving a CarType.SEDAN car @ 121.43004895455826 m/s
+	Overtake distance: [15.15137611] m
+
+Driver 956 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 131.1320041548398 m/s
+	Overtake distance: [16.92728761] m
+
+Driver 957 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.30320994258616 m/s
+	Overtake distance: [15.37654449] m
+
+Driver 958 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.80347305902858 m/s
+	Overtake distance: [15.49804468] m
+
+Driver 959 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.78147094484069 m/s
+	Overtake distance: [15.18562279] m
+
+Driver 960 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.35054040761736 m/s
+	Overtake distance: [15.8769682] m
+
+Driver 961 is a RISKY
+	driver driving a CarType.SUV car @ 98.37614582638257 m/s
+	Overtake distance: [15.83026215] m
+
+Driver 962 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 129.87509163472205 m/s
+	Overtake distance: [16.17708142] m
+
+Driver 963 is a RISKY
+	driver driving a CarType.SEDAN car @ 118.31273917321805 m/s
+	Overtake distance: [15.84268165] m
+
+Driver 964 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.38566056627683 m/s
+	Overtake distance: [15.85606514] m
+
+Driver 965 is a RISKY
+	driver driving a CarType.SUV car @ 99.10962316397699 m/s
+	Overtake distance: [15.43547791] m
+
+Driver 966 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 132.1553517518539 m/s
+	Overtake distance: [15.26983382] m
+
+Driver 967 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.23859731409931 m/s
+	Overtake distance: [15.38022834] m
+
+Driver 968 is a RISKY
+	driver driving a CarType.MOTORCYCLE car @ 130.494522421503 m/s
+	Overtake distance: [16.31610766] m
+
+Driver 969 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.11024709527118 m/s
+	Overtake distance: [15.64641371] m
+
+Driver 970 is a RISKY
+	driver driving a CarType.SEDAN car @ 119.39031993279501 m/s
+	Overtake distance: [15.98796244] m
+
+Driver 971 is a RISKY
+	driver driving a CarType.SUV car @ 100.3672598487111 m/s
+	Overtake distance: [15.65410567] m
+
+Driver 972 is a RISKY
+	driver driving a CarType.SEDAN car @ 120.22144490983229 m/s
+	Overtake distance: [16.97538831] m
+
+Driver 973 is a RISKY
+	driver driving a CarType.SUV car @ 99.90728948898558 m/s
+	Overtake distance: [16.40692313] m
+
+Driver 974 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.80769132349178 m/s
+	Overtake distance: [10.33629516] m
+
+Driver 975 is a AGGRESSIVE
+	driver driving a CarType.TRUCK car @ 85.96534122919792 m/s
+	Overtake distance: [11.57587255] m
+
+Driver 976 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.20529325668343 m/s
+	Overtake distance: [12.16161216] m
+
+Driver 977 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.1386909708838 m/s
+	Overtake distance: [10.37808078] m
+
+Driver 978 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 140.60604801831963 m/s
+	Overtake distance: [10.32292765] m
+
+Driver 979 is a AGGRESSIVE
+	driver driving a CarType.TRUCK car @ 86.95719735678053 m/s
+	Overtake distance: [10.39734255] m
+
+Driver 980 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.41227342185888 m/s
+	Overtake distance: [10.24379683] m
+
+Driver 981 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.17411952495334 m/s
+	Overtake distance: [10.64199298] m
+
+Driver 982 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 140.39319174632817 m/s
+	Overtake distance: [10.26393732] m
+
+Driver 983 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.28823442006615 m/s
+	Overtake distance: [10.61506846] m
+
+Driver 984 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.09359580955984 m/s
+	Overtake distance: [10.54315176] m
+
+Driver 985 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 138.86997547683129 m/s
+	Overtake distance: [10.98435383] m
+
+Driver 986 is a AGGRESSIVE
+	driver driving a CarType.TRUCK car @ 85.36067014861165 m/s
+	Overtake distance: [11.16842539] m
+
+Driver 987 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.36948666261344 m/s
+	Overtake distance: [10.10966896] m
+
+Driver 988 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.5278846633714 m/s
+	Overtake distance: [10.71853169] m
+
+Driver 989 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.0924152595422 m/s
+	Overtake distance: [10.49397611] m
+
+Driver 990 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.6630477076826 m/s
+	Overtake distance: [10.87161844] m
+
+Driver 991 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 141.88040956423433 m/s
+	Overtake distance: [10.1614737] m
+
+Driver 992 is a AGGRESSIVE
+	driver driving a CarType.MOTORCYCLE car @ 154.1123581913699 m/s
+	Overtake distance: [10.74415371] m
+
+Driver 993 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.73383093590562 m/s
+	Overtake distance: [10.45393351] m
+
+Driver 994 is a AGGRESSIVE
+	driver driving a CarType.SUV car @ 111.65860693024963 m/s
+	Overtake distance: [10.4113751] m
+
+Driver 995 is a AGGRESSIVE
+	driver driving a CarType.SUV car @ 112.80768756702723 m/s
+	Overtake distance: [10.49946472] m
+
+Driver 996 is a AGGRESSIVE
+	driver driving a CarType.SEDAN car @ 139.0217513582004 m/s
+	Overtake distance: [11.21294826] m
+
+Driver 997 is a RECKLESS
+	driver driving a CarType.SUV car @ 125.7429049288542 m/s
+	Overtake distance: [6.04323969] m
+
+Driver 998 is a RECKLESS
+	driver driving a CarType.SUV car @ 127.64227436215677 m/s
+	Overtake distance: [5.72660447] m
+
+Driver 999 is a RECKLESS
+	driver driving a CarType.MOTORCYCLE car @ 175.8053738616887 m/s
+	Overtake distance: [5.01785167] m
+

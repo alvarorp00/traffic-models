@@ -14,10 +14,10 @@
 """
 
 
-from typing import Dict
-from lib.Driver import Driver, DriverConfig, CarType,\
+from typing import Dict, List
+from lib.driver import Driver, DriverConfig, CarType,\
     DriverDistributions, DriverType
-from lib.Road import Road
+from lib.road import Road
 import numpy as np
 import scipy.stats as st
 
@@ -211,6 +211,31 @@ class Model:
     @property
     def lanes(self) -> Dict[int, int]:
         return self.info['lanes']
+
+    @staticmethod
+    def classify_by_driver(drivers: list[Driver]) ->\
+            Dict[DriverType, List[Driver]]:
+        dict = {}
+
+        for d in drivers:
+            if d.config.driver_type in dict.keys():
+                dict[d.config.driver_type].append(d)
+            else:
+                dict[d.config.driver_type] = [d]
+
+        return dict
+
+    @staticmethod
+    def classify_by_car(drivers: list[Driver]) -> Dict[CarType, List[Driver]]:
+        dict = {}
+
+        for d in drivers:
+            if d.config.car_type in dict.keys():
+                dict[d.config.car_type].append(d)
+            else:
+                dict[d.config.car_type] = [d]
+
+        return dict
 
 
 class Engine:
