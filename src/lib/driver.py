@@ -20,8 +20,10 @@ and so are required to be passed as arguments to the constructor.
 
 import enum
 import random
+from typing import Tuple, Union
 import numpy as np
 from scipy import stats as st
+from scipy.spatial.distance import squareform, pdist
 
 
 class CarType(enum.Enum):
@@ -32,18 +34,6 @@ class CarType(enum.Enum):
     SUV = 2
     SEDAN = 3
     MOTORCYCLE = 4
-
-    @staticmethod
-    def as_list() -> list['CarType']:
-        """
-        Returns a list of all the car types.
-
-        Returns
-        -------
-        List[CarType]
-            A list of all the car types.
-        """
-        return list(CarType)
 
     @staticmethod
     def random(size=1) -> list['CarType']:
@@ -59,7 +49,7 @@ class CarType(enum.Enum):
             A random car type.
         """
         choice = random.choices(
-            population=CarType.as_list(),
+            population=list(CarType),
             weights=[.2, .4, .3, .1],
             k=size
         )
@@ -85,10 +75,10 @@ class CarType(enum.Enum):
         hist, _ = np.histogram(stats, bins=5)
 
         # Get probs
-        probs = hist / hist.sum()
+        probs = np.linalg.norm(np.array(hist))
 
         choice = random.choices(
-            population=CarType.as_list(),
+            population=list(CarType),
             weights=probs,
             k=size
         )
@@ -169,18 +159,6 @@ class DriverType(enum.Enum):
         return self.name
 
     @staticmethod
-    def as_list() -> list['DriverType']:
-        """
-        Returns a list of all the driver types.
-
-        Returns
-        -------
-        List[DriverType]
-            A list of all the driver types.
-        """
-        return list(DriverType)
-
-    @staticmethod
     def random(size=1) -> list['DriverType']:
         """
         Returns a random driver type.
@@ -194,7 +172,7 @@ class DriverType(enum.Enum):
             A random driver type.
         """
         choice = random.choices(
-            population=DriverType.as_list(),
+            population=list(DriverType),
             weights=[.4, .3, .15, .1, .05],
             k=size
         )
@@ -220,10 +198,12 @@ class DriverType(enum.Enum):
         hist, _ = np.histogram(stats, bins=5)
 
         # Get probs
-        probs = hist / hist.sum()
+        probs = np.linalg.norm(np.array(hist))
+
+        print(probs)
 
         choice = random.choices(
-            population=DriverType.as_list(),
+            population=list(DriverType),
             weights=probs,
             k=size
         )
@@ -294,11 +274,118 @@ class DriverDistributions:
         return float(rvs)
 
     @staticmethod
-    def location_initialize(start, end, size=1) -> float:
+    def location_initialize(start: int, end: int, size: int,
+                            safe: bool = False,
+                            **kwargs) -> Tuple[np.ndarray, bool]:
         """
         Returns a random position in the road.
+
+        Setting up a safe mode means that the locations
+        will be generated so that each of them is at least
+        safe_distance away from the other locations.
+
+        Parameters
+        ----------
+        start : int
+            The start of the road.
+        end : int
+            The end of the road.
+        size : int
+            The number of locations to generate.
+        safe : bool
+            Whether to generate safe locations or not.
+        max_tries : int
+            The maximum number of tries to generate a safe location.
+        safe_distance : int
+            The minimum distance between each location.
+
+        Returns
+        -------
+        (float, bool)
+            The location and whether it is safe or not.
         """
-        return float(np.random.uniform(low=start, high=end, size=size))
+        if safe is False:
+            return (DriverDistributions._location_initialize_unsafe(
+                start, end, size
+            ), False)
+        else:
+            # Generate safe
+            max_tries = kwargs.get('max_tries', 100)
+            safe_distance = kwargs.get('safe_distance', 10)
+            res = DriverDistributions._location_initialize_safe(
+                    start, end, size, safe_distance, max_tries  # type: ignore
+                  )
+            if res is None:
+                # If we can't find a safe position, we'll return
+                # an unsafe one
+                return (DriverDistributions._location_initialize_unsafe(
+                    start, end, size
+                ), False)
+            else:
+                return (res, True)
+
+    @staticmethod
+    def _location_initialize_unsafe(start: int,
+                                    end: int,
+                                    size: int) -> np.ndarray:
+        """
+        Returns a random position in the road, with no safe distance
+        (i.e. it can be too close to other locations)
+        """
+        return np.random.uniform(low=start, high=end, size=size)
+
+    @staticmethod
+    def _location_initialize_safe(start: int, end: int, size: int,
+                                  safe_distance: float,
+                                  max_tries: int,
+                                  dim: int = 1) -> Union[np.ndarray, None]:
+        """
+        Returns a random position in the road that is safe.
+
+        Safe distance means that the locations
+        will be generated so that each of them is at least
+        safe_distance away from the other locations.
+
+        Use the `location_initialize` method instead,
+        it'll use this one if the safe_distance
+        parameter is not None.
+
+        If it can't find a safe group of positions,
+        it'll return None.
+
+        Parameters
+        ----------
+        start : float
+            The start of the road.
+        end : float
+            The end of the road.
+        size : int
+            The number of locations to generate.
+        safe_distance : float
+            The safe distance.
+        max_tries : int
+            The maximum number of tries to generate a safe location.
+        """
+
+        pos = np.random.uniform(
+            low=start,
+            high=end,
+            size=(size, dim)
+        )
+        dist_matrix = squareform(pdist(pos))
+        np.fill_diagonal(dist_matrix, np.inf)
+        for i in range(max_tries):
+            if np.min(dist_matrix) >= safe_distance:
+                return pos
+            idx = np.argmin(dist_matrix)
+            i, j = np.unravel_index(idx, dist_matrix.shape)  # type: ignore
+            vec = pos[i] - pos[j]
+            vec /= np.linalg.norm(vec)
+            pos[i] += vec * (safe_distance - dist_matrix[i, j]) / 2
+            pos[j] -= vec * (safe_distance - dist_matrix[i, j]) / 2
+            dist_matrix = squareform(pdist(pos))
+            np.fill_diagonal(dist_matrix, np.inf)
+        return None
 
     @staticmethod
     def risk_overtake_distance(driver: 'Driver', size=1):

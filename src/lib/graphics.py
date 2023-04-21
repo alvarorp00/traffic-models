@@ -95,7 +95,7 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
     represent the driver type.
 
     The xaxis will represent the velocity of the driver in m/s,
-    and the yaxis the amount of drivers with that velocity (density)
+    and the yaxis the amount of drivers with th at velocity (density)
     through an histogram.
     """
 
