@@ -26,6 +26,34 @@ from scipy import stats as st
 from scipy.spatial.distance import squareform, pdist
 
 
+class LanePriority(enum.Enum):
+    LEFT = 0,
+    RIGHT = 1
+
+    @staticmethod
+    def random(size=1) -> list['LanePriority']:
+        """
+        Returns a random lane priority.
+
+        Probability distribution is defined by a multinomial
+        distribution.
+
+        Probability of LEFT is 0.5 and probability of RIGHT is 0.5.
+
+        Returns
+        -------
+        LanePriority
+            A random lane priority.
+        """
+        choice = random.choices(
+            population=list(LanePriority),
+            weights=[.5, .5],
+            k=size
+        )
+
+        return choice
+
+
 class CarType(enum.Enum):
     """
     Enum for the type of car. 4 types are defined:
@@ -166,6 +194,13 @@ class DriverType(enum.Enum):
         Probability distribution is defined by a multinomial
         distribution.
 
+        Probabilities:
+        - CAUTIOUS: 0.4
+        - NORMAL: 0.3
+        - RISKY: 0.15
+        - AGGRESSIVE: 0.1
+        - RECKLESS: 0.05
+
         Returns
         -------
         DriverType
@@ -197,10 +232,8 @@ class DriverType(enum.Enum):
         # Create the histogram
         hist, _ = np.histogram(stats, bins=5)
 
-        # Get probs
-        probs = np.linalg.norm(np.array(hist))
-
-        print(probs)
+        # Get probs by normalizing
+        probs = np.array(hist) / np.sum(np.array(hist))
 
         choice = random.choices(
             population=list(DriverType),
@@ -234,6 +267,64 @@ class DriverType(enum.Enum):
 
 
 class DriverDistributions:
+    @staticmethod
+    def lane_initialize(n_lanes: int) -> int:
+        """
+        Returns a random lane, namely
+        a random integer between 0 and n_lanes - 1.
+
+        Parameters
+        ----------
+        n_lanes : int
+            The number of lanes
+            of the road.
+
+        Returns
+        -------
+        int
+            A random lane.
+        """
+        return random.randint(0, n_lanes - 1)
+
+    @staticmethod
+    def lane_initialize_weighted(n_lanes: int,
+                                 lane_priority: LanePriority,
+                                 size: int = 1) -> np.ndarray:
+        """
+        Returns a random lane, namely a random integer
+        between 0 and n_lanes - 1 with a weighted
+        probability distribution.
+
+        Probability distribution is defined by
+        a decreasing distribution of probabilities.
+        """
+
+        # Decreasing distribution of probabilities from
+        # left to right, so the left has the highest
+        weights = [1/(idx+1) for idx in range(n_lanes)]
+        accum = sum(weights)
+        weights = [w/accum for w in weights]
+
+        if lane_priority == LanePriority.LEFT:
+            # Reverse the probabilities so that the left
+            # has the lowest probability --> such lane
+            # will be chosen less often
+            weights = weights[::-1]
+
+        lanes = np.arange(n_lanes)
+
+        if lane_priority == LanePriority.LEFT:
+            # Reverse the lanes so that the left
+            # has the highest index and the right
+            # the lowest
+            lanes = lanes[::-1]
+
+        return np.random.choice(
+            a=lanes,
+            p=weights,
+            size=size,
+        )
+
     @staticmethod
     def speed_initialize(car_type: CarType,
                          driver_type: DriverType, size=1):
@@ -274,7 +365,7 @@ class DriverDistributions:
         return float(rvs)
 
     @staticmethod
-    def location_initialize(start: int, end: int, size: int,
+    def location_initialize(start: float, end: float, size: int,
                             safe: bool = False,
                             **kwargs) -> Tuple[np.ndarray, bool]:
         """
@@ -325,8 +416,8 @@ class DriverDistributions:
                 return (res, True)
 
     @staticmethod
-    def _location_initialize_unsafe(start: int,
-                                    end: int,
+    def _location_initialize_unsafe(start: float,
+                                    end: float,
                                     size: int) -> np.ndarray:
         """
         Returns a random position in the road, with no safe distance
@@ -335,7 +426,7 @@ class DriverDistributions:
         return np.random.uniform(low=start, high=end, size=size)
 
     @staticmethod
-    def _location_initialize_safe(start: int, end: int, size: int,
+    def _location_initialize_safe(start: float, end: float, size: int,
                                   safe_distance: float,
                                   max_tries: int,
                                   dim: int = 1) -> Union[np.ndarray, None]:
@@ -380,11 +471,16 @@ class DriverDistributions:
             idx = np.argmin(dist_matrix)
             i, j = np.unravel_index(idx, dist_matrix.shape)  # type: ignore
             vec = pos[i] - pos[j]
+            # Ignore possible error
+            # (it already puts a NaN in the vector)
+            np.seterr(divide='ignore', invalid='ignore')  # type: ignore
             vec /= np.linalg.norm(vec)
             pos[i] += vec * (safe_distance - dist_matrix[i, j]) / 2
             pos[j] -= vec * (safe_distance - dist_matrix[i, j]) / 2
             dist_matrix = squareform(pdist(pos))
             np.fill_diagonal(dist_matrix, np.inf)
+            # Restore the error settings
+            np.seterr(divide='warn', invalid='warn')  # type: ignore
         return None
 
     @staticmethod
@@ -505,7 +601,7 @@ class DriverConfig:
         self.car_type = kwargs['car_type']
 
         if 'location' in kwargs:
-            assert isinstance(kwargs['location'], float)
+            # assert isinstance(kwargs['location'], float)
             self.location = kwargs['location']
         else:
             self.location = 0

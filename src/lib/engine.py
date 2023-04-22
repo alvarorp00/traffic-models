@@ -14,22 +14,23 @@
 """
 
 
+import logging
 from typing import Dict, List
 from lib.driver import Driver, DriverConfig, CarType,\
-    DriverDistributions, DriverType
+    DriverDistributions, DriverType, LanePriority
 from lib.road import Road
 import numpy as np
 import scipy.stats as st
 
 
-def initialize_drivers(population_size: int,
-                       position_low: float = 0.0,
-                       position_high: float = 1e4,
-                       lognormal_mode=False,) -> Dict[int, Driver]:
+def initialize_drivers(run_config: 'RunConfig',
+                       lognormal_mode: bool = False,
+                       debug=False) -> Dict[int, Driver]:
     """
     Initializes the drivers for the simulation.
 
-    Take the population size and obtain a random sample from
+    If lognormal_mode is set to True, the method
+    will take the population size and obtain a random sample from
     the log-normal distribution. Then create an histogram
     of the sample (5 bins), where each bin represents a
     driver type. Then create the drivers based on the
@@ -50,27 +51,48 @@ def initialize_drivers(population_size: int,
     lognormal_mode : bool
         If True, the drivers are selected from a log-normal
         distribution. If False, the drivers are selected
-        from a multinomial distribution:
-            - 40% of the drivers are type 1
-            - 30% of the drivers are type 2
-            - 15% of the drivers are type 3
-            - 10% of the drivers are type 4
-            - 5% of the drivers are type 5
+        from a multinomial distribution. Check the
+        function `DriverType.random_lognormal` for more
+        information.
     """
-    driver_types = DriverType.random_lognormal(size=population_size)
+    if lognormal_mode:
+        driver_types = DriverType.random_lognormal(
+            size=run_config.population_size
+        )
+    else:
+        driver_types = DriverType.random(size=run_config.population_size)
     drivers = {}
 
-    for i in range(population_size):
+    (locations, safe) = DriverDistributions.location_initialize(
+                            start=run_config.population_size,
+                            end=run_config.population_size,
+                            size=run_config.population_size,
+                            safe=True,
+                        )
+
+    if not safe:
+        logging.warning("The drivers were not initialized safely. "
+                        "The location of the drivers might be "
+                        "close to other drivers.")
+
+        if debug is False:
+            logging.critical("Cannot continue with the simulation. "
+                             "Location of drivers is not safe to proceed.")
+
+    lanes = DriverDistributions.lane_initialize_weighted(
+        n_lanes=run_config.lanes,
+        lane_priority=run_config.lane_priority,
+        size=run_config.population_size,
+    )
+
+    for i in range(len(driver_types)):
         car_type = CarType.random()[0]
         dconfig = DriverConfig(
             id=i,
             driver_type=driver_types[i],
             car_type=car_type,
-            location=DriverDistributions.location_initialize(
-                start=position_low,
-                end=position_high,
-                size=1
-            ),
+            lane=int(lanes[i]),
+            location=float(locations[i]),
             speed=DriverDistributions.speed_initialize(
                 car_type=car_type,
                 driver_type=driver_types[i],
@@ -97,6 +119,26 @@ class RunConfig:
             Time steps to run the simulation for. Defaults to 1000.
         lanes : int
             The number of lanes on the road. Defaults to 1.
+        lane_priority : LanePriority
+            The priority of the lanes. Defaults to LanePriority.LEFT.
+            The priority of the lanes is used to determine which
+            lane the drivers will use when changing lanes, namely
+            when the driver is in the middle lane and wants to
+            overtake, the driver will use the lane with the highest
+            priority; LanePriority.LEFT means that the left lane
+            is the latest lane to occupy when overtaking.
+        max_speed : float
+            The maximum speed of the drivers in the simulation.
+            Defaults to 120 km/h.
+        debug : bool
+            If True, the simulation will run in debug mode.
+            Defaults to False.
+
+            For example, when initializing the drivers, the
+            locations of the drivers are checked to make sure
+            that they are not too close to each other. If they
+            are too close, the simulation will not continue unless
+            debug is set to True.
         """
 
         if 'population_size' in kwargs:
@@ -121,17 +163,21 @@ class RunConfig:
         else:
             self.lanes = 1
         if 'lane_priority' in kwargs:
-            assert len(kwargs['lane_priority']) == self.lanes
-            assert isinstance(kwargs['lane_priority'], np.ndarray)
+            assert isinstance(kwargs['lane_priority'], LanePriority)
             self.lane_priority = kwargs['lane_priority']
         else:
-            self.lane_priority = np.array([1])  # By default just one lane
+            self.lane_priority = LanePriority.LEFT
         if 'max_speed' in kwargs:
             assert isinstance(kwargs['max_speed'], float) or \
                      isinstance(kwargs['max_speed'], int)
             self.max_speed = kwargs['max_speed']
         else:
             self.max_speed = 120  # In km/h
+        if 'debug' in kwargs:
+            assert isinstance(kwargs['debug'], bool)
+            self.debug = kwargs['debug']
+        else:
+            self.debug = False
 
 
 class Model:
@@ -141,23 +187,9 @@ class Model:
         self.info = {}
 
         self.info['drivers'] = initialize_drivers(
-            population_size=self.run_config.population_size
+            run_config=self.run_config,
+            debug=self.run_config.debug
         )
-
-        # Change the location of the drivers, speed and lane
-        for d in self.info['drivers'].values():
-            d.config.location = np.random.uniform(
-                low=0,
-                high=self.run_config.road_length
-            )
-            d.config.speed = np.random.uniform(
-                low=0,
-                high=30
-            )
-            d.config.lane = np.random.choice(
-                a=np.arange(0, self.run_config.lanes),
-                p=self.run_config.lane_priority
-            )
 
         self.info['road'] = Road(
             length=self.run_config.road_length,
@@ -224,7 +256,8 @@ class Model:
             filter(lambda d: d.config.lane == lane, self.drivers.values())
         ]
 
-
+        # TODO
+        pass
 
     @staticmethod
     def classify_by_driver(drivers: list[Driver]) ->\

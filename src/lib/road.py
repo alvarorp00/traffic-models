@@ -5,6 +5,8 @@
 
 from typing import Dict
 from lib.driver import Driver
+import enum
+import random
 
 
 class Road:
@@ -18,6 +20,9 @@ class Road:
             The length of the road in meters.
         lanes : int
             The number of lanes on the road.
+        max_speed : float
+            The maximum speed allowed on the road in km/h.
+        lane_priority : LanePriority        
         """
         self.length = kwargs['length']
         self.lanes = kwargs['lanes']

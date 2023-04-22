@@ -148,3 +148,47 @@ def plot_distances(drivers: list[lib.driver.Driver], fname: str):
     """
     # TODO
     pass
+
+
+def plot_locations(drivers: list[lib.driver.Driver], fname: str):
+    """
+    Plot of the locations of the drivers in the simulation.
+    """
+    # Separate the locations by lane
+    data = {}
+
+    # Get number of lanes
+    n_lanes = np.max(np.array(
+        [d.config.lane for d in drivers]
+    ))
+
+    for lane in range(n_lanes):
+        data[lane] = np.array(
+            [d.config.location for d in drivers if d.config.lane == lane]
+        )
+
+    # Plot the data
+    figure = plt.figure(figsize=(14, 7))
+
+    # One plot, one column per lane
+    ax = figure.add_subplot(111)  # type: ignore
+
+    for lane, locations in data.items():
+        # lane represents the xaxis position
+
+        # Plot the points
+        ax.plot(xs=np.ones(shape=locations.shape) * lane,
+                ys=locations,)
+
+        print(locations)
+
+    style_set(
+        ax,
+        title='Driver locations',
+        ylabel='Location (m)',
+        xlabel='Lane',
+    )
+
+    figure.savefig(fname, dpi=300)
+
+    # TODO: fix, not working yet
