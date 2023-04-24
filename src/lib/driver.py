@@ -20,7 +20,7 @@ and so are required to be passed as arguments to the constructor.
 
 import enum
 import random
-from typing import Tuple, Union
+from typing import Dict, Optional, Tuple, Union
 import numpy as np
 from scipy import stats as st
 from scipy.spatial.distance import squareform, pdist
@@ -365,6 +365,92 @@ class DriverDistributions:
         return float(rvs)
 
     @staticmethod
+    def lane_location_initialize(
+        start: float, end: float,
+        size: int, n_lanes: int,
+        lane_prio: LanePriority,
+        safe_distance: float,
+        probs: list[float],
+        max_tries: int = 100
+    ) -> Optional[Dict[int, np.ndarray]]:
+        """
+        Returns a dictionary with the lane as key and the
+        locations as values.
+
+        Parameters
+        ----------
+        start : float
+            The start of the road.
+        end : float
+            The end of the road.
+        size : int
+            The number of locations to generate.
+        n_lanes : int
+            The number of lanes of the road.
+        lane_prio : LanePriority
+            The lane priority.
+        safe_distance : float
+            The safe distance between two drivers.
+        probs : list[float]
+            The probability of each lane.
+        max_tries : int
+            The maximum number of tries to find a suitable
+            location for a driver that satisfies the safe
+            distance.
+
+        Returns
+        -------
+        dict[int, np.ndarray]
+            A dictionary with the lane as key and the
+            locations as values.
+
+        NOTE: if no suitable location is found for a driver
+        (i.e. the driver is too close to another driver
+        and no position at a safe distance is found in a lane),
+        then the returned value will be None
+        """
+        ret = {}
+
+        # Generate for each lane
+
+        assert len(probs) == n_lanes
+        assert np.sum(probs) == 1
+
+        lane_density = np.array(np.zeros(shape=n_lanes), dtype=int)
+
+        for lane in range(n_lanes):
+            lane_density[lane] = int(probs[lane] * size)
+
+        # If the sum of the lane densities is less than the
+        # total number of drivers, then we add the difference
+        # to the first lane
+        if np.sum(lane_density) < size:
+            lane_density[0] += size - np.sum(lane_density)
+
+        # Initialize ret with the lanes
+        for lane in range(n_lanes):
+            ret[lane] = np.zeros(shape=lane_density[lane])
+
+        for i in range(n_lanes):
+            # Generate drivers for each lane
+            lane_qty = lane_density[i]
+
+            locations = DriverDistributions._location_initialize_safe(
+                start=start, end=end,
+                size=lane_qty, safe_distance=safe_distance,
+                max_tries=max_tries
+            )
+
+            if locations is None:
+                return None
+
+            # Flatten & sort locations
+            ret[i] = np.sort(locations.flatten())
+
+        return ret
+
+    @DeprecationWarning
+    @staticmethod
     def location_initialize(start: float, end: float, size: int,
                             safe: bool = False,
                             **kwargs) -> Tuple[np.ndarray, bool]:
@@ -456,6 +542,11 @@ class DriverDistributions:
             The safe distance.
         max_tries : int
             The maximum number of tries to generate a safe location.
+
+        NOTE: each location is a vector of dimension `dim`,
+        so be careful when accessing the values, as the returned
+        value is a 2-level array, one for the whole locations
+        and one for each vector for each location.
         """
 
         pos = np.random.uniform(
