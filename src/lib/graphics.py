@@ -180,8 +180,6 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str):
         ax.plot(xs=np.ones(shape=locations.shape) * lane,
                 ys=locations,)
 
-        print(locations)
-
     style_set(
         ax,
         title='Driver locations',
@@ -192,3 +190,5 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str):
     figure.savefig(fname, dpi=300)
 
     # TODO: fix, not working yet
+
+    plt.close()

@@ -5,7 +5,8 @@ and the configuration specified in the Config module.
 
 from lib.engine import Engine, RunConfig
 from config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
-        TIME_STEPS, LANES, LANES_PRIORITY
+        TIME_STEPS, LANES, LANES_PRIORITY, LANES_DENSITY,\
+        SAFE_DISTANCE
 import lib.graphics as graphics
 
 
@@ -21,6 +22,8 @@ def run():
         max_speed=MAX_SPEED,
         lanes=LANES,
         lane_priority=LANES_PRIORITY,
+        lane_density=LANES_DENSITY,
+        safe_distance=SAFE_DISTANCE
     )
 
     engine = Engine(run_config)

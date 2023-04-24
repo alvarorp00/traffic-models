@@ -30,3 +30,7 @@ MAX_SPEED = 130  # In km/h
 LANES = 2
 
 LANES_PRIORITY = LanePriority.LEFT
+
+LANES_DENSITY = [0.8, 0.2]
+
+SAFE_DISTANCE = 4.  # In meters

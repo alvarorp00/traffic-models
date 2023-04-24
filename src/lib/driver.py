@@ -367,12 +367,8 @@ class DriverDistributions:
     @staticmethod
     def lane_location_initialize(
         start: float, end: float,
-        size: int, n_lanes: int,
-        lane_prio: LanePriority,
-        safe_distance: float,
-        probs: list[float],
-        max_tries: int = 100
-    ) -> Optional[Dict[int, np.ndarray]]:
+        size: int, **kwargs
+    ) -> Tuple[Dict[int, np.ndarray], bool]:
         """
         Returns a dictionary with the lane as key and the
         locations as values.
@@ -387,22 +383,26 @@ class DriverDistributions:
             The number of locations to generate.
         n_lanes : int
             The number of lanes of the road.
-        lane_prio : LanePriority
-            The lane priority.
         safe_distance : float
             The safe distance between two drivers.
-        probs : list[float]
+        lane_density : np.ndarray (float)
             The probability of each lane.
         max_tries : int
             The maximum number of tries to find a suitable
             location for a driver that satisfies the safe
-            distance.
+            distance. Default is 100.
+        safe : bool
+            If True, then the locations will be generated
+            in a way that the safe distance is satisfied.
+            Otherwise do not consider the safe distance.
+            Default is False.
 
         Returns
         -------
-        dict[int, np.ndarray]
-            A dictionary with the lane as key and the
-            locations as values.
+        Tuple[Dict[int, np.ndarray], bool]
+            The dictionary with the lane as key and the
+            locations as values and a boolean that indicates
+            if the safe distance was satisfied.
 
         NOTE: if no suitable location is found for a driver
         (i.e. the driver is too close to another driver
@@ -411,43 +411,57 @@ class DriverDistributions:
         """
         ret = {}
 
+        # Get parameters
+
+        n_lanes: int = kwargs.get('n_lanes')  # type: ignore
+        safe_distance: float = kwargs.get('safe_distance')  # type: ignore
+        lane_density: np.ndarray = kwargs.get('lane_density')  # type: ignore
+        max_tries = kwargs.get('max_tries', 100)
+        safe = kwargs.get('safe', False)
+
         # Generate for each lane
 
-        assert len(probs) == n_lanes
-        assert np.sum(probs) == 1
+        assert len(lane_density) == n_lanes
+        assert np.sum(lane_density) == 1
 
-        lane_density = np.array(np.zeros(shape=n_lanes), dtype=int)
+        lane_selection = np.random.choice(
+            a=np.arange(n_lanes),
+            p=lane_density,
+            size=size
+        )
 
-        for lane in range(n_lanes):
-            lane_density[lane] = int(probs[lane] * size)
-
-        # If the sum of the lane densities is less than the
-        # total number of drivers, then we add the difference
-        # to the first lane
-        if np.sum(lane_density) < size:
-            lane_density[0] += size - np.sum(lane_density)
+        lane_bins = np.bincount(lane_selection, minlength=n_lanes)
 
         # Initialize ret with the lanes
         for lane in range(n_lanes):
-            ret[lane] = np.zeros(shape=lane_density[lane])
+            ret[lane] = np.zeros(shape=lane_bins[lane])
+
+        __safe = True
 
         for i in range(n_lanes):
             # Generate drivers for each lane
-            lane_qty = lane_density[i]
+            lane_qty = lane_bins[i]
 
             locations = DriverDistributions._location_initialize_safe(
                 start=start, end=end,
                 size=lane_qty, safe_distance=safe_distance,
                 max_tries=max_tries
             )
+            if locations is None and safe:
+                locations = DriverDistributions._location_initialize_unsafe(
+                    start=start, end=end,
+                    size=lane_qty
+                )
+                __safe = False
+                # Flatten & sort locations
+                ret[i] = np.sort(locations.flatten())
+            elif locations is None and not safe:
+                return ({}, False)
+            elif locations is not None:
+                # Flatten & sort locations
+                ret[i] = np.sort(locations.flatten())
 
-            if locations is None:
-                return None
-
-            # Flatten & sort locations
-            ret[i] = np.sort(locations.flatten())
-
-        return ret
+        return (ret, __safe)
 
     @DeprecationWarning
     @staticmethod

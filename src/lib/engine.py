@@ -63,27 +63,35 @@ def initialize_drivers(run_config: 'RunConfig',
         driver_types = DriverType.random(size=run_config.population_size)
     drivers = {}
 
-    (locations, safe) = DriverDistributions.location_initialize(
-                            start=run_config.population_size,
-                            end=run_config.population_size,
-                            size=run_config.population_size,
-                            safe=True,
-                        )
+    (locations_lane, safe) = DriverDistributions.lane_location_initialize(
+                        start=0, end=run_config.road_length,
+                        size=run_config.population_size,
+                        n_lanes=run_config.lanes,
+                        safe_distance=run_config.safe_distance,
+                        lane_density=np.array(run_config.lane_density),
+                        safe=True,
+                    )
 
     if not safe:
         logging.warning("The drivers were not initialized safely. "
-                        "The location of the drivers might be "
+                        "The location of the drivers might be too "
                         "close to other drivers.")
 
         if debug is False:
             logging.critical("Cannot continue with the simulation. "
                              "Location of drivers is not safe to proceed.")
+            raise Exception("Cannot continue with the simulation. ")
 
-    lanes = DriverDistributions.lane_initialize_weighted(
-        n_lanes=run_config.lanes,
-        lane_priority=run_config.lane_priority,
-        size=run_config.population_size,
-    )
+    lanes_array = []
+    for k in locations_lane.keys():
+        lanes_array.extend(
+            [k for _ in range(len(locations_lane[k]))]
+        )
+
+    locations_array = []
+    for k in locations_lane.keys():
+        # print(f'locations_lane[{k}] = {locations_lane[k].tolist()}')
+        locations_array.extend(locations_lane[k].tolist())
 
     for i in range(len(driver_types)):
         car_type = CarType.random()[0]
@@ -91,8 +99,8 @@ def initialize_drivers(run_config: 'RunConfig',
             id=i,
             driver_type=driver_types[i],
             car_type=car_type,
-            lane=int(lanes[i]),
-            location=float(locations[i]),
+            lane=int(lanes_array[i]),
+            location=float(locations_array[i]),
             speed=DriverDistributions.speed_initialize(
                 car_type=car_type,
                 driver_type=driver_types[i],
@@ -127,6 +135,12 @@ class RunConfig:
             overtake, the driver will use the lane with the highest
             priority; LanePriority.LEFT means that the left lane
             is the latest lane to occupy when overtaking.
+        safe_distance : float
+            The safe distance between drivers in meters.
+            Defaults to 2 meters.
+        lane_density : List[float]
+            The density of the drivers in each lane.
+            Defaults to equal distribution.
         max_speed : float
             The maximum speed of the drivers in the simulation.
             Defaults to 120 km/h.
@@ -167,6 +181,17 @@ class RunConfig:
             self.lane_priority = kwargs['lane_priority']
         else:
             self.lane_priority = LanePriority.LEFT
+        if 'safe_distance' in kwargs:
+            assert isinstance(kwargs['safe_distance'], float)
+            self.safe_distance = kwargs['safe_distance']
+        else:
+            self.safe_distance = 2.0  # In meters
+        if 'lane_density' in kwargs:
+            assert isinstance(kwargs['lane_density'], list)
+            assert len(kwargs['lane_density']) == self.lanes
+            self.lane_density = kwargs['lane_density']
+        else:
+            self.lane_density = [1.0 / self.lanes] * self.lanes
         if 'max_speed' in kwargs:
             assert isinstance(kwargs['max_speed'], float) or \
                      isinstance(kwargs['max_speed'], int)
