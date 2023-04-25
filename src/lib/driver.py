@@ -1,6 +1,4 @@
 """
-Abstract base class for all drivers.
-
 This class defines the interface that all drivers must implement. It
 also provides a few utility methods that are useful for all drivers.
 
@@ -12,6 +10,8 @@ The action() method would depend on the parameters of the driver
 which will be set depending on the type of driver. For example, a
 driver that takes risks will consider overtaking other vehicles
 within less distance than a driver that is more cautious.
+
+NOTE: above statement might change.
 
 Almost all the methods in this class will be implemented by itself,
 but the parameters of the driver will be set by the simulation

@@ -150,22 +150,35 @@ def plot_distances(drivers: list[lib.driver.Driver], fname: str):
     pass
 
 
-def plot_locations(drivers: list[lib.driver.Driver], fname: str):
+def plot_locations(drivers: list[lib.driver.Driver], fname: str,
+                   **kwargs):
     """
     Plot of the locations of the drivers in the simulation.
+
+    Parameters
+    ----------
+    drivers : list[lib.driver.Driver]
+        List of drivers in the simulation.
+    fname : str
+        Name of the file to save the plot to.
+    kwargs : dict
+        - `lane_priority` : LanePriority
+            Lane priority to use when plotting the locations.
+            Defaults to `LanePriority.LEFT`.
     """
     # Separate the locations by lane
-    data = {}
+    # data = {}
+    lane_array = []
+    loct_array = []
 
-    # Get number of lanes
-    n_lanes = np.max(np.array(
-        [d.config.lane for d in drivers]
-    ))
+    lane_priority: lib.driver.LanePriority = kwargs.get(
+        'lane_priority',
+        lib.driver.LanePriority.LEFT
+    )
 
-    for lane in range(n_lanes):
-        data[lane] = np.array(
-            [d.config.location for d in drivers if d.config.lane == lane]
-        )
+    for driver in drivers:
+        lane_array.append(driver.config.lane)
+        loct_array.append(driver.config.location)
 
     # Plot the data
     figure = plt.figure(figsize=(14, 7))
@@ -173,18 +186,24 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str):
     # One plot, one column per lane
     ax = figure.add_subplot(111)  # type: ignore
 
-    for lane, locations in data.items():
-        # lane represents the xaxis position
+    xticks = np.arange(np.max(lane_array)+1)
 
-        # Plot the points
-        ax.plot(xs=np.ones(shape=locations.shape) * lane,
-                ys=locations,)
+    if lane_priority == lib.driver.LanePriority.LEFT:
+        # reverse lane_array
+        lane_array = np.max(lane_array) - np.array(lane_array)
+        xlabels = [f'{np.max(lane_array)-i}' for i in xticks]
+    else:
+        xlabels = [f'{i}' for i in xticks]
+
+    ax.scatter(lane_array, loct_array, s=3)
 
     style_set(
         ax,
         title='Driver locations',
         ylabel='Location (m)',
         xlabel='Lane',
+        xticks=np.arange(np.max(lane_array)+1),
+        xlabels=xlabels
     )
 
     figure.savefig(fname, dpi=300)

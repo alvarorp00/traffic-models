@@ -8,6 +8,7 @@ from config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
         TIME_STEPS, LANES, LANES_PRIORITY, LANES_DENSITY,\
         SAFE_DISTANCE
 import lib.graphics as graphics
+import tests
 
 
 def run():
@@ -26,18 +27,19 @@ def run():
         safe_distance=SAFE_DISTANCE
     )
 
-    engine = Engine(run_config)
-    engine.run()
+    # engine = Engine(run_config)
+    # engine.run()
 
-    print("Simulation complete")
+    # Just test for now
 
-    # Print the results
-    # print_model(engine.model)
+    test(run_config=run_config)
 
-    graphics.plot_locations(
-        drivers=list(engine.model.drivers.values()),
-        fname='img/out/model_locations.png'
-    )
+
+def test(run_config: RunConfig):
+    # Call the test functions here
+    # tests.test_distances(run_config=run_config, plot=True)
+    # tests.test_velocities(run_config=run_config, plot=True)
+    tests.test_locations(run_config=run_config, plot=True)
 
 
 if __name__ == "__main__":
