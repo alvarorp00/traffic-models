@@ -70,5 +70,8 @@ def test_locations(run_config: engine.RunConfig, fname=None, plot=False):
     if plot:
         graphics.plot_locations(
             drivers=drivers,
-            fname='img/out/model_locations.png'
+            fname='img/out/model_locations.png',
+            lane_priority=run_config.lane_priority,
+            n_lanes=run_config.n_lanes,
+            road_length=run_config.road_length
         )

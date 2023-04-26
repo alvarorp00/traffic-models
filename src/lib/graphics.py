@@ -4,37 +4,59 @@ Module for graphics and plotting
 This module contains functions for plotting the model and its components.
 """
 
+import logging
 import sys
 import numpy as np
 from matplotlib import pyplot as plt
+from typing import Union
+
 from lib.engine import Model
 import lib.driver
 
 import seaborn as sns
 sns.set()
 
-from matplotlib import rc
+from matplotlib import rc  # for LaTeX text rendering  # noqa: E402
 rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
 # for Palatino and other serif fonts use:
 # rc('font',**{'family':'serif','serif':['Palatino']})
 rc('text', usetex=True)
 
 
-def style_set(ax,
-              title: str = '',
-              xaxis: bool = True,
-              yaxis: bool = True,
-              xlabel: str = '',
-              ylabel: str = '',
-              legend: bool = False,
-              tick_params: int = 18,
-              title_size: int = 20,
-              legend_size: int = 18,
-              linewidth: int = 2,
-              edgecolor: str = 'black',
-              xlabels: list[str] = None,
-              xticks: list[int] = None,
-              ylabels: list[str] = None,):
+def style_set(ax, **kwargs):
+    """
+    Parameters
+    ---------
+    Showing parameters and default values:
+
+    (check the function body for the actual values)
+    """
+    title = kwargs.get('title', '')
+    xaxis = kwargs.get('xaxis', True)
+    yaxis = kwargs.get('yaxis', True)
+    xlabel = kwargs.get('xlabel', '')
+    ylabel = kwargs.get('ylabel', '')
+    xlim = kwargs.get('xlim', None)
+    ylim = kwargs.get('ylim', None)
+    legend = kwargs.get('legend', False)
+    tick_params = kwargs.get('tick_params', 18)
+    title_size = kwargs.get('title_size', 20)
+    legend_title_fontsize = kwargs.get('legend_title_fontsize', 'large')
+    legend_size = kwargs.get('legend_size', 13)
+    legend_loc = kwargs.get('legend_loc', 'best')
+    legend_bbox_to_anchor = kwargs.get('legend_bbox_to_anchor', None)
+    legend_borderaxespad = kwargs.get('legend_borderaxespad', 0.)
+    legend_title = kwargs.get('legend_title', '')
+    legend_frameon = kwargs.get('legend_frameon', True)
+    legend_fancybox = kwargs.get('legend_fancybox', True)
+    legend_borderpad = kwargs.get('legend_borderpad', 0.5)
+    legend_spacing = kwargs.get('legend_spacing', 0.5)
+    linewidth = kwargs.get('linewidth', 2)
+    edgecolor = kwargs.get('edgecolor', 'black')
+    xlabels = kwargs.get('xlabels', None)
+    xticks = kwargs.get('xticks', None)
+    ylabels = kwargs.get('ylabels', None)
+
     ax.patch.set_edgecolor(edgecolor)
     ax.patch.set_linewidth(linewidth)
 
@@ -45,8 +67,24 @@ def style_set(ax,
     ax.set_xlabel(xlabel, fontsize=tick_params)
     ax.set_ylabel(ylabel, fontsize=tick_params)
 
+    if xlim is not None:
+        ax.set_xlim(xlim)
+    if ylim is not None:
+        ax.set_ylim(ylim)
+
     if legend:
-        ax.legend(fontsize=legend_size)
+        ax.legend(
+            title_fontsize=legend_title_fontsize,
+            fontsize=legend_size,
+            loc=legend_loc,
+            bbox_to_anchor=legend_bbox_to_anchor,
+            borderaxespad=legend_borderaxespad,
+            title=legend_title,
+            frameon=legend_frameon,
+            fancybox=legend_fancybox,
+            borderpad=legend_borderpad,
+            labelspacing=legend_spacing
+        )
 
     ax.xaxis.set_visible(xaxis)
     ax.yaxis.set_visible(yaxis)
@@ -80,6 +118,19 @@ def print_model(model: Model, n_drivers: int = 0,
             n_drivers -= 1
             if n_drivers == 0:
                 break
+
+    # Print road information
+    print("Road information:", file=file)
+    print(f"\tRoad length: {model.road.length} m", file=file)
+    print(f"\tRoad lanes: {model.road.n_lanes}", file=file)
+    # Print # of drivers in each lane
+    print("\tDrivers in each lane:", file=file)
+    for lane in range(model.road.n_lanes):
+        n_lane_drivers = len(list(filter(
+            lambda d: d.config.lane == lane,
+            model.drivers.values()
+        )))
+        print(f"\t\tLane {lane}: {n_lane_drivers}", file=file)
 
 
 def plot_model_2(model: Model):
@@ -118,7 +169,7 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
         data[c_type] = new_data
 
     figure = plt.figure(figsize=(14, 7))
-    ax = figure.add_subplot(111)
+    ax = figure.add_subplot(111)  # type: ignore
     X = np.arange(5)
 
     i = 0
@@ -165,20 +216,38 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str,
         - `lane_priority` : LanePriority
             Lane priority to use when plotting the locations.
             Defaults to `LanePriority.LEFT`.
+        - `n_lanes` : int
+            Number of lanes in the simulation.
+        - `road_length` : float
+            Length of the road in the simulation.
+            Defaults to max(driver.locations).
+
+    NOTE: in order to plot correctly the locations, the lanes index
+    must be in the range [0, n_lanes-1].
     """
-    # Separate the locations by lane
-    # data = {}
-    lane_array = []
-    loct_array = []
 
     lane_priority: lib.driver.LanePriority = kwargs.get(
         'lane_priority',
         lib.driver.LanePriority.LEFT
     )
 
-    for driver in drivers:
-        lane_array.append(driver.config.lane)
-        loct_array.append(driver.config.location)
+    n_lanes: int = kwargs.get(
+        'n_lanes',
+        -1
+    )
+
+    road_length: float = kwargs.get(
+        'road_length',
+        max(map(lambda d: d.config.location, drivers))
+    )
+
+    if n_lanes == -1:
+        logging.warning(
+            "Number of lanes not specified. Stopping plot_locations."
+        )
+        return
+
+    assert n_lanes > 0, "Number of lanes must be positive."
 
     # Plot the data
     figure = plt.figure(figsize=(14, 7))
@@ -186,24 +255,138 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str,
     # One plot, one column per lane
     ax = figure.add_subplot(111)  # type: ignore
 
-    xticks = np.arange(np.max(lane_array)+1)
+    # Print # of drivers per lane
 
+    for lane in range(n_lanes):
+        n_lane_drivers = len(list(filter(
+            lambda d: d.config.lane == lane,
+            drivers
+        )))
+        print(f"\t\tLane {lane}: {n_lane_drivers}")
+
+    # Scatter with different colors for each driver type
+    # and different shapes for each car type
+    shapes = {
+        lib.driver.CarType.SEDAN: 'd',
+        lib.driver.CarType.SUV: 'p',
+        lib.driver.CarType.TRUCK: 's',
+        lib.driver.CarType.MOTORCYCLE: '^'
+    }
+    colors = {
+        lib.driver.DriverType.CAUTIOUS: 'r',
+        lib.driver.DriverType.NORMAL: 'b',
+        lib.driver.DriverType.RISKY: 'y',
+        lib.driver.DriverType.AGGRESSIVE: 'g',
+        lib.driver.DriverType.RECKLESS: 'm'
+    }
+
+    S = 12
+    Z_ORD_DRV = 1
+
+    for __driver in drivers:
+        lane_loc = n_lanes - __driver.config.lane\
+            if lane_priority == lib.driver.LanePriority.LEFT \
+            else __driver.config.lane
+        discrepancy = 0\
+            if lane_priority == lib.driver.LanePriority.LEFT \
+            else 1
+        ax.scatter(
+            lane_loc + discrepancy,
+            __driver.config.location,
+            s=S,
+            color=colors[__driver.config.driver_type],
+            marker=shapes[__driver.config.car_type],
+            zorder=Z_ORD_DRV
+        )
+
+    xticks = np.arange(start=0, stop=n_lanes+2)
+    xlabels = [f'{i}' for i in np.arange(start=1, stop=n_lanes+1)]
     if lane_priority == lib.driver.LanePriority.LEFT:
-        # reverse lane_array
-        lane_array = np.max(lane_array) - np.array(lane_array)
-        xlabels = [f'{np.max(lane_array)-i}' for i in xticks]
-    else:
-        xlabels = [f'{i}' for i in xticks]
+        # Reverse labels
+        xlabels = xlabels[::-1]
+    # Add empty labels at the start and end
+    xlabels = [''] + xlabels + ['']
 
-    ax.scatter(lane_array, loct_array, s=3)
+    ylim = (0, road_length)
 
     style_set(
         ax,
         title='Driver locations',
         ylabel='Location (m)',
         xlabel='Lane',
-        xticks=np.arange(np.max(lane_array)+1),
-        xlabels=xlabels
+        ylim=ylim,
+        xticks=xticks,
+        xlabels=xlabels,
+        legend=False,  # Manage the legend here
+    )
+
+    # shadowplot to get the legend:
+
+    Z_ORD_SHW = -1
+
+    l1 = []
+    for d_type in list(lib.driver.DriverType):
+        _l = ax.scatter(
+            xticks[0],
+            road_length / 4,
+            s=S,
+            alpha=1,
+            label=f'{d_type.name}',
+            color=colors[d_type],
+            marker='o',
+            zorder=Z_ORD_SHW,
+        )
+        l1.append(_l)
+
+    l2 = []
+    for c_type in list(lib.driver.CarType):
+        _l = ax.scatter(
+            xticks[0],
+            road_length / 4,
+            s=S,
+            alpha=1,
+            label=f'{c_type.name}',
+            color='#1e81b0',
+            marker=shapes[c_type],
+            zorder=Z_ORD_SHW,
+        )
+        l2.append(_l)
+
+    legend1 = ax.legend(
+        handles=l1,
+        labels=[__l.get_label() for __l in l1],
+        loc='upper left',
+        title='Driver Type',
+        borderpad=1.5,
+        labelspacing=1.5,
+        framealpha=1,
+    )
+
+    legend2 = ax.legend(
+        handles=l2,
+        labels=[__l.get_label() for __l in l2],
+        loc='lower left',
+        title='Car Type',
+        borderpad=1.5,
+        labelspacing=1.5,
+        framealpha=1,
+    )
+
+    ax.add_artist(legend1)
+
+    # shadowplot on border positions to leave space
+    legend1 = ax.scatter(
+        xticks[0],
+        road_length/2,
+        s=0,
+        alpha=0,
+    )
+
+    ax.scatter(
+        xticks[-1],
+        road_length/2,
+        s=0,
+        alpha=0,
     )
 
     figure.savefig(fname, dpi=300)

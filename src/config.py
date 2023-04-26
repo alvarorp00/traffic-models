@@ -16,21 +16,21 @@ LANES : int
     The number of lanes on the road.
 """
 
-# import numpy as np
+import numpy as np
 from lib.driver import LanePriority
 
-POPULATION_SIZE = 100
+POPULATION_SIZE = 25
 
 TIME_STEPS = 1000
 
-ROAD_LENGTH = 1e4
+ROAD_LENGTH = 1e3  # In meters
 
 MAX_SPEED = 130  # In km/h
 
-LANES = 3
+N_LANES = 3
 
 LANES_PRIORITY = LanePriority.LEFT
 
-LANES_DENSITY = [0.6, 0.25, 0.15]
+LANES_DENSITY = np.array([0.6, 0.3, 0.1])
 
 SAFE_DISTANCE = 4.  # In meters

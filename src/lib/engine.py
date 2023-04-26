@@ -66,7 +66,7 @@ def initialize_drivers(run_config: 'RunConfig',
     (locations_lane, safe) = DriverDistributions.lane_location_initialize(
                         start=0, end=run_config.road_length,
                         size=run_config.population_size,
-                        n_lanes=run_config.lanes,
+                        n_lanes=run_config.n_lanes,
                         safe_distance=run_config.safe_distance,
                         lane_density=np.array(run_config.lane_density),
                         safe=True,
@@ -171,11 +171,11 @@ class RunConfig:
             self.time_steps = kwargs['time_steps']
         else:
             self.time_steps = 1000
-        if 'lanes' in kwargs:
-            assert isinstance(kwargs['lanes'], int)
-            self.lanes = kwargs['lanes']
+        if 'n_lanes' in kwargs:
+            assert isinstance(kwargs['n_lanes'], int)
+            self.n_lanes = kwargs['n_lanes']
         else:
-            self.lanes = 1
+            self.n_lanes = 1
         if 'lane_priority' in kwargs:
             assert isinstance(kwargs['lane_priority'], LanePriority)
             self.lane_priority = kwargs['lane_priority']
@@ -187,11 +187,12 @@ class RunConfig:
         else:
             self.safe_distance = 2.0  # In meters
         if 'lane_density' in kwargs:
-            assert isinstance(kwargs['lane_density'], list)
-            assert len(kwargs['lane_density']) == self.lanes
+            assert isinstance(kwargs['lane_density'], list) or \
+                        isinstance(kwargs['lane_density'], np.ndarray)
+            assert np.isclose(np.sum(kwargs['lane_density']), 1.0)
             self.lane_density = kwargs['lane_density']
         else:
-            self.lane_density = [1.0 / self.lanes] * self.lanes
+            self.lane_density = [1.0 / self.n_lanes] * self.n_lanes
         if 'max_speed' in kwargs:
             assert isinstance(kwargs['max_speed'], float) or \
                      isinstance(kwargs['max_speed'], int)
@@ -218,7 +219,7 @@ class Model:
 
         self.info['road'] = Road(
             length=self.run_config.road_length,
-            lanes=self.run_config.lanes,
+            n_lanes=self.run_config.n_lanes,
             max_speed=self.run_config.max_speed
         )
 
@@ -306,6 +307,23 @@ class Model:
                 dict[d.config.car_type].append(d)
             else:
                 dict[d.config.car_type] = [d]
+
+        return dict
+
+    @staticmethod
+    def classify_by_lane(drivers: list[Driver]) -> Dict[int, List[Driver]]:
+        """
+        Returns a dictionary that maps lane numbers to a list of drivers
+        in that lane.
+        """
+
+        dict = {}
+
+        for d in drivers:
+            if d.config.lane in dict.keys():
+                dict[d.config.lane].append(d)
+            else:
+                dict[d.config.lane] = [d]
 
         return dict
 

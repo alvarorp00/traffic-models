@@ -25,7 +25,7 @@ class Road:
         lane_priority : LanePriority        
         """
         self.length = kwargs['length']
-        self.lanes = kwargs['lanes']
+        self.n_lanes = kwargs['n_lanes']
         self.max_speed = kwargs['max_speed']
         self.drivers = {}
 
@@ -52,9 +52,9 @@ class Road:
         self._length = length
 
     @property
-    def lanes(self):
-        return self._lanes
+    def n_lanes(self):
+        return self._n_lanes
 
-    @lanes.setter
-    def lanes(self, lanes):
-        self._lanes = lanes
+    @n_lanes.setter
+    def n_lanes(self, n_lanes):
+        self._n_lanes = n_lanes

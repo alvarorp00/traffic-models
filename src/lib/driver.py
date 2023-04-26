@@ -422,7 +422,7 @@ class DriverDistributions:
         # Generate for each lane
 
         assert len(lane_density) == n_lanes
-        assert np.sum(lane_density) == 1
+        assert np.isclose(np.sum(lane_density), 1.0)
 
         lane_selection = np.random.choice(
             a=np.arange(n_lanes),
