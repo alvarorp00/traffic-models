@@ -17,7 +17,8 @@
 import logging
 from typing import Dict, List
 from lib.driver import Driver, DriverConfig, CarType,\
-    DriverDistributions, DriverType, LanePriority
+    DriverType, LanePriority
+import lib.driver_distributions as driver_distributions
 from lib.road import Road
 import numpy as np
 import scipy.stats as st
@@ -63,14 +64,26 @@ def initialize_drivers(run_config: 'RunConfig',
         driver_types = DriverType.random(size=run_config.population_size)
     drivers = {}
 
-    (locations_lane, safe) = DriverDistributions.lane_location_initialize(
-                        start=0, end=run_config.road_length,
-                        size=run_config.population_size,
-                        n_lanes=run_config.n_lanes,
-                        safe_distance=run_config.safe_distance,
-                        lane_density=np.array(run_config.lane_density),
-                        safe=True,
-                    )
+    # (locations_lane, safe) =\
+    #     driver_distributions.lane_location_initialize(
+    #         start=0, end=run_config.road_length,
+    #         size=run_config.population_size,
+    #         n_lanes=run_config.n_lanes,
+    #         safe_distance=run_config.safe_distance,
+    #         lane_density=np.array(run_config.lane_density),
+    #         safe=True,
+    #     )
+
+    # Experimental:
+    (locations_lane, safe) =\
+        driver_distributions.lane_location_initialize_biased(
+            start=0, end=run_config.road_length,
+            size=run_config.population_size,
+            n_lanes=run_config.n_lanes,
+            safe_distance=run_config.safe_distance,
+            lane_density=np.array(run_config.lane_density),
+            safe=True,
+        )
 
     if not safe:
         logging.warning("The drivers were not initialized safely. "
@@ -101,7 +114,7 @@ def initialize_drivers(run_config: 'RunConfig',
             car_type=car_type,
             lane=int(lanes_array[i]),
             location=float(locations_array[i]),
-            speed=DriverDistributions.speed_initialize(
+            speed=driver_distributions.speed_initialize(
                 car_type=car_type,
                 driver_type=driver_types[i],
                 size=1

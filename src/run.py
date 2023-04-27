@@ -7,7 +7,7 @@ from lib.engine import Engine, RunConfig
 from config import POPULATION_SIZE, ROAD_LENGTH, MAX_SPEED,\
         TIME_STEPS, N_LANES, LANES_PRIORITY, LANES_DENSITY,\
         SAFE_DISTANCE
-import lib.graphics as graphics
+# import lib.graphics as graphics
 import tests
 
 
@@ -27,8 +27,8 @@ def run():
         safe_distance=SAFE_DISTANCE
     )
 
-    # engine = Engine(run_config)
-    # engine.run()
+    engine = Engine(run_config)
+    engine.run()
 
     # Just test for now
 

@@ -5,8 +5,6 @@
 
 from typing import Dict
 from lib.driver import Driver
-import enum
-import random
 
 
 class Road:

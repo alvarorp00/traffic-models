@@ -8,7 +8,7 @@ import sys
 import lib.engine as engine
 # import numpy as np
 import lib.driver
-
+import lib.driver_distributions
 import lib.graphics as graphics
 
 
@@ -25,7 +25,7 @@ def test_distances(run_config: engine.RunConfig, fname=None, plot=False):
     for driver in drivers:
 
         distance =\
-            lib.driver.DriverDistributions.risk_overtake_distance(driver)
+            lib.driver_distributions.risk_overtake_distance(driver)
 
         print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
               f"\n\tdriver driving a {driver.config.car_type} car @"
@@ -49,7 +49,7 @@ def test_velocities(run_config: engine.RunConfig, fname=None, plot=False):
     for driver in drivers:
 
         velocity =\
-            lib.driver.DriverDistributions.risk_overtake_velocity(driver)
+            lib.driver_distributions.risk_overtake_velocity(driver)
 
         print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
               f"\n\tdriver driving a {driver.config.car_type} car @"
