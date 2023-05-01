@@ -39,7 +39,9 @@ def test(run_config: RunConfig):
     # Call the test functions here
     # tests.test_distances(run_config=run_config, plot=True)
     # tests.test_velocities(run_config=run_config, plot=True)
-    tests.test_locations(run_config=run_config, plot=True)
+    # tests.test_locations(run_config=run_config, plot=True)
+    tests.test_overtake(run_config=run_config, plot=True)
+    pass
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ import lib.engine as engine
 import lib.driver
 import lib.driver_distributions
 import lib.graphics as graphics
+from lib.utils import Utils
 
 
 ITERS = 1000
@@ -74,4 +75,15 @@ def test_locations(run_config: engine.RunConfig, fname=None, plot=False):
             lane_priority=run_config.lane_priority,
             n_lanes=run_config.n_lanes,
             road_length=run_config.road_length
+        )
+
+
+def test_overtake(run_config: engine.RunConfig, fname=None, plot=False):
+    drivers_dict = engine.initialize_drivers(run_config=run_config)
+    drivers = list(drivers_dict.values())
+    drivers_by_lane = Utils.classify_by_lane(drivers=drivers)
+    for driver in drivers:
+        lib.driver_distributions.speed_change(
+            driver=driver,
+            drivers_by_lane=drivers_by_lane,
         )

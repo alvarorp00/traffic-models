@@ -298,48 +298,6 @@ class Model:
         # TODO
         pass
 
-    @staticmethod
-    def classify_by_driver(drivers: list[Driver]) ->\
-            Dict[DriverType, List[Driver]]:
-        dict = {}
-
-        for d in drivers:
-            if d.config.driver_type in dict.keys():
-                dict[d.config.driver_type].append(d)
-            else:
-                dict[d.config.driver_type] = [d]
-
-        return dict
-
-    @staticmethod
-    def classify_by_car(drivers: list[Driver]) -> Dict[CarType, List[Driver]]:
-        dict = {}
-
-        for d in drivers:
-            if d.config.car_type in dict.keys():
-                dict[d.config.car_type].append(d)
-            else:
-                dict[d.config.car_type] = [d]
-
-        return dict
-
-    @staticmethod
-    def classify_by_lane(drivers: list[Driver]) -> Dict[int, List[Driver]]:
-        """
-        Returns a dictionary that maps lane numbers to a list of drivers
-        in that lane.
-        """
-
-        dict = {}
-
-        for d in drivers:
-            if d.config.lane in dict.keys():
-                dict[d.config.lane].append(d)
-            else:
-                dict[d.config.lane] = [d]
-
-        return dict
-
 
 class Engine:
     def __init__(self, run_config: RunConfig):
@@ -393,28 +351,3 @@ class Trace:
 
     def add(self, data):
         self.data.append(data)
-
-
-class Utils:
-    @staticmethod
-    def partition_d(array: List[Driver], begin: int, end: int):
-        pivot = begin
-        for i in range(begin+1, end+1):
-            if array[i].config.location <= array[begin].config.location:
-                pivot += 1
-                array[i], array[pivot] = array[pivot], array[i]
-        array[pivot], array[begin] = array[begin], array[pivot]
-        return pivot
-
-    @staticmethod
-    def quicksort_d(array, begin=0, end=None):
-        if end is None:
-            end = len(array) - 1
-
-        def _quicksort_d(array, begin, end):
-            if begin >= end:
-                return
-            pivot = Utils.partition_d(array, begin, end)
-            _quicksort_d(array, begin, pivot-1)
-            _quicksort_d(array, pivot+1, end)
-        return _quicksort_d(array, begin, end)

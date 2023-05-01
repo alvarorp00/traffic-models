@@ -11,6 +11,7 @@ from matplotlib import pyplot as plt
 from typing import Union
 
 from lib.engine import Model
+from lib.utils import Utils
 import lib.driver
 
 import seaborn as sns
@@ -150,10 +151,10 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
     through an histogram.
     """
 
-    classified_by_car = Model.classify_by_car(drivers)
+    classified_by_car = Utils.classify_by_car(drivers)
     data = {}
     for c_type in list(lib.driver.CarType):
-        c_d_by_type = Model.classify_by_driver(
+        c_d_by_type = Utils.classify_by_driver(
             classified_by_car[c_type]
         )
         new_data = {}

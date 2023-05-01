@@ -7,12 +7,13 @@ and defines the initialazation function for speeds, positions,
 lanes and so on.
 """
 
-import numpy as np
-import random
-from typing import Dict, Tuple, Union
-from scipy.spatial.distance import squareform, pdist
 from lib.driver import LanePriority, DriverType,\
     Driver, CarType
+from lib.utils import Utils
+import numpy as np
+import random
+from typing import Dict, List, Tuple, Union
+from scipy.spatial.distance import squareform, pdist
 import logging
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -20,6 +21,12 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow_probability as tfp  # noqa: E402
 
 dtype = np.float32
+
+
+def max_close_distance(driver_type: DriverType) -> float:
+    MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
+    GAP = 5  # 5 meters per driver_type
+    return MAXIMUM - GAP * (driver_type.value - 1)
 
 
 def lane_initialize(n_lanes: int) -> int:
@@ -582,10 +589,7 @@ def risk_overtake_distance(
                     samples: one to the car in front and one to the car in
                     the left lane.
     """
-    MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
-    GAP = 5  # 5 meters per driver_type
-    mean = MAXIMUM - GAP * (
-        driver.config.driver_type.value - 1)
+    mean = max_close_distance(driver.config.driver_type)
     std = 1 / (driver.config.speed /
                CarType.get_max_speed(driver.config.car_type))
     rvs = tfp.distributions.HalfNormal(
@@ -594,24 +598,92 @@ def risk_overtake_distance(
     return rvs
 
 
-def speed_change(driver: 'Driver', free_space: float,
-                 size=1, increase=True):
+def decide_overtake(driver: 'Driver',
+                    driver_front: 'Driver',
+                    drivers_left: List['Driver'],):
+    """
+    Returns True if the driver will overtake the driver in front,
+    False otherwise.
+    """
+
+
+def speed_change(driver: 'Driver',
+                 drivers_by_lane: Dict[int, List['Driver']],
+                 ) -> np.ndarray:
     """
     Returns a random sample gathered from a halfnormal distribution
     that represents the speed change (increase or decrease) of the
     driver.
 
+    It might change the lane if the driver in front is too slow
+    and so the driver will change to the left lane to overtake
+    if available (no other driver in the left lane).
+
+    If it can't overtake, it'll decrease its speed if it can.
+
     Parameters
     ----------
     driver: Driver
         The driver.
-    free_space: float
-        The free space at front or back of the driver.
-    size: int
-        The number of samples to be generated.
-    increase: bool
-        If True, the speed change will be an increase. If False,
-        the speed change will be a decrease.
+    driver_front: Driver
+        The driver in front of the current driver.
+    driver_back: Driver
+        The driver behind the current driver.
     """
-    current_speed = driver.config.speed
+
+    # Retrieve front and back drivers
+    driver_front = None
+    driver_back = None
+
+    # drivers_in_lane = Utils.quicksort_d(
+    #     drivers_by_lane[driver.config.lane],
+    #     begin=0,
+    #     end=len(drivers_by_lane[driver.config.lane]) - 1,
+    # )
+    drivers_by_lane_sorted = Utils.sort_by_position_in_lane(
+        drivers_by_lane=drivers_by_lane,
+    )
+
+    positions = [d.config.location for d in drivers_by_lane_sorted[0]]
+
+    print(positions)
+
+    exit()
+
+    return np.array([0])
+
+    # If there is no driver in front, we'll consider
+    # an increase in speed
+
+    if driver_front is None:
+        mean = driver.config.speed
+        std = 1 / (CarType.get_max_speed(driver.config.car_type) /
+                   CarType.max_speed())
+        rvs = tfp.distributions.HalfNormal(
+            loc=mean, scale=std
+        ).sample(sample_shape=1).numpy()
+    else:
+        # If there is a driver in front, we'll consider
+        # the distance between the two drivers and the
+        # speed of the driver in front to determine
+        # if the current driver will increase or decrease
+        # its speed
+        if driver_back is not None:
+            front_diff = abs(driver_front.config.position -
+                             driver.config.position)
+            back_diff = abs(driver.config.position -
+                            driver_back.config.position)
+            if front_diff < back_diff:
+                # The driver in front is closer than the
+                # driver behind: check the speed of the
+                # driver in front, if it's greater than
+                # the current speed, the current driver
+                # will increase its speed, otherwise,
+                pass
+            else:
+                pass
+        else:
+            pass
+    return rvs
+
     # TODO
