@@ -31,7 +31,10 @@ class LanePriority(enum.Enum):
     LEFT, RIGHT
 
     It is just a visual representation that will be used to
-    plot the drivers according to their lane priority.
+    plot the drivers according to their lane priority, i.e.
+    the drivers in the first lane will be plotted at the right
+    whenever the priority is LEFT, so the highest priority
+    lane will be plotted at the left (the last lane).
     """
     LEFT = 0,
     RIGHT = 1
@@ -476,19 +479,10 @@ class Utils:
         return ret
 
     @staticmethod
-    def max_close_distance(driver_type: DriverType) -> float:
-        """
-        Returns the maximum a car can be from the car in front of it
-        depending on the driver type.
-        """
-        MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
-        GAP = 5  # 5 meters per driver_type
-        return MAXIMUM - GAP * (driver_type.value - 1)
-
-    @staticmethod
     def driver_at_front(
         driver: Driver,
-        drivers_by_lane: Dict[int, List[Driver]]
+        drivers_by_lane: Dict[int, List[Driver]],
+        sorted: bool = False
     ) -> Union[Driver, None]:
         """
         Returns the driver in front of the given driver in the same lane.
@@ -499,7 +493,8 @@ class Utils:
         drivers_in_lane = drivers_by_lane[driver.config.lane]
 
         # Sort by location
-        drivers_in_lane.sort(key=lambda d: d.config.location)
+        if sorted is False:
+            drivers_in_lane.sort(key=lambda d: d.config.location)
 
         # Find the given driver in the list
         index = drivers_in_lane.index(driver)
@@ -512,57 +507,29 @@ class Utils:
         return drivers_in_lane[index + 1]
 
     @staticmethod
-    def safe_overtake(
+    def driver_at_back(
         driver: Driver,
         drivers_by_lane: Dict[int, List[Driver]],
-        n_lanes: int
-    ) -> bool:
+        sorted: bool = False
+    ) -> Union[Driver, None]:
         """
-        Returns whether the given driver can safely overtake the driver
-
-        It checks whether the driver can move to the next lane, i.e.
-        if there are no cars close to the driver in the next lane, taking into
-        account the type of driver and current speed; and whether the driver
-        is moving faster than the driver in front of it.
-
-        Parameters
-        ----------
-        driver : Driver
-            The driver that wants to overtake.
-        drivers_by_lane : Dict[int, List[Driver]]
-            A dictionary that maps lane numbers to a list of drivers
-            in that lane.
-        n_lanes : int
-            The number of lanes in the track.
+        Returns the driver behind the given driver in the same lane.
+        If the given driver is at the back of the lane, returns None.
         """
-        # Check that the current lane is not the rightmost lane
-        if driver.config.lane == n_lanes - 1:
-            return False
-        # TODO
-        # Get driver in front
-        # Check if driver is moving faster than driver in front
-        # Check if driver can move to next lane
-        # Check if there are no cars close to the driver in the next lane
 
-    @staticmethod
-    def safe_return(
-        driver: Driver,
-        drivers_by_lane: Dict[int, List[Driver]],
-        n_lanes: int
-    ) -> bool:
-        """
-        Returns whether the given driver can safely return to previous lane.
+        # Get the list of drivers in the same lane
+        drivers_in_lane = drivers_by_lane[driver.config.lane]
 
-        It checks whether the driver can move to the previous lane, i.e.
-        if there are no cars close to the driver in the previous lane, taking
-        into account the type of driver and current speed; and whether the
-        driver is moving slower than the driver behind it.
-        """
-        # Check that the current lane is not the leftmost lane
-        if driver.config.lane == 0:
-            return False
-        # TODO
-        # Get driver in back
-        # Check if driver is moving slower than driver in back
-        # Check if driver can move to previous lane
-        # Check if there are no cars close to the driver in the previous lane
+        # Sort by location
+        if sorted is False:
+            drivers_in_lane.sort(key=lambda d: d.config.location)
+
+        # Find the given driver in the list
+        index = drivers_in_lane.index(driver)
+
+        # If the given driver is at the back of the lane, return None
+        if index == 0:
+            return None
+
+        # Otherwise, return the driver behind
+        return drivers_in_lane[index - 1]

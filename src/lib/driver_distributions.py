@@ -520,6 +520,16 @@ def _location_initialize_safe(
     return None
 
 
+def max_close_distance(driver_type: DriverType) -> float:
+    """
+    Returns the maximum a car can be from the car in front of it
+    depending on the driver type.
+    """
+    MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
+    GAP = 5  # 5 meters per driver_type
+    return MAXIMUM - GAP * (driver_type.value - 1)
+
+
 def risk_overtake_distance(
     driver: 'Driver',
     size=1
@@ -566,13 +576,148 @@ def risk_overtake_distance(
                     samples: one to the car in front and one to the car in
                     the left lane.
     """
-    mean = Utils.max_close_distance(driver.config.driver_type)
+    mean = max_close_distance(driver.config.driver_type)
     std = 1 / (driver.config.speed /
                CarType.get_max_speed(driver.config.car_type))
     rvs = tfp.distributions.HalfNormal(
         loc=mean, scale=std
     ).sample(sample_shape=size).numpy()
     return rvs
+
+
+def safe_lane_change(
+    approaching_driver: Driver,
+    drivers_by_lane: Dict[int, List[Driver]],
+    new_lane: int,
+    risk_distance: float,
+) -> bool:
+    """
+    Returns whether the given driver can safely change lane.
+
+    Proceeds as follows:
+    1. Check that the driver is not in the leftmost lane and that the
+            lane change is not negative.
+    2. Check that there are no cars close to the driver in the new lane.
+        2.1 If there are, check that the ones at front are not moving slower
+                and that the ones at back are not moving faster.
+    3. If all the above is true, return True, else False.
+
+    NOTE: One of the implications of this function is the consideration,
+    while overtaking, that no crash will happen if the car in front is faster
+    than the actual car (and the car in the back is slower).
+    It could occur that car behind is faster than the one in front but not
+    faster than the actual car, so it would be safe to overtake
+    (both cars would be faster than the front car).
+
+    NOTE: Case when driver is going back to previous lane
+    and car behind is faster must be managed, so there is no
+    crash and no illegal overtaking (overtaking through right lane)
+    """
+    location = approaching_driver.config.location
+    drivers_in_lane = drivers_by_lane[new_lane]
+
+    # Check that there are no cars close to the driver in the new lane
+    if np.any(
+        np.array([driver.config.location - location
+                  for driver in drivers_in_lane]) < risk_distance
+    ):
+        # If they are, see if the ones at front are moving slower
+        # and if the ones at back are moving faster
+        drivers_front = list(filter(
+            lambda driver: driver.config.location > location,
+            drivers_in_lane
+        ))
+
+        drivers_back = list(filter(
+            lambda driver: driver.config.location < location,
+            drivers_in_lane
+        ))
+
+        # Check if the drivers at front are moving slower
+        if np.any(
+            np.array([driver.config.speed
+                      for driver in drivers_front]) > approaching_driver.config.speed  # noqa: E501
+        ):
+            return False
+
+        # Check if the drivers at back are moving faster
+        if np.any(
+            np.array([driver.config.speed
+                      for driver in drivers_back]) < approaching_driver.config.speed  # noqa: E501
+        ):
+            return False
+
+    return True
+
+
+def safe_overtake(
+    driver: Driver,
+    drivers_by_lane: Dict[int, List[Driver]],
+    n_lanes: int
+) -> bool:
+    """
+    Returns whether the given driver can safely overtake the driver
+
+    It checks whether the driver can move to the next lane, i.e.
+    if there are no cars close to the driver in the next lane, taking into
+    account the type of driver and current speed; and whether the driver
+    is moving faster than the driver in front of it.
+
+    NOTE: when a driver is overtaking, it'll consider too the
+    driver at the back, so the risk overtake distance of the driver
+    at the back considered by the driver will be with the
+    driver at the back being of the same type as the driver.
+    (THIS MIGHT CHANGE IN THE FUTURE).
+
+    Parameters
+    ----------
+    driver : Driver
+        The driver that wants to overtake.
+    drivers_by_lane : Dict[int, List[Driver]]
+        A dictionary that maps lane numbers to a list of drivers
+        in that lane.
+    n_lanes : int
+        The number of lanes in the track.
+    """
+    # Check that the current lane is not the rightmost lane
+    if driver.config.lane == n_lanes - 1:
+        return False
+    # TODO
+    # Get driver in front
+    front_driver = Utils.driver_at_front(driver, drivers_by_lane)
+    # Get risk overtake distance
+    risk_distance = risk_overtake_distance(driver)
+    # Check if driver is moving faster than driver in front
+    if driver.config.speed <= front_driver.config.speed:
+        return False
+    else:
+        # Check distance between driver and driver in front
+        distance = front_driver.config.location - driver.config.location
+        # Check such distance is greater than the risk overtake distance
+        if distance > risk_distance:
+            # Car is not close enough to the car in front
+            return False
+    # Get driver in back
+    back_driver = Utils.driver_at_back(driver, drivers_by_lane)
+    # Check if driver is moving faster than driver in back
+    if driver.config.speed < back_driver.config.speed:
+        # Driver at back is faster than driver
+        # Check distance between driver and driver in back
+        distance = driver.config.location - back_driver.config.location
+        # Check such distance is greater than the risk overtake distance
+        if distance < risk_distance:
+            # Car behind is close enough to the car
+            # so driver will suppose that car behind
+            # is going to overtake too
+            return False
+    # Check if driver can move to next lane
+
+    return safe_lane_change(
+        driver,
+        drivers_by_lane,
+        driver.config.lane + 1,
+        risk_distance
+    )
 
 
 def decide_overtake(driver: 'Driver',
@@ -582,6 +727,7 @@ def decide_overtake(driver: 'Driver',
     Returns True if the driver will overtake the driver in front,
     False otherwise.
     """
+    pass
 
 
 def speed_update(driver: Driver,
