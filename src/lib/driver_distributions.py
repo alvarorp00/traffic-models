@@ -8,8 +8,7 @@ lanes and so on.
 """
 
 from lib.driver import LanePriority, DriverType,\
-    Driver, CarType
-from lib.utils import Utils
+    Driver, CarType, Utils
 import numpy as np
 import random
 from typing import Dict, List, Tuple, Union
@@ -21,12 +20,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow_probability as tfp  # noqa: E402
 
 dtype = np.float32
-
-
-def max_close_distance(driver_type: DriverType) -> float:
-    MAXIMUM = 25  # 25 meters in the case of driver_type == CAUTIOUS
-    GAP = 5  # 5 meters per driver_type
-    return MAXIMUM - GAP * (driver_type.value - 1)
 
 
 def lane_initialize(n_lanes: int) -> int:
@@ -50,7 +43,6 @@ def lane_initialize(n_lanes: int) -> int:
 
 def lane_initialize_weighted(
     n_lanes: int,
-    lane_priority: LanePriority,
     size: int = 1
 ) -> np.ndarray:
     """
@@ -68,19 +60,7 @@ def lane_initialize_weighted(
     accum = sum(weights)
     weights = [w/accum for w in weights]
 
-    if lane_priority == LanePriority.LEFT:
-        # Reverse the probabilities so that the left
-        # has the lowest probability --> such lane
-        # will be chosen less often
-        weights = weights[::-1]
-
     lanes = np.arange(n_lanes)
-
-    if lane_priority == LanePriority.LEFT:
-        # Reverse the lanes so that the left
-        # has the highest index and the right
-        # the lowest
-        lanes = lanes[::-1]
 
     return np.random.choice(
         a=lanes,
@@ -90,8 +70,8 @@ def lane_initialize_weighted(
 
 
 def speed_initialize(
-    car_type: CarType,
     driver_type: DriverType,
+    car_type: CarType,
     size=1
 ) -> np.ndarray:
     """
@@ -115,7 +95,7 @@ def speed_initialize(
         If velocity is greater than max_speed, it will be because
         there is a random factor in the formula. So we will
         admit that this is a valid velocity.
-    """
+    """    
     max_speed = CarType.get_max_speed(car_type)
     min_speed = CarType.get_min_speed(car_type)
 
@@ -269,8 +249,6 @@ def lane_location_initialize_biased(
         The safe distance between two drivers.
     lane_density : np.ndarray (float)
         The probability of each lane.
-    lane_priority : LanePriority
-        The priority of each lane.
     max_tries : int
         The maximum number of tries to find a suitable
         location for a driver that satisfies the safe
@@ -559,10 +537,9 @@ def risk_overtake_distance(
 
     Parameters
     ----------
-    driver_type : DriverType
-        The type of driver.
-    car_type : CarType
-        The type of car.
+    driver: Driver
+        The driver that will overtake, from
+        which we'll get driver & car type.
     size : int
 
     Formula:
@@ -589,7 +566,7 @@ def risk_overtake_distance(
                     samples: one to the car in front and one to the car in
                     the left lane.
     """
-    mean = max_close_distance(driver.config.driver_type)
+    mean = Utils.max_close_distance(driver.config.driver_type)
     std = 1 / (driver.config.speed /
                CarType.get_max_speed(driver.config.car_type))
     rvs = tfp.distributions.HalfNormal(
@@ -607,13 +584,14 @@ def decide_overtake(driver: 'Driver',
     """
 
 
-def speed_change(driver: 'Driver',
+def speed_update(driver: Driver,
                  drivers_by_lane: Dict[int, List['Driver']],
-                 ) -> np.ndarray:
+                 ) -> Driver:
     """
-    Returns a random sample gathered from a halfnormal distribution
-    that represents the speed change (increase or decrease) of the
-    driver.
+    Returns the updated driver after considering the
+    drivers in front and behind, the current speed,
+    the distances, the drivers at the left; after
+    varying the speed and, if proceeds, the lane.
 
     It might change the lane if the driver in front is too slow
     and so the driver will change to the left lane to overtake
@@ -635,22 +613,12 @@ def speed_change(driver: 'Driver',
     driver_front = None
     driver_back = None
 
-    # drivers_in_lane = Utils.quicksort_d(
-    #     drivers_by_lane[driver.config.lane],
-    #     begin=0,
-    #     end=len(drivers_by_lane[driver.config.lane]) - 1,
+    # drivers_by_lane_sorted = Utils.sort_by_position_in_lane(
+    #     drivers_by_lane=drivers_by_lane,
     # )
-    drivers_by_lane_sorted = Utils.sort_by_position_in_lane(
-        drivers_by_lane=drivers_by_lane,
-    )
 
-    positions = [d.config.location for d in drivers_by_lane_sorted[0]]
-
-    print(positions)
-
-    exit()
-
-    return np.array([0])
+    # try:
+    #     driver_front = drivers_by_lane_sorted[driver.config.lane]
 
     # If there is no driver in front, we'll consider
     # an increase in speed

@@ -14,6 +14,7 @@
 """
 
 
+import copy
 import logging
 from typing import Dict, List
 from lib.driver import Driver, DriverConfig, CarType,\
@@ -142,12 +143,8 @@ class RunConfig:
             The number of lanes on the road. Defaults to 1.
         lane_priority : LanePriority
             The priority of the lanes. Defaults to LanePriority.LEFT.
-            The priority of the lanes is used to determine which
-            lane the drivers will use when changing lanes, namely
-            when the driver is in the middle lane and wants to
-            overtake, the driver will use the lane with the highest
-            priority; LanePriority.LEFT means that the left lane
-            is the latest lane to occupy when overtaking.
+            It is just a visual representation of the lanes used while
+            plotting the simulation.
         safe_distance : float
             The safe distance between drivers in meters.
             Defaults to 2 meters.
@@ -334,7 +331,8 @@ class Engine:
     def run(self):
         for t in range(self.run_config.time_steps):
             # TODO: update the state of the model
-            self.trace.add(self.model)  # Record the state of the model
+            # Record the state of the model
+            self.trace.add(copy.deepcopy(self.model))
 
 
 class Trace:

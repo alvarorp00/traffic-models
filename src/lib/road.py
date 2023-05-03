@@ -20,7 +20,6 @@ class Road:
             The number of lanes on the road.
         max_speed : float
             The maximum speed allowed on the road in km/h.
-        lane_priority : LanePriority        
         """
         self.length = kwargs['length']
         self.n_lanes = kwargs['n_lanes']
