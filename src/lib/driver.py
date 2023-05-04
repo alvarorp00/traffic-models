@@ -404,6 +404,12 @@ class Driver:
         assert isinstance(kwargs['config'], DriverConfig)
         self.config = kwargs['config']
 
+    def __eq__(self, other):
+        return self.config.id == other.config.id
+
+    def __hash__(self):
+        return hash(self.config.id)
+
     @property
     def config(self) -> DriverConfig:
         return self._config
@@ -417,8 +423,12 @@ class Driver:
         return NotImplementedError("action() not implemented yet")
 
     @staticmethod
-    def classify_by_driver(drivers: list['Driver']) ->\
+    def classify_by_driver_type(drivers: list['Driver']) ->\
             Dict[DriverType, List['Driver']]:
+        """
+        Returns a dictionary that maps driver types to a list of drivers
+        of that type.
+        """
         dict = {}
 
         for d in drivers:
@@ -457,6 +467,18 @@ class Driver:
                 dict[d.config.lane].append(d)
             else:
                 dict[d.config.lane] = [d]
+
+        return dict
+
+    @staticmethod
+    def classify_by_id(drivers: list['Driver']) -> Dict[int, 'Driver']:
+        """
+        Returns a dictionary that maps driver ids to drivers.
+        """
+        dict = {}
+
+        for d in drivers:
+            dict[d.config.id] = d
 
         return dict
 

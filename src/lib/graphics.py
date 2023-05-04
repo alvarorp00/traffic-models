@@ -153,7 +153,7 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
     classified_by_car = lib.driver.Driver.classify_by_car(drivers)
     data = {}
     for c_type in list(lib.driver.CarType):
-        c_d_by_type = lib.driver.Driver.classify_by_driver(
+        c_d_by_type = lib.driver.Driver.classify_by_driver_type(
             classified_by_car[c_type]
         )
         new_data = {}

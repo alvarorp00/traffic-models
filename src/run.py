@@ -18,7 +18,7 @@ def run():
 
     run_config = RunConfig(
         population_size=POPULATION_SIZE,
-        time_steps=0,  # Don't evolve the system for now
+        time_steps=TIME_STEPS,  # Don't evolve the system for now
         road_length=ROAD_LENGTH,
         max_speed=MAX_SPEED,
         n_lanes=N_LANES,

@@ -789,12 +789,12 @@ def _speed_increase(driver: Driver) -> float:
     """
     Returns a speed increase for the driver, i.e. a new speed
     """
-    mean = driver.config.speed
-    std = 1 / (CarType.get_max_speed(driver.config.car_type) /
-               CarType.max_speed())
+    std = (driver.config.speed /
+           CarType.get_max_speed(driver.config.car_type))
     rvs = tfp.distributions.HalfNormal(
         scale=std
-    ).sample(sample_shape=1).numpy() + mean
+    ).sample(sample_shape=1).numpy().flatten()[0]
+
     return rvs
 
 
@@ -802,12 +802,11 @@ def _speed_decrease(driver: Driver) -> float:
     """
     Returns a speed decrease for the driver, i.e. a new speed
     """
-    mean = driver.config.speed
-    std = 1 / (CarType.get_max_speed(driver.config.car_type) /
-               CarType.min_speed())
+    std = (driver.config.speed /
+           CarType.get_min_speed(driver.config.car_type))
     rvs = tfp.distributions.HalfNormal(
         scale=std
-    ).sample(sample_shape=1).numpy() - mean
+    ).sample(sample_shape=1).numpy().flatten()[0]
     return rvs
 
 
@@ -875,6 +874,11 @@ def speed_update(driver: Driver,
     __increase = _speed_increase(driver)
     __decrease = _speed_decrease(driver)
 
+    # print(f'Possible speed increase: {__increase}')
+    # print(f'Possible speed decrease: {__decrease}')
+
+    __dec = 0
+
     if driver_front is not None:
         # Can overtake driver in front?
         if safe_overtake(driver, drivers_by_lane, risk_distance):
@@ -885,8 +889,10 @@ def speed_update(driver: Driver,
                         driver_back.config.location > risk_distance:
                     # Increase speed
                     variation = __increase
+                    __dec = 1
                 else:
                     # Mantain speed
+                    __dec = 2
                     pass
             else:
                 # Can change lane to the left?
@@ -899,16 +905,19 @@ def speed_update(driver: Driver,
                     # Change lane and increase speed
                     lane += 1
                     variation = __increase
+                    __dec = 3
                 else:
                     # Check distance
                     if driver_front.config.location -\
                         driver.config.location >\
                             risk_distance:
                         # mantain speed
+                        __dec = 4
                         pass
                     else:
                         # Decrease speed
                         variation = __decrease
+                        __dec = 5
         else:  # can't overtake
             # Can change lane to the right?
             if safe_lane_change(
@@ -919,8 +928,10 @@ def speed_update(driver: Driver,
             ):
                 # Change lane and mantain speed
                 lane -= 1
+                __dec = 6
             else:
                 # Mantain speed
+                __dec = 7
                 pass
     else:
         # Can change lane to the right?
@@ -932,11 +943,19 @@ def speed_update(driver: Driver,
         ):
             # Change lane and mantain speed
             lane -= 1
+            __dec = 8
         else:
             # Mantain speed
+            __dec = 9
             pass
 
     new_driver.config.speed += variation
     new_driver.config.lane = lane
+
+    # if new_driver.config.speed != driver.config.speed:
+    #     print(f'Driver {driver.config.id} changed speed from '
+    #           f'{driver.config.speed}@{driver.config.lane} to {new_driver.config.speed}@{new_driver.config.lane}')  # noqa: E501
+
+    # print(f'\tDec: {__dec}\n')
 
     return new_driver

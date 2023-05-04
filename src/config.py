@@ -19,11 +19,11 @@ LANES : int
 import numpy as np
 from lib.driver import LanePriority
 
-POPULATION_SIZE = 25
+POPULATION_SIZE = 15
 
-TIME_STEPS = 1000
+TIME_STEPS = 5
 
-ROAD_LENGTH = 1e3  # In meters
+ROAD_LENGTH = 300  # In meters
 
 MAX_SPEED = 130  # In km/h
 
