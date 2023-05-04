@@ -85,7 +85,7 @@ def test_locations(run_config: engine.RunConfig, fname=None, plot=False):
 def test_overtake(run_config: engine.RunConfig, fname=None, plot=False):
     drivers_dict = engine.initialize_drivers(run_config=run_config)
     drivers = list(drivers_dict.values())
-    drivers_by_lane = lib.driver.Utils.classify_by_lane(drivers=drivers)
+    drivers_by_lane = lib.driver.Driver.classify_by_lane(drivers=drivers)
     old_state = copy.deepcopy(drivers)
     for driver in drivers:
         lib.driver_distributions.speed_update(

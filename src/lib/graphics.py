@@ -150,10 +150,10 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
     through an histogram.
     """
 
-    classified_by_car = lib.driver.Utils.classify_by_car(drivers)
+    classified_by_car = lib.driver.Driver.classify_by_car(drivers)
     data = {}
     for c_type in list(lib.driver.CarType):
-        c_d_by_type = lib.driver.Utils.classify_by_driver(
+        c_d_by_type = lib.driver.Driver.classify_by_driver(
             classified_by_car[c_type]
         )
         new_data = {}
@@ -170,7 +170,7 @@ def plot_velocities(drivers: list[lib.driver.Driver], fname: str):
 
     figure = plt.figure(figsize=(14, 7))
     ax = figure.add_subplot(111)  # type: ignore
-    X = np.arange(5)
+    X = np.arange(len(list(lib.driver.DriverType)))
 
     i = 0
     for c_type, d_info in data.items():

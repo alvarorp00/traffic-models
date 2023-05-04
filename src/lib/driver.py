@@ -178,6 +178,18 @@ class CarType(enum.Enum):
         """
         return CarType.get_max_speed(CarType.MOTORCYCLE)
 
+    @staticmethod
+    def min_speed() -> float:
+        """
+        Returns the minimum speed of any car.
+
+        Returns
+        -------
+        float
+            The minimum speed of any car.
+        """
+        return CarType.get_min_speed(CarType.TRUCK)
+
 
 class DriverType(enum.Enum):
     """
@@ -404,11 +416,9 @@ class Driver:
         # TODO
         return NotImplementedError("action() not implemented yet")
 
-
-class Utils:
     @staticmethod
-    def classify_by_driver(drivers: list[Driver]) ->\
-            Dict[DriverType, List[Driver]]:
+    def classify_by_driver(drivers: list['Driver']) ->\
+            Dict[DriverType, List['Driver']]:
         dict = {}
 
         for d in drivers:
@@ -420,7 +430,9 @@ class Utils:
         return dict
 
     @staticmethod
-    def classify_by_car(drivers: list[Driver]) -> Dict[CarType, List[Driver]]:
+    def classify_by_car(
+        drivers: list['Driver']
+    ) -> Dict[CarType, List['Driver']]:
         dict = {}
 
         for d in drivers:
@@ -432,7 +444,7 @@ class Utils:
         return dict
 
     @staticmethod
-    def classify_by_lane(drivers: list[Driver]) -> Dict[int, List[Driver]]:
+    def classify_by_lane(drivers: list['Driver']) -> Dict[int, List['Driver']]:
         """
         Returns a dictionary that maps lane numbers to a list of drivers
         in that lane.
@@ -450,8 +462,8 @@ class Utils:
 
     @staticmethod
     def sort_by_position(
-        drivers_by_lane: Dict[int, List[Driver]]
-    ) -> List[Driver]:
+        drivers_by_lane: Dict[int, List['Driver']]
+    ) -> List['Driver']:
         """
         Returns a list of drivers sorted by their position on the track.
         """
@@ -467,8 +479,8 @@ class Utils:
 
     @staticmethod
     def sort_by_position_in_lane(
-        drivers_by_lane: Dict[int, List[Driver]]
-    ) -> Dict[int, List[Driver]]:
+        drivers_by_lane: Dict[int, List['Driver']]
+    ) -> Dict[int, List['Driver']]:
         """
         Returns a dictionary that maps lane numbers to a list of drivers
         in that lane, sorted by their position in the lane.
@@ -480,10 +492,10 @@ class Utils:
 
     @staticmethod
     def driver_at_front(
-        driver: Driver,
-        drivers_by_lane: Dict[int, List[Driver]],
+        driver: 'Driver',
+        drivers_by_lane: Dict[int, List['Driver']],
         sorted: bool = False
-    ) -> Union[Driver, None]:
+    ) -> Union['Driver', None]:
         """
         Returns the driver in front of the given driver in the same lane.
         If the given driver is at the front of the lane, returns None.
@@ -508,10 +520,10 @@ class Utils:
 
     @staticmethod
     def driver_at_back(
-        driver: Driver,
-        drivers_by_lane: Dict[int, List[Driver]],
+        driver: 'Driver',
+        drivers_by_lane: Dict[int, List['Driver']],
         sorted: bool = False
-    ) -> Union[Driver, None]:
+    ) -> Union['Driver', None]:
         """
         Returns the driver behind the given driver in the same lane.
         If the given driver is at the back of the lane, returns None.
@@ -533,3 +545,10 @@ class Utils:
 
         # Otherwise, return the driver behind
         return drivers_in_lane[index - 1]
+
+    @staticmethod
+    def copy(driver: 'Driver') -> 'Driver':
+        """
+        Returns a copy of the given driver.
+        """
+        return Driver(config=driver.config)
