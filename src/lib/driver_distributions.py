@@ -7,8 +7,8 @@ and defines the initialazation function for speeds, positions,
 lanes and so on.
 """
 
-from lib.driver import LanePriority, DriverType,\
-    Driver, CarType
+
+from lib.driver import DriverType, Driver, CarType
 import numpy as np
 import random
 from typing import Dict, List, Tuple, Union
@@ -43,6 +43,7 @@ def lane_initialize(n_lanes: int) -> int:
 
 def lane_initialize_weighted(
     n_lanes: int,
+    probs: np.ndarray,
     size: int = 1
 ) -> np.ndarray:
     """
@@ -53,18 +54,9 @@ def lane_initialize_weighted(
     Probability distribution is defined by
     a decreasing distribution of probabilities.
     """
-
-    # Decreasing distribution of probabilities from
-    # left to right, so the left has the highest
-    weights = [1/(idx+1) for idx in range(n_lanes)]
-    accum = sum(weights)
-    weights = [w/accum for w in weights]
-
-    lanes = np.arange(n_lanes)
-
     return np.random.choice(
-        a=lanes,
-        p=weights,
+        a=np.arange(n_lanes),
+        p=probs,
         size=size,
     )
 
@@ -535,7 +527,7 @@ def risk_overtake_distance(
     size=1
 ) -> float:
     """
-    Returns a random rample gathered from a halfnormal distribution
+    Returns a random sample gathered from a halfnormal distribution
     (a normal distribution with only right side values so we control
     the minimum distances that a driver will consider overtaking)
     that represents the minimum distance that a driver will
@@ -564,9 +556,8 @@ def risk_overtake_distance(
         Mean --> 25 meters for CAUTIOUS driver, decreasing by 5 meters
         for each driver type.
 
-        Standard deviation --> 1 /
-                                (CarType.get_max_speed(car_type) /
-                                CarType.max_speed()),
+        Standard deviation --> 1 / (driver.config.speed /
+                               CarType.get_max_speed(driver.config.car_type)),
         For std is considered the current speed of the car and
         the maximum speed it can reach, so that the standard deviation
         is 1 meter for the fastest car and increases as the car

@@ -56,6 +56,12 @@ def initialize_drivers(run_config: 'RunConfig',
         from a multinomial distribution. Check the
         function `DriverType.random_lognormal` for more
         information.
+
+    Returns
+    -------
+    Dict[int, Driver]
+        A dictionary of drivers, where the key is the id
+        of the driver and the value is the driver object.
     """
     if lognormal_mode:
         driver_types = DriverType.random_lognormal(
@@ -64,16 +70,6 @@ def initialize_drivers(run_config: 'RunConfig',
     else:
         driver_types = DriverType.random(size=run_config.population_size)
     drivers = {}
-
-    # (locations_lane, safe) =\
-    #     driver_distributions.lane_location_initialize(
-    #         start=0, end=run_config.road_length,
-    #         size=run_config.population_size,
-    #         n_lanes=run_config.n_lanes,
-    #         safe_distance=run_config.safe_distance,
-    #         lane_density=np.array(run_config.lane_density),
-    #         safe=True,
-    #     )
 
     # Experimental:
     (locations_lane, safe) =\
@@ -111,6 +107,11 @@ def initialize_drivers(run_config: 'RunConfig',
         car_type = CarType.random()[0]
         dconfig = DriverConfig(
             id=i,
+            road=Road(
+                length=run_config.road_length,
+                n_lanes=run_config.n_lanes,
+                max_speed=run_config.max_speed
+            ),
             driver_type=driver_types[i],
             car_type=car_type,
             lane=int(lanes_array[i]),
@@ -222,9 +223,13 @@ class Model:
 
         self.info = {}
 
-        self.info['drivers'] = initialize_drivers(
+        __drivers_by_id = initialize_drivers(
             run_config=self.run_config,
             debug=self.run_config.debug
+        )
+
+        self.info['drivers'] = Driver.classify_by_lane(
+            drivers=list(__drivers_by_id.values())
         )
 
         self.info['road'] = Road(
@@ -233,20 +238,7 @@ class Model:
             max_speed=self.run_config.max_speed
         )
 
-        self.info['locations'] = dict(zip(
-            self.info['drivers'].keys(),
-            [d.config.location for d in self.info['drivers'].values()]
-        ))
-
-        self.info['speeds'] = dict(zip(
-            self.info['drivers'].keys(),
-            [d.config.speed for d in self.info['drivers'].values()]
-        ))
-
-        self.info['lanes'] = dict(zip(
-            self.info['drivers'].keys(),
-            [d.config.lane for d in self.info['drivers'].values()]
-        ))
+        self.id_counter = len(self.info['drivers'])
 
     @property
     def run_config(self) -> "RunConfig":
@@ -265,35 +257,63 @@ class Model:
         self._info = info
 
     @property
-    def road(self) -> "Road":
+    def road(self) -> Road:
         return self.info['road']
 
     @property
-    def drivers(self) -> Dict[int, "Driver"]:
+    def drivers(self) -> List[Driver]:
+        """
+        Returns a list of all the drivers in the simulation.
+
+        It's not excesively inneficient as the expected number
+        of lanes is small (3-4 as most).
+        """
+        darr = []
+        for k in self.info['drivers'].keys():
+            darr.extend(self.info['drivers'][k])
+        return darr
+
+    @property
+    def drivers_by_lane(self) -> Dict[int, 'Driver']:
+        """
+        Returns a dictionary of drivers, where the key is the lane
+        and the value is a list of drivers in that lane.
+        """
         return self.info['drivers']
 
     @property
-    def locations(self) -> Dict[int, float]:
-        return self.info['locations']
+    def id_counter(self) -> int:
+        return self._id_counter
 
-    @property
-    def speeds(self) -> Dict[int, float]:
-        return self.info['speeds']
+    @id_counter.setter
+    def id_counter(self, id_counter: int):
+        self._id_counter = id_counter
 
-    @property
-    def lanes(self) -> Dict[int, int]:
-        return self.info['lanes']
-
-    def sort_by_position(self, lane: int) -> List[Driver]:
+    def spawn_driver(self) -> None:
         """
-        Returns a list of drivers sorted by their position on the road.
+        Spawns a new driver in the simulation.
         """
-        drivers_in_lane = [
-            filter(lambda d: d.config.lane == lane, self.drivers.values())
-        ]
-
-        # TODO
-        pass
+        car_type = CarType.random()[0]
+        drv_type = DriverType.random()[0]
+        new_driver = Driver(
+            config=DriverConfig(
+                id=self.id_counter,
+                driver_type=drv_type,
+                road=self.road,
+                car_type=car_type,
+                lane=driver_distributions.lane_initialize_weighted(
+                    n_lanes=self.run_config.n_lanes,
+                    probs=self.run_config.lane_density
+                ),
+                location=0,  # Start at the beginning of the road
+                speed=driver_distributions.speed_initialize(
+                    driver_type=drv_type,
+                    car_type=car_type,
+                ),
+            ),
+        )
+        self.info['drivers'][self.id_counter] = new_driver
+        self.id_counter += 1
 
 
 class Engine:
@@ -330,9 +350,18 @@ class Engine:
 
     def run(self):
         for t in range(self.run_config.time_steps):
-            # TODO: update the state of the model
-            # Record the state of the model
             self.trace.add(copy.deepcopy(self.model))
+            state = self.trace.last.drivers_by_lane
+            new_state_drivers = []
+            for driver in self.model.drivers:
+                driver.action(
+                    state=state,
+                    update_fn=driver_distributions.speed_update
+                )
+                new_state_drivers.append(driver)
+            self.model.info['drivers'] = Driver.classify_by_lane(
+                drivers=new_state_drivers
+            )
 
 
 class Trace:
@@ -346,6 +375,10 @@ class Trace:
     @data.setter
     def data(self, data):
         self._data = data
+
+    @property
+    def last(self) -> 'Model':
+        return self.data[-1]
 
     def add(self, data):
         self.data.append(data)

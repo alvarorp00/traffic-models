@@ -190,6 +190,32 @@ class CarType(enum.Enum):
         """
         return CarType.get_min_speed(CarType.TRUCK)
 
+    @staticmethod
+    def get_size(car_type: 'CarType') -> float:
+        """
+        Returns the size of the car in meters.
+
+        Parameters
+        ----------
+        car_type : CarType
+            The type of car.
+
+        Returns
+        -------
+        float
+            The size of the car.
+        """
+        if car_type == CarType.MOTORCYCLE:
+            return 2
+        elif car_type == CarType.SEDAN:
+            return 3.5
+        elif car_type == CarType.SUV:
+            return 4.5
+        elif car_type == CarType.TRUCK:
+            return 8
+        else:
+            raise ValueError(f"Invalid car type @ {car_type}")
+
 
 class DriverType(enum.Enum):
     """
@@ -325,6 +351,10 @@ class DriverConfig:
             raise ValueError("car_type not passed to the constructor")
         self.car_type = kwargs['car_type']
 
+        if 'road' not in kwargs:
+            raise ValueError("road not passed to the constructor")
+        self.road = kwargs['road']
+
         if 'location' in kwargs:
             # assert isinstance(kwargs['location'], float)
             self.location = kwargs['location']
@@ -418,9 +448,48 @@ class Driver:
     def config(self, config: DriverConfig):
         self._config = config
 
-    def action(self, state, **kwargs):
-        # TODO
-        return NotImplementedError("action() not implemented yet")
+    def action(
+            self: 'Driver',
+            state: Dict[int, List['Driver']],
+            update_fn: callable,
+            **kwargs
+            ) -> 'Driver':
+        """
+        This method will be called by the simulation to act on a
+        discrete time step. The time step is defined by the
+        simulation. The driver will act on the given state, i.e.
+        the drivers on the road with their corresponding parameters.
+
+        Parameters
+        ----------
+        state : dict
+            A dictionary containing the drivers on the road with
+            their corresponding parameters, indexed by their lane
+            number.
+        update_fn : callable
+            A function that will be called to update the driver
+            speed & lane based on the given state. Should be called
+            with lib.driver_distributions.speed_update, although
+            custom functions can be provided.
+
+        Returns
+        -------
+        Driver
+            The driver after acting on the given state.
+        """
+
+        __driver: Driver = update_fn(
+            driver=self,
+            drivers_by_lane=state,
+        )
+
+        __driver_copy = Driver.copy(__driver)
+
+        __driver_copy.config.speed = __driver.config.speed
+        __driver_copy.config.lane = __driver.config.lane
+        __driver_copy.config.location += __driver_copy.config.speed / 3.6
+
+        return __driver_copy
 
     @staticmethod
     def classify_by_driver_type(drivers: list['Driver']) ->\
@@ -567,6 +636,35 @@ class Driver:
 
         # Otherwise, return the driver behind
         return drivers_in_lane[index - 1]
+
+    @staticmethod
+    def distance_between(front: 'Driver', back: 'Driver') -> float:
+        """
+        Returns the distance between the back of the front driver and the
+        front of the back driver, i.e. the real distance between the
+        drivers.
+
+        NOTE: This method assumes that the front driver is ahead
+        of the back driver, if that weren't the case then the distance
+        would be negative. It doesn't check the lane of the drivers.
+        """
+        real_front = front.config.location -\
+            CarType.get_size(front.config.car_type)
+        real_back = back.config.location +\
+            CarType.get_size(back.config.car_type)
+        return real_front - real_back
+
+    @staticmethod
+    def collision(d1: 'Driver', d2: 'Driver') -> bool:
+        """
+        Returns True if the given drivers are colliding, False otherwise.
+        """
+        front = d1 if d1.config.location > d2.config.location else d2
+        back = d1 if d1.config.location < d2.config.location else d2
+        if front.config.lane != back.config.lane:
+            return False
+        else:
+            return Driver.distance_between(front, back) < 0
 
     @staticmethod
     def copy(driver: 'Driver') -> 'Driver':
