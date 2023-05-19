@@ -124,7 +124,10 @@ class CarType(enum.Enum):
         return choice
 
     @staticmethod
-    def get_max_speed(car_type: 'CarType') -> float:
+    def get_max_speed(
+        car_type: 'CarType',
+        max_speed_fixed: float,
+    ) -> float:
         """
         Returns the maximum speed of the car.
 
@@ -138,16 +141,8 @@ class CarType(enum.Enum):
         float
             The maximum speed of the car.
         """
-        if car_type == CarType.MOTORCYCLE:
-            return 130
-        elif car_type == CarType.SEDAN:
-            return 120
-        elif car_type == CarType.SUV:
-            return 100
-        elif car_type == CarType.TRUCK:
-            return 80
-        else:
-            raise ValueError(f"Invalid car type @ {car_type}")
+        # Return max_speed minus the distance to type
+        return max_speed_fixed - (CarType.get_size(car_type) * 10)
 
     @staticmethod
     def get_min_speed(car_type: 'CarType') -> float:
@@ -165,18 +160,6 @@ class CarType(enum.Enum):
             The minimum speed of the car.
         """
         return 60  # All cars have a minimum speed of 60 km/h
-
-    @staticmethod
-    def max_speed() -> float:
-        """
-        Returns the maximum speed of any car.
-
-        Returns
-        -------
-        float
-            The maximum speed of any car.
-        """
-        return CarType.get_max_speed(CarType.MOTORCYCLE)
 
     @staticmethod
     def min_speed() -> float:
@@ -234,19 +217,23 @@ class DriverType(enum.Enum):
         return self.name
 
     @staticmethod
-    def random(size=1) -> list['DriverType']:
+    def random(
+        size: int = 1,
+        probs: List[float] = [.4, .3, .15, .1, .05],
+    ) -> list['DriverType']:
         """
-        Returns a random driver type.
-
-        Probability distribution is defined by a multinomial
-        distribution.
+        Returns a weighted random driver type.
 
         Probabilities:
-        - CAUTIOUS: 0.4
-        - NORMAL: 0.3
-        - RISKY: 0.15
-        - AGGRESSIVE: 0.1
-        - RECKLESS: 0.05
+        - Given or default (see below)
+
+            - CAUTIOUS: 0.4
+            - NORMAL: 0.3
+            - RISKY: 0.15
+            - AGGRESSIVE: 0.1
+            - RECKLESS: 0.05
+
+        - Probabilities given must be of length 5.
 
         Returns
         -------
@@ -255,7 +242,7 @@ class DriverType(enum.Enum):
         """
         choice = random.choices(
             population=list(DriverType),
-            weights=[.4, .3, .15, .1, .05],
+            weights=probs,
             k=size
         )
 
@@ -451,7 +438,7 @@ class Driver:
     def action(
             self: 'Driver',
             state: Dict[int, List['Driver']],
-            update_fn: callable,
+            update_fn: callable,  # type: ignore
             **kwargs
             ) -> 'Driver':
         """
@@ -481,6 +468,7 @@ class Driver:
         __driver: Driver = update_fn(
             driver=self,
             drivers_by_lane=state,
+            max_speed_fixed=kwargs['max_speed_fixed'],
         )
 
         __driver_copy = Driver.copy(__driver)

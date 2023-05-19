@@ -68,7 +68,10 @@ def initialize_drivers(run_config: 'RunConfig',
             size=run_config.population_size
         )
     else:
-        driver_types = DriverType.random(size=run_config.population_size)
+        driver_types = DriverType.random(
+            size=run_config.population_size,
+            probs=run_config.driver_type_density,
+        )
     drivers = {}
 
     # Experimental:
@@ -119,7 +122,8 @@ def initialize_drivers(run_config: 'RunConfig',
             speed=driver_distributions.speed_initialize(
                 car_type=car_type,
                 driver_type=driver_types[i],
-                size=1
+                size=1,
+                max_speed_fixed=run_config.max_speed
             )
         )
         drivers[i] = Driver(config=dconfig)
@@ -151,6 +155,9 @@ class RunConfig:
             Defaults to 2 meters.
         lane_density : List[float]
             The density of the drivers in each lane.
+            Defaults to equal distribution.
+        driver_type_density : List[float]
+            The density of the drivers in each driver type.
             Defaults to equal distribution.
         max_speed : float
             The maximum speed of the drivers in the simulation.
@@ -204,6 +211,12 @@ class RunConfig:
             self.lane_density = kwargs['lane_density']
         else:
             self.lane_density = [1.0 / self.n_lanes] * self.n_lanes
+        if 'driver_type_density' in kwargs:
+            assert isinstance(kwargs['driver_type_density'], list)
+            assert np.isclose(np.sum(kwargs['driver_type_density']), 1.0)
+            self.driver_type_density = kwargs['driver_type_density']
+        else:
+            self.driver_type_density = [1.0 / 5] * 5
         if 'max_speed' in kwargs:
             assert isinstance(kwargs['max_speed'], float) or \
                      isinstance(kwargs['max_speed'], int)
@@ -228,9 +241,9 @@ class Model:
             debug=self.run_config.debug
         )
 
-        self.info['drivers'] = Driver.classify_by_lane(
-            drivers=list(__drivers_by_id.values())
-        )
+        self.info['active_drivers'] = __drivers_by_id
+
+        self.info['inactive_drivers'] = {}
 
         self.info['road'] = Road(
             length=self.run_config.road_length,
@@ -238,7 +251,7 @@ class Model:
             max_speed=self.run_config.max_speed
         )
 
-        self.id_counter = len(self.info['drivers'])
+        self.id_counter = len(self.active_drivers)
 
     @property
     def run_config(self) -> "RunConfig":
@@ -261,25 +274,20 @@ class Model:
         return self.info['road']
 
     @property
-    def drivers(self) -> List[Driver]:
+    def active_drivers(self) -> List[Driver]:
         """
-        Returns a list of all the drivers in the simulation.
-
-        It's not excesively inneficient as the expected number
-        of lanes is small (3-4 as most).
+        Returns a list of all the active drivers
+        (didn't reach the end of the road)
+        in the simulation indexed by their id.
         """
-        darr = []
-        for k in self.info['drivers'].keys():
-            darr.extend(self.info['drivers'][k])
-        return darr
+        return self.info['active_drivers'].values()
 
     @property
-    def drivers_by_lane(self) -> Dict[int, 'Driver']:
+    def inactive_drivers(self) -> List[Driver]:
         """
-        Returns a dictionary of drivers, where the key is the lane
-        and the value is a list of drivers in that lane.
+        Returns a list of all the active drivers in the simulation.
         """
-        return self.info['drivers']
+        return self.info['inactive_drivers'].values()
 
     @property
     def id_counter(self) -> int:
@@ -294,7 +302,10 @@ class Model:
         Spawns a new driver in the simulation.
         """
         car_type = CarType.random()[0]
-        drv_type = DriverType.random()[0]
+        drv_type = DriverType.random(
+            size=1,
+            probs=self.run_config.driver_type_density
+        )[0]
         new_driver = Driver(
             config=DriverConfig(
                 id=self.id_counter,
@@ -303,17 +314,20 @@ class Model:
                 car_type=car_type,
                 lane=driver_distributions.lane_initialize_weighted(
                     n_lanes=self.run_config.n_lanes,
-                    probs=self.run_config.lane_density
+                    probs=self.run_config.lane_density  # type: ignore
                 ),
                 location=0,  # Start at the beginning of the road
                 speed=driver_distributions.speed_initialize(
                     driver_type=drv_type,
                     car_type=car_type,
+                    size=1,
+                    max_speed_fixed=self.run_config.max_speed
                 ),
             ),
         )
-        self.info['drivers'][self.id_counter] = new_driver
+        self.info['active_drivers'][self.id_counter] = new_driver
         self.id_counter += 1
+        self.stats = ModelStats(model=self)
 
 
 class Engine:
@@ -348,20 +362,40 @@ class Engine:
     def model(self, model):
         self._model = model
 
+    @property
+    def stats(self) -> "ModelStats":
+        return self._stats
+
+    @stats.setter
+    def stats(self, stats):
+        self._stats = stats
+
     def run(self):
         for t in range(self.run_config.time_steps):
             self.trace.add(copy.deepcopy(self.model))
-            state = self.trace.last.drivers_by_lane
+            state = Driver.classify_by_lane(self.trace.last.active_drivers)
             new_state_drivers = []
-            for driver in self.model.drivers:
+            for driver in self.model.active_drivers:
                 driver.action(
-                    state=state,
-                    update_fn=driver_distributions.speed_update
+                    state=state,  # type: ignore
+                    update_fn=driver_distributions.speed_update,
+                    max_speed_fixed=self.run_config.max_speed,
                 )
                 new_state_drivers.append(driver)
-            self.model.info['drivers'] = Driver.classify_by_lane(
-                drivers=new_state_drivers
-            )
+                # Check if driver has reached the end of the road
+                if driver.config.location >= self.model.road.length:
+                    self.exit_driver(driver)
+            self.model.info['active_drivers'] = Driver.classify_by_id(
+                new_state_drivers
+            )  # Still need to check if driver is active
+
+    def exit_driver(self, driver: Driver) -> None:
+        """
+        This method is called whenever a driver reaches
+        the end of the road.
+        """
+        # TODO: set driver as inactive
+        pass
 
 
 class Trace:
@@ -382,3 +416,24 @@ class Trace:
 
     def add(self, data):
         self.data.append(data)
+
+
+class ModelStats:
+    def __init__(self, *args, **kwargs):
+        if 'model' not in kwargs:
+            raise Exception("Cannot create ModelStats without a model.")
+        self._model = kwargs['model']
+
+    @property
+    def model(self) -> Model:
+        return self._model
+
+    @model.setter
+    def model(self, model: Model):
+        self._model = model
+
+    def get_stats(self):
+        """
+        Returns a dictionary of statistics about the model.
+        """
+        pass

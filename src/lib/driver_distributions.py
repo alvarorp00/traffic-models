@@ -64,7 +64,8 @@ def lane_initialize_weighted(
 def speed_initialize(
     driver_type: DriverType,
     car_type: CarType,
-    size=1
+    max_speed_fixed: float,
+    size=1,
 ) -> np.ndarray:
     """
     Returns a random rample gathered from a normal distribution
@@ -88,7 +89,7 @@ def speed_initialize(
         there is a random factor in the formula. So we will
         admit that this is a valid velocity.
     """    
-    max_speed = CarType.get_max_speed(car_type)
+    max_speed = CarType.get_max_speed(car_type, max_speed_fixed)
     min_speed = CarType.get_min_speed(car_type)
 
     portion = (driver_type.value / driver_type.RISKY.value) *\
@@ -524,6 +525,7 @@ def max_close_distance(driver_type: DriverType) -> float:
 
 def risk_overtake_distance(
     driver: 'Driver',
+    max_speed_fixed: float,
     size=1
 ) -> float:
     """
@@ -569,7 +571,7 @@ def risk_overtake_distance(
     """
     mean = max_close_distance(driver.config.driver_type)
     std = 1 / (driver.config.speed /
-               CarType.get_max_speed(driver.config.car_type))
+               CarType.get_max_speed(driver.config.car_type, max_speed_fixed))
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=size).numpy() + mean
@@ -687,6 +689,8 @@ def safe_overtake(
     # Get driver in front
     front_driver = Driver.driver_at_front(driver, drivers_by_lane)
     # Check if driver is moving faster than driver in front
+    if front_driver is None:
+        return False  # No need to overtake
     if driver.config.speed <= front_driver.config.speed:
         return False
     else:
@@ -753,7 +757,7 @@ class OvertakeDecission:
 def decide_overtake(
         driver: 'Driver',
         drivers_by_lane: Dict[int, List['Driver']],
-        risk_distance: float,
+        risk_distance: float
 ) -> OvertakeDecission:
     """
     Returns True if the driver will overtake the driver in front,
@@ -769,19 +773,22 @@ def decide_overtake(
             driver.config.lane - 1,  # Go back to previous lane?
             risk_distance
         ):
-            return OvertakeDecission.BACK
+            return OvertakeDecission.BACK  # type: ignore
         else:
-            return OvertakeDecission.STAY
+            return OvertakeDecission.STAY  # type: ignore
     else:
-        return OvertakeDecission.OVERTAKE
+        return OvertakeDecission.OVERTAKE  # type: ignore
 
 
-def _speed_increase(driver: Driver) -> float:
+def _speed_increase(
+        driver: Driver,
+        max_speed_fixed: float,
+) -> float:
     """
     Returns a speed increase for the driver, i.e. a new speed
     """
     std = (driver.config.speed /
-           CarType.get_max_speed(driver.config.car_type))
+           CarType.get_max_speed(driver.config.car_type, max_speed_fixed))
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=1).numpy().flatten()[0]
@@ -805,6 +812,7 @@ def _speed_decrease(driver: Driver) -> float:
 # and check behaviour
 def speed_update(driver: Driver,
                  drivers_by_lane: Dict[int, List['Driver']],
+                 max_speed_fixed: float,
                  ) -> Driver:
     """
     Returns the updated driver after considering the
@@ -854,7 +862,7 @@ def speed_update(driver: Driver,
     driver_back = Driver.driver_at_back(driver, drivers_by_lane)
 
     # Get risk overtake distance
-    risk_distance = risk_overtake_distance(driver)
+    risk_distance = risk_overtake_distance(driver, max_speed_fixed)
 
     # Copy current driver
     new_driver = Driver.copy(driver)
@@ -862,7 +870,7 @@ def speed_update(driver: Driver,
     variation = 0
     lane = driver.config.lane
 
-    __increase = _speed_increase(driver)
+    __increase = _speed_increase(driver, max_speed_fixed)
     __decrease = _speed_decrease(driver)
 
     # print(f'Possible speed increase: {__increase}')

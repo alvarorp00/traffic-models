@@ -108,7 +108,7 @@ def print_model(model: Model, n_drivers: int = 0,
 
     # Print driver information
     print("Driver information:", file=file)
-    for driver in model.drivers.values():
+    for driver in model.active_drivers:
         print(f"\tDriver {driver.config.id} is a {driver.config.driver_type} "
               f"driver driving a {driver.config.car_type} car."
               f" @ {driver.config.speed} m/s in lane {driver.config.lane}"
@@ -128,7 +128,7 @@ def print_model(model: Model, n_drivers: int = 0,
     for lane in range(model.road.n_lanes):
         n_lane_drivers = len(list(filter(
             lambda d: d.config.lane == lane,
-            model.drivers.values()
+            model.active_drivers
         )))
         print(f"\t\tLane {lane}: {n_lane_drivers}", file=file)
 
