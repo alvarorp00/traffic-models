@@ -19,33 +19,39 @@ LANES : int
 import numpy as np
 from lib.driver import LanePriority
 
-POPULATION_SIZE = 15
 
-TIME_STEPS = 5
+class Config:
+    POPULATION_SIZE = 100
 
-ROAD_LENGTH = 300  # In meters
+    TIME_STEPS = 10**4
 
-# In km/h
-MAX_SPEED = 130
+    ROAD_LENGTH = 10000  # In meters
 
-# TODO
-MAX_SPEED_GAP = 10
+    # In km/h
+    MAX_SPEED = 130
+    # Gap between max speed of cars of different types (consecutively)
+    MAX_SPEED_GAP = 10
 
-MIN_SPEED = 60
+    MIN_SPEED = 60
+    # Gap between min speed of cars of different types (consecutively)
+    MIN_SPEED_GAP = 5
 
-# TODO
-MIN_SPEED_GAP = 5
+    N_LANES = 3
 
-N_LANES = 3
+    # Just visual representation while plotting
+    LANES_PRIORITY = LanePriority.LEFT
 
-# Just visual representation while plotting
-LANES_PRIORITY = LanePriority.LEFT
+    # From lesser priority to higher priority
+    LANES_DENSITY = np.array([0.6, 0.3, 0.1])
 
-# From lesser priority to higher priority
-LANES_DENSITY = np.array([0.6, 0.3, 0.1])
+    MINIMUM_LOAD_FACTOR = 0.75
 
-# From more cautious to more aggressive
-DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]
+    START_WITH_POPULATION = False
 
-# Minimum safe distance between two cars for the most aggressive driver
-SAFE_DISTANCE = 4.  # In meters
+    SPAWN_EVERY_N_STEPS = 10
+
+    # From more cautious to more aggressive
+    DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]
+
+    # Minimum safe distance between two cars for the most aggressive driver
+    SAFE_DISTANCE = 4.  # In meters

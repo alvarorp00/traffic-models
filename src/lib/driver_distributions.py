@@ -65,6 +65,9 @@ def speed_initialize(
     driver_type: DriverType,
     car_type: CarType,
     max_speed_fixed: float,
+    max_speed_gap: float,
+    min_speed_fixed: float,
+    min_speed_gap: float,
     size=1,
 ) -> np.ndarray:
     """
@@ -88,9 +91,9 @@ def speed_initialize(
         If velocity is greater than max_speed, it will be because
         there is a random factor in the formula. So we will
         admit that this is a valid velocity.
-    """    
-    max_speed = CarType.get_max_speed(car_type, max_speed_fixed)
-    min_speed = CarType.get_min_speed(car_type)
+    """
+    max_speed = CarType.get_max_speed(car_type, max_speed_fixed, max_speed_gap)
+    min_speed = CarType.get_min_speed(car_type, min_speed_fixed, min_speed_gap)
 
     portion = (driver_type.value / driver_type.RISKY.value) *\
               (max_speed - min_speed)
@@ -403,10 +406,14 @@ def location_initialize(start: float, end: float, size: int,
     (float, bool)
         The location and whether it is safe or not.
     """
+    initial_distribution = tfp.distributions.Uniform(
+        low=start, high=end
+    )
     if safe is False:
-        return (_location_initialize_unsafe(
-            start, end, size
-        ), False)
+        return (
+            _location_initialize_unsafe(
+                initial_distribution, size
+            ), False)
     else:
         # Generate safe
         max_tries = kwargs.get('max_tries', 100)
@@ -417,9 +424,10 @@ def location_initialize(start: float, end: float, size: int,
         if res is None:
             # If we can't find a safe position, we'll return
             # an unsafe one
-            return (_location_initialize_unsafe(
-                start, end, size
-            ), False)
+            return (
+                _location_initialize_unsafe(
+                    initial_distribution, size
+                ), False)
         else:
             return (res, True)
 
@@ -526,6 +534,7 @@ def max_close_distance(driver_type: DriverType) -> float:
 def risk_overtake_distance(
     driver: 'Driver',
     max_speed_fixed: float,
+    max_speed_gap: float,
     size=1
 ) -> float:
     """
@@ -570,8 +579,15 @@ def risk_overtake_distance(
                     the left lane.
     """
     mean = max_close_distance(driver.config.driver_type)
-    std = 1 / (driver.config.speed /
-               CarType.get_max_speed(driver.config.car_type, max_speed_fixed))
+    std =\
+        1 / (
+                driver.config.speed /
+                CarType.get_max_speed(
+                    driver.config.car_type,
+                    max_speed_fixed,
+                    max_speed_gap
+                )
+            )
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=size).numpy() + mean
@@ -783,12 +799,18 @@ def decide_overtake(
 def _speed_increase(
         driver: Driver,
         max_speed_fixed: float,
+        max_speed_gap: float
 ) -> float:
     """
     Returns a speed increase for the driver, i.e. a new speed
     """
-    std = (driver.config.speed /
-           CarType.get_max_speed(driver.config.car_type, max_speed_fixed))
+    std = (
+        driver.config.speed /
+        CarType.get_max_speed(
+            driver.config.car_type,
+            max_speed_fixed,
+            max_speed_gap
+        ))
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=1).numpy().flatten()[0]
@@ -796,12 +818,21 @@ def _speed_increase(
     return rvs
 
 
-def _speed_decrease(driver: Driver) -> float:
+def _speed_decrease(
+        driver: Driver,
+        min_speed_fixed: float,
+        min_speed_gap: float
+) -> float:
     """
     Returns a speed decrease for the driver, i.e. a new speed
     """
-    std = (driver.config.speed /
-           CarType.get_min_speed(driver.config.car_type))
+    std = (
+        driver.config.speed /
+        CarType.get_min_speed(
+            driver.config.car_type,
+            min_speed_fixed,
+            min_speed_gap
+        ))
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=1).numpy().flatten()[0]
@@ -810,10 +841,14 @@ def _speed_decrease(driver: Driver) -> float:
 
 # TODO: add previous functionallity (lane change, speed change, etc.)
 # and check behaviour
-def speed_update(driver: Driver,
-                 drivers_by_lane: Dict[int, List['Driver']],
-                 max_speed_fixed: float,
-                 ) -> Driver:
+def speed_update(
+    driver: Driver,
+    drivers_by_lane: Dict[int, List['Driver']],
+    max_speed_fixed: float,
+    max_speed_gap: float,
+    min_speed_fixed: float,
+    min_speed_gap: float,
+) -> Driver:
     """
     Returns the updated driver after considering the
     drivers in front and behind, the current speed,
@@ -862,7 +897,9 @@ def speed_update(driver: Driver,
     driver_back = Driver.driver_at_back(driver, drivers_by_lane)
 
     # Get risk overtake distance
-    risk_distance = risk_overtake_distance(driver, max_speed_fixed)
+    risk_distance = risk_overtake_distance(
+        driver, max_speed_fixed, max_speed_gap
+    )
 
     # Copy current driver
     new_driver = Driver.copy(driver)
@@ -870,8 +907,8 @@ def speed_update(driver: Driver,
     variation = 0
     lane = driver.config.lane
 
-    __increase = _speed_increase(driver, max_speed_fixed)
-    __decrease = _speed_decrease(driver)
+    __increase = _speed_increase(driver, max_speed_fixed, max_speed_gap)
+    __decrease = _speed_decrease(driver, min_speed_fixed, min_speed_gap)
 
     # print(f'Possible speed increase: {__increase}')
     # print(f'Possible speed decrease: {__decrease}')
@@ -951,10 +988,31 @@ def speed_update(driver: Driver,
     new_driver.config.speed += variation
     new_driver.config.lane = lane
 
-    # if new_driver.config.speed != driver.config.speed:
-    #     print(f'Driver {driver.config.id} changed speed from '
-    #           f'{driver.config.speed}@{driver.config.lane} to {new_driver.config.speed}@{new_driver.config.lane}')  # noqa: E501
-
     # print(f'\tDec: {__dec}\n')
 
     return new_driver
+
+
+def collision_wait_time(
+        n: int,
+        center_loc: float,
+) -> float:
+    """
+    Returns a random sample from a normal distribution
+    that represents the time that drivers will wait
+    after a collision (time that the drivers will be
+    stopped).
+
+    Parameters
+    ----------
+    n : int
+        The number of drivers involved in the collision.
+
+    NOTE: not tested, might change in the future.
+    """
+
+    wait_time = tfp.distributions.HalfNormal(
+        scale=n
+    ).sample(sample_shape=n).numpy().flatten() + center_loc
+
+    return wait_time

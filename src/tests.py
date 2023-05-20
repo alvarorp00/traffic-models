@@ -26,7 +26,9 @@ def test_distances(run_config: engine.RunConfig, fname=None, plot=False):
     for driver in drivers:
 
         distance =\
-            lib.driver_distributions.risk_overtake_distance(driver)
+            lib.driver_distributions.risk_overtake_distance(
+                driver, run_config.max_speed
+            )
 
         print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
               f"\n\tdriver driving a {driver.config.car_type} car @"
@@ -53,6 +55,8 @@ def test_velocities(run_config: engine.RunConfig, fname=None, plot=False):
             lib.driver_distributions.speed_initialize(
                 driver_type=driver.config.driver_type,
                 car_type=driver.config.car_type,
+                max_speed_fixed=run_config.max_speed,
+                min_speed_fixed=run_config.min_speed
             )
         # lib.driver_distributions.risk_overtake_velocity(driver)
 
@@ -107,6 +111,8 @@ def test_overtake(run_config: engine.RunConfig, fname=None, plot=False):
             __driver = lib.driver_distributions.speed_update(
                 driver=driver,
                 drivers_by_lane=old_drivers_by_lane,
+                max_speed_fixed=run_config.max_speed,
+                min_speed_fixed=run_config.min_speed,
             )
 
             __driver_copy = lib.driver.Driver.copy(__driver)

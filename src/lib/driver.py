@@ -127,6 +127,7 @@ class CarType(enum.Enum):
     def get_max_speed(
         car_type: 'CarType',
         max_speed_fixed: float,
+        max_speed_gap: float,
     ) -> float:
         """
         Returns the maximum speed of the car.
@@ -142,10 +143,14 @@ class CarType(enum.Enum):
             The maximum speed of the car.
         """
         # Return max_speed minus the distance to type
-        return max_speed_fixed - (CarType.get_size(car_type) * 10)
+        return max_speed_fixed - (CarType.get_size(car_type) * max_speed_gap)
 
     @staticmethod
-    def get_min_speed(car_type: 'CarType') -> float:
+    def get_min_speed(
+        car_type: 'CarType',
+        min_speed_fixed: float,
+        min_speed_gap: float,
+    ) -> float:
         """
         Returns the minimum speed of the car.
 
@@ -159,19 +164,7 @@ class CarType(enum.Enum):
         float
             The minimum speed of the car.
         """
-        return 60  # All cars have a minimum speed of 60 km/h
-
-    @staticmethod
-    def min_speed() -> float:
-        """
-        Returns the minimum speed of any car.
-
-        Returns
-        -------
-        float
-            The minimum speed of any car.
-        """
-        return CarType.get_min_speed(CarType.TRUCK)
+        return min_speed_fixed + (CarType.get_size(car_type) * min_speed_gap)
 
     @staticmethod
     def get_size(car_type: 'CarType') -> float:
@@ -314,7 +307,9 @@ class DriverConfig:
     car_type : CarType
         The type of car.
     location : float
-        The initial location of the driver.
+        The location of the driver.
+    origin : int
+        Set automatically by the simulation, is the initial position
     speed : float
         The initial speed of the driver.
     lane : int
@@ -347,6 +342,8 @@ class DriverConfig:
             self.location = kwargs['location']
         else:
             self.location = 0
+
+        self.origin = self.location
 
         if 'speed' in kwargs:
             # assert isinstance(kwargs['speed'], float)
@@ -383,6 +380,14 @@ class DriverConfig:
     @location.setter
     def location(self, location: float):
         self._location = location
+
+    @property
+    def origin(self) -> int:
+        return self._origin
+
+    @origin.setter
+    def origin(self, origin: int):
+        self._origin = origin
 
     @property
     def speed(self) -> float:
@@ -465,10 +470,19 @@ class Driver:
             The driver after acting on the given state.
         """
 
+        max_speed_fixed = kwargs.get('max_speed_fixed', None)
+        min_speed_fixed = kwargs.get('min_speed_fixed', None)
+
+        if max_speed_fixed is None:
+            raise ValueError("max_speed_fixed not passed to action()")
+        if min_speed_fixed is None:
+            raise ValueError("min_speed_fixed not passed to action()")
+
         __driver: Driver = update_fn(
             driver=self,
             drivers_by_lane=state,
-            max_speed_fixed=kwargs['max_speed_fixed'],
+            max_speed_fixed=max_speed_fixed,
+            min_speed_fixed=min_speed_fixed,
         )
 
         __driver_copy = Driver.copy(__driver)
@@ -480,7 +494,7 @@ class Driver:
         return __driver_copy
 
     @staticmethod
-    def classify_by_driver_type(drivers: list['Driver']) ->\
+    def classify_by_type(drivers: list['Driver']) ->\
             Dict[DriverType, List['Driver']]:
         """
         Returns a dictionary that maps driver types to a list of drivers
@@ -660,3 +674,10 @@ class Driver:
         Returns a copy of the given driver.
         """
         return Driver(config=driver.config)
+
+    @staticmethod
+    def copy_list(drivers: List['Driver']) -> List['Driver']:
+        """
+        Returns a copy of the given list of drivers.
+        """
+        return [Driver.copy(d) for d in drivers]
