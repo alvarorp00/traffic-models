@@ -21,9 +21,15 @@ from lib.driver import LanePriority
 
 
 class Config:
+    TIME_STEPS = 1000
+
     POPULATION_SIZE = 100
 
-    TIME_STEPS = 10**4
+    MINIMUM_LOAD_FACTOR = 0.75
+
+    START_WITH_POPULATION = False
+
+    SPAWN_EVERY_N_STEPS = 10
 
     ROAD_LENGTH = 10000  # In meters
 
@@ -44,14 +50,14 @@ class Config:
     # From lesser priority to higher priority
     LANES_DENSITY = np.array([0.6, 0.3, 0.1])
 
-    MINIMUM_LOAD_FACTOR = 0.75
-
-    START_WITH_POPULATION = False
-
-    SPAWN_EVERY_N_STEPS = 10
-
     # From more cautious to more aggressive
     DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]
 
     # Minimum safe distance between two cars for the most aggressive driver
     SAFE_DISTANCE = 4.  # In meters
+
+    # Minimum wait time for accident to be cleared
+    ACCIDENT_CLEARANCE_TIME = 10  # In seconds / time steps
+
+    # Print info
+    # VERBOSE = True

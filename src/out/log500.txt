@@ -1,0 +1,349 @@
+Road length: 5000
+
+Line changes:
+        Driver 5 lanes: [0, 1, 4]
+        Driver 49 lanes: [1, 0]
+        Driver 57 lanes: [2, 1, 0]
+        Driver 14 lanes: [0]
+        Driver 26 lanes: [1, 0]
+        Driver 12 lanes: [0]
+        Driver 7 lanes: [0, 1, 0]
+        Driver 67 lanes: [0]
+        Driver 34 lanes: [2, 1]
+        Driver 48 lanes: [0]
+        Driver 1 lanes: [1, 0]
+        Driver 4 lanes: [1]
+        Driver 0 lanes: [0]
+        Driver 21 lanes: [0, 1]
+        Driver 3 lanes: [2, 1]
+        Driver 10 lanes: [1, 0]
+        Driver 8 lanes: [1, 0]
+        Driver 9 lanes: [1]
+        Driver 11 lanes: [2, 1]
+        Driver 46 lanes: [0]
+        Driver 30 lanes: [0, 1]
+        Driver 13 lanes: [2, 1]
+        Driver 15 lanes: [1, 0]
+        Driver 35 lanes: [0]
+        Driver 16 lanes: [0]
+        Driver 17 lanes: [2, 1]
+        Driver 23 lanes: [2, 1, 0]
+        Driver 70 lanes: [1, 0, 1, 2]
+        Driver 19 lanes: [0]
+        Driver 18 lanes: [2]
+        Driver 20 lanes: [1, 0]
+        Driver 47 lanes: [2, 1]
+        Driver 22 lanes: [0]
+        Driver 28 lanes: [0, 1]
+        Driver 24 lanes: [1, 0]
+        Driver 40 lanes: [1, 0, 1]
+        Driver 25 lanes: [2, 1]
+        Driver 27 lanes: [0]
+        Driver 38 lanes: [2, 1, 2]
+        Driver 55 lanes: [2, 1]
+        Driver 44 lanes: [0, 1]
+        Driver 36 lanes: [2, 1, 0]
+        Driver 37 lanes: [2, 1]
+        Driver 39 lanes: [0]
+        Driver 66 lanes: [0, 1, 2]
+        Driver 42 lanes: [2, 1]
+        Driver 54 lanes: [2, 1, 0]
+        Driver 43 lanes: [2]
+        Driver 62 lanes: [2, 1, 0, 1, 2]
+        Driver 69 lanes: [2, 1, 0, 1, 2]
+        Driver 45 lanes: [0]
+        Driver 51 lanes: [2, 1, 0]
+        Driver 52 lanes: [2, 1, 0]
+        Driver 50 lanes: [2, 1, 0]
+        Driver 64 lanes: [2, 1, 2]
+        Driver 53 lanes: [1, 0]
+        Driver 56 lanes: [0]
+        Driver 58 lanes: [2, 1]
+        Driver 59 lanes: [0]
+        Driver 73 lanes: [0, 1]
+        Driver 61 lanes: [0]
+        Driver 71 lanes: [0]
+        Driver 60 lanes: [2, 1]
+        Driver 63 lanes: [1, 0]
+        Driver 68 lanes: [2, 1, 0]
+        Driver 74 lanes: [1, 0, 1]
+        Driver 72 lanes: [1, 0]
+        Driver 29 lanes: [0]
+        Driver 32 lanes: [1]
+        Driver 65 lanes: [1, 0, 1]
+        Driver 33 lanes: [0]
+        Driver 6 lanes: [0]
+        Driver 104 lanes: [2]
+        Driver 31 lanes: [0]
+        Driver 75 lanes: [0]
+        Driver 76 lanes: [0]
+        Driver 78 lanes: [1]
+        Driver 89 lanes: [2]
+        Driver 79 lanes: [0]
+        Driver 126 lanes: [0]
+        Driver 97 lanes: [0]
+        Driver 82 lanes: [1]
+        Driver 86 lanes: [0]
+        Driver 85 lanes: [1]
+        Driver 90 lanes: [0]
+        Driver 111 lanes: [1]
+        Driver 118 lanes: [1]
+        Driver 91 lanes: [1]
+        Driver 88 lanes: [1]
+        Driver 93 lanes: [1]
+        Driver 95 lanes: [1]
+        Driver 94 lanes: [0]
+        Driver 96 lanes: [0]
+        Driver 92 lanes: [0]
+        Driver 103 lanes: [0]
+        Driver 99 lanes: [1]
+        Driver 101 lanes: [1]
+        Driver 105 lanes: [1]
+        Driver 102 lanes: [0]
+        Driver 108 lanes: [0]
+        Driver 107 lanes: [1]
+        Driver 106 lanes: [0]
+        Driver 109 lanes: [0]
+        Driver 110 lanes: [1]
+        Driver 77 lanes: [0]
+        Driver 112 lanes: [0]
+        Driver 116 lanes: [1]
+        Driver 113 lanes: [0]
+        Driver 114 lanes: [1]
+        Driver 115 lanes: [2]
+        Driver 123 lanes: [2]
+        Driver 131 lanes: [0]
+        Driver 124 lanes: [0]
+        Driver 117 lanes: [0]
+        Driver 128 lanes: [0]
+        Driver 120 lanes: [1]
+        Driver 127 lanes: [0]
+        Driver 135 lanes: [0]
+        Driver 81 lanes: [0]
+        Driver 134 lanes: [0]
+        Driver 83 lanes: [0]
+        Driver 125 lanes: [0]
+        Driver 129 lanes: [0]
+        Driver 130 lanes: [2]
+        Driver 133 lanes: [0]
+        Driver 132 lanes: [0]
+        Driver 138 lanes: [2]
+        Driver 137 lanes: [2]
+        Driver 139 lanes: [0]
+        Driver 136 lanes: [0]
+        Driver 140 lanes: [1]
+        Driver 2 lanes: [1, 0]
+        Driver 41 lanes: [1, 0]
+        Driver 80 lanes: [0]
+        Driver 84 lanes: [0]
+        Driver 87 lanes: [0]
+        Driver 98 lanes: [0]
+        Driver 100 lanes: [0]
+        Driver 119 lanes: [0]
+        Driver 121 lanes: [1]
+        Driver 122 lanes: [0]
+        Driver 141 lanes: [0]
+        Driver 142 lanes: [1]
+        Driver 143 lanes: [1]
+        Driver 144 lanes: [2]
+        Driver 145 lanes: [0]
+        Driver 146 lanes: [0]
+        Driver 147 lanes: [1]
+        Driver 148 lanes: [0]
+        Driver 149 lanes: [0]
+        Driver 150 lanes: [1]
+        Driver 151 lanes: [0]
+        Driver 152 lanes: [0]
+        Driver 153 lanes: [0]
+        Driver 154 lanes: [1]
+        Driver 155 lanes: [0]
+        Driver 156 lanes: [2]
+        Driver 157 lanes: [0]
+        Driver 158 lanes: [0]
+        Driver 159 lanes: [0]
+        Driver 160 lanes: [0]
+        Driver 161 lanes: [0]
+        Driver 162 lanes: [0]
+        Driver 163 lanes: [1]
+        Driver 164 lanes: [0]
+        Driver 165 lanes: [0]
+        Driver 166 lanes: [2]
+        Driver 167 lanes: [0]
+        Driver 168 lanes: [2]
+        Driver 169 lanes: [0]
+        Driver 170 lanes: [0]
+        Driver 171 lanes: [1]
+        Driver 172 lanes: [0]
+        Driver 173 lanes: [0]
+        Driver 174 lanes: [0]
+        Driver 175 lanes: [1]
+        Driver 176 lanes: [0]
+        Driver 177 lanes: [0]
+        Driver 178 lanes: [1]
+        Driver 179 lanes: [0]
+        Driver 180 lanes: [1]
+        Driver 181 lanes: [0]
+        Driver 182 lanes: [0]
+        Driver 183 lanes: [0]
+        Driver 184 lanes: [0]
+        Driver 185 lanes: [0]
+        Driver 186 lanes: [1]
+        Driver 187 lanes: [1]
+        Driver 188 lanes: [0]
+        Driver 189 lanes: [2]
+        Driver 190 lanes: [0]
+        Driver 191 lanes: [0]
+        Driver 192 lanes: [0]
+        Driver 193 lanes: [0]
+        Driver 194 lanes: [0]
+        Driver 195 lanes: [0]
+        Driver 196 lanes: [0]
+        Driver 197 lanes: [1]
+        Driver 198 lanes: [0]
+        Driver 199 lanes: [0]
+        Driver 200 lanes: [1]
+        Driver 201 lanes: [0]
+        Driver 202 lanes: [0]
+        Driver 203 lanes: [0]
+        Driver 204 lanes: [1]
+        Driver 205 lanes: [1]
+Drivers that finished:
+        Driver 5 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [102.921745] m/s
+        Driver 49 finished @ RECKLESS driver driving a CarType.MOTORCYCLE car @ [137.16246] m/s
+        Driver 57 finished @ RECKLESS driver driving a CarType.MOTORCYCLE car @ [138.74078] m/s
+        Driver 14 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [102.91594] m/s
+        Driver 26 finished @ RECKLESS driver driving a CarType.SEDAN car @ [106.95643] m/s
+        Driver 12 finished @ RISKY driver driving a CarType.SEDAN car @ [94.382744] m/s
+        Driver 7 finished @ RISKY driver driving a CarType.SUV car @ [88.319756] m/s
+        Driver 67 finished @ AGGRESSIVE driver driving a CarType.MOTORCYCLE car @ [123.38206] m/s
+        Driver 34 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.40162] m/s
+        Driver 48 finished @ RISKY driver driving a CarType.MOTORCYCLE car @ [108.62325] m/s
+        Driver 1 finished @ NORMAL driver driving a CarType.SUV car @ [84.46971] m/s
+        Driver 4 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.67306] m/s
+        Driver 0 finished @ NORMAL driver driving a CarType.SUV car @ [82.93598] m/s
+        Driver 21 finished @ NORMAL driver driving a CarType.SEDAN car @ [91.21285] m/s
+        Driver 3 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.737686] m/s
+        Driver 10 finished @ CAUTIOUS driver driving a CarType.SUV car @ [85.69937] m/s
+        Driver 8 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.280106] m/s
+        Driver 9 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.10079] m/s
+        Driver 11 finished @ NORMAL driver driving a CarType.SUV car @ [84.1175] m/s
+        Driver 46 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.74186] m/s
+        Driver 30 finished @ NORMAL driver driving a CarType.SEDAN car @ [92.17096] m/s
+        Driver 13 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.34737] m/s
+        Driver 15 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.8135] m/s
+        Driver 35 finished @ RISKY driver driving a CarType.SEDAN car @ [92.67758] m/s
+        Driver 16 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.75567] m/s
+        Driver 17 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.02335] m/s
+        Driver 23 finished @ NORMAL driver driving a CarType.SUV car @ [86.23652] m/s
+        Driver 70 finished @ RISKY driver driving a CarType.MOTORCYCLE car @ [111.58864] m/s
+        Driver 19 finished @ RISKY driver driving a CarType.SUV car @ [84.506424] m/s
+        Driver 18 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.22307] m/s
+        Driver 20 finished @ NORMAL driver driving a CarType.SUV car @ [83.72033] m/s
+        Driver 47 finished @ RISKY driver driving a CarType.SEDAN car @ [95.627914] m/s
+        Driver 22 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.45336] m/s
+        Driver 28 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.57638] m/s
+        Driver 24 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.88552] m/s
+        Driver 40 finished @ NORMAL driver driving a CarType.SEDAN car @ [89.310486] m/s
+        Driver 25 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.92315] m/s
+        Driver 27 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.52114] m/s
+        Driver 38 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [86.5305] m/s
+        Driver 55 finished @ RISKY driver driving a CarType.SEDAN car @ [93.98668] m/s
+        Driver 44 finished @ NORMAL driver driving a CarType.SUV car @ [87.88431] m/s
+        Driver 36 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [84.154045] m/s
+        Driver 37 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.63121] m/s
+        Driver 39 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.063095] m/s
+        Driver 66 finished @ NORMAL driver driving a CarType.SEDAN car @ [96.595924] m/s
+        Driver 42 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.14722] m/s
+        Driver 54 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.21446] m/s
+        Driver 43 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.12412] m/s
+        Driver 62 finished @ NORMAL driver driving a CarType.SEDAN car @ [91.33862] m/s
+        Driver 69 finished @ RISKY driver driving a CarType.SEDAN car @ [94.68695] m/s
+        Driver 45 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.62505] m/s
+        Driver 51 finished @ RISKY driver driving a CarType.SUV car @ [84.705376] m/s
+        Driver 52 finished @ RISKY driver driving a CarType.SUV car @ [84.53205] m/s
+        Driver 50 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.428276] m/s
+        Driver 64 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [89.950676] m/s
+        Driver 53 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.92269] m/s
+        Driver 56 finished @ NORMAL driver driving a CarType.SUV car @ [83.313576] m/s
+        Driver 58 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.914696] m/s
+        Driver 59 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.455734] m/s
+        Driver 73 finished @ RECKLESS driver driving a CarType.SUV car @ [89.4843] m/s
+        Driver 61 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.14382] m/s
+        Driver 71 finished @ RISKY driver driving a CarType.SUV car @ [86.1557] m/s
+        Driver 60 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.95041] m/s
+        Driver 63 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.52611] m/s
+        Driver 68 finished @ NORMAL driver driving a CarType.SUV car @ [83.981544] m/s
+        Driver 74 finished @ NORMAL driver driving a CarType.SUV car @ [84.59916] m/s
+        Driver 72 finished @ NORMAL driver driving a CarType.SUV car @ [81.983246] m/s
+        Driver 29 finished @ NORMAL driver driving a CarType.TRUCK car @ [65.43279] m/s
+        Driver 32 finished @ NORMAL driver driving a CarType.TRUCK car @ [65.654785] m/s
+        Driver 65 finished @ NORMAL driver driving a CarType.TRUCK car @ [72.42077] m/s
+        Driver 33 finished @ RISKY driver driving a CarType.TRUCK car @ [55.60468] m/s
+        Driver 6 finished @ RISKY driver driving a CarType.TRUCK car @ [47.634457] m/s
+        Driver 104 finished @ AGGRESSIVE driver driving a CarType.MOTORCYCLE car @ [122.88026] m/s
+        Driver 31 finished @ RISKY driver driving a CarType.TRUCK car @ [50.037807] m/s
+        Driver 75 finished @ RISKY driver driving a CarType.SUV car @ [84.4851] m/s
+        Driver 76 finished @ NORMAL driver driving a CarType.SUV car @ [84.8096] m/s
+        Driver 78 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [86.87801] m/s
+        Driver 89 finished @ RISKY driver driving a CarType.SEDAN car @ [99.02168] m/s
+        Driver 79 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.599846] m/s
+        Driver 126 finished @ AGGRESSIVE driver driving a CarType.MOTORCYCLE car @ [121.72281] m/s
+        Driver 97 finished @ NORMAL driver driving a CarType.MOTORCYCLE car @ [97.4063] m/s
+        Driver 82 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.65581] m/s
+        Driver 86 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.615456] m/s
+        Driver 85 finished @ RISKY driver driving a CarType.SUV car @ [86.16006] m/s
+        Driver 90 finished @ RECKLESS driver driving a CarType.SUV car @ [87.25161] m/s
+        Driver 111 finished @ RISKY driver driving a CarType.SEDAN car @ [96.374664] m/s
+        Driver 118 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.65899] m/s
+        Driver 91 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.96066] m/s
+        Driver 88 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.95303] m/s
+        Driver 93 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.48683] m/s
+        Driver 95 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.2446] m/s
+        Driver 94 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.19341] m/s
+        Driver 96 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.67209] m/s
+        Driver 92 finished @ CAUTIOUS driver driving a CarType.SUV car @ [81.48321] m/s
+        Driver 103 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [85.751076] m/s
+        Driver 99 finished @ NORMAL driver driving a CarType.SUV car @ [83.56376] m/s
+        Driver 101 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.751724] m/s
+        Driver 105 finished @ RISKY driver driving a CarType.SUV car @ [84.99019] m/s
+        Driver 102 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.629] m/s
+        Driver 108 finished @ RISKY driver driving a CarType.SUV car @ [84.60815] m/s
+        Driver 107 finished @ RISKY driver driving a CarType.SUV car @ [84.08017] m/s
+        Driver 106 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.00415] m/s
+        Driver 109 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.30293] m/s
+        Driver 110 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.44454] m/s
+        Driver 77 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.20774] m/s
+        Driver 112 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.197136] m/s
+        Driver 116 finished @ CAUTIOUS driver driving a CarType.SUV car @ [86.42117] m/s
+        Driver 113 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.74424] m/s
+        Driver 114 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.89369] m/s
+        Driver 115 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.40305] m/s
+        Driver 123 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.67635] m/s
+        Driver 131 finished @ RISKY driver driving a CarType.SEDAN car @ [94.20315] m/s
+        Driver 124 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [88.16064] m/s
+        Driver 117 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.603] m/s
+        Driver 128 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.35953] m/s
+        Driver 120 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.41327] m/s
+        Driver 127 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.630714] m/s
+        Driver 135 finished @ NORMAL driver driving a CarType.SEDAN car @ [89.717896] m/s
+        Driver 81 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.94509] m/s
+        Driver 134 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [87.734604] m/s
+        Driver 83 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.43564] m/s
+        Driver 125 finished @ CAUTIOUS driver driving a CarType.SUV car @ [81.127686] m/s
+        Driver 129 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.77146] m/s
+        Driver 130 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.92936] m/s
+        Driver 133 finished @ NORMAL driver driving a CarType.SUV car @ [83.14817] m/s
+        Driver 132 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.12787] m/s
+        Driver 138 finished @ NORMAL driver driving a CarType.SUV car @ [85.061646] m/s
+        Driver 137 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.965965] m/s
+        Driver 139 finished @ RISKY driver driving a CarType.SUV car @ [84.20504] m/s
+        Driver 136 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.640755] m/s
+        Driver 140 finished @ CAUTIOUS driver driving a CarType.SUV car @ [86.469185] m/s
+131 drivers finished
+75 drivers still active
+Average time:
+        Driver AGGRESSIVE avg time: 180.33333333333334
+        Driver RECKLESS avg time: 168.2
+        Driver RISKY avg time: 218.70833333333334
+        Driver NORMAL avg time: 218.84375
+        Driver CAUTIOUS avg time: 215.20689655172413

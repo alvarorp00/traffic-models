@@ -143,7 +143,7 @@ class CarType(enum.Enum):
             The maximum speed of the car.
         """
         # Return max_speed minus the distance to type
-        return max_speed_fixed - (CarType.get_size(car_type) * max_speed_gap)
+        return max_speed_fixed - (CarType.get_length(car_type) * max_speed_gap)
 
     @staticmethod
     def get_min_speed(
@@ -164,10 +164,10 @@ class CarType(enum.Enum):
         float
             The minimum speed of the car.
         """
-        return min_speed_fixed + (CarType.get_size(car_type) * min_speed_gap)
+        return min_speed_fixed + (CarType.get_length(car_type) * min_speed_gap)
 
     @staticmethod
-    def get_size(car_type: 'CarType') -> float:
+    def get_length(car_type: 'CarType') -> float:
         """
         Returns the size of the car in meters.
 
@@ -406,6 +406,54 @@ class DriverConfig:
         self._lane = lane
 
 
+class Accident:
+    def __init__(self, **kwargs):
+        """
+        Constructor for the Accident class.
+
+        Parameters
+        ----------
+        drivers : set(Driver)
+            The drivers that caused the accident.
+        [wait_time] : int
+            The time to wait before resuming the simulation.
+        """
+        if 'drivers' not in kwargs:
+            self.drivers = set()
+        else:
+            self.drivers = kwargs['driver']
+
+        if 'wait_time' in kwargs:
+            self.wait_time = kwargs['wait_time']
+
+    @property
+    def drivers(self) -> set['Driver']:
+        return self._drivers
+
+    @drivers.setter
+    def drivers(self, drivers: set['Driver']):
+        self._drivers = drivers
+
+    def add_driver(self, driver: 'Driver'):
+        self.drivers.add(driver)
+
+    @property
+    def wait_time(self) -> int:
+        return self._wait_time
+
+    @wait_time.setter
+    def wait_time(self, wait_time: int):
+        self._wait_time = wait_time
+
+    def __eq__(self, __value: object) -> bool:
+        if not isinstance(__value, Accident):
+            return False
+        return self.drivers == __value.drivers
+
+    def __hash__(self) -> int:
+        return sum([hash(d) for d in self.drivers]) + self.wait_time
+
+
 class Driver:
     def __init__(self, *args, **kwargs):
         """
@@ -471,7 +519,9 @@ class Driver:
         """
 
         max_speed_fixed = kwargs.get('max_speed_fixed', None)
+        max_speed_gap = kwargs.get('max_speed_gap', None)
         min_speed_fixed = kwargs.get('min_speed_fixed', None)
+        min_speed_gap = kwargs.get('min_speed_gap', None)
 
         if max_speed_fixed is None:
             raise ValueError("max_speed_fixed not passed to action()")
@@ -482,7 +532,9 @@ class Driver:
             driver=self,
             drivers_by_lane=state,
             max_speed_fixed=max_speed_fixed,
+            max_speed_gap=max_speed_gap,
             min_speed_fixed=min_speed_fixed,
+            min_speed_gap=min_speed_gap,
         )
 
         __driver_copy = Driver.copy(__driver)
@@ -533,11 +585,19 @@ class Driver:
 
         dict = {}
 
+        if len(drivers) == 0:
+            return dict
+
         for d in drivers:
             if d.config.lane in dict.keys():
                 dict[d.config.lane].append(d)
             else:
                 dict[d.config.lane] = [d]
+
+        # For all lanes with no drivers, add an empty list
+        for lane in range(max(dict.keys()) + 1):
+            if lane not in dict.keys():
+                dict[lane] = []
 
         return dict
 
@@ -651,9 +711,9 @@ class Driver:
         would be negative. It doesn't check the lane of the drivers.
         """
         real_front = front.config.location -\
-            CarType.get_size(front.config.car_type)
+            CarType.get_length(front.config.car_type)
         real_back = back.config.location +\
-            CarType.get_size(back.config.car_type)
+            CarType.get_length(back.config.car_type)
         return real_front - real_back
 
     @staticmethod

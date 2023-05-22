@@ -701,7 +701,6 @@ def safe_overtake(
     # Check that the current lane is not the rightmost lane
     if driver.config.lane == n_lanes - 1:
         return False
-    # TODO
     # Get driver in front
     front_driver = Driver.driver_at_front(driver, drivers_by_lane)
     # Check if driver is moving faster than driver in front
@@ -839,8 +838,6 @@ def _speed_decrease(
     return rvs
 
 
-# TODO: add previous functionallity (lane change, speed change, etc.)
-# and check behaviour
 def speed_update(
     driver: Driver,
     drivers_by_lane: Dict[int, List['Driver']],
@@ -995,8 +992,8 @@ def speed_update(
 
 def collision_wait_time(
         n: int,
-        center_loc: float,
-) -> float:
+        center_loc: int,
+) -> int:
     """
     Returns a random sample from a normal distribution
     that represents the time that drivers will wait
@@ -1011,8 +1008,10 @@ def collision_wait_time(
     NOTE: not tested, might change in the future.
     """
 
-    wait_time = tfp.distributions.HalfNormal(
-        scale=n
-    ).sample(sample_shape=n).numpy().flatten() + center_loc
+    wait_time = int(
+        tfp.distributions.HalfNormal(
+            scale=n
+        ).sample(sample_shape=1).numpy().flatten()
+    ) + center_loc
 
     return wait_time

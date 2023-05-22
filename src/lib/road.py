@@ -37,7 +37,7 @@ class Road:
     def add_driver(self, driver: Driver):
         self.drivers[driver.config.id] = driver
 
-    def del_driver(self, driver):
+    def del_driver(self, driver: Driver):
         self.drivers.pop(driver.config.id)
 
     @property
