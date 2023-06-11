@@ -496,6 +496,8 @@ class Model:
                     f'Driver {driver.config.id} is already inactive.'
                 )
                 return  # Nothing to do
+            # Increase the id counter
+            self.id_counter += 1
             # Search the position of the driver in the lane
             # and insert it in the correct position
             __lane = driver.config.lane
@@ -606,14 +608,7 @@ class Model:
         # print(f'\t current id_counter: {self.id_counter}')
         if self.id_counter != driver.config.id:
             driver.config.id = self.id_counter  # id must be unique
-        self.id_counter += 1
         engine.driver_enters(driver)
-
-    def reject_driver(self, driver: Driver) -> None:
-        """
-        Rejects a driver from the simulation.
-        """
-        self.id_counter -= 1
 
     def update_load(self):
         # Count the number of active drivers
@@ -826,7 +821,6 @@ class Engine:
                         # so that the drivers can move
                         # and the new driver can be spawned
                         # as free space will be available
-                        self.model.reject_driver(__candidate)
                         __wait_to_spawn = True
                     else:
                         # It's safe to spawn the driver
