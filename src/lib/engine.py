@@ -16,9 +16,9 @@
 
 import copy
 import logging
-from typing import Dict, List, Tuple
+from typing import Dict, List, Set, Tuple
 from lib.driver import Driver, DriverConfig, CarType,\
-    DriverType, LanePriority, Accident
+    DriverType, LanePriority, Accident, DriverReactionTime
 import lib.driver_distributions as driver_distributions
 from lib.road import Road
 import numpy as np
@@ -72,6 +72,11 @@ def initialize_drivers(run_config: 'RunConfig',
             size=run_config.population_size,
             probs=run_config.driver_type_density,
         )
+
+    driver_reaction_times = DriverReactionTime.random(
+        size=run_config.population_size,
+    )
+
     drivers = {}
 
     # Experimental:
@@ -116,6 +121,7 @@ def initialize_drivers(run_config: 'RunConfig',
                 max_speed=run_config.max_speed
             ),
             driver_type=driver_types[i],
+            driver_reaction_time=driver_reaction_times[i],
             car_type=car_type,
             lane=int(lanes_array[i]),
             location=float(locations_array[i]),
@@ -161,6 +167,9 @@ class RunConfig:
             Defaults to equal distribution.
         driver_type_density : List[float]
             The density of the drivers in each driver type.
+            Defaults to equal distribution.
+        driver_reaction_density : List[float]
+            The density of the drivers in each driver reaction time.
             Defaults to equal distribution.
         max_speed : float
             The maximum speed of the drivers in the simulation.
@@ -253,6 +262,17 @@ class RunConfig:
         else:
             self.driver_type_density = [1.0 / 5] * 5
 
+        if 'driver_reaction_density' in kwargs:
+            assert isinstance(kwargs['driver_reaction_density'], list)
+            assert np.isclose(np.sum(kwargs['driver_reaction_density']), 1.0)
+            self.driver_reaction_density = kwargs['driver_reaction_density']
+        else:
+            self.driver_reaction_density = [1.0 / len(
+                DriverReactionTime
+            )] * len(
+                DriverReactionTime
+            )
+
         if 'max_speed' in kwargs:
             assert isinstance(kwargs['max_speed'], float) or \
                      isinstance(kwargs['max_speed'], int)
@@ -331,7 +351,34 @@ class Model:
         else:
             __drivers_by_id = {}
 
-        self.info['active_drivers'] = __drivers_by_id
+        # Check if there are no drivers
+        if len(__drivers_by_id) == 0:
+            # Initialize with empty drivers
+            # in each lane
+            drivers_by_lane_sorted = {
+                _lane: {} for _lane in range(self.run_config.n_lanes)
+            }
+        else:
+            # Classify drivers by lane & sort them by position
+            drivers_by_lane_sorted_list: Dict[int, List[Driver]] =\
+                Driver.sort_by_position_in_lane(
+                    drivers_by_lane=Driver.classify_by_lane(
+                        list(__drivers_by_id.values())
+                    )
+                )
+
+            # Convert the list to a dict
+            drivers_by_lane_sorted: Dict[int, Dict[int, Driver]] = {}
+
+            for _lane in drivers_by_lane_sorted_list:
+                __idx = 0
+                drivers_by_lane_sorted[_lane] = {}
+                for _driver in drivers_by_lane_sorted_list[_lane]:
+                    drivers_by_lane_sorted[_lane][__idx] = _driver
+                    _driver.config.index = __idx
+                    __idx += 1
+
+        self.info['active_drivers'] = drivers_by_lane_sorted
 
         self.info['inactive_drivers'] = {}
 
@@ -341,15 +388,24 @@ class Model:
             max_speed=self.run_config.max_speed
         )
 
-        self.id_counter = len(self.active_drivers)
+        self.id_counter = len(__drivers_by_id)
+
+        # print(f'Initial population: {self.id_counter}')
+
+        # # print all the drivers
+        # for _lane in self.info['active_drivers']:
+        #     print(f'lane: {_lane}')
+        #     for _driver in self.info['active_drivers'][_lane].values():
+        #         print(f'\tdriver@{_driver}[{_driver.config.location}]')
 
         # Initialize dict with the time taken by each driver
+        # which is 0 at the beginning
         self.info['time_taken'] = {
-            driver.config.id: 0 for driver in self.active_drivers
+            _id: 0 for _id in range(self.id_counter)
         }
 
         # TODO
-        self.load = len(self.active_drivers) / self.run_config.population_size
+        self.load = self.id_counter / self.run_config.population_size
 
     @property
     def run_config(self) -> "RunConfig":
@@ -372,20 +428,28 @@ class Model:
         return self.info['road']
 
     @property
-    def active_drivers(self) -> List[Driver]:
+    def active_drivers(self) -> Dict[int, Dict[int, Driver]]:
         """
-        Returns a list of all the active drivers
-        (didn't reach the end of the road)
-        in the simulation indexed by their id.
+        Returns a dict with the active drivers in the simulation.
+        The dict is a mapping from lane to a dict of drivers in that lane,
+        where the key is the driver index in the lane and the value is the
+        driver object.
+
+        The index of the driver in the dict is the position of the driver
+        in the lane, and so it is the value of the index attribute of the
+        driver's config object.
+
+        e.g. driver#2 in lane#1: active_drivers[1][2].config.index == 2
         """
-        return self.info['active_drivers'].values()
+        return self.info['active_drivers']
 
     @property
-    def inactive_drivers(self) -> List[Driver]:
+    def inactive_drivers(self) -> Dict[int, List[Driver]]:
         """
-        Returns a list of all the active drivers in the simulation.
+        Returns a dict with the inactive drivers in the simulation.
+        The dict is a mapping from driver id to a list of drivers in that lane.
         """
-        return self.info['inactive_drivers'].values()
+        return self.info['inactive_drivers']
 
     @property
     def time_taken(self) -> Dict[int, float]:
@@ -411,23 +475,86 @@ class Model:
     def load(self, load: float):
         self._load = load
 
-    def set_active(self, driver: Driver) -> None:
+    def all_active_drivers(self) -> List[Driver]:
+        """
+        Returns a list of all the active drivers in the simulation.
+        """
+        drivers = []
+        for _lane in self.active_drivers:
+            drivers += list(self.active_drivers[_lane].values())
+        return drivers
+
+    def set_active(self, driver: 'Driver') -> None:
         """
         Sets a driver as active.
         """
-        if driver not in self.active_drivers:
+        if driver not in self.active_drivers[
+            driver.config.lane
+        ].values():
             if driver in self.inactive_drivers:
-                self.info['inactive_drivers'].pop(driver.config.id)
-            self.info['active_drivers'][driver.config.id] = driver
+                logging.warning(
+                    f'Driver {driver.config.id} is already inactive.'
+                )
+                return  # Nothing to do
+            # Search the position of the driver in the lane
+            # and insert it in the correct position
+            __lane = driver.config.lane
+            if len(self.active_drivers[__lane]) == 0:
+                # If there are no drivers in the lane
+                # insert the driver in the first position
+                self.active_drivers[__lane][0] = driver
+                driver.config.index = 0
+            else:
+                # Add the driver sorted to the new lane
+                __index = 0  # Farthest are first
+                __dict_temp = {}
+                driver.config.index = -1
+                for __idx in self.active_drivers[driver.config.lane]:
+                    __driver = self.active_drivers[
+                        driver.config.lane
+                    ][__idx]
+                    if __driver.config.location > driver.config.location:
+                        # Sorted
+                        # print('---> A')
+                        __dict_temp[__index] = __driver
+                        __index += 1
+                    else:
+                        driver.config.index = __index
+                        __dict_temp[__index] = driver
+                        # print('---> B')
+                        # print(f'New driver index: {__index}')
+                        break
+                # Check if driver is the last one
+                if driver.config.index == -1:
+                    # print('---> C1')
+                    driver.config.index = __index
+                    __dict_temp[__index] = driver
+                else:
+                    # Add the rest of the drivers
+                    while __index < len(self.active_drivers[driver.config.lane]):
+                        # print('---> C2')
+                        __driver = self.active_drivers[
+                            driver.config.lane
+                        ][__index]
+                        __dict_temp[__index + 1] = __driver
+                        __index += 1
+                # Update the dict
+                self.active_drivers[__lane].update(__dict_temp)
+
+        # print(f'Drivers in lane {driver.config.lane}:')
+        # print(f'{self.active_drivers[driver.config.lane]}')
 
     def set_inactive(self, driver: Driver) -> None:
         """
         Sets a driver as inactive.
         """
         if driver not in self.inactive_drivers:
-            if driver in self.active_drivers:
-                self.info['active_drivers'].pop(driver.config.id)
-            self.info['inactive_drivers'][driver.config.id] = driver
+            if driver in self.active_drivers[
+                driver.config.lane
+            ].values():
+                self.info['active_drivers'][
+                    driver.config.lane
+                ].pop(driver.config.index)
 
     def generate_driver(self) -> Driver:
         """
@@ -439,10 +566,15 @@ class Model:
             size=1,
             probs=self.run_config.driver_type_density
         )[0]
+        drv_react = DriverReactionTime.random(
+            size=1,
+            probs=self.run_config.driver_reaction_density
+        )
         new_driver = Driver(
             config=DriverConfig(
                 id=self.id_counter,
                 driver_type=drv_type,
+                reaction_time=drv_react,
                 road=self.road,
                 car_type=car_type,
                 lane=int(driver_distributions.lane_initialize_weighted(
@@ -462,19 +594,34 @@ class Model:
             ),
         )
 
+        new_driver.config.index = len(self.active_drivers[new_driver.config.lane])
+
         return new_driver
 
     def spawn_driver(self, driver: Driver, engine: 'Engine') -> None:
         """
         Adds a given driver to the simulation.
         """
+        # print(f'Spawning driver {driver.config.id} in lane {driver.config.lane}')
+        # print(f'\t current id_counter: {self.id_counter}')
         if self.id_counter != driver.config.id:
             driver.config.id = self.id_counter  # id must be unique
         self.id_counter += 1
         engine.driver_enters(driver)
 
+    def reject_driver(self, driver: Driver) -> None:
+        """
+        Rejects a driver from the simulation.
+        """
+        self.id_counter -= 1
+
     def update_load(self):
-        self.load = len(self.active_drivers) / self.run_config.population_size
+        # Count the number of active drivers
+        __active_drivers = 0
+        for lane in self.active_drivers:
+            __active_drivers += len(self.active_drivers[lane])
+        # print(f'Load: {__active_drivers} / {self.run_config.population_size}')
+        self.load = __active_drivers / self.run_config.population_size
 
     def check_accident(self) -> Tuple[bool, List[Accident]]:
         """
@@ -494,45 +641,132 @@ class Model:
         """
         accidents = []
 
-        # To fastly check if a driver is in an accident
-        accidents_index = {}
+        # TODO
+        return (False, accidents)
 
-        # Can't be a car involved in more than one accident
+    def driver_updates(
+        self,
+        old_driver: Driver,
+        new_driver: Driver,
+    ) -> Driver:
+        """
+        Called whenever a driver updates its state, namely
+        it's location, speed or/and lane.
 
-        for d1 in self.active_drivers:
-            for d2 in self.active_drivers:
-                if d1.config.id != d2.config.id:
-                    # Call the collision function
-                    if Driver.collision(d1, d2):
-                        # Check if d1 is already in an accident
-                        if d1.config.id in accidents_index:
-                            # Get the accident
-                            acc: Accident = accidents_index[d1.config.id]
-                            # Add d2 to the accident
-                            acc.add_driver(d2)
-                        elif d2.config.id in accidents_index:
-                            # Get the accident
-                            acc: Accident = accidents_index[d2.config.id]
-                            # Add d1 to the accident
-                            acc.add_driver(d1)
+        For now, it'll be used to mantain the active drivers
+        dictionary sorted
+        """
+        # TODO: TEST THIS FUNCTION
+
+        # print(f'\t Old driver: {old_driver}')
+        # print(f'\t New driver: {new_driver}')
+
+        # print(f'All active drivers[pre-update]: {self.all_active_drivers()}')
+
+        # Compare the old and new driver to check
+        # how much location & lane changed
+
+        print(f'\t[{old_driver.config.id}] Old driver pos/lane: {old_driver.config.location}/{old_driver.config.lane}')
+        print(f'\t[{new_driver.config.id}] New driver pos/lane: {new_driver.config.location}/{new_driver.config.lane}')
+
+        # Only active drivers can update their state
+
+        if old_driver == self.active_drivers[
+            old_driver.config.lane
+        ][old_driver.config.index]:
+            # Check if we need to change the lane
+            if old_driver.config.lane != new_driver.config.lane:
+                # Remove the driver from the old lane
+                self.active_drivers[
+                    old_driver.config.lane
+                ].pop(old_driver.config.index)
+
+                # Update the index of the drivers in the old lane
+                __dict_temp = {}
+                # +1 because we want to start from the next driver
+                # and len() + 1 because as we removed the driver
+                # from the old lane, the last index is now len() - 1
+                for __idx in range(
+                    old_driver.config.index + 1,
+                    len(self.active_drivers[old_driver.config.lane]) + 1
+                ):
+                    print(self.active_drivers, old_driver.config.lane, __idx)
+                    __driver = self.active_drivers[
+                        old_driver.config.lane
+                    ][__idx]
+                    __driver.config.index -= 1
+                    __dict_temp[__driver.config.index] = __driver
+
+                # Update the active drivers dictionary
+                self.active_drivers[old_driver.config.lane].update(__dict_temp)
+
+                # Check number of drivers in the new lane
+                if len(self.active_drivers[new_driver.config.lane]) == 0:
+                    # If there are no drivers in the new lane,
+                    # just add the driver to the new lane
+                    self.active_drivers[new_driver.config.lane][0] = new_driver
+                    new_driver.config.index = 0
+                else:
+                    # Add the driver sorted to the new lane
+                    __index = 0  # Farthest are first
+                    __dict_temp = {}
+                    new_driver.config.index = -1
+                    for __idx in self.active_drivers[new_driver.config.lane]:
+                        __driver = self.active_drivers[
+                            new_driver.config.lane
+                        ][__idx]
+                        if __driver.config.location > new_driver.config.location:
+                            # Sorted by location, keep adding
+                            # print('---> A')
+                            __dict_temp[__index] = __driver
+                            __index += 1
                         else:
-                            # Create a new accident
-                            acc = Accident()
-                            acc.add_driver(d1)
-                            acc.add_driver(d2)
-                            accidents.append(acc)
-                            # Update the accidents index
-                            accidents_index[d1.config.id] = acc
-                            accidents_index[d2.config.id] = acc
+                            # Found the position
+                            new_driver.config.index = __index
+                            __dict_temp[__index] = new_driver
+                            # print('---> B')
+                            # print(f'New driver index: {__index}')
 
-        for acc in accidents:
-            # Set wait time
-            acc.wait_time = driver_distributions.collision_wait_time(
-                len(acc.drivers),
-                self.run_config.accident_clearance_time
-            )
+                            # Add the rest of the drivers
+                            while __index < len(
+                                self.active_drivers[new_driver.config.lane]
+                            ):
+                                # print('---> C2')
+                                __driver = self.active_drivers[
+                                    new_driver.config.lane
+                                ][__index]
+                                __dict_temp[__index + 1] = __driver
+                                __driver.config.index += 1
+                                __index += 1
+                            # Exit the loop
+                            break
 
-        return (len(accidents) > 0, accidents)
+                    # Check if driver is the last one
+                    if new_driver.config.index == -1:
+                        # print('---> C1')
+                        new_driver.config.index = __index
+                        __dict_temp[__index] = new_driver
+
+                    # print(f'Len_temp: {len(__dict_temp)}')
+                    # print(f'Temp dict: {__dict_temp}')
+                    # print(f'Len_active: {len(self.active_drivers[new_driver.config.lane])}')
+                    assert len(__dict_temp) == len(
+                        self.active_drivers[new_driver.config.lane]
+                    ) + 1
+                    self.active_drivers[
+                        new_driver.config.lane
+                    ].update(__dict_temp)
+
+                # TODO: check accidents
+            else:
+                # Update the driver in the same lane
+                self.active_drivers[
+                    old_driver.config.lane
+                ][old_driver.config.index] = new_driver
+                new_driver.config.index = old_driver.config.index
+                pass  # Same lane, # TODO check accidents
+
+        return new_driver
 
 
 class Engine:
@@ -568,27 +802,32 @@ class Engine:
         self._model = model
 
     def run(self):
+        __wait_to_spawn = False
         for t in range(self.run_config.time_steps):
             # Set a minimum population
-            if self.model.load < self.run_config.minimum_load_factor:
+            print(f'[INFO] Time step {t} - {self.model.load}')
+            if self.model.load < self.run_config.minimum_load_factor and \
+                    __wait_to_spawn is False:
                 __candidate = self.model.generate_driver()
-                # filter the drivers that are too close to the start
-                # of the road
-                __drivers_close = [
-                    driver for driver in self.model.active_drivers
-                    if driver.config.location < CarType.get_length(
-                        driver.config.car_type
-                    )
-                ]
                 # Check if the new driver is too close to other drivers
                 # If it is, discard the driver and continue
+                __drivers_close = Driver.drivers_close(
+                    __candidate,
+                    self.model.active_drivers[__candidate.config.lane],
+                )
+                # print(f'[INFO] Time step {t} - {__drivers_close}')
                 if len(__drivers_close) > 0:
-                    __candidate_close = [
+                    __candidates_close = [
                         driver for driver in __drivers_close
                         if Driver.collision(driver, __candidate)
                     ]
-                    if len(__candidate_close) > 0:
-                        continue
+                    if len(__candidates_close) > 0:
+                        # We need to wait to spawn the driver
+                        # so that the drivers can move
+                        # and the new driver can be spawned
+                        # as free space will be available
+                        self.model.reject_driver(__candidate)
+                        __wait_to_spawn = True
                     else:
                         # It's safe to spawn the driver
                         self.model.spawn_driver(__candidate, self)
@@ -598,33 +837,41 @@ class Engine:
                     self.model.spawn_driver(__candidate, self)
                     self.model.update_load()
 
+            print(f'[INFO] Time step {t} - {self.model.active_drivers}]')
+
             # Copy the state of the simulation
+            # to the trace before updating
             self.trace.add(copy.deepcopy(self.model))
 
-            __state = Driver.classify_by_lane(self.trace.last.active_drivers)
+            __state = self.trace.last.active_drivers
+            # print(f'[INFO] Time step {t} - {__state}')
             __new_state_drivers = []
             __finished_drivers = []  # Track drivers that finished
 
-            for driver in self.model.active_drivers:
-                # Update the time taken by the driver
-                self.model.time_taken[driver.config.id] += 1
-                # Update the speed & location of the driver
-                driver.action(
-                    state=__state,  # type: ignore
-                    update_fn=driver_distributions.speed_update,
-                    max_speed_fixed=self.run_config.max_speed,
-                    max_speed_gap=self.run_config.max_speed_gap,
-                    min_speed_fixed=self.run_config.min_speed,
-                    min_speed_gap=self.run_config.min_speed_gap,
-                )
-                # Check if driver has reached the end of the road
-                if driver.config.location >= self.model.road.length:
-                    __finished_drivers.append(driver)
-                else:
-                    __new_state_drivers.append(driver)
-            for driver in __finished_drivers:
-                self.driver_finishes(driver)
+            for __lane in self.model.active_drivers:
+                for __driver in __state[__lane].values():
+                    # Update the time taken by the driver
+                    self.model.time_taken[__driver.config.id] += 1
+                    # Update the speed & location of the driver
+                    __driver.action(
+                        state=__state,  # type: ignore
+                        update_fn=driver_distributions.speed_update,
+                        callback_fn=self.model.driver_updates,
+                        max_speed_fixed=self.run_config.max_speed,
+                        max_speed_gap=self.run_config.max_speed_gap,
+                        min_speed_fixed=self.run_config.min_speed,
+                        min_speed_gap=self.run_config.min_speed_gap,
+                    )
+                    # Check if driver has reached the end of the road
+                    if __driver.config.location >= self.model.road.length:
+                        __finished_drivers.append(__driver)
+                    else:
+                        __new_state_drivers.append(__driver)
+
+            for __driver in __finished_drivers:
+                self.driver_finishes(__driver)
                 self.model.update_load()
+
             # Check accident
             (accident, accidents) = self.model.check_accident()
             if accident:
@@ -636,18 +883,24 @@ class Engine:
                 # TODO
                 pass
 
-            self.model.info['active_drivers'] = Driver.classify_by_id(
-                __new_state_drivers
-            )
+            # Print model
+            print(f'[INFO - END STEP] Time step {t} - {self.model.active_drivers}')
+
+            # Print all locations
+            # for __lane in self.model.active_drivers:
+            #     for __driver in self.model.active_drivers[__lane].values():
+            #         print(f'[INFO] Time step {t} - {__driver}.{__driver.config.location}')
 
             # print(f'Finished time step {t}')
+            # print(f'\t Active drivers: {self.model.all_active_drivers()}')
+            __wait_to_spawn = False
 
     def driver_finishes(self, driver: Driver) -> None:
         """
         This method is called whenever a driver reaches
         the end of the road.
         """
-        if driver in self.model.active_drivers:
+        if driver in self.model.active_drivers[driver.config.lane]:
             self.model.set_inactive(driver)
 
     def driver_enters(self, driver: Driver) -> None:
@@ -665,11 +918,12 @@ class Engine:
         driver : Driver
             The driver that enters the road.
         """
+        print(f'[INFO] Adding driver {driver} to the road.')
         if driver in self.model.inactive_drivers:
             logging.critical("Cannot add driver to the road. "
                              "Driver was already in the road.")
             raise Exception()
-        elif driver in self.model.active_drivers:
+        elif driver in self.model.active_drivers[driver.config.lane].values():
             logging.critical("Cannot add driver to the road. "
                              "Driver is already in the road.")
             raise Exception()
@@ -677,6 +931,11 @@ class Engine:
         # self.model.info['active_drivers'][driver.config.id] = driver
         self.model.set_active(driver)
         self.model.time_taken[driver.config.id] = 0  # Reset time taken
+
+        # __len_drivers = sum(
+        #     [len(self.model.active_drivers[lane]) for lane in self.model.active_drivers]
+        # )
+        # print(f'Length of active drivers: {__len_drivers}')
 
 
 class Trace:
@@ -720,29 +979,36 @@ class Stats:
         for each driver.
         """
         drivers =\
-            list(self.engine.model.inactive_drivers) +\
-            list(self.engine.model.active_drivers)
+            list(self.engine.model.inactive_drivers)
+
+        for lane in self.engine.model.active_drivers:
+            drivers += list(self.engine.model.active_drivers[lane].values())
 
         # Initialize as dict of lists
         lane_changes = {driver.config.id: [] for driver in drivers}
 
         # print(f'Trace length: {len(self.engine.trace.data)}')
 
-        d_finished = []
+        d_finished: List[Driver] = []
         for t in range(1, len(self.engine.trace.data)):
             for driver in drivers:
                 # Check if the driver has finished
-                trace_list_t = list(
-                    self.engine.trace.data[t].active_drivers
-                )
-                trace_list_t_1 = list(
-                    self.engine.trace.data[t - 1].active_drivers
-                )
+                trace_dict_t: Dict[int, Driver] = {}
+                for lane in self.engine.trace.data[t].active_drivers:
+                    trace_dict_t.update(
+                        self.engine.trace.data[t].active_drivers[lane]
+                    )
+
+                trace_dict_t_1: Dict[int, Driver] = {}
+                for lane in self.engine.trace.data[t - 1].active_drivers:
+                    trace_dict_t_1.update(
+                        self.engine.trace.data[t - 1].active_drivers[lane]
+                    )
                 # print(f'Drivers in trace_list_t: {[d.config.id for d in trace_list_t]}')
                 # print(f'Drivers in trace_list_t_1: {[d.config.id for d in trace_list_t_1]}')
                 # print(f'{t} / {len(self.engine.trace.data)}')
-                if driver in\
-                        list(self.engine.trace.data[t].inactive_drivers):
+                if driver.config.id in\
+                        self.engine.trace.data[t].inactive_drivers:
                     # It means that the driver finished
                     if driver not in d_finished:
                         lane_changes[driver.config.id].append(
@@ -750,24 +1016,24 @@ class Stats:
                         )
                     d_finished.append(driver)
                     break
-                elif driver not in trace_list_t:
+                elif driver.config.id not in trace_dict_t:
                     # It means that the driver was not in the road
                     # in the current time step
                     continue
-                elif driver not in trace_list_t_1:
+                elif driver.config.id not in trace_dict_t_1:
                     # It means that the driver was not in the road
                     # in the previous time step
                     lane_changes[driver.config.id].append(
-                        trace_list_t[driver.config.id].config.lane
+                        trace_dict_t[driver.config.id].config.lane
                     )
                 else:
                     # Check if the driver changed lanes
                     # with respect to the previous time step
-                    if trace_list_t[driver.config.id].config.lane !=\
-                         trace_list_t_1[driver.config.id].config.lane:
+                    if trace_dict_t[driver.config.id].config.lane !=\
+                         trace_dict_t_1[driver.config.id].config.lane:
                         # Add the lane change as trace
                         lane_changes[driver.config.id].append(
-                            trace_list_t[driver.config.id].config.lane
+                            trace_dict_t[driver.config.id].config.lane
                         )
 
         # Sanitize those drivers that didn't change lanes
@@ -818,11 +1084,21 @@ class Stats:
                 avg_starting_position[driver.config.driver_type] = 0
             avg_starting_position[driver.config.driver_type] +=\
                 driver.config.origin
+        for driver in self.engine.model.all_active_drivers():
+            if driver.config.driver_type not in avg_starting_position:
+                avg_starting_position[driver.config.driver_type] = 0
+            avg_starting_position[driver.config.driver_type] +=\
+                driver.config.origin
+        classified_by_type =\
+            Driver.classify_by_type(self.engine.model.inactive_drivers)
         for driver_type in avg_starting_position:
-            avg_starting_position[driver_type] /=\
-                len(Driver.classify_by_type(self.engine.model.inactive_drivers)[
-                    driver_type
-                ])
+            if len(classified_by_type[driver_type]) == 0:
+                avg_starting_position[driver_type] = 0
+            else:
+                avg_starting_position[driver_type] /=\
+                    len(classified_by_type[
+                        driver_type
+                    ])
         return avg_starting_position
 
     def get_stats(self):

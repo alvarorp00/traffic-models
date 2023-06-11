@@ -12,6 +12,7 @@ def run():
     """
     Runs the simulation
     """
+    STATS = True
 
     # Map every configuration parameter in lib.config to a RunConfig attribute
     config = Config()
@@ -31,33 +32,45 @@ def run():
     engine = Engine(run_config)
     engine.run()
 
-    engine_stats = Stats(engine=engine)
-    stats = engine_stats.get_stats()
+    # print(f'Drivers: {len(engine.model.active_drivers)}')
+    # # Get all drivers
+    # drivers = []
+    # for lane in engine.model.active_drivers:
+    #     drivers += list(engine.model.active_drivers[lane].values())
+    # drivers += list(engine.model.inactive_drivers.values())
 
-    print('Line changes:')
-    for d, lc in stats['lane_changes'].items():
-        print(f"\tDriver {d} lanes: {lc}")
+    # # Print the drivers
+    # for driver in drivers:
+    #     print(f"Driver {driver.config.id} driving a {driver.config.car_type} car @ {driver.config.speed} m/s")
 
-    print('Drivers that finished:')
-    for driver in engine.model.inactive_drivers:
-        print(f'\tDriver {driver.config.id} finished @ {driver.config.driver_type} driver driving a {driver.config.car_type} car @ {driver.config.speed} m/s')
-    print(f'{len(engine.model.inactive_drivers)} drivers finished')
-    print(f'{len(engine.model.active_drivers)} drivers still active')
+    if STATS:
+        engine_stats = Stats(engine=engine)
+        stats = engine_stats.get_stats()
 
-    print('Average time:')
-    for d, at in stats['avg_time_taken'].items():
-        print(f"\tDriver {d} avg time: {at}")
+        print('Lane changes:')
+        for d, lc in stats['lane_changes'].items():
+            print(f"\tDriver {d} lanes: {lc}")
 
-    trace = engine.trace
+        print('Drivers that finished:')
+        for driver in engine.model.inactive_drivers:
+            print(f'\tDriver {driver.config.id} finished @ {driver.config.driver_type} driver driving a {driver.config.car_type} car @ {driver.config.speed} m/s')
+        print(f'{len(engine.model.inactive_drivers)} drivers finished')
+        print(f'{len(engine.model.all_active_drivers())} drivers still active')
 
-    last = trace.last
+        print('Average time:')
+        for d, at in stats['avg_time_taken'].items():
+            print(f"\tDriver {d} avg time: {at}")
 
-    if 'verbose' in run_config.__dict__:
-        for driver in last.active_drivers:
-            print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
-                  f"\n\tdriver driving a {driver.config.car_type} car @"
-                  f"{driver.config.speed} m/s at lane {driver.config.lane}"
-                  f"\n\t at location {driver.config.location} m\n")
+        trace = engine.trace
+
+        last = trace.last
+
+        if 'verbose' in run_config.__dict__:
+            for driver in last.active_drivers:
+                print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
+                      f"\n\tdriver driving a {driver.config.car_type} car @"
+                      f"{driver.config.speed} m/s at lane {driver.config.lane}"
+                      f"\n\t at location {driver.config.location} m\n")
 
     # print(stats)
 

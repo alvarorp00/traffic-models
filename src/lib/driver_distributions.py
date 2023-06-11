@@ -8,6 +8,7 @@ lanes and so on.
 """
 
 
+import copy
 from lib.driver import DriverType, Driver, CarType
 import numpy as np
 import random
@@ -69,7 +70,7 @@ def speed_initialize(
     min_speed_fixed: float,
     min_speed_gap: float,
     size=1,
-) -> np.ndarray:
+) -> float:
     """
     Returns a random rample gathered from a normal distribution
     that represents the initial speed of the driver.
@@ -104,9 +105,9 @@ def speed_initialize(
 
     rvs = tfp.distributions.Normal(
         loc=mean, scale=std
-    ).sample(sample_shape=size).numpy()
+    ).sample(sample_shape=size).numpy()[0]
 
-    return rvs
+    return float(rvs)
 
 
 def lane_location_initialize(
@@ -596,7 +597,7 @@ def risk_overtake_distance(
 
 def safe_lane_change(
     approaching_driver: Driver,
-    drivers_by_lane: Dict[int, List[Driver]],
+    state: Dict[int, Dict[int, Driver]],
     new_lane: int,
     risk_distance: float,
 ) -> bool:
@@ -622,35 +623,47 @@ def safe_lane_change(
     and car behind is faster must be managed, so there is no
     crash and no illegal overtaking (overtaking through right lane)
     """
+    n_lanes = len(state)
     # Check lane safety
-    if new_lane < 0 or new_lane >= len(drivers_by_lane):
+    if new_lane < 0 or new_lane >= n_lanes:
         return False
 
-    location = approaching_driver.config.location
-    drivers_in_lane = drivers_by_lane[new_lane]
+    # drivers_in_lane does not include the approaching_driver
+    drivers_in_lane = state[new_lane]
 
     # Check lane is within bounds
-    if new_lane < 0 or new_lane >= len(drivers_by_lane):
+    if new_lane < 0 or new_lane >= n_lanes:
         return False
 
+    # print(f'[safe_lane_change] all drivers: {state}')
+    # print(f'[safe_lane_change] drivers_in_lane: {drivers_in_lane}')
+    # print(f'[safe_lane_change] approaching_driver: {approaching_driver}')
+
+    __drivers_close = Driver.drivers_close_to(
+        drivers_in_lane=drivers_in_lane,
+        position=approaching_driver.config.location,
+        safe_distance=risk_distance,
+    )
+
     # Check that there are no cars close to the driver in the new lane
-    if np.any(
-        np.array([driver.config.location - location
-                  for driver in drivers_in_lane]) < risk_distance
-    ):
+    if len(__drivers_close) > 0:
         # If they are, see if the ones at front are moving slower
         # and if the ones at back are moving faster
-        drivers_front = list(filter(
-            lambda driver: driver.config.location > location,
-            drivers_in_lane
-        ))
 
-        drivers_back = list(filter(
-            lambda driver: driver.config.location < location,
-            drivers_in_lane
-        ))
+        # Drivers at front are the ones indexed lower than the approaching
+        drivers_front = [
+            v for k, v in drivers_in_lane.items()
+            if k < approaching_driver.config.index
+        ]
 
-        # Check if the drivers at front are moving slower
+        # Drivers at back are the ones indexed higher than the approaching
+        drivers_back = [
+            v for k, v in drivers_in_lane.items()
+            if k > approaching_driver.config.index
+        ]
+
+        # Check if the front driver is moving slower
+        # TODO: check this --> should only check the driver at the front?
         if np.any(
             np.array([driver.config.speed
                       for driver in drivers_front]) > approaching_driver.config.speed  # noqa: E501
@@ -658,6 +671,7 @@ def safe_lane_change(
             return False
 
         # Check if the drivers at back are moving faster
+        # TODO: check this --> should only check the driver at the back?
         if np.any(
             np.array([driver.config.speed
                       for driver in drivers_back]) < approaching_driver.config.speed  # noqa: E501
@@ -669,7 +683,7 @@ def safe_lane_change(
 
 def safe_overtake(
     driver: Driver,
-    drivers_by_lane: Dict[int, List[Driver]],
+    state: Dict[int, Dict[int, Driver]],
     risk_distance: float
 ) -> bool:
     """
@@ -696,13 +710,13 @@ def safe_overtake(
     n_lanes : int
         The number of lanes in the track.
     """
-    n_lanes = len(drivers_by_lane)
+    n_lanes = len(state)
 
-    # Check that the current lane is not the rightmost lane
+    # Check that the current lane is not the highest priority lane
     if driver.config.lane == n_lanes - 1:
         return False
     # Get driver in front
-    front_driver = Driver.driver_at_front(driver, drivers_by_lane)
+    front_driver = Driver.driver_at_front(driver, state)
     # Check if driver is moving faster than driver in front
     if front_driver is None:
         return False  # No need to overtake
@@ -716,7 +730,7 @@ def safe_overtake(
             # Car is not close enough to the car in front
             return False
     # Get driver in back
-    back_driver = Driver.driver_at_back(driver, drivers_by_lane)
+    back_driver = Driver.driver_at_back(driver, state)
     # Check if there's a driver in back
     if back_driver is not None:
         # Check if driver is moving faster than driver in back
@@ -733,10 +747,10 @@ def safe_overtake(
     # Check if driver can move to next lane
 
     return safe_lane_change(
-        driver,
-        drivers_by_lane,
-        driver.config.lane + 1,
-        risk_distance
+        approaching_driver=driver,
+        state=state,
+        new_lane=driver.config.lane + 1,
+        risk_distance=risk_distance,
     )
 
 
@@ -751,27 +765,10 @@ class OvertakeDecission:
     STAY = 1,
     BACK = 2
 
-# def safe_go_back(
-#         driver: 'Driver',
-#         risk_distance: float,
-#         drivers_by_lane: Dict[int, List['Driver']],
-# ) -> bool:
-#     """
-#     Returns True if the driver will go back to the previous lane,
-#     False otherwise. It will return False if the driver is in the
-#     first lane.
-#     """
-#     return safe_lane_change(
-#         driver,
-#         drivers_by_lane,
-#         driver.config.lane - 1,
-#         risk_distance
-#     )
-
 
 def decide_overtake(
         driver: 'Driver',
-        drivers_by_lane: Dict[int, List['Driver']],
+        state: Dict[int, Dict[int, 'Driver']],
         risk_distance: float
 ) -> OvertakeDecission:
     """
@@ -781,10 +778,10 @@ def decide_overtake(
     # If driver not in first lane, check if driver from right
     # is comming faster and if there is enough space to go back
     # to the right lane
-    if safe_overtake(driver, drivers_by_lane, risk_distance) is False:
+    if safe_overtake(driver, state, risk_distance) is False:
         if safe_lane_change(
             driver,
-            drivers_by_lane,
+            state,
             driver.config.lane - 1,  # Go back to previous lane?
             risk_distance
         ):
@@ -814,6 +811,9 @@ def _speed_increase(
         scale=std
     ).sample(sample_shape=1).numpy().flatten()[0]
 
+    # Return float type
+    if isinstance(rvs, np.ndarray):
+        return rvs[0]
     return rvs
 
 
@@ -835,12 +835,16 @@ def _speed_decrease(
     rvs = tfp.distributions.HalfNormal(
         scale=std
     ).sample(sample_shape=1).numpy().flatten()[0]
+
+    # Return float type
+    if isinstance(rvs, np.ndarray):
+        return rvs[0]
     return rvs
 
 
 def speed_update(
     driver: Driver,
-    drivers_by_lane: Dict[int, List['Driver']],
+    state: Dict[int, Dict[int, 'Driver']],
     max_speed_fixed: float,
     max_speed_gap: float,
     min_speed_fixed: float,
@@ -888,10 +892,11 @@ def speed_update(
         The driver.
     driver_by_lane: Dict[int, List[Driver]]
     """
+    # print(f'[at speed_update] State: {state}')
 
     # Retrieve front and back drivers
-    driver_front = Driver.driver_at_front(driver, drivers_by_lane)
-    driver_back = Driver.driver_at_back(driver, drivers_by_lane)
+    driver_front = Driver.driver_at_front(driver, state)
+    driver_back = Driver.driver_at_back(driver, state)
 
     # Get risk overtake distance
     risk_distance = risk_overtake_distance(
@@ -899,7 +904,7 @@ def speed_update(
     )
 
     # Copy current driver
-    new_driver = Driver.copy(driver)
+    new_driver = copy.deepcopy(driver)
 
     variation = 0
     lane = driver.config.lane
@@ -914,7 +919,7 @@ def speed_update(
 
     if driver_front is not None:
         # Can overtake driver in front?
-        if safe_overtake(driver, drivers_by_lane, risk_distance):
+        if safe_overtake(driver, state, risk_distance):
             # Can overtake driver in back?
             if driver_back is not None and\
                     driver_back.config.speed > driver.config.speed:
@@ -931,7 +936,7 @@ def speed_update(
                 # Can change lane to the left?
                 if safe_lane_change(
                     driver,
-                    drivers_by_lane,
+                    state,
                     driver.config.lane + 1,
                     risk_distance
                 ):
@@ -955,7 +960,7 @@ def speed_update(
             # Can change lane to the right?
             if safe_lane_change(
                 driver,
-                drivers_by_lane,
+                state,
                 driver.config.lane - 1,
                 risk_distance
             ):
@@ -970,7 +975,7 @@ def speed_update(
         # Can change lane to the right?
         if safe_lane_change(
             driver,
-            drivers_by_lane,
+            state,
             driver.config.lane - 1,
             risk_distance
         ):
@@ -984,6 +989,7 @@ def speed_update(
 
     new_driver.config.speed += variation
     new_driver.config.lane = lane
+    new_driver.config.location += new_driver.config.speed / 3.6
 
     # print(f'\tDec: {__dec}\n')
 

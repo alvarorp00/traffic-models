@@ -18,6 +18,7 @@ but the parameters of the driver will be set by the simulation
 and so are required to be passed as arguments to the constructor.
 """
 
+import copy
 import enum
 import random
 from typing import Dict, List, Union
@@ -293,117 +294,37 @@ class DriverType(enum.Enum):
         return driver_type.value - 1
 
 
-class DriverConfig:
-    """
-    Configuration for a driver.
+class DriverReactionTime(enum.Enum):
+    QUICK = 1
+    NORMAL = 2
+    SLOW = 3
+    SNAIL = 4
 
-    This class is used to configure the parameters of a driver. It
-    is used by the simulation to create a new driver.
-
-    Attributes
-    ----------
-    driver_type : DriverType
-        The type of driver.
-    car_type : CarType
-        The type of car.
-    location : float
-        The location of the driver.
-    origin : int
-        Set automatically by the simulation, is the initial position
-    speed : float
-        The initial speed of the driver.
-    lane : int
-    """
-    def __init__(self, id, **kwargs):
+    @staticmethod
+    def random(
+        size: int = 1,
+        probs: List[float] = [.4, .3, .2, .1],
+    ) -> list['DriverReactionTime']:
         """
-        Constructor for the DriverConfig class.
+        Returns a weighted random driver reaction time.
 
-        Parameters
-        ----------
-        driver_type : DriverType
-            The type of driver.
+        Probabilities:
+        - Given or default (see below)
+
+            - QUICK: 0.4
+            - NORMAL: 0.3
+            - SLOW: 0.2
+            - SNAIL: 0.1
+
+        - Probabilities given must be of length 4.
         """
-        self.id = id
+        choice = random.choices(
+            population=list(DriverReactionTime),
+            weights=probs,
+            k=size
+        )
 
-        if 'driver_type' not in kwargs:
-            raise ValueError("driver_type not passed to the constructor")
-        self.driver_type = kwargs['driver_type']
-
-        if 'car_type' not in kwargs:
-            raise ValueError("car_type not passed to the constructor")
-        self.car_type = kwargs['car_type']
-
-        if 'road' not in kwargs:
-            raise ValueError("road not passed to the constructor")
-        self.road = kwargs['road']
-
-        if 'location' in kwargs:
-            # assert isinstance(kwargs['location'], float)
-            self.location = kwargs['location']
-        else:
-            self.location = 0
-
-        self.origin = self.location
-
-        if 'speed' in kwargs:
-            # assert isinstance(kwargs['speed'], float)
-            self.speed = kwargs['speed']
-        else:
-            self.speed = 0
-
-        if 'lane' in kwargs:
-            assert isinstance(kwargs['lane'], int)
-            self.lane = kwargs['lane']
-        else:
-            self.lane = 0
-
-    @property
-    def driver_type(self) -> DriverType:
-        return self._driver_type
-
-    @driver_type.setter
-    def driver_type(self, driver_type: DriverType):
-        self._driver_type = driver_type
-
-    @property
-    def car_type(self) -> CarType:
-        return self._car_type
-
-    @car_type.setter
-    def car_type(self, car_type: CarType):
-        self._car_type = car_type
-
-    @property
-    def location(self) -> float:
-        return self._location
-
-    @location.setter
-    def location(self, location: float):
-        self._location = location
-
-    @property
-    def origin(self) -> int:
-        return self._origin
-
-    @origin.setter
-    def origin(self, origin: int):
-        self._origin = origin
-
-    @property
-    def speed(self) -> float:
-        return self._speed
-
-    @speed.setter
-    def speed(self, speed: float):
-        self._speed = speed
-
-    @property
-    def lane(self) -> int:
-        return self._lane
-
-    @lane.setter
-    def lane(self, lane: int):
-        self._lane = lane
+        return choice
 
 
 class Accident:
@@ -454,6 +375,137 @@ class Accident:
         return sum([hash(d) for d in self.drivers]) + self.wait_time
 
 
+class DriverConfig:
+    """
+    Configuration for a driver.
+
+    This class is used to configure the parameters of a driver. It
+    is used by the simulation to create a new driver.
+
+    Attributes
+    ----------
+    driver_type : DriverType
+        The type of driver.
+    reaction_time : DriverReactionTime
+        The reaction time of the driver.
+    car_type : CarType
+        The type of car.
+    location : float
+        The location of the driver.
+    origin : int
+        Set automatically by the simulation, is the initial position
+    speed : float
+        The initial speed of the driver.
+    lane : int
+        The lane of the driver.
+    index : int
+        The index of the driver. Represents the relative position of
+        the driver in the lane. Defaults to -1 (out of the road).
+    """
+    def __init__(self, id, **kwargs):
+        """
+        Constructor for the DriverConfig class.
+        """
+        self.id = id
+
+        if 'driver_type' not in kwargs:
+            raise ValueError("driver_type not passed to the constructor")
+        self.driver_type = kwargs['driver_type']
+
+        if 'reaction_time' not in kwargs:
+            raise ValueError("reaction_time not passed to the constructor")
+        self.reaction_time = kwargs['reaction_time']
+
+        if 'car_type' not in kwargs:
+            raise ValueError("car_type not passed to the constructor")
+        self.car_type = kwargs['car_type']
+
+        if 'road' not in kwargs:
+            raise ValueError("road not passed to the constructor")
+        self.road = kwargs['road']
+
+        if 'location' in kwargs:
+            # assert isinstance(kwargs['location'], float)
+            self.location = kwargs['location']
+        else:
+            self.location = 0
+
+        self.origin = self.location
+
+        if 'speed' in kwargs:
+            assert isinstance(kwargs['speed'], float)
+            self.speed = kwargs['speed']
+        else:
+            self.speed = 0
+
+        if 'lane' in kwargs:
+            assert isinstance(kwargs['lane'], int)
+            self.lane = kwargs['lane']
+        else:
+            self.lane = 0
+
+        if 'index' in kwargs:
+            self.index = kwargs['index']
+        else:
+            self.index = 0
+
+    @property
+    def driver_type(self) -> DriverType:
+        return self._driver_type
+
+    @driver_type.setter
+    def driver_type(self, driver_type: DriverType):
+        self._driver_type = driver_type
+
+    @property
+    def reaction_time(self) -> DriverReactionTime:
+        return self._reaction_time
+
+    @reaction_time.setter
+    def reaction_time(self, reaction_time: DriverReactionTime):
+        self._reaction_time = reaction_time
+
+    @property
+    def car_type(self) -> CarType:
+        return self._car_type
+
+    @car_type.setter
+    def car_type(self, car_type: CarType):
+        self._car_type = car_type
+
+    @property
+    def location(self) -> float:
+        return self._location
+
+    @location.setter
+    def location(self, location: float):
+        self._location = location
+
+    @property
+    def origin(self) -> int:
+        return self._origin
+
+    @origin.setter
+    def origin(self, origin: int):
+        self._origin = origin
+
+    @property
+    def speed(self) -> float:
+        return self._speed
+
+    @speed.setter
+    def speed(self, speed: float):
+        self._speed = speed
+
+    @property
+    def lane(self) -> int:
+        return self._lane
+
+    @lane.setter
+    def lane(self, lane: int):
+        self._lane = lane
+
+
 class Driver:
     def __init__(self, *args, **kwargs):
         """
@@ -474,11 +526,26 @@ class Driver:
         assert isinstance(kwargs['config'], DriverConfig)
         self.config = kwargs['config']
 
-    def __eq__(self, other):
+    def __eq__(self, other: 'Driver'):
         return self.config.id == other.config.id
 
     def __hash__(self):
         return hash(self.config.id)
+
+    def __repr__(self):
+        # Show the driver id
+        return Driver.show_verbose(self)
+
+    @staticmethod
+    def show(driver: 'Driver') -> str:
+        return f'driver@{driver.config.id}'
+
+    @staticmethod
+    def show_verbose(driver: 'Driver') -> str:
+        return f'driver@{driver.config.id} |'\
+               f'{driver.config.driver_type} | {driver.config.car_type} |'\
+               f'{driver.config.location} | {driver.config.speed} |'\
+               f'{driver.config.lane} | {driver.config.index}'
 
     @property
     def config(self) -> DriverConfig:
@@ -490,8 +557,9 @@ class Driver:
 
     def action(
             self: 'Driver',
-            state: Dict[int, List['Driver']],
+            state: Dict[int, Dict[int, 'Driver']],
             update_fn: callable,  # type: ignore
+            callback_fn: callable,  # type: ignore
             **kwargs
             ) -> 'Driver':
         """
@@ -511,11 +579,14 @@ class Driver:
             speed & lane based on the given state. Should be called
             with lib.driver_distributions.speed_update, although
             custom functions can be provided.
+        callback_fn : callable
+            params: old_driver, new_driver
+            Should return the updated driver.
 
         Returns
         -------
-        Driver
-            The driver after acting on the given state.
+        Returns a call to the callback_fn with the old driver & 
+        the updated one.
         """
 
         max_speed_fixed = kwargs.get('max_speed_fixed', None)
@@ -530,20 +601,21 @@ class Driver:
 
         __driver: Driver = update_fn(
             driver=self,
-            drivers_by_lane=state,
+            state=state,
             max_speed_fixed=max_speed_fixed,
             max_speed_gap=max_speed_gap,
             min_speed_fixed=min_speed_fixed,
             min_speed_gap=min_speed_gap,
         )
 
-        __driver_copy = Driver.copy(__driver)
+        # print(f'\t Current location: {self.config.location}')
+        # print(f'\t New location: {__driver.config.location}')
 
-        __driver_copy.config.speed = __driver.config.speed
-        __driver_copy.config.lane = __driver.config.lane
-        __driver_copy.config.location += __driver_copy.config.speed / 3.6
-
-        return __driver_copy
+        # Call the callback function
+        return callback_fn(
+            old_driver=self,
+            new_driver=__driver
+        )
 
     @staticmethod
     def classify_by_type(drivers: list['Driver']) ->\
@@ -559,6 +631,10 @@ class Driver:
                 dict[d.config.driver_type].append(d)
             else:
                 dict[d.config.driver_type] = [d]
+        # Check if all driver types are present
+        for t in DriverType:
+            if t not in dict.keys():
+                dict[t] = []
 
         return dict
 
@@ -577,7 +653,9 @@ class Driver:
         return dict
 
     @staticmethod
-    def classify_by_lane(drivers: list['Driver']) -> Dict[int, List['Driver']]:
+    def classify_by_lane(
+        drivers: list['Driver']
+    ) -> Dict[int, List['Driver']]:
         """
         Returns a dictionary that maps lane numbers to a list of drivers
         in that lane.
@@ -646,58 +724,105 @@ class Driver:
     @staticmethod
     def driver_at_front(
         driver: 'Driver',
-        drivers_by_lane: Dict[int, List['Driver']],
-        sorted: bool = False
+        state: Dict[int, Dict[int, List['Driver']]]
     ) -> Union['Driver', None]:
         """
         Returns the driver in front of the given driver in the same lane.
         If the given driver is at the front of the lane, returns None.
         """
-
         # Get the list of drivers in the same lane
-        drivers_in_lane = drivers_by_lane[driver.config.lane]
+        drivers_in_lane = state[driver.config.lane]
 
-        # Sort by location
-        if sorted is False:
-            drivers_in_lane.sort(key=lambda d: d.config.location)
+        # print(f'[at driver_at_front] drivers_in_lane [{driver.config.lane}]: {drivers_in_lane}')
+        # print(f'\t driver: {driver}')
 
-        # Find the given driver in the list
-        index = drivers_in_lane.index(driver)
-
-        # If the given driver is at the front of the lane, return None
-        if index == len(drivers_in_lane) - 1:
+        # Is there a driver in front?
+        if driver.config.index == 0:  # It's the first driver
+            # No, return None
             return None
-
-        # Otherwise, return the driver in front
-        return drivers_in_lane[index + 1]
+        else:
+            # Yes, return the driver in front
+            return drivers_in_lane[driver.config.index - 1]
 
     @staticmethod
     def driver_at_back(
         driver: 'Driver',
-        drivers_by_lane: Dict[int, List['Driver']],
-        sorted: bool = False
+        state: Dict[int, Dict[int, 'Driver']]
     ) -> Union['Driver', None]:
         """
         Returns the driver behind the given driver in the same lane.
         If the given driver is at the back of the lane, returns None.
         """
-
         # Get the list of drivers in the same lane
-        drivers_in_lane = drivers_by_lane[driver.config.lane]
+        drivers_in_lane = state[driver.config.lane]
 
-        # Sort by location
-        if sorted is False:
-            drivers_in_lane.sort(key=lambda d: d.config.location)
-
-        # Find the given driver in the list
-        index = drivers_in_lane.index(driver)
-
-        # If the given driver is at the back of the lane, return None
-        if index == 0:
+        # Is there a driver behind?
+        if driver.config.index == 0:
+            # No, return None
             return None
+        else:
+            # Yes, return the driver behind
+            return drivers_in_lane[driver.config.index - 1]
 
-        # Otherwise, return the driver behind
-        return drivers_in_lane[index - 1]
+    @staticmethod
+    def drivers_close(
+        driver: 'Driver',
+        drivers_in_lane: Dict[int, 'Driver'],
+    ) -> List['Driver']:
+        """
+        Returns a list of drivers in the same lane as the given driver
+        that are close enough to collide with the given driver.
+
+        Parameters:
+            driver: The driver to check for collisions with.
+            drivers_in_lane: A list of drivers in the same lane as the
+                given driver, indexed by their position in the lane.
+        """
+
+        if len(drivers_in_lane) == 0:
+            return []
+
+        # Check drivers in front of the given driver until
+        # the distance between them is greater than the length
+        # of the given driver's car, so no further collisions
+        # are possible
+        drivers_close = []
+        for i in range(driver.config.index + 1, len(drivers_in_lane)):
+            print(f'[LANE] Drivers in lane: {drivers_in_lane}')
+            if Driver.distance_between(driver, drivers_in_lane[i]) <\
+                    CarType.get_length(driver.config.car_type):
+                drivers_close.append(drivers_in_lane[i])
+            else:
+                break
+
+        # Check drivers behind the given driver until
+        # the distance between them is greater than the length
+        # of the given driver's car, so no further collisions
+        # are possible
+        for i in range(driver.config.index - 1, -1, -1):
+            if Driver.distance_between(driver, drivers_in_lane[i]) <\
+                    CarType.get_length(driver.config.car_type):
+                drivers_close.append(drivers_in_lane[i])
+            else:
+                break
+
+        return drivers_close
+
+    @staticmethod
+    def drivers_close_to(
+        drivers_in_lane: Dict[int, 'Driver'],
+        position: float,
+        safe_distance: float
+    ) -> List['Driver']:
+        # Check for each lane
+        drivers_close = []
+        for driver in drivers_in_lane.values():
+            if abs(position - driver.config.location) <\
+                    safe_distance:
+                drivers_close.append(driver)
+            else:
+                break
+        return drivers_close
 
     @staticmethod
     def distance_between(front: 'Driver', back: 'Driver') -> float:
@@ -733,7 +858,7 @@ class Driver:
         """
         Returns a copy of the given driver.
         """
-        return Driver(config=driver.config)
+        return Driver(config=copy.deepcopy(driver.config))
 
     @staticmethod
     def copy_list(drivers: List['Driver']) -> List['Driver']:

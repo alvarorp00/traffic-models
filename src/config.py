@@ -21,17 +21,17 @@ from lib.driver import LanePriority
 
 
 class Config:
-    TIME_STEPS = 1000
+    TIME_STEPS = 10
 
-    POPULATION_SIZE = 100
+    POPULATION_SIZE = 50
 
-    MINIMUM_LOAD_FACTOR = 0.75
+    MINIMUM_LOAD_FACTOR = 1.00
 
     START_WITH_POPULATION = False
 
     SPAWN_EVERY_N_STEPS = 10
 
-    ROAD_LENGTH = 10000  # In meters
+    ROAD_LENGTH = 1000  # In meters
 
     # In km/h
     MAX_SPEED = 130
@@ -52,6 +52,12 @@ class Config:
 
     # From more cautious to more aggressive
     DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]
+
+    # From more quick to more slow
+    DRIVER_REACTION_DENSITY = [.45, .3, .15, .1]
+
+    # Car types
+    CAR_TYPE_DENSITY = [.4, .3, .2, .1]
 
     # Minimum safe distance between two cars for the most aggressive driver
     SAFE_DISTANCE = 4.  # In meters
