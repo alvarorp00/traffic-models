@@ -16,7 +16,7 @@
 
 import copy
 import logging
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Set, Tuple, Union
 from lib.driver import Driver, DriverConfig, CarType,\
     DriverType, LanePriority, Accident, DriverReactionTime
 import lib.driver_distributions as driver_distributions
@@ -155,6 +155,12 @@ class RunConfig:
             The length of the section in meters. Defaults to 100.
             Each section is a part of the road that is used to
             calculate the density of the drivers locally.
+        accidents : bool
+            If True, accidents are enabled. Defaults to False.
+        accident_clearance_time : int
+            The unit of time a car will take to be removed from
+            an accident. Defaults to 1. Only used if accidents
+            are enabled.
         time_steps : int
             Time steps to run the simulation for. Defaults to 1000.
         lanes : int
@@ -200,9 +206,6 @@ class RunConfig:
             the simulation will spawn new drivers until the load
             factor is greater than the minimum load factor.
             Defaults to 0.5.
-        accident_clearance_time : float
-            The minimum time that an accident will take to be cleared.
-            Defaults to 10 seconds.
         debug : bool
             If True, the simulation will run in debug mode.
             Defaults to False.
@@ -237,6 +240,18 @@ class RunConfig:
             self.section_length = kwargs['section_length']
         else:
             self.section_length = 100
+
+        if 'accidents' in kwargs:
+            assert isinstance(kwargs['accidents'], bool)
+            self.accidents = kwargs['accidents']
+        else:
+            self.accidents = False
+
+        if 'accident_clearance_time' in kwargs:
+            assert isinstance(kwargs['accident_clearance_time'], int)
+            self.accident_clearance_time = kwargs['accident_clearance_time']
+        else:
+            self.accident_clearance_time = 1
 
         if 'time_steps' in kwargs:
             assert isinstance(kwargs['time_steps'], int)
@@ -444,6 +459,9 @@ class Model:
             for _id in __drivers_by_id:
                 self.add_section_driver(__drivers_by_id[_id].config.location)
 
+        # Initialize the accidents list
+        self.info['accidents'] = []
+
     @property
     def run_config(self) -> "RunConfig":
         return self._run_config
@@ -504,6 +522,10 @@ class Model:
     def id_counter(self, id_counter: int):
         self._id_counter = id_counter
 
+    @property
+    def accidents(self) -> List[Accident]:
+        return self.info['accidents']
+
     def get_section_load(self, pos: float) -> float:
         """
         Returns the load factor of the section in which the given
@@ -550,13 +572,15 @@ class Model:
         if pos < self.run_config.road_length:
             self.sections[int(pos / self.run_config.section_length)] -= 1
         else:
-            logging.warning(
-                "Driver position is out of road length. "
-                "Driver position: %s, road length: %s"
-                "[fn: del_section_driver]",
-                pos,
-                self.run_config.road_length
-            )
+            # logging.warning(
+            #     "Driver position is out of road length. "
+            #     "Driver position: %s, road length: %s"
+            #     "[fn: del_section_driver]",
+            #     pos,
+            #     self.run_config.road_length
+            # )
+            # Ignore this warning for now
+            pass
 
     def update_section_driver(self, old_pos: float, new_pos: float) -> None:
         """
@@ -583,6 +607,49 @@ class Model:
             driver.config.id,
             driver.config.index
         )
+
+    def check_accident(
+            self,
+            driver: 'Driver'
+    ) -> None:
+        """
+        Checks if the given driver has collided with any other driver.
+        """
+        if self.run_config.accidents:
+            __drivers_involved = set()
+            if driver.config.index > 0:  # at least 1 at front
+                __front_driver = self.active_drivers[
+                    driver.config.lane
+                ][driver.config.index - 1]
+
+                if Driver.collision(
+                    __front_driver,
+                    driver,
+                ):
+                    __drivers_involved.add(__front_driver)
+                    __drivers_involved.add(driver)
+
+            if driver.config.index < len(
+                self.active_drivers[driver.config.lane]
+            ) - 1:  # at least 1 at back
+                __back_driver = self.active_drivers[
+                    driver.config.lane
+                ][driver.config.index + 1]
+
+                if Driver.collision(
+                    __back_driver,
+                    driver,
+                ):
+                    __drivers_involved.add(__back_driver)
+                    __drivers_involved.add(driver)
+
+            if len(__drivers_involved) > 0:
+                # There has been a collision
+                accident = Accident(
+                    drivers=__drivers_involved,
+                    accident_clearance_time=self.run_config.accident_clearance_time,  # noqa
+                )
+                self.accidents.append(accident)
 
     def set_active(self, driver: 'Driver') -> None:
         """
@@ -644,17 +711,19 @@ class Model:
                 int(driver.config.location / self.run_config.section_length)
             ] += 1
 
+            # Check accident
+            self.check_accident(driver)
+
     def set_inactive(
             self,
-            old_driver: Driver,
-            new_driver: Driver
+            driver: Driver
     ) -> None:
         """
         Sets a driver as inactive.
         """
-        if new_driver.config.id not in self.inactive_drivers:
-            if new_driver.config.id in self.active_drivers[
-                new_driver.config.lane
+        if driver.config.id not in self.inactive_drivers:
+            if driver.config.id in self.active_drivers[
+                driver.config.lane
             ]:
                 # self.info['active_drivers'][
                 #     driver.config.lane
@@ -665,8 +734,8 @@ class Model:
                 # of the drivers behind the old driver
                 # and swap them 1 position to the front
 
-                __index = self.get_partial_index(new_driver)
-                __lane = new_driver.config.lane
+                __index = self.get_partial_index(driver)
+                __lane = driver.config.lane
                 __dict_temp = {}
                 keys = list(self.active_drivers[__lane].keys())[__index:]
                 for __key in keys:
@@ -686,10 +755,7 @@ class Model:
                 # Update the dict
                 self.active_drivers[__lane].update(__dict_temp)
                 # Add the driver to the inactive dict
-                self.inactive_drivers[new_driver.config.id] = new_driver
-
-                # Update the section load of the old driver
-                self.del_section_driver(old_driver.config.location)
+                self.inactive_drivers[driver.config.id] = driver
 
     def generate_driver(self) -> Driver:
         """
@@ -743,27 +809,6 @@ class Model:
         if self.id_counter != driver.config.id:
             driver.config.id = self.id_counter  # id must be unique
         engine.driver_enters(driver)
-
-    def check_accident(self) -> Tuple[bool, List[Accident]]:
-        """
-        Checks if there is an accident in the simulation.
-
-        Returns
-        -------
-        Tuple[bool, List[Driver]]
-            A tuple with a boolean indicating if there was an
-            accident and a list of the drivers involved in the
-            accident.
-
-        NOTE: this function might be inneficient and should
-        be tested & improved. An idea might be
-        checking the drivers in order once they are
-        ordered by location. # TODO
-        """
-        accidents = []
-
-        # TODO
-        return (False, accidents)
 
     def driver_updates(
         self,
@@ -895,14 +940,23 @@ class Model:
                         new_driver.config.lane
                     ].update(__dict_temp)
 
-                # TODO: check accidents
+                # Check if after the lane change the driver
+                # has hit the nearest driver in the new lane (front or back)
+
+                self.check_accident(
+                    new_driver
+                )
+
             else:
                 # Update the driver in the same lane
                 self.active_drivers[
                     old_driver.config.lane
                 ][__index] = new_driver
                 new_driver.config.index = __index
-                # TODO check accidents
+
+                self.check_accident(
+                    new_driver
+                )
 
         else:
             # The driver is not active anymore: an error occurred
@@ -1004,25 +1058,40 @@ class Engine:
                     # Update the time taken by the driver
                     self.model.time_taken[__driver.config.id] += 1
                     # Update the speed & location of the driver
-                    __updated_driver = __driver.action(
-                        state=__state,  # type: ignore
-                        update_fn=driver_distributions.speed_update,
-                        callback_fn=self.model.driver_updates,
-                        max_speed_fixed=self.run_config.max_speed,
-                        max_speed_gap=self.run_config.max_speed_gap,
-                        min_speed_fixed=self.run_config.min_speed,
-                        min_speed_gap=self.run_config.min_speed_gap,
+                    __reaction_state = self.trace.n_times_past(
+                        int(__driver.config.reaction_time)
                     )
+                    if __reaction_state is None:
+                        # Just keep the current speed, lane and 
+                        # update the location
+                        __updated_driver = __driver.keep_going(
+                            callback_fn=self.model.driver_updates,
+                        )
+                    else:
+                        __updated_driver = __driver.action(
+                            state=__state,  # type: ignore
+                            update_fn=driver_distributions.speed_update,
+                            callback_fn=self.model.driver_updates,
+                            max_speed_fixed=self.run_config.max_speed,
+                            max_speed_gap=self.run_config.max_speed_gap,
+                            min_speed_fixed=self.run_config.min_speed,
+                            min_speed_gap=self.run_config.min_speed_gap,
+                        )
                     # Check if driver has reached the end of the road
                     if __updated_driver.config.location >=\
                             self.model.road.length:
                         if self.run_config.verbose:
                             print(f'[INFO] Time step {t} - '
                                   f'{__updated_driver.config.id} finished')
-                        # __finished_drivers.append(__updated_driver)
-                        self.driver_finishes(
-                            old_driver=__driver,
-                            new_driver=__updated_driver
+                        # We don't need to update the state
+                        # of the new driver, just flag the previous one
+                        # as finished
+                        self.model.set_inactive(
+                            __driver
+                        )
+                        # Update the section load
+                        self.model.del_section_driver(
+                            __driver.config.location
                         )
                     else:
                         __new_state_drivers.append(__updated_driver)
@@ -1032,22 +1101,26 @@ class Engine:
                             __updated_driver.config.location,
                         )
 
-            # for __driver in __finished_drivers:
-            #     self.driver_finishes(
-            #         old_driver=__driver,
-            #         new_driver=__updated_driver
-            #     )
-
-            # Check accident
-            (accident, accidents) = self.model.check_accident()
-            if accident:
-                # Stop that cars involved in the accident
-                # in their current location for a while
-                # For each accident, the drivers will be stopped
-                # for a random number of time steps given
-                # by driver_distributions.collision_wait_time()
-                # TODO
-                pass
+            if self.run_config.accidents:
+                __accidents_cleared = []
+                for accident in self.model.accidents:
+                    for __driver_crashed in accident.drivers:
+                        __driver_crashed.config.speed = .0
+                        self.model.set_inactive(
+                            __driver_crashed
+                        )
+                        accident.count_down()
+                        if accident.is_expired():
+                            # mark the accident as finished
+                            __accidents_cleared.append(accident)
+                            # Update the section load
+                            for __driver in accident.drivers:
+                                self.model.del_section_driver(
+                                    __driver.config.location
+                                )
+                # Remove the accidents that have been cleared
+                for accident in __accidents_cleared:
+                    self.model.accidents.remove(accident)
 
             # Print model
             if self.run_config.verbose:
@@ -1055,17 +1128,6 @@ class Engine:
                       f' {self.model.active_drivers}')
 
             __wait_to_spawn = False
-
-    def driver_finishes(
-            self,
-            old_driver: Driver,
-            new_driver: Driver
-    ) -> None:
-        """
-        This method is called whenever a driver reaches
-        the end of the road.
-        """
-        self.model.set_inactive(old_driver, new_driver)
 
     def driver_enters(self, driver: Driver) -> None:
         """
@@ -1116,3 +1178,8 @@ class Trace:
 
     def add(self, data: 'Model'):
         self.data.append(data)
+
+    def n_times_past(self, n: int) -> Union[List['Model'], None]:
+        if n > len(self.data):
+            return None
+        return self.data[-n:]

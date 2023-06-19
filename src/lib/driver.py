@@ -300,6 +300,16 @@ class DriverReactionTime(enum.Enum):
     SLOW = 3
     SNAIL = 4
 
+    def __new__(cls, value, *args, **kwargs):
+        member = object.__new__(cls)
+        member._value_ = value
+        member._args_ = args
+        member._kwargs_ = kwargs
+        return member
+
+    def __int__(self):
+        return self.value
+
     @staticmethod
     def random(
         size: int = 1,
@@ -324,7 +334,10 @@ class DriverReactionTime(enum.Enum):
             k=size
         )
 
-        return choice
+        if size == 1:
+            return choice[0]
+        else:
+            return choice
 
 
 class Accident:
@@ -335,17 +348,27 @@ class Accident:
         Parameters
         ----------
         drivers : set(Driver)
-            The drivers that caused the accident.
-        [wait_time] : int
-            The time to wait before resuming the simulation.
+            List of drivers that caused the accident.
+        accident_clearance_time : int
+            The time to wait per driver in the accident
+            before the accident is resolved.
+            Default: 1 second
         """
         if 'drivers' not in kwargs:
             self.drivers = set()
         else:
-            self.drivers = kwargs['driver']
+            if isinstance(kwargs['drivers'], set):
+                self.drivers = kwargs['drivers']
+            else:
+                self.drivers = set(kwargs['drivers'])
 
-        if 'wait_time' in kwargs:
-            self.wait_time = kwargs['wait_time']
+        if 'accident_clearance_time' in kwargs:
+            assert isinstance(kwargs['accident_clearance_time'], int)
+            self.wait_time = kwargs['accident_clearance_time']
+        else:
+            self.wait_time = 1
+
+        self.expire_time = len(self.drivers) * self.wait_time
 
     @property
     def drivers(self) -> set['Driver']:
@@ -373,6 +396,12 @@ class Accident:
 
     def __hash__(self) -> int:
         return sum([hash(d) for d in self.drivers]) + self.wait_time
+
+    def count_down(self):
+        self.expire_time -= 1
+
+    def is_expired(self) -> bool:
+        return self.expire_time <= 0
 
 
 class DriverConfig:
@@ -553,6 +582,21 @@ class Driver:
     @config.setter
     def config(self, config: DriverConfig):
         self._config = config
+
+    def keep_going(
+            self: 'Driver',
+            callback_fn: callable,  # type: ignore
+    ) -> 'Driver':
+        """
+        This method is called by the simulation to keep the driver
+        moving forward. It is expected to update the driver's
+        location based on the current speed, not to change the
+        speed nor the lane.
+        """
+        __driver_updated = Driver.copy(self)
+        __driver_updated.config.location +=\
+            __driver_updated.config.speed / 3.6  # km/h -> m/s
+        return callback_fn(self, __driver_updated)
 
     def action(
             self: 'Driver',

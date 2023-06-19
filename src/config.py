@@ -31,9 +31,13 @@ class Config:
 
     SPAWN_EVERY_N_STEPS = 10
 
-    ROAD_LENGTH = 1000  # In meters
+    ROAD_LENGTH = 10000  # In meters
 
     SECTION_LENGTH = 100  # In meters
+
+    ACCIDENTS = False  # division by zero, check this # TODO
+
+    ACCIDENT_CLEARANCE_TIME = 15  # In seconds
 
     # In km/h
     MAX_SPEED = 130
@@ -63,9 +67,6 @@ class Config:
 
     # Minimum safe distance between two cars for the most aggressive driver
     SAFE_DISTANCE = 4.  # In meters
-
-    # Minimum wait time for accident to be cleared
-    ACCIDENT_CLEARANCE_TIME = 10  # In seconds / time steps
 
     # Print info
     VERBOSE = False
