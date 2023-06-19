@@ -21,9 +21,9 @@ from lib.driver import LanePriority
 
 
 class Config:
-    TIME_STEPS = 10
+    TIME_STEPS = 100
 
-    POPULATION_SIZE = 50
+    POPULATION_SIZE = 15
 
     MINIMUM_LOAD_FACTOR = 1.00
 
@@ -32,6 +32,8 @@ class Config:
     SPAWN_EVERY_N_STEPS = 10
 
     ROAD_LENGTH = 1000  # In meters
+
+    SECTION_LENGTH = 100  # In meters
 
     # In km/h
     MAX_SPEED = 130
@@ -66,4 +68,4 @@ class Config:
     ACCIDENT_CLEARANCE_TIME = 10  # In seconds / time steps
 
     # Print info
-    # VERBOSE = True
+    VERBOSE = False

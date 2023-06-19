@@ -3,8 +3,9 @@ This module runs the simulation, using the Engine class
 and the configuration specified in the Config module.
 """
 
-from lib.engine import Engine, Stats, RunConfig
 from config import Config
+from lib.engine import Engine, RunConfig
+from lib.stats import Stats, StatsItems
 # import tests
 
 
@@ -32,49 +33,35 @@ def run():
     engine = Engine(run_config)
     engine.run()
 
-    # print(f'Drivers: {len(engine.model.active_drivers)}')
-    # # Get all drivers
-    # drivers = []
-    # for lane in engine.model.active_drivers:
-    #     drivers += list(engine.model.active_drivers[lane].values())
-    # drivers += list(engine.model.inactive_drivers.values())
-
-    # # Print the drivers
-    # for driver in drivers:
-    #     print(f"Driver {driver.config.id} driving a {driver.config.car_type} car @ {driver.config.speed} m/s")
-
     if STATS:
         engine_stats = Stats(engine=engine)
         stats = engine_stats.get_stats()
 
-        print('Lane changes:')
-        for d, lc in stats['lane_changes'].items():
-            print(f"\tDriver {d} lanes: {lc}")
+        __lane_changes = stats[StatsItems.LANE_CHANGES]
+        __speed_changes = stats[StatsItems.SPEED_CHANGES]
+        __all_drivers = engine.model.all_active_drivers()
+        __all_drivers.extend(engine.model.inactive_drivers.values())
+        print('Lane & Speed changes:')
+        for driver in __all_drivers:
+            print(f'\tDriver {driver.config.id} lane changes: {__lane_changes[driver.config.id]}')
+            print(f'\tDriver {driver.config.id} speed changes: {__speed_changes[driver.config.id]}')
+            # Print '---' to separate each driver
+            print('\t-----------------------------------')
 
-        print('Drivers that finished:')
-        for driver in engine.model.inactive_drivers:
-            print(f'\tDriver {driver.config.id} finished @ {driver.config.driver_type} driver driving a {driver.config.car_type} car @ {driver.config.speed} m/s')
-        print(f'{len(engine.model.inactive_drivers)} drivers finished')
-        print(f'{len(engine.model.all_active_drivers())} drivers still active')
+        # print('Drivers that finished:')
+        # for driver in engine.model.inactive_drivers.values():
+        #     print(f'\tDriver {driver.config.id} finished @ {driver.config.driver_type} driver driving a {driver.config.car_type} car @ {driver.config.speed} m/s')
+        # print(f'{len(engine.model.inactive_drivers)} drivers finished')
+        # print(f'{len(engine.model.all_active_drivers())} drivers still active')
 
         print('Average time:')
-        for d, at in stats['avg_time_taken'].items():
+        for d, at in stats[StatsItems.AVG_TIME_TAKEN].items():
             print(f"\tDriver {d} avg time: {at}")
-
-        trace = engine.trace
-
-        last = trace.last
-
-        if 'verbose' in run_config.__dict__:
-            for driver in last.active_drivers:
-                print(f"Driver {driver.config.id} is a {driver.config.driver_type}"
-                      f"\n\tdriver driving a {driver.config.car_type} car @"
-                      f"{driver.config.speed} m/s at lane {driver.config.lane}"
-                      f"\n\t at location {driver.config.location} m\n")
-
-    # print(stats)
-
-    # Just test for now
+            # Print how many drivers of each type finished
+            print(f"\t\t{stats[StatsItems.DRIVERS_FINISHED_DRV_TYPE][d]} {d} drivers finished")
+            # Print the number of cars of each type that finished for this driver type
+            for car_type, num in stats[StatsItems.DRIVERS_FINISHED_DRV_CAR_TYPE][d].items():
+                print(f"\t\t\t{num} {car_type} cars finished")
 
     # test(run_config=run_config)
 

@@ -534,13 +534,12 @@ class Driver:
 
     def __repr__(self):
         # Show the driver id
-        return Driver.show_verbose(self)
+        # return self.show()
+        return self.show_verbose()
 
-    @staticmethod
     def show(driver: 'Driver') -> str:
         return f'driver@{driver.config.id}'
 
-    @staticmethod
     def show_verbose(driver: 'Driver') -> str:
         return f'driver@{driver.config.id} |'\
                f'{driver.config.driver_type} | {driver.config.car_type} |'\
@@ -607,9 +606,6 @@ class Driver:
             min_speed_fixed=min_speed_fixed,
             min_speed_gap=min_speed_gap,
         )
-
-        # print(f'\t Current location: {self.config.location}')
-        # print(f'\t New location: {__driver.config.location}')
 
         # Call the callback function
         return callback_fn(
@@ -733,9 +729,6 @@ class Driver:
         # Get the list of drivers in the same lane
         drivers_in_lane = state[driver.config.lane]
 
-        # print(f'[at driver_at_front] drivers_in_lane [{driver.config.lane}]: {drivers_in_lane}')
-        # print(f'\t driver: {driver}')
-
         # Is there a driver in front?
         if driver.config.index == 0:  # It's the first driver
             # No, return None
@@ -787,8 +780,7 @@ class Driver:
         # of the given driver's car, so no further collisions
         # are possible
         drivers_close = []
-        for i in range(driver.config.index + 1, len(drivers_in_lane)):
-            print(f'[LANE] Drivers in lane: {drivers_in_lane}')
+        for i in range(0, driver.config.index):
             if Driver.distance_between(driver, drivers_in_lane[i]) <\
                     CarType.get_length(driver.config.car_type):
                 drivers_close.append(drivers_in_lane[i])
@@ -799,7 +791,7 @@ class Driver:
         # the distance between them is greater than the length
         # of the given driver's car, so no further collisions
         # are possible
-        for i in range(driver.config.index - 1, -1, -1):
+        for i in range(driver.config.index + 1, 1, len(drivers_in_lane)):
             if Driver.distance_between(driver, drivers_in_lane[i]) <\
                     CarType.get_length(driver.config.car_type):
                 drivers_close.append(drivers_in_lane[i])

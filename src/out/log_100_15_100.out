@@ -1,0 +1,43 @@
+Lane changes:
+        Driver 0 lanes: [1, 0, 2, 1, 2]
+        Driver 1 lanes: [0, 1]
+        Driver 3 lanes: [0]
+        Driver 4 lanes: [1]
+        Driver 2 lanes: [0, 0, 0]
+        Driver 6 lanes: [0]
+        Driver 5 lanes: [0]
+        Driver 8 lanes: [0]
+        Driver 11 lanes: [0]
+        Driver 13 lanes: [0]
+        Driver 15 lanes: [0]
+        Driver 18 lanes: [0]
+        Driver 20 lanes: [0]
+        Driver 21 lanes: [0]
+        Driver 22 lanes: [0]
+        Driver 23 lanes: [0]
+        Driver 24 lanes: [1]
+Drivers that finished:
+        Driver 0 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ 82.7236099243164 m/s
+        Driver 1 finished @ NORMAL driver driving a CarType.SEDAN car @ 89.53471875190735 m/s
+        Driver 3 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ 82.35063934326172 m/s
+        Driver 4 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ 101.30073350667953 m/s
+        Driver 2 finished @ RISKY driver driving a CarType.TRUCK car @ 52.199676513671875 m/s
+        Driver 6 finished @ RISKY driver driving a CarType.MOTORCYCLE car @ 109.2742691040039 m/s
+        Driver 5 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ 83.0369781255722 m/s
+        Driver 8 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ 100.40444946289062 m/s
+        Driver 11 finished @ NORMAL driver driving a CarType.TRUCK car @ 65.89435577392578 m/s
+        Driver 13 finished @ AGGRESSIVE driver driving a CarType.SUV car @ 87.51859283447266 m/s
+        Driver 15 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ 82.09051513671875 m/s
+        Driver 18 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ 102.40382385253906 m/s
+        Driver 20 finished @ AGGRESSIVE driver driving a CarType.SUV car @ 84.74889373779297 m/s
+        Driver 21 finished @ NORMAL driver driving a CarType.SEDAN car @ 90.49528586864471 m/s
+        Driver 22 finished @ NORMAL driver driving a CarType.SEDAN car @ 88.12198638916016 m/s
+        Driver 23 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ 84.45917510986328 m/s
+        Driver 24 finished @ RISKY driver driving a CarType.SEDAN car @ 95.7194384932518 m/s
+17 drivers finished
+15 drivers still active
+Average time:
+        Driver CAUTIOUS avg time: 5.4
+        Driver NORMAL avg time: 132.5
+        Driver AGGRESSIVE avg time: 89.0
+        Driver RISKY avg time: 103.0

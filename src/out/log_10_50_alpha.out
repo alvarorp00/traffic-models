@@ -1,0 +1,276 @@
+[INFO] Time step 0 - 0.0
+[INFO] Adding driver driver@0 |NORMAL | CarType.SEDAN |0 | 88.72099304199219 |1 | 0 to the road.
+[INFO] Time step 0 - {0: {}, 1: {0: driver@0 |NORMAL | CarType.SEDAN |0 | 88.72099304199219 |1 | 0}, 2: {}}]
+[at driver_at_front] drivers_in_lane [1]: {0: driver@0 |NORMAL | CarType.SEDAN |0 | 88.72099304199219 |1 | 0}
+         driver: driver@0 |NORMAL | CarType.SEDAN |0 | 88.72099304199219 |1 | 0
+        [0] Old driver pos/lane: 0/1
+        [0] New driver pos/lane: 24.644720289442272/0
+[INFO - END STEP] Time step 0 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |24.644720289442272 | 88.72099304199219 |0 | 0}, 1: {}, 2: {}}
+[INFO] Time step 1 - 0.02
+[INFO] Adding driver driver@1 |AGGRESSIVE | CarType.TRUCK |0 | 32.87049865722656 |1 | 0 to the road.
+[INFO] Time step 1 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |24.644720289442272 | 88.72099304199219 |0 | 0}, 1: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |0 | 32.87049865722656 |1 | 0}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |24.644720289442272 | 88.72099304199219 |0 | 0}
+         driver: driver@0 |NORMAL | CarType.SEDAN |24.644720289442272 | 88.72099304199219 |0 | 0
+        [0] Old driver pos/lane: 24.644720289442272/0
+        [0] New driver pos/lane: 49.289440578884545/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |0 | 32.87049865722656 |1 | 0}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |0 | 32.87049865722656 |1 | 0
+        [1] Old driver pos/lane: 0/1
+        [1] New driver pos/lane: 9.130694071451822/0
+[INFO - END STEP] Time step 1 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}, 1: {}, 2: {}}
+[INFO] Time step 2 - 0.04
+[CLOSE] drivers_in_lane: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+[CLOSE] driver: driver@2 |NORMAL | CarType.SEDAN |0 | 88.31143951416016 |0 | 2
+[LANE] Drivers in lane: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+[LANE] Drivers in lane: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+[INFO] Time step 2 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}, 1: {}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+         driver: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0
+        [0] Old driver pos/lane: 49.289440578884545/0
+        [0] New driver pos/lane: 73.93416086832681/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |49.289440578884545 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |9.130694071451822 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 9.130694071451822/0
+        [1] New driver pos/lane: 18.261388142903645/0
+[INFO - END STEP] Time step 2 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1}, 1: {}, 2: {}}
+[INFO] Time step 3 - 0.04
+[INFO] Adding driver driver@2 |NORMAL | CarType.TRUCK |0 | 65.84577178955078 |1 | 0 to the road.
+[INFO] Time step 3 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1}, 1: {0: driver@2 |NORMAL | CarType.TRUCK |0 | 65.84577178955078 |1 | 0}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1}
+         driver: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0
+        [0] Old driver pos/lane: 73.93416086832681/0
+        [0] New driver pos/lane: 98.57888115776909/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |73.93416086832681 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |18.261388142903645 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 18.261388142903645/0
+        [1] New driver pos/lane: 27.39208221435547/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |0 | 65.84577178955078 |1 | 0}
+         driver: driver@2 |NORMAL | CarType.TRUCK |0 | 65.84577178955078 |1 | 0
+        [2] Old driver pos/lane: 0/1
+        [2] New driver pos/lane: 18.290492163764107/0
+[INFO - END STEP] Time step 3 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}, 1: {}, 2: {}}
+[INFO] Time step 4 - 0.06
+[INFO] Adding driver driver@3 |AGGRESSIVE | CarType.SUV |0 | 84.62781524658203 |2 | 0 to the road.
+[INFO] Time step 4 - {0: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}, 1: {}, 2: {0: driver@3 |AGGRESSIVE | CarType.SUV |0 | 84.62781524658203 |2 | 0}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}
+         driver: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0
+        [0] Old driver pos/lane: 98.57888115776909/0
+        [0] New driver pos/lane: 123.22360144721137/0
+[INFO] Time step 4 - 0 finished
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 27.39208221435547/0
+        [1] New driver pos/lane: 36.52277628580729/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}
+         driver: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2
+[at driver_at_front] drivers_in_lane [0]: {0: driver@0 |NORMAL | CarType.SEDAN |98.57888115776909 | 88.72099304199219 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |27.39208221435547 | 32.87049865722656 |0 | 1, 2: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2}
+         driver: driver@2 |NORMAL | CarType.TRUCK |18.290492163764107 | 65.84577178955078 |0 | 2
+        [2] Old driver pos/lane: 18.290492163764107/0
+        [2] New driver pos/lane: 36.922069523069595/1
+[at driver_at_front] drivers_in_lane [2]: {0: driver@3 |AGGRESSIVE | CarType.SUV |0 | 84.62781524658203 |2 | 0}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |0 | 84.62781524658203 |2 | 0
+        [3] Old driver pos/lane: 0/2
+        [3] New driver pos/lane: 23.507726457383896/1
+[INFO - END STEP] Time step 4 - {0: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |36.52277628580729 | 32.87049865722656 |0 | 0}, 1: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1}, 2: {}}
+[INFO] Time step 5 - 0.06
+[CLOSE] drivers_in_lane: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1}
+[CLOSE] driver: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2
+[LANE] Drivers in lane: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1}
+[LANE] Drivers in lane: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1}
+[INFO] Adding driver driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2 to the road.
+[INFO] Time step 5 - {0: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |36.52277628580729 | 32.87049865722656 |0 | 0}, 1: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |36.52277628580729 | 32.87049865722656 |0 | 0}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |36.52277628580729 | 32.87049865722656 |0 | 0
+        [1] Old driver pos/lane: 36.52277628580729/0
+        [1] New driver pos/lane: 45.65347035725911/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}
+         driver: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0
+        [2] Old driver pos/lane: 36.922069523069595/1
+        [2] New driver pos/lane: 55.553646882375084/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1
+        [3] Old driver pos/lane: 23.507726457383896/1
+        [3] New driver pos/lane: 47.01545291476779/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}
+         driver: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2
+[at driver_at_front] drivers_in_lane [1]: {0: driver@2 |NORMAL | CarType.TRUCK |36.922069523069595 | 67.07367849349976 |1 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |23.507726457383896 | 84.62781524658203 |1 | 1, 2: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2}
+         driver: driver@4 |AGGRESSIVE | CarType.SUV |0 | 86.92667388916016 |1 | 2
+        [4] Old driver pos/lane: 0/1
+        [4] New driver pos/lane: 24.146298302544487/0
+[INFO - END STEP] Time step 5 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}, 1: {}, 2: {}}
+[INFO] Time step 6 - 0.08
+[INFO] Adding driver driver@5 |NORMAL | CarType.TRUCK |0 | 67.06787872314453 |1 | 0 to the road.
+[INFO] Time step 6 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}, 1: {0: driver@5 |NORMAL | CarType.TRUCK |0 | 67.06787872314453 |1 | 0}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0
+        [2] Old driver pos/lane: 55.553646882375084/0
+        [2] New driver pos/lane: 74.18522424168057/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1
+        [3] Old driver pos/lane: 47.01545291476779/0
+        [3] New driver pos/lane: 70.71768990821309/1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2
+        [1] Old driver pos/lane: 45.65347035725911/0
+        [1] New driver pos/lane: 54.78416442871093/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |55.553646882375084 | 67.07367849349976 |0 | 0, 1: driver@3 |AGGRESSIVE | CarType.SUV |47.01545291476779 | 84.62781524658203 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 2, 3: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3}
+         driver: driver@4 |AGGRESSIVE | CarType.SUV |24.146298302544487 | 86.92667388916016 |0 | 3
+        [4] Old driver pos/lane: 24.146298302544487/0
+        [4] New driver pos/lane: 48.292596605088974/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@5 |NORMAL | CarType.TRUCK |0 | 67.06787872314453 |1 | 0}
+         driver: driver@5 |NORMAL | CarType.TRUCK |0 | 67.06787872314453 |1 | 0
+        [5] Old driver pos/lane: 0/1
+        [5] New driver pos/lane: 18.629966311984592/0
+[INFO - END STEP] Time step 6 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}, 1: {0: driver@3 |AGGRESSIVE | CarType.SUV |70.71768990821309 | 85.32805317640305 |1 | 0}, 2: {}}
+[INFO] Time step 7 - 0.1
+[INFO] Adding driver driver@6 |CAUTIOUS | CarType.SUV |0 | 82.66302490234375 |2 | 0 to the road.
+[INFO] Time step 7 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}, 1: {0: driver@3 |AGGRESSIVE | CarType.SUV |70.71768990821309 | 85.32805317640305 |1 | 0}, 2: {0: driver@6 |CAUTIOUS | CarType.SUV |0 | 82.66302490234375 |2 | 0}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0
+        [2] Old driver pos/lane: 74.18522424168057/0
+        [2] New driver pos/lane: 92.81680160098605/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 45.65347035725911/0
+        [1] New driver pos/lane: 54.78416442871093/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2
+        [1] Old driver pos/lane: 54.78416442871093/0
+        [1] New driver pos/lane: 63.91485850016275/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |74.18522424168057 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |45.65347035725911 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3}
+         driver: driver@5 |NORMAL | CarType.TRUCK |18.629966311984592 | 67.06787872314453 |0 | 3
+        [5] Old driver pos/lane: 18.629966311984592/0
+        [5] New driver pos/lane: 37.259932623969185/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |70.71768990821309 | 85.32805317640305 |1 | 0}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |70.71768990821309 | 85.32805317640305 |1 | 0
+        [3] Old driver pos/lane: 70.71768990821309/1
+        [3] New driver pos/lane: 94.41992690165839/1
+[at driver_at_front] drivers_in_lane [2]: {0: driver@6 |CAUTIOUS | CarType.SUV |0 | 82.66302490234375 |2 | 0}
+         driver: driver@6 |CAUTIOUS | CarType.SUV |0 | 82.66302490234375 |2 | 0
+        [6] Old driver pos/lane: 0/2
+        [6] New driver pos/lane: 22.961951361762154/1
+[INFO - END STEP] Time step 7 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}, 1: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1}, 2: {}}
+[INFO] Time step 8 - 0.12
+[CLOSE] drivers_in_lane: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1}
+[CLOSE] driver: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2
+[LANE] Drivers in lane: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1}
+[LANE] Drivers in lane: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1}
+[INFO] Adding driver driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2 to the road.
+[INFO] Time step 8 - {0: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}, 1: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}, 2: {}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0
+        [2] Old driver pos/lane: 92.81680160098605/0
+        [2] New driver pos/lane: 111.44837896029154/0
+[INFO] Time step 8 - 2 finished
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 54.78416442871093/0
+        [1] New driver pos/lane: 63.91485850016275/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2
+        [1] Old driver pos/lane: 63.91485850016275/0
+        [1] New driver pos/lane: 73.04555257161458/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3
+[at driver_at_front] drivers_in_lane [0]: {0: driver@2 |NORMAL | CarType.TRUCK |92.81680160098605 | 67.07367849349976 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |54.78416442871093 | 32.87049865722656 |0 | 1, 2: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 2, 3: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3}
+         driver: driver@5 |NORMAL | CarType.TRUCK |37.259932623969185 | 67.06787872314453 |0 | 3
+        [5] Old driver pos/lane: 37.259932623969185/0
+        [5] New driver pos/lane: 55.88989893595378/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}
+         driver: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0
+        [3] Old driver pos/lane: 94.41992690165839/1
+        [3] New driver pos/lane: 118.12216389510368/1
+[INFO] Time step 8 - 3 finished
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}
+         driver: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}
+         driver: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1
+        [6] Old driver pos/lane: 22.961951361762154/1
+        [6] New driver pos/lane: 45.92390272352431/0
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}
+         driver: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2
+[at driver_at_front] drivers_in_lane [1]: {0: driver@3 |AGGRESSIVE | CarType.SUV |94.41992690165839 | 85.32805317640305 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |22.961951361762154 | 82.66302490234375 |1 | 1, 2: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2}
+         driver: driver@7 |RISKY | CarType.SEDAN |0 | 94.73847198486328 |1 | 2
+        [7] Old driver pos/lane: 0/1
+        [7] New driver pos/lane: 26.316242218017578/0
+[INFO - END STEP] Time step 8 - {0: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}, 1: {}, 2: {}}
+[INFO] Time step 9 - 0.1
+[INFO] Adding driver driver@8 |NORMAL | CarType.TRUCK |0 | 67.0671157836914 |2 | 0 to the road.
+[INFO] Time step 9 - {0: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}, 1: {}, 2: {0: driver@8 |NORMAL | CarType.TRUCK |0 | 67.0671157836914 |2 | 0}}]
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0
+        [1] Old driver pos/lane: 63.91485850016275/0
+        [1] New driver pos/lane: 73.04555257161458/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1
+        [1] Old driver pos/lane: 73.04555257161458/0
+        [1] New driver pos/lane: 82.1762466430664/0
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2
+        [5] Old driver pos/lane: 55.88989893595378/0
+        [5] New driver pos/lane: 74.76055332356029/1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3
+        [6] Old driver pos/lane: 45.92390272352431/0
+        [6] New driver pos/lane: 69.12236087852054/1
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4
+[at driver_at_front] drivers_in_lane [0]: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |63.91485850016275 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 1, 2: driver@5 |NORMAL | CarType.TRUCK |55.88989893595378 | 67.06787872314453 |0 | 2, 3: driver@6 |CAUTIOUS | CarType.SUV |45.92390272352431 | 82.66302490234375 |0 | 3, 4: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4}
+         driver: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 4
+        [7] Old driver pos/lane: 26.316242218017578/0
+        [7] New driver pos/lane: 52.632484436035156/0
+[at driver_at_front] drivers_in_lane [2]: {0: driver@8 |NORMAL | CarType.TRUCK |0 | 67.0671157836914 |2 | 0}
+         driver: driver@8 |NORMAL | CarType.TRUCK |0 | 67.0671157836914 |2 | 0
+        [8] Old driver pos/lane: 0/2
+        [8] New driver pos/lane: 18.629754384358723/1
+[INFO - END STEP] Time step 9 - {0: {0: driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 0, 1: driver@1 |AGGRESSIVE | CarType.TRUCK |82.1762466430664 | 32.87049865722656 |0 | 1, 2: driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 2, 4: driver@7 |RISKY | CarType.SEDAN |52.632484436035156 | 94.73847198486328 |0 | 4}, 1: {0: driver@5 |NORMAL | CarType.TRUCK |74.76055332356029 | 67.93435579538345 |1 | 0, 1: driver@6 |CAUTIOUS | CarType.SUV |69.12236087852054 | 83.51444935798645 |1 | 1, 2: driver@8 |NORMAL | CarType.TRUCK |18.629754384358723 | 67.0671157836914 |1 | 2}, 2: {}}
+[STATS] Inactive drivers: {0: driver@0 |NORMAL | CarType.SEDAN |123.22360144721137 | 88.72099304199219 |0 | 0, 2: driver@2 |NORMAL | CarType.TRUCK |111.44837896029154 | 67.07367849349976 |0 | 0, 3: driver@3 |AGGRESSIVE | CarType.SUV |118.12216389510368 | 85.32805317640305 |1 | 0}
+[STATS] Drivers: [driver@0 |NORMAL | CarType.SEDAN |123.22360144721137 | 88.72099304199219 |0 | 0, driver@2 |NORMAL | CarType.TRUCK |111.44837896029154 | 67.07367849349976 |0 | 0, driver@3 |AGGRESSIVE | CarType.SUV |118.12216389510368 | 85.32805317640305 |1 | 0, driver@1 |AGGRESSIVE | CarType.TRUCK |73.04555257161458 | 32.87049865722656 |0 | 0, driver@1 |AGGRESSIVE | CarType.TRUCK |82.1762466430664 | 32.87049865722656 |0 | 1, driver@7 |RISKY | CarType.SEDAN |26.316242218017578 | 94.73847198486328 |0 | 2, driver@7 |RISKY | CarType.SEDAN |52.632484436035156 | 94.73847198486328 |0 | 4, driver@5 |NORMAL | CarType.TRUCK |74.76055332356029 | 67.93435579538345 |1 | 0, driver@6 |CAUTIOUS | CarType.SUV |69.12236087852054 | 83.51444935798645 |1 | 1, driver@8 |NORMAL | CarType.TRUCK |18.629754384358723 | 67.0671157836914 |1 | 2] 
+Lane changes:
+        Driver 0 lanes: [0, 1, 2, 1]
+        Driver 2 lanes: [0]
+        Driver 3 lanes: [1]
+        Driver 1 lanes: [0, 0]
+        Driver 7 lanes: [0]
+        Driver 5 lanes: [1]
+        Driver 6 lanes: [1]
+        Driver 8 lanes: [1]
+Drivers that finished:
+        Driver 0 finished @ NORMAL driver driving a CarType.SEDAN car @ 88.72099304199219 m/s
+        Driver 2 finished @ NORMAL driver driving a CarType.TRUCK car @ 67.07367849349976 m/s
+        Driver 3 finished @ AGGRESSIVE driver driving a CarType.SUV car @ 85.32805317640305 m/s
+3 drivers finished
+7 drivers still active
+Average time:
+        Driver NORMAL avg time: 5.5
+        Driver AGGRESSIVE avg time: 5.0
