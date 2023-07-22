@@ -21,52 +21,74 @@ from lib.driver import LanePriority
 
 
 class Config:
-    TIME_STEPS = 100
+    N_LANES = 2  # Can't change this for now
 
-    POPULATION_SIZE = 15
+    TIME_STEPS = 150
 
-    MINIMUM_LOAD_FACTOR = 1.00
+    POPULATION_SIZE = 20
+
+    MINIMUM_LOAD_FACTOR = 0.2
 
     START_WITH_POPULATION = False
 
-    SPAWN_EVERY_N_STEPS = 10
+    SPAWN_EVERY_N_STEPS = 100
 
-    ROAD_LENGTH = 10000  # In meters
+    ROAD_LENGTH = 1200  # In meters
 
     SECTION_LENGTH = 100  # In meters
 
-    ACCIDENTS = False  # division by zero, check this # TODO
+    ACCIDENTS = True
 
     ACCIDENT_CLEARANCE_TIME = 15  # In seconds
 
-    # In km/h
-    MAX_SPEED = 130
-    # Gap between max speed of cars of different types (consecutively)
-    MAX_SPEED_GAP = 10
+    # Cars max speed
+    CARS_MAX_SPEED = [80, 100, 120, 130]
 
-    MIN_SPEED = 60
-    # Gap between min speed of cars of different types (consecutively)
-    MIN_SPEED_GAP = 5
+    # Cars min speed
+    CARS_MIN_SPEED = [40, 65, 75, 90]
 
-    N_LANES = 3
+    # Modifiers for max speed
+    SPEED_MODIFIERS = [0.8, 1.0, 1.1, 1.2, 1.3]
 
     # Just visual representation while plotting
     LANES_PRIORITY = LanePriority.LEFT
 
     # From lesser priority to higher priority
-    LANES_DENSITY = np.array([0.6, 0.3, 0.1])
+    LANES_DENSITY = np.array([0.75, 0.25])
 
     # From more cautious to more aggressive
     DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]
+    # DRIVER_TYPE_DENSITY = [.05, .1, .15, .3, .4]
 
     # From more quick to more slow
-    DRIVER_REACTION_DENSITY = [.45, .3, .15, .1]
+    DRIVER_REACTION_DENSITY = [.075, .25, .35, .25, .075]
 
     # Car types
     CAR_TYPE_DENSITY = [.4, .3, .2, .1]
 
-    # Minimum safe distance between two cars for the most aggressive driver
-    SAFE_DISTANCE = 4.  # In meters
+    # Safe distance
+    SAFE_DISTANCE = 25.0  # In meters
+
+    # Multiplier for the safe distance for each driver type
+    SAFE_DISTANCE_FACTOR = [1.5, 1.25, 1.0, 0.75, 0.5]
+
+    # View distance
+    VIEW_DISTANCE = 100.0  # In meters
+
+    # Multiplier for the view distance for each driver type
+    VIEW_DISTANCE_FACTOR = [1.0, 1.0, 1.0, 1.0, 1.0]
+
+    # Overtaking time
+    TIME_IN_LANE = 10
+
+    # Multiplier for the overtaking time for each driver type
+    TIME_IN_LANE_FACTOR = [1.0, 1.1, 1.2, 1.3, 1.4]
 
     # Print info
     VERBOSE = False
+
+    # Test the simulation
+    TEST = False
+
+    # Plot the simulation
+    PLOT = True

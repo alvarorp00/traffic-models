@@ -18,10 +18,11 @@ but the parameters of the driver will be set by the simulation
 and so are required to be passed as arguments to the constructor.
 """
 
+import bisect
 import copy
 import enum
 import random
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 import numpy as np
 import scipy.stats as st
 
@@ -127,45 +128,46 @@ class CarType(enum.Enum):
     @staticmethod
     def get_max_speed(
         car_type: 'CarType',
-        max_speed_fixed: float,
-        max_speed_gap: float,
+        car_max_speeds: List[float]
     ) -> float:
         """
-        Returns the maximum speed of the car.
+        Returns the maximum speed of the car in meters per second.
 
         Parameters
         ----------
         car_type : CarType
             The type of car.
+        car_max_speeds : List[float]
+            The list of maximum speeds for each car type.
 
         Returns
         -------
         float
             The maximum speed of the car.
         """
-        # Return max_speed minus the distance to type
-        return max_speed_fixed - (CarType.get_length(car_type) * max_speed_gap)
+        return car_max_speeds[car_type.value - 1]
 
     @staticmethod
     def get_min_speed(
         car_type: 'CarType',
-        min_speed_fixed: float,
-        min_speed_gap: float,
+        car_min_speeds: List[float]
     ) -> float:
         """
-        Returns the minimum speed of the car.
+        Returns the minimum speed of the car in meters per second.
 
         Parameters
         ----------
         car_type : CarType
             The type of car.
+        car_min_speeds : List[float]
+            The list of minimum speeds for each car type.
 
         Returns
         -------
         float
             The minimum speed of the car.
         """
-        return min_speed_fixed + (CarType.get_length(car_type) * min_speed_gap)
+        return car_min_speeds[car_type.value - 1]
 
     @staticmethod
     def get_length(car_type: 'CarType') -> float:
@@ -209,6 +211,146 @@ class DriverType(enum.Enum):
 
     def __repr__(self) -> str:
         return self.name
+
+    @staticmethod
+    def driver_safe_distance(
+        driver_type: 'DriverType',
+        safe_distance: float,
+        safe_distance_factor: List[float]
+    ) -> float:
+        """
+        Returns the safe distance of the driver based on the type of driver.
+        """
+        _multiplier = safe_distance_factor[driver_type.value - 1]
+        return safe_distance * _multiplier
+
+    @staticmethod
+    def max_close_distance(
+        driver_type: 'DriverType',
+        driver_safe_distance: float
+    ) -> float:
+        """
+        Returns the maximum a car can be from the car in front of it
+        depending on the driver type.
+        """
+        # The safe distance is the minimum distance between cars
+        SAFE_DISTANCE = driver_safe_distance
+        # The multiplier for the gap between cars
+        MULTIPLIER = 10
+        # Add some noise to the distance so it's not always the same
+        NOISE = np.random.uniform(
+            -SAFE_DISTANCE / MULTIPLIER, SAFE_DISTANCE / MULTIPLIER)
+        return SAFE_DISTANCE + MULTIPLIER * (
+            DriverType.RECKLESS.value - driver_type.value) + NOISE
+
+    @staticmethod
+    def driver_view_distance(
+        driver_type: 'DriverType',
+        vision_distance: float,
+        vision_distance_factor: List[float]
+    ) -> float:
+        """
+        Returns the vision distance of the driver based on the type of driver.
+        """
+        _multiplier = vision_distance_factor[driver_type.value - 1]
+        return vision_distance * _multiplier
+
+    @staticmethod
+    def driver_keep_overtaking(
+        driver_type: 'DriverType',
+        time_in_lane: float,
+        running_time: float,  # of the driver
+    ) -> bool:
+        """
+        Returns whether the driver will keep overtaking or not.
+        """
+        return False
+
+    @staticmethod
+    def get_speed_modifier(
+        driver_type: 'DriverType',
+        modifiers: List[float] = [0.8, 1.0, 1.1, 1.2, 1.3]
+    ) -> float:
+        """
+        Returns the speed modifier for the driver.
+        """
+        return modifiers[driver_type.value - 1]
+
+    @staticmethod
+    def get_time_in_lane(
+        driver_type: 'DriverType',
+        time_in_lane: float,
+        time_in_lane_factor: List[float]
+    ) -> int:
+        """
+        Returns the time the driver will keep in lane.
+        """
+        mean = time_in_lane
+        scale = time_in_lane_factor[
+            driver_type.value - 1] + np.random.uniform(0, driver_type.value)
+        return abs(int(st.norm.rvs(mean, scale)))
+
+    @staticmethod
+    def get_max_speed(
+        driver_type: 'DriverType',
+        modifiers: List[float],
+        car_type: 'CarType',
+        cars_max_speeds: List[float],
+        **kwargs
+    ) -> float:
+        """
+        Returns the maximum speed of the driver.
+
+        Parameters
+        ----------
+        driver_type : DriverType
+            The type of driver.
+        car_type : CarType
+            The type of car.
+
+        Returns
+        -------
+        float
+            The maximum speed of the driver.
+        """
+        base_max_speed = CarType.get_max_speed(
+            car_type, cars_max_speeds)
+        speed_modifier = DriverType.get_speed_modifier(
+            driver_type, modifiers)
+
+        return base_max_speed * speed_modifier
+
+    @staticmethod
+    def get_min_speed(
+        driver_type: 'DriverType',
+        modifiers: List[float],
+        car_type: 'CarType',
+        cars_min_speeds: List[float],
+        **kwargs
+    ) -> float:
+        """
+        Returns the minimum speed of the driver.
+
+        Parameters
+        ----------
+        driver_type : DriverType
+            The type of driver.
+        car_type : CarType
+            The type of car.
+
+        Returns
+        -------
+        float
+            The minimum speed of the driver.
+        """
+        base_min_speed = CarType.get_min_speed(
+            car_type, cars_min_speeds)
+        speed_modifier = DriverType.get_speed_modifier(
+            driver_type, modifiers)
+
+        diff = abs(base_min_speed * speed_modifier - base_min_speed)
+
+        return base_min_speed - diff
 
     @staticmethod
     def random(
@@ -295,10 +437,11 @@ class DriverType(enum.Enum):
 
 
 class DriverReactionTime(enum.Enum):
-    QUICK = 1
-    NORMAL = 2
-    SLOW = 3
-    SNAIL = 4
+    FAST = 1
+    NORMAL_FAST = 2
+    NORMAL = 3
+    NORMAL_SLOW = 4
+    SLOW = 5
 
     def __new__(cls, value, *args, **kwargs):
         member = object.__new__(cls)
@@ -313,7 +456,7 @@ class DriverReactionTime(enum.Enum):
     @staticmethod
     def random(
         size: int = 1,
-        probs: List[float] = [.4, .3, .2, .1],
+        probs: List[float] = [.4, .3, .15, .1, .05],
     ) -> list['DriverReactionTime']:
         """
         Returns a weighted random driver reaction time.
@@ -430,6 +573,17 @@ class DriverConfig:
     index : int
         The index of the driver. Represents the relative position of
         the driver in the lane. Defaults to -1 (out of the road).
+    accidented : bool
+        Whether the driver is accidented or not.
+    running_time : int
+        The time the driver has been running.
+    time_in_lane : int
+        The time left in the lane until considering changing lanes.
+    brake_counter : int
+        The times the driver has braked without changing lanes
+        and with the same driver in front.
+    driver_in_front_id : int
+        The id of the driver in front.
     """
     def __init__(self, id, **kwargs):
         """
@@ -477,6 +631,12 @@ class DriverConfig:
             self.index = kwargs['index']
         else:
             self.index = 0
+
+        self.accidented = False
+        self.running_time = 0
+        self.time_in_lane = 0
+        self.brake_counter = 0
+        self.driver_in_front_id = -1
 
     @property
     def driver_type(self) -> DriverType:
@@ -533,6 +693,46 @@ class DriverConfig:
     @lane.setter
     def lane(self, lane: int):
         self._lane = lane
+
+    @property
+    def accidented(self) -> bool:
+        return self._accidented
+
+    @accidented.setter
+    def accidented(self, accidented: bool):
+        self._accidented = accidented
+
+    @property
+    def running_time(self) -> int:
+        return self._running_time
+
+    @running_time.setter
+    def running_time(self, running_time: int):
+        self._running_time = running_time
+
+    @property
+    def time_in_lane(self) -> int:
+        return self._time_in_lane
+
+    @time_in_lane.setter
+    def time_in_lane(self, time_in_lane: int):
+        self._time_in_lane = time_in_lane
+
+    @property
+    def brake_counter(self) -> int:
+        return self._brake_counter
+
+    @brake_counter.setter
+    def brake_counter(self, brake_counter: int):
+        self._brake_counter = brake_counter
+
+    @property
+    def driver_in_front_id(self) -> int:
+        return self._driver_in_front_id
+
+    @driver_in_front_id.setter
+    def driver_in_front_id(self, driver_in_front_id: int):
+        self._driver_in_front_id = driver_in_front_id
 
 
 class Driver:
@@ -632,24 +832,13 @@ class Driver:
         the updated one.
         """
 
-        max_speed_fixed = kwargs.get('max_speed_fixed', None)
-        max_speed_gap = kwargs.get('max_speed_gap', None)
-        min_speed_fixed = kwargs.get('min_speed_fixed', None)
-        min_speed_gap = kwargs.get('min_speed_gap', None)
-
-        if max_speed_fixed is None:
-            raise ValueError("max_speed_fixed not passed to action()")
-        if min_speed_fixed is None:
-            raise ValueError("min_speed_fixed not passed to action()")
-
         __driver: Driver = update_fn(
             driver=self,
             state=state,
-            max_speed_fixed=max_speed_fixed,
-            max_speed_gap=max_speed_gap,
-            min_speed_fixed=min_speed_fixed,
-            min_speed_gap=min_speed_gap,
+            **kwargs
         )
+
+        __driver.config.running_time += 1
 
         # Call the callback function
         return callback_fn(
@@ -764,47 +953,62 @@ class Driver:
     @staticmethod
     def driver_at_front(
         driver: 'Driver',
-        state: Dict[int, Dict[int, List['Driver']]]
+        state: Dict[int, Dict[int, 'Driver']],
+        lane: Optional[int] = None
     ) -> Union['Driver', None]:
         """
         Returns the driver in front of the given driver in the same lane.
         If the given driver is at the front of the lane, returns None.
         """
-        # Get the list of drivers in the same lane
-        drivers_in_lane = state[driver.config.lane]
-
-        # Is there a driver in front?
-        if driver.config.index == 0:  # It's the first driver
-            # No, return None
-            return None
+        if lane:
+            drivers_in_lane = state[lane]
+            for d in drivers_in_lane.values():
+                if d.config.location > driver.config.location:
+                    return d
         else:
-            # Yes, return the driver in front
-            return drivers_in_lane[driver.config.index - 1]
+            # Get the list of drivers in the same lane
+            drivers_in_lane = state[driver.config.lane]
+
+            # Is there a driver in front?
+            if driver.config.index == 0:  # It's the first driver
+                # No, return None
+                return None
+            else:
+                # Yes, return the driver in front
+                return drivers_in_lane[driver.config.index - 1]
 
     @staticmethod
     def driver_at_back(
         driver: 'Driver',
-        state: Dict[int, Dict[int, 'Driver']]
+        state: Dict[int, Dict[int, 'Driver']],
+        lane: Optional[int] = None
     ) -> Union['Driver', None]:
         """
         Returns the driver behind the given driver in the same lane.
         If the given driver is at the back of the lane, returns None.
         """
-        # Get the list of drivers in the same lane
-        drivers_in_lane = state[driver.config.lane]
-
-        # Is there a driver behind?
-        if driver.config.index == 0:
-            # No, return None
-            return None
+        if lane:
+            drivers_in_lane = state[lane]
+            for d in reversed(drivers_in_lane.values()):
+                if d.config.location < driver.config.location:
+                    return d
         else:
-            # Yes, return the driver behind
-            return drivers_in_lane[driver.config.index - 1]
+            # Get the list of drivers in the same lane
+            drivers_in_lane = state[driver.config.lane]
+
+            # Is there a driver behind?
+            if driver.config.index == 0:
+                # No, return None
+                return None
+            else:
+                # Yes, return the driver behind
+                return drivers_in_lane[driver.config.index - 1]
 
     @staticmethod
     def drivers_close(
         driver: 'Driver',
         drivers_in_lane: Dict[int, 'Driver'],
+        safe_distance: float
     ) -> List['Driver']:
         """
         Returns a list of drivers in the same lane as the given driver
@@ -826,7 +1030,7 @@ class Driver:
         drivers_close = []
         for i in range(0, driver.config.index):
             if Driver.distance_between(driver, drivers_in_lane[i]) <\
-                    CarType.get_length(driver.config.car_type):
+                    CarType.get_length(driver.config.car_type) + safe_distance:
                 drivers_close.append(drivers_in_lane[i])
             else:
                 break
@@ -837,7 +1041,7 @@ class Driver:
         # are possible
         for i in range(driver.config.index + 1, 1, len(drivers_in_lane)):
             if Driver.distance_between(driver, drivers_in_lane[i]) <\
-                    CarType.get_length(driver.config.car_type):
+                    CarType.get_length(driver.config.car_type) + safe_distance:
                 drivers_close.append(drivers_in_lane[i])
             else:
                 break
@@ -848,13 +1052,13 @@ class Driver:
     def drivers_close_to(
         drivers_in_lane: Dict[int, 'Driver'],
         position: float,
-        safe_distance: float
+        driver_safe_distance: float
     ) -> List['Driver']:
         # Check for each lane
         drivers_close = []
         for driver in drivers_in_lane.values():
             if abs(position - driver.config.location) <\
-                    safe_distance:
+                    driver_safe_distance:
                 drivers_close.append(driver)
             else:
                 break
@@ -872,9 +1076,9 @@ class Driver:
         would be negative. It doesn't check the lane of the drivers.
         """
         real_front = front.config.location -\
-            CarType.get_length(front.config.car_type)
+            CarType.get_length(front.config.car_type) / 2
         real_back = back.config.location +\
-            CarType.get_length(back.config.car_type)
+            CarType.get_length(back.config.car_type) / 2
         return real_front - real_back
 
     @staticmethod
@@ -882,17 +1086,17 @@ class Driver:
         """
         Returns True if the given drivers are colliding, False otherwise.
         """
-        front = d1 if d1.config.location > d2.config.location else d2
-        back = d1 if d1.config.location < d2.config.location else d2
-        if front.config.lane != back.config.lane:
+        if d1.config.lane != d2.config.lane:
             return False
         else:
+            front = d1 if d1.config.location > d2.config.location else d2
+            back = d1 if d1.config.location < d2.config.location else d2
             return Driver.distance_between(front, back) < 0
 
     @staticmethod
     def copy(driver: 'Driver') -> 'Driver':
         """
-        Returns a copy of the given driver.
+        Returns a deepcopy of the given driver.
         """
         return Driver(config=copy.deepcopy(driver.config))
 

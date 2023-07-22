@@ -1,6 +1,6 @@
 # Add required imports
 import logging
-from typing import List, Dict
+from typing import List, Dict, Set
 from lib.driver import CarType, Driver, DriverType
 from lib.engine import Engine
 import enum
@@ -13,6 +13,8 @@ class StatsItems(enum.Enum):
     AVG_STARTING_POSITION = 3
     DRIVERS_FINISHED_DRV_CAR_TYPE = 4
     SPEED_CHANGES = 5
+    CARS_ACCIDENTED_BY_DRV_TYPE = 6
+    CARS_BY_DRV_TYPE = 7
 
 
 class Stats:
@@ -53,6 +55,11 @@ class Stats:
 
             # Iterate over all drivers
             for driver in __all_trace_drivers:
+                # Check if id is in the dictionary
+                if driver.config.id not in lane_changes:
+                    # Add it
+                    lane_changes[driver.config.id] = []
+
                 # Check if the lane list is empty
                 if len(lane_changes[driver.config.id]) == 0:
                     # Append the current lane
@@ -84,7 +91,9 @@ class Stats:
             A dictionary with the average time taken by each
             driver type.
         """
-        avg_time_taken = {}
+        avg_time_taken = {
+            driver_type: 0 for driver_type in DriverType
+        }
         for driver in self.engine.model.inactive_drivers.values():
             if driver.config.driver_type not in avg_time_taken:
                 avg_time_taken[driver.config.driver_type] = 0
@@ -96,7 +105,7 @@ class Stats:
                     list(self.engine.model.inactive_drivers.values())
                 )[
                     driver_type
-                ])
+                ]) | 1
         return avg_time_taken
 
     def _avg_starting_position(self) -> Dict[DriverType, float]:
@@ -155,21 +164,16 @@ class Stats:
         Returns the number of drivers classified by car for each driver type.
         that finished the simulation.
         """
-        drivers_by_car_finished = {}
-        for driver in self.engine.model.inactive_drivers.values():
-            if driver.config.driver_type not in drivers_by_car_finished:
-                drivers_by_car_finished[driver.config.driver_type] = {}
-            if driver.config.car_type not in drivers_by_car_finished[driver.config.driver_type]:
-                drivers_by_car_finished[driver.config.driver_type][driver.config.car_type] = 0
-            drivers_by_car_finished[driver.config.driver_type][driver.config.car_type] += 1
+        drivers_by_car_finished = {
+            driver_type: {
+                car_type: 0 for car_type in CarType
+            } for driver_type in DriverType
+        }
 
-        # Sanitize the dictionary
-        for driver_type in DriverType:
-            if driver_type not in drivers_by_car_finished:
-                drivers_by_car_finished[driver_type] = {}
-            for car_type in CarType:
-                if car_type not in drivers_by_car_finished[driver_type]:
-                    drivers_by_car_finished[driver_type][car_type] = 0
+        print(f"INACTIVE_DRIVERS_DICT_SIZE: {len(self.engine.model.inactive_drivers)}")
+
+        for driver in self.engine.model.inactive_drivers.values():
+            drivers_by_car_finished[driver.config.driver_type][driver.config.car_type] += 1
 
         return drivers_by_car_finished
 
@@ -199,6 +203,11 @@ class Stats:
 
             # Iterate over all drivers
             for driver in __all_trace_drivers:
+                # Check if id is in the dictionary
+                if driver.config.id not in speed_changes:
+                    # Add it
+                    speed_changes[driver.config.id] = []
+
                 # Check if the speed list is empty
                 if len(speed_changes[driver.config.id]) == 0:
                     # Append the current speed
@@ -220,6 +229,50 @@ class Stats:
 
         return speed_changes
 
+    def _get_number_of_cars_accidented(self) -> Dict[DriverType, int]:
+        """
+        Returns the number of cars accidented for each driver type.
+        """
+        number_of_cars_accidented = {
+            driver_type: 0 for driver_type in DriverType
+        }
+        trace_data = self.engine.trace.data
+        driver_set: Set[int] = set()
+        for t in range(self.engine.run_config.time_steps):
+            for driver in trace_data[t].all_active_drivers():
+                if driver.config.id in driver_set:
+                    continue
+                if driver.config.driver_type not in number_of_cars_accidented:
+                    number_of_cars_accidented[driver.config.driver_type] = 0
+                if driver.config.accidented:  # Car accidented
+                    number_of_cars_accidented[driver.config.driver_type] += 1
+                    # We don't want to count the same car twice
+                    driver_set.add(driver.config.id)
+        return number_of_cars_accidented
+
+    def _get_number_of_cars_by_drv_type(self) -> Dict[DriverType, int]:
+        """
+        Returns the number of cars by driver type even if they have
+        finished or not.
+        """
+        number_of_cars_by_drv_type = {
+            driver_type: 0 for driver_type in DriverType
+        }
+        driver_id_set: Set[int] = set()
+
+        trace_data = self.engine.trace.data
+        for t in range(self.engine.run_config.time_steps):
+            data_t = trace_data[t].all_active_drivers()
+            for driver in data_t:
+                if driver.config.id in driver_id_set:
+                    continue
+                if driver.config.driver_type not in number_of_cars_by_drv_type:
+                    number_of_cars_by_drv_type[driver.config.driver_type] = 0
+                number_of_cars_by_drv_type[driver.config.driver_type] += 1
+                driver_id_set.add(driver.config.id)
+
+        return number_of_cars_by_drv_type
+
     def get_stats(self):
         """
         Returns a dictionary of statistics about the model.
@@ -236,6 +289,27 @@ class Stats:
                 The average starting position of each driver type.
                 It should be close to 0, so if it is not, it means
                 that the burn-in period was not long enough.
+
+            'lane_changes' : Dict[DriverType, int]
+                The number of lane changes for each driver type.
+
+            'drivers_finished_drv_type' : Dict[DriverType, int]
+                The number of drivers that finished the simulation
+                for each driver type.
+
+            'drivers_finished_drv_car_type' : Dict[DriverType, Dict[CarType, int]]
+                The number of drivers that finished the simulation
+                for each driver type and car type.
+
+            'speed_changes' : Dict[DriverType, List[float]]
+                The speed changes for each driver type.
+
+            'cars_accidented_by_drv_type' : Dict[DriverType, int]
+                The number of cars accidented for each driver type.
+
+            'cars_by_drv_type' : Dict[DriverType, int]
+                The number of cars by driver type even if they have
+                finished or not.
         """
         stats = {}
 
@@ -247,5 +321,9 @@ class Stats:
         stats[StatsItems.DRIVERS_FINISHED_DRV_CAR_TYPE] =\
             self._get_drivers_finished_by_drv_car_type()
         stats[StatsItems.SPEED_CHANGES] = self._get_speed_changes()
+        stats[StatsItems.CARS_ACCIDENTED_BY_DRV_TYPE] =\
+            self._get_number_of_cars_accidented()
+        stats[StatsItems.CARS_BY_DRV_TYPE] =\
+            self._get_number_of_cars_by_drv_type()
 
         return stats

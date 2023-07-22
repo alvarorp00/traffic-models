@@ -6,11 +6,13 @@ This module contains functions for plotting the model and its components.
 
 import logging
 import sys
+from typing import List
 import numpy as np
 from matplotlib import pyplot as plt
-from typing import Union
+from matplotlib.animation import FuncAnimation
+from celluloid import Camera
 
-from lib.engine import Model
+from lib.engine import Model, RunConfig, Trace
 import lib.driver
 
 import seaborn as sns
@@ -130,7 +132,6 @@ def print_model(model: Model, n_drivers: int = 0,
             lambda d: d.config.lane == lane,
             model.active_drivers
         )))
-        print(f"\t\tLane {lane}: {n_lane_drivers}", file=file)
 
 
 def plot_model_2(model: Model):
@@ -201,10 +202,14 @@ def plot_distances(drivers: list[lib.driver.Driver], fname: str):
     pass
 
 
-def plot_locations(drivers: list[lib.driver.Driver], fname: str,
-                   **kwargs):
+def plot_locations_frame(
+    drivers: List[lib.driver.Driver],
+    ax: plt.Axes,
+    **kwargs
+):
     """
-    Plot of the locations of the drivers in the simulation.
+    Plot the locations of the drivers in the simulation in a single
+    frame.
 
     Parameters
     ----------
@@ -212,6 +217,10 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str,
         List of drivers in the simulation.
     fname : str
         Name of the file to save the plot to.
+    figure : plt.Figure
+        Figure to plot the data to.
+    ax : plt.Axes
+        Axes to plot the data to.
     kwargs : dict
         - `lane_priority` : LanePriority
             Lane priority to use when plotting the locations.
@@ -220,49 +229,11 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str,
             Number of lanes in the simulation.
         - `road_length` : float
             Length of the road in the simulation.
-            Defaults to max(driver.locations).
-
-    NOTE: in order to plot correctly the locations, the lanes index
-    must be in the range [0, n_lanes-1].
     """
-
-    lane_priority: lib.driver.LanePriority = kwargs.get(
-        'lane_priority',
-        lib.driver.LanePriority.LEFT
-    )
-
-    n_lanes: int = kwargs.get(
-        'n_lanes',
-        -1
-    )
-
-    road_length: float = kwargs.get(
-        'road_length',
-        max(map(lambda d: d.config.location, drivers))
-    )
-
-    if n_lanes == -1:
-        logging.warning(
-            "Number of lanes not specified. Stopping plot_locations."
-        )
-        return
-
-    assert n_lanes > 0, "Number of lanes must be positive."
-
-    # Plot the data
-    figure = plt.figure(figsize=(14, 7))
-
-    # One plot, one column per lane
-    ax = figure.add_subplot(111)  # type: ignore
-
-    # Print # of drivers per lane
-
-    for lane in range(n_lanes):
-        n_lane_drivers = len(list(filter(
-            lambda d: d.config.lane == lane,
-            drivers
-        )))
-        print(f"\t\tLane {lane}: {n_lane_drivers}")
+    n_lanes = kwargs['n_lanes']
+    lane_priority = kwargs['lane_priority']
+    road_length = kwargs['road_length']
+    plot_distance_to_front = kwargs.get('plot_distance_to_front', False)
 
     # Scatter with different colors for each driver type
     # and different shapes for each car type
@@ -389,8 +360,102 @@ def plot_locations(drivers: list[lib.driver.Driver], fname: str,
         alpha=0,
     )
 
-    figure.savefig(fname, dpi=300)
 
-    # TODO: fix, not working yet
+def plot_locations(drivers: list[lib.driver.Driver], fname: str,
+                   **kwargs):
+    """
+    Plot of the locations of the drivers in the simulation.
+
+    Parameters
+    ----------
+    drivers : list[lib.driver.Driver]
+        List of drivers in the simulation.
+    fname : str
+        Name of the file to save the plot to.
+    kwargs : dict
+        - `lane_priority` : LanePriority
+            Lane priority to use when plotting the locations.
+            Defaults to `LanePriority.LEFT`.
+        - `n_lanes` : int
+            Number of lanes in the simulation.
+        - `road_length` : float
+            Length of the road in the simulation.
+            Defaults to max(driver.locations).
+
+    NOTE: in order to plot correctly the locations, the lanes index
+    must be in the range [0, n_lanes-1].
+    """
+
+    n_lanes: int = kwargs.get(
+        'n_lanes',
+        -1
+    )
+
+    if n_lanes == -1:
+        logging.warning(
+            "Number of lanes not specified. Stopping plot_locations."
+        )
+        return
+
+    assert n_lanes > 0, "Number of lanes must be positive."
+
+    # Plot the data
+    figure = plt.figure(figsize=(14, 7))
+
+    # One plot, one column per lane
+    ax = figure.add_subplot(111)  # type: ignore
+
+    # Use the plot_locations_frame function to plot the data
+    plot_locations_frame(
+        drivers=drivers,
+        ax=ax,
+        **kwargs
+    )
+
+    figure.savefig(fname)
 
     plt.close()
+
+
+def plot_locations_video(
+    trace: Trace,
+    fname: str,
+    run_config: RunConfig,
+    plot_distance_to_front: bool = False,
+) -> None:
+    """
+    Generate an animation of the drivers' locations all along
+    the simulation, using the `trace` object.
+    """
+    trace_data = trace.data
+
+    # Get the number of lanes
+    n_lanes = run_config.n_lanes
+
+    # Get the road length
+    road_length = run_config.road_length
+
+    # Get the lane priority (only to plot in the right order)
+    lane_priority = run_config.lane_priority
+
+    figure = plt.figure(figsize=(14, 7))
+    ax = figure.add_subplot(111)  # type: ignore
+    camera = Camera(figure)
+
+    for data in trace_data:
+        drivers = data.all_active_drivers()
+
+        # Plot the data
+        plot_locations_frame(
+            drivers=drivers,
+            ax=ax,
+            n_lanes=n_lanes,
+            road_length=road_length,
+            lane_priority=lane_priority,
+            plot_distance_to_front=plot_distance_to_front,
+        )
+
+        camera.snap()
+
+    animation = camera.animate(blit=True)
+    animation.save(fname, writer='ffmpeg')

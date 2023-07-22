@@ -18,12 +18,9 @@ class Road:
             The length of the road in meters.
         lanes : int
             The number of lanes on the road.
-        max_speed : float
-            The maximum speed allowed on the road in km/h.
         """
         self.length = kwargs['length']
         self.n_lanes = kwargs['n_lanes']
-        self.max_speed = kwargs['max_speed']
         self.drivers = {}
 
     @property
