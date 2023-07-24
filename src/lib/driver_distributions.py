@@ -785,56 +785,6 @@ def safe_overtake(
     )
 
 
-def _speed_increase(
-        driver: Driver,
-        max_speed_fixed: float,
-        max_speed_gap: float
-) -> float:
-    """
-    Returns a speed increase for the driver, i.e. a new speed
-    """
-    std = (
-        driver.config.speed /
-        CarType.get_max_speed(
-            driver.config.car_type,
-            max_speed_fixed,
-            max_speed_gap
-        ))
-    rvs = tfp.distributions.HalfNormal(
-        scale=std
-    ).sample(sample_shape=1).numpy().flatten()[0]
-
-    # Return float type
-    if isinstance(rvs, np.ndarray):
-        return rvs[0]
-    return rvs
-
-
-def _speed_decrease(
-        driver: Driver,
-        min_speed_fixed: float,
-        min_speed_gap: float
-) -> float:
-    """
-    Returns a speed decrease for the driver, i.e. a new speed
-    """
-    std = (
-        driver.config.speed /
-        CarType.get_min_speed(
-            driver.config.car_type,
-            min_speed_fixed,
-            min_speed_gap
-        ))
-    rvs = tfp.distributions.HalfNormal(
-        scale=std
-    ).sample(sample_shape=1).numpy().flatten()[0]
-
-    # Return float type
-    if isinstance(rvs, np.ndarray):
-        return rvs[0]
-    return rvs
-
-
 def speed_update(
     driver: Driver,
     driver_at_front: Optional[Driver],
@@ -857,6 +807,10 @@ def speed_update(
             if distance_to_front > safe_distance
             else (distance_to_front / driver.config.reaction_time.value) * 3.6
         )
+
+        if desired_speed < driver.config.speed:
+            # It means that the driver is going to slow down
+            driver.config.brake_counter += 1
     else:
         # If there is no driver in front, use the maximum speed
         desired_speed = DriverType.get_max_speed(
@@ -866,10 +820,10 @@ def speed_update(
             cars_max_speeds=kwargs.get('cars_max_speeds', None)
         )
 
-    # Check if there is a driver at the back
-    if driver_at_back is not None:
-        # Adjust the desired speed
-        desired_speed = min(desired_speed, driver_at_back.config.speed)
+    # # Check if there is a driver at the back
+    # if driver_at_back is not None:
+    #     # Adjust the desired speed
+    #     desired_speed = min(desired_speed, driver_at_back.config.speed)
 
     # Adjust the desired speed based on the driver's type
     # You can implement different speed adjustments based on the driver type
@@ -1126,10 +1080,15 @@ def speed_lane_update(
     driver_at_front = Driver.driver_at_front(driver, state)
     driver_at_back = Driver.driver_at_back(driver, state)
 
-    # Update driver_at_front id in driver if it has changed
-    if driver.config.driver_in_front_id != driver_at_front.config.id:
-        driver.config.driver_in_front_id = driver_at_front.config.id
-        # Reset braking times if driver in front has changed
+    if driver_at_front is not None:
+        # Update driver_at_front id in driver if it has changed
+        if driver.config.driver_in_front_id != driver_at_front.config.id:
+            driver.config.driver_in_front_id = driver_at_front.config.id
+            # Reset braking times if driver in front has changed
+            driver.config.brake_counter = 0
+    else:
+        # Reset driver in front
+        driver.config.driver_in_front_id = -1
         driver.config.brake_counter = 0
 
     # Update lane

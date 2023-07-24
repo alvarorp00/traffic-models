@@ -23,7 +23,7 @@ from lib.driver import LanePriority
 class Config:
     N_LANES = 2  # Can't change this for now
 
-    TIME_STEPS = 150
+    TIME_STEPS = 1500
 
     POPULATION_SIZE = 20
 
@@ -54,7 +54,7 @@ class Config:
     LANES_PRIORITY = LanePriority.LEFT
 
     # From lesser priority to higher priority
-    LANES_DENSITY = np.array([0.75, 0.25])
+    LANES_DENSITY = np.array([0.85, 0.15])
 
     # From more cautious to more aggressive
     DRIVER_TYPE_DENSITY = [.4, .3, .15, .1, .05]

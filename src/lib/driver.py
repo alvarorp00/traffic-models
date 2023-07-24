@@ -1029,6 +1029,14 @@ class Driver:
         # are possible
         drivers_close = []
         for i in range(0, driver.config.index):
+            try:
+                Driver.distance_between(driver, drivers_in_lane[i])
+            except IndexError:
+                print(i)
+                print(driver.config.index)
+                print(drivers_in_lane)
+                print(len(drivers_in_lane))
+                raise
             if Driver.distance_between(driver, drivers_in_lane[i]) <\
                     CarType.get_length(driver.config.car_type) + safe_distance:
                 drivers_close.append(drivers_in_lane[i])

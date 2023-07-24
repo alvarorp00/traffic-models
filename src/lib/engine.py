@@ -834,7 +834,7 @@ class Model:
         Sets a driver as inactive.
         """
         if driver.config.id not in self.inactive_drivers:
-            if driver.config.id in self.active_drivers[
+            if driver.config.index in self.active_drivers[
                 driver.config.lane
             ]:
                 # Decrease by 1 the index
@@ -862,6 +862,14 @@ class Model:
                 self.active_drivers[__lane].update(__dict_temp)
                 # Add the driver to the inactive dict
                 self.inactive_drivers[driver.config.id] = driver
+            else:
+                logging.warning(
+                    f'Driver {driver.config.id} is not on expected lane.'
+                )
+        else:
+            logging.warning(
+                f'Driver {driver.config.id} is already inactive.'
+            )
 
     def set_accidented(self, driver: Driver) -> None:
         self.accidented_drivers.add(driver)
@@ -1003,7 +1011,8 @@ class Model:
                 keys = list(self.active_drivers[__lane].keys())[__index:]
                 for __key in keys:
                     # Check if we're at the last driver
-                    if self.active_drivers[__lane].get(__key+1):
+                    if self.active_drivers[__lane].get(__key+1, None)\
+                            is not None:
                         # If not, swap the driver
                         __dict_temp[__key] =\
                             self.active_drivers[__lane][__key+1]
@@ -1057,9 +1066,24 @@ class Model:
                             while __index < len(
                                 self.active_drivers[new_driver.config.lane]
                             ):
-                                __driver = self.active_drivers[
-                                    new_driver.config.lane
-                                ][__index]
+                                try:
+                                    __driver = self.active_drivers[
+                                        new_driver.config.lane
+                                    ][__index]
+                                except KeyError:
+                                    print(f'KeyError: {__index}')
+                                    print(f'Active drivers: '
+                                          f'{self.active_drivers}')
+                                    print('-------------------')
+                                    print('Active drivers in lane:'
+                                          f'{self.active_drivers[new_driver.config.lane]}')
+                                    print('-------------------')
+                                    print(f'Active drivers in other lane:'
+                                          f'{self.active_drivers.pop(old_driver.config.lane)}')
+                                    print('-------------------')
+                                    print(f'Old driver: {old_driver}')
+                                    print(f'New driver: {new_driver}')
+                                    exit()
                                 __dict_temp[__index + 1] = __driver
                                 __driver.config.index += 1
                                 __index += 1
@@ -1228,6 +1252,16 @@ class Engine:
                                 self.run_config.view_distance_factor
                             )
 
+                        if __driver.config.location >=\
+                                self.model.run_config.road_length:
+                            print(f'Driver in inactive?: '
+                                  f'{self.model.inactive_drivers[__driver.config.id]}')
+                            raise Exception(
+                                f'Driver {__driver.config.id} '
+                                f'has reached the end of the road'
+                                'and should\'ve been removed'
+                            )
+
                         __updated_driver = __driver.action(
                             state=__state,  # type: ignore
                             update_fn=driver_distributions.speed_lane_update,
@@ -1242,7 +1276,7 @@ class Engine:
                         )
                     # Check if driver has reached the end of the road
                     if __updated_driver.config.location >=\
-                            self.model.road.length:
+                            self.model.run_config.road_length:
                         if self.run_config.verbose:
                             print(f'[INFO] Time step {t} - '
                                   f'{__updated_driver.config.id} finished')
@@ -1250,7 +1284,7 @@ class Engine:
                         # of the new driver, just flag the previous one
                         # as finished
                         self.model.set_inactive(
-                            __driver
+                            __updated_driver
                         )
                         # Update the section load
                         self.model.del_section_driver(
