@@ -17,6 +17,7 @@
 import copy
 import logging
 from typing import Dict, List, Union
+from config import Config
 from lib.driver import Driver, DriverConfig, CarType,\
     DriverType, LanePriority, Accident, DriverReactionTime
 import lib.driver_distributions as driver_distributions
@@ -157,6 +158,10 @@ class RunConfig:
             The unit of time a car will take to be removed from
             an accident. Defaults to 1. Only used if accidents
             are enabled.
+        accident_max_threshold : float
+            The maximum threshold of drivers accidented allowed in the
+            simulation. If the threshold is exceeded, the simulation
+            will stop and won't be validated. Defaults to 0.05.
         time_steps : int
             Time steps to run the simulation for. Defaults to 1000.
         lanes : int
@@ -269,6 +274,12 @@ class RunConfig:
             self.accident_clearance_time = kwargs['accident_clearance_time']
         else:
             self.accident_clearance_time = 1
+            
+        if 'accident_max_threshold' in kwargs:
+            assert isinstance(kwargs['accident_max_threshold'], float)
+            self.accident_max_threshold = kwargs['accident_max_threshold']
+        else:
+            self.accident_max_threshold = 0.05
 
         if 'time_steps' in kwargs:
             assert isinstance(kwargs['time_steps'], int)
@@ -434,6 +445,28 @@ class RunConfig:
         for key in kwargs.keys():
             if key not in self.__dict__:
                 self.__dict__[key] = kwargs[key]
+
+    @staticmethod
+    def get_run_config(config: 'Config'):
+        # Map every configuration parameter in lib.config to a RunConfig attribute
+        config = Config()
+
+        # Get all the members of the Config class
+        namespace = [
+            attr.lower() for attr in dir(config)
+            if not callable(getattr(config, attr)) and not attr.startswith("__")
+        ]
+
+        run_config_dict = dict(zip(
+            namespace,
+            [getattr(config, member.upper()) for member in namespace]
+        ))
+
+        # Create a RunConfig object with the dictionary
+        run_config = RunConfig(**run_config_dict)
+
+        # Return the RunConfig object
+        return run_config
 
 
 class Model:
@@ -624,8 +657,14 @@ class Model:
         """
         if driver in self.accidented_drivers:
             self.accidented_drivers.remove(driver)
-        if driver.config.index in self.active_drivers[driver.config.lane]:
-            self.active_drivers[driver.config.lane].pop(driver.config.index)
+        if driver.config.id in self.active_drivers[driver.config.lane]:
+            # Set the driver as inactive
+            self.set_inactive(driver)
+        # else:
+        #     logging.warning(
+        #         f'Driver {driver.config.id} is not active. '
+        #         f'Cannot clear accident.'
+        #     )
 
     def get_section_load(self, pos: float) -> float:
         """
@@ -713,9 +752,11 @@ class Model:
     def check_accident(
             self,
             driver: 'Driver'
-    ) -> None:
+    ) -> Accident:
         """
         Checks if the given driver has collided with any other driver.
+
+        Returns True if the driver has collided with any other driver.
         """
         if self.run_config.accidents:
             __drivers_involved = set()
@@ -759,7 +800,10 @@ class Model:
                 # print(f'Accident clearance time: {accident.expire_time}')
                 self.accidents.append(accident)
                 for __driver in __drivers_involved:
-                    self.set_accidented(__driver)
+                    if __driver not in self.accidented_drivers:
+                        self.set_accidented(__driver)
+                return accident
+        return None
 
     def set_active(self, driver: 'Driver') -> None:
         """
@@ -826,6 +870,43 @@ class Model:
             # Check accident
             self.check_accident(driver)
 
+    def delete_active_driver(self, driver: Driver) -> None:
+        """
+        Removes a given driver from the active drivers.
+        and updates section load, partial indexes and
+        the indexes of the drivers behind.
+        """
+        if driver.config.index in self.active_drivers[
+            driver.config.lane
+        ]:
+            # Decrease by 1 the index
+            # of the drivers behind the old driver
+            # and swap them 1 position to the front
+            __index = self.get_partial_index(driver)
+            __lane = driver.config.lane
+            __dict_temp = {}
+            keys = list(self.active_drivers[__lane].keys())[__index:]
+            for __key in keys:
+                # Check if we're at the last driver
+                if self.active_drivers[__lane].get(__key+1):
+                    # If not, swap the driver
+                    __dict_temp[__key] =\
+                        self.active_drivers[__lane][__key+1]
+                    __dict_temp[__key].config.index -= 1
+                    # Update entry in the partial indexes
+                    self.partial_indexes[__dict_temp[__key].config.id] =\
+                        __dict_temp[__key].config.index
+                else:
+                    # If we are, just delete the driver
+                    # as it's already in the previous index
+                    self.active_drivers[__lane].pop(__key)
+            # Update the dict
+            self.active_drivers[__lane].update(__dict_temp)
+        else:
+            logging.warning(
+                f'Driver {driver.config.id} is not active.'
+            )
+
     def set_inactive(
             self,
             driver: Driver
@@ -834,47 +915,23 @@ class Model:
         Sets a driver as inactive.
         """
         if driver.config.id not in self.inactive_drivers:
-            if driver.config.index in self.active_drivers[
-                driver.config.lane
-            ]:
-                # Decrease by 1 the index
-                # of the drivers behind the old driver
-                # and swap them 1 position to the front
-                __index = self.get_partial_index(driver)
-                __lane = driver.config.lane
-                __dict_temp = {}
-                keys = list(self.active_drivers[__lane].keys())[__index:]
-                for __key in keys:
-                    # Check if we're at the last driver
-                    if self.active_drivers[__lane].get(__key+1):
-                        # If not, swap the driver
-                        __dict_temp[__key] =\
-                            self.active_drivers[__lane][__key+1]
-                        __dict_temp[__key].config.index -= 1
-                        # Update entry in the partial indexes
-                        self.partial_indexes[__dict_temp[__key].config.id] =\
-                            __dict_temp[__key].config.index
-                    else:
-                        # If we are, just delete the driver
-                        # as it's already in the previous index
-                        self.active_drivers[__lane].pop(__key)
-                # Update the dict
-                self.active_drivers[__lane].update(__dict_temp)
-                # Add the driver to the inactive dict
-                self.inactive_drivers[driver.config.id] = driver
-            else:
-                logging.warning(
-                    f'Driver {driver.config.id} is not on expected lane.'
-                )
+            self.delete_active_driver(driver)
+            self.inactive_drivers[driver.config.id] = driver
         else:
             logging.warning(
                 f'Driver {driver.config.id} is already inactive.'
             )
 
     def set_accidented(self, driver: Driver) -> None:
-        self.accidented_drivers.add(driver)
-        driver.config.accidented = True
-        driver.config.speed = 0
+        if driver not in self.accidented_drivers:
+            # self.delete_active_driver(driver)
+            self.accidented_drivers.add(driver)
+            driver.config.accidented = True
+            driver.config.speed = 0
+        else:
+            logging.warning(
+                f'Driver {driver.config.id} is already accidented.'
+            )
 
     def generate_driver(self) -> Driver:
         """
@@ -996,57 +1053,51 @@ class Model:
             print(f'[UPDATE] accessing : {old_driver.config.lane} @ '
                   f'{__index} @ {old_driver.config.id}')
 
+        try:
+            self.active_drivers[
+                old_driver.config.lane
+            ][__index]
+        except KeyError:
+            raise KeyError
+
         if old_driver == self.active_drivers[
             old_driver.config.lane
         ][__index]:
             # Check if we need to change the lane
             if old_driver.config.lane != new_driver.config.lane:
+                # Old lane update
+                __old_lane = old_driver.config.lane
+                for __idx in range(__index + 1,
+                                   len(self.active_drivers[__old_lane])):
+                    __next_driver = self.active_drivers[
+                        __old_lane
+                    ][__idx]
+                    self.active_drivers[__old_lane][__idx - 1] = __next_driver
+                    __next_driver.config.index -= 1
+                    self.partial_indexes[
+                        __next_driver.config.id
+                    ] = __next_driver.config.index
+                # Delete the last entry that has been moved to the previous
+                # index
+                self.active_drivers[__old_lane].pop(
+                    len(self.active_drivers[__old_lane]) - 1)
 
-                # Decrease by 1 the index
-                # of the drivers behind the old driver
-                # and swap them 1 position to the front
-
-                __lane = old_driver.config.lane
-                __dict_temp = {}
-                keys = list(self.active_drivers[__lane].keys())[__index:]
-                for __key in keys:
-                    # Check if we're at the last driver
-                    if self.active_drivers[__lane].get(__key+1, None)\
-                            is not None:
-                        # If not, swap the driver
-                        __dict_temp[__key] =\
-                            self.active_drivers[__lane][__key+1]
-                        __dict_temp[__key].config.index -= 1
-                        # Update entry in the partial indexes
-                        self.partial_indexes[__dict_temp[__key].config.id] =\
-                            __dict_temp[__key].config.index
-                    else:
-                        # If we are, just delete the driver
-                        # as it's already in the previous index
-                        self.active_drivers[__lane].pop(__key)
-
-                # Update the active drivers dictionary
-                self.active_drivers[old_driver.config.lane].update(__dict_temp)
-
+                # New lane update
                 # Check number of drivers in the new lane
                 if len(self.active_drivers[new_driver.config.lane]) == 0:
                     # If there are no drivers in the new lane,
                     # just add the driver to the new lane
                     self.active_drivers[new_driver.config.lane][0] = new_driver
                     new_driver.config.index = 0
-                    # Update entry in the partial indexes
-                    self.partial_indexes[new_driver.config.id] =\
-                        new_driver.config.index
                 else:
                     # Add the driver sorted to the new lane
-                    # NOTE: this could be improved by using
-                    # a binary search algorithm
                     __index = 0  # Farthest are first
                     __dict_temp = {}
+                    __new_lane = new_driver.config.lane
                     new_driver.config.index = -1
-                    for __idx in self.active_drivers[new_driver.config.lane]:
+                    for __idx in self.active_drivers[__new_lane]:
                         __driver = self.active_drivers[
-                            new_driver.config.lane
+                            __new_lane
                         ][__idx]
                         if __driver.config.location >\
                                 new_driver.config.location:
@@ -1064,26 +1115,14 @@ class Model:
 
                             # Add the rest of the drivers
                             while __index < len(
-                                self.active_drivers[new_driver.config.lane]
+                                self.active_drivers[__new_lane]
                             ):
                                 try:
                                     __driver = self.active_drivers[
-                                        new_driver.config.lane
+                                        __new_lane
                                     ][__index]
                                 except KeyError:
-                                    print(f'KeyError: {__index}')
-                                    print(f'Active drivers: '
-                                          f'{self.active_drivers}')
-                                    print('-------------------')
-                                    print('Active drivers in lane:'
-                                          f'{self.active_drivers[new_driver.config.lane]}')
-                                    print('-------------------')
-                                    print(f'Active drivers in other lane:'
-                                          f'{self.active_drivers.pop(old_driver.config.lane)}')
-                                    print('-------------------')
-                                    print(f'Old driver: {old_driver}')
-                                    print(f'New driver: {new_driver}')
-                                    exit()
+                                    raise KeyError
                                 __dict_temp[__index + 1] = __driver
                                 __driver.config.index += 1
                                 __index += 1
@@ -1103,10 +1142,10 @@ class Model:
                             new_driver.config.index
 
                     assert len(__dict_temp) == len(
-                        self.active_drivers[new_driver.config.lane]
+                        self.active_drivers[__new_lane]
                     ) + 1
                     self.active_drivers[
-                        new_driver.config.lane
+                        __new_lane
                     ].update(__dict_temp)
 
                 # Check if after the lane change the driver
@@ -1118,15 +1157,17 @@ class Model:
 
             else:
                 # Update the driver in the same lane
+                # Note: no possibility of overtake
+                # as there would've been an accident
                 self.active_drivers[
-                    old_driver.config.lane
+                    new_driver.config.lane
                 ][__index] = new_driver
                 new_driver.config.index = __index
 
+                # Check if there was an accident
                 self.check_accident(
                     new_driver
                 )
-
         # Delete entry in the partial indexes
         if old_driver.config.id in self.partial_indexes:
             self.partial_indexes.pop(old_driver.config.id)
@@ -1224,7 +1265,7 @@ class Engine:
             for __lane in range(self.run_config.n_lanes):
                 for __driver in __state[__lane].values():
                     if __driver.config.accidented:
-                        continue
+                        continue  # Skip accidented drivers
                     # Update the time taken by the driver
                     self.model.time_taken[__driver.config.id] += 1
                     # Update the speed & location of the driver
@@ -1254,13 +1295,14 @@ class Engine:
 
                         if __driver.config.location >=\
                                 self.model.run_config.road_length:
-                            print(f'Driver in inactive?: '
-                                  f'{self.model.inactive_drivers[__driver.config.id]}')
-                            raise Exception(
-                                f'Driver {__driver.config.id} '
-                                f'has reached the end of the road'
-                                'and should\'ve been removed'
+                            # Could've been triggered by a previous
+                            # update of the driver
+                            # not done in this time step (e.g. will be
+                            # set as inactive in the next time step)
+                            self.model.set_inactive(
+                                __driver
                             )
+                            continue
 
                         __updated_driver = __driver.action(
                             state=__state,  # type: ignore
@@ -1325,6 +1367,30 @@ class Engine:
                       f' {self.model.active_drivers}')
 
             __wait_to_spawn = False
+
+            # Check if the simulation is valid
+            if not self.validate_simulation():
+                if self.run_config.verbose:
+                    print('[INFO] Simulation is not valid. Stopping.')
+                break
+
+    def validate_simulation(self) -> bool:
+        """
+        Validates the simulation.
+
+        Will check that the number of drivers accidentes is
+        less than the maximum threshold allowed.
+        """
+        # Take number of drivers accidented
+        __n_accidented = len(self.model.accidented_drivers)
+        # Take number of drivers in the road
+        __n_drivers = len(self.model.all_active_drivers())
+        if __n_drivers == 0:
+            return True
+        # Calculate the percentage of drivers accidented
+        __accidented_percentage = float(__n_accidented / __n_drivers)
+        # Check if the percentage is less than the threshold
+        return __accidented_percentage < self.run_config.accident_max_threshold
 
 
 class Trace:

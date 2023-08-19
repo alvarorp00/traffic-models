@@ -13,7 +13,7 @@ class StatsItems(enum.Enum):
     AVG_STARTING_POSITION = 3
     DRIVERS_FINISHED_DRV_CAR_TYPE = 4
     SPEED_CHANGES = 5
-    CARS_ACCIDENTED_BY_DRV_TYPE = 6
+    DRIVERS_ACCIDENTED_BY_DRV_TYPE = 6
     CARS_BY_DRV_TYPE = 7
 
 
@@ -23,6 +23,42 @@ class Stats:
             logging.critical("Cannot create ModelStats without a model.")
             raise Exception()
         self.engine = kwargs['engine']
+
+    def save_to_file(self, file_path: str):
+        """
+        Saves the stats to a file.
+
+        Parameters
+        ----------
+        file_path : str
+            The path to the file.
+        """
+        stats = self.get_stats()
+        with open(file_path, 'w') as f:
+            f.write('Average time\n')
+            for d, at in stats[StatsItems.AVG_TIME_TAKEN].items():
+                f.write(f"\tDriver {d} avg time: {at}\n")
+                # Print how many drivers of each type finished
+                f.write(f"\t\t{stats[StatsItems.DRIVERS_FINISHED_DRV_TYPE][d]} {d} drivers finished\n")
+                # Print the number of cars of each type that finished for this driver type
+                for car_type, num in stats[StatsItems.DRIVERS_FINISHED_DRV_CAR_TYPE][d].items():
+                    f.write(f"\t\t\t{num} {car_type} cars finished\n")
+            f.write('\n')
+
+            f.write('Average starting position\n')
+            for d, asp in stats[StatsItems.AVG_STARTING_POSITION].items():
+                f.write(f"\tDriver {d} avg starting position: {asp}\n")
+            f.write('\n')
+
+            f.write('Total cars by driver type\n')
+            for d, c in stats[StatsItems.CARS_BY_DRV_TYPE].items():
+                f.write(f"\tDriver {d} total cars: {c}\n")
+            f.write('\n')
+
+            f.write('Accidents by driver type\n')
+            for d, a in stats[StatsItems.DRIVERS_ACCIDENTED_BY_DRV_TYPE].items():
+                f.write(f"\tDriver {d} accidents: {a}\n")
+            f.write('\n')
 
     @property
     def engine(self) -> Engine:
@@ -170,8 +206,6 @@ class Stats:
             } for driver_type in DriverType
         }
 
-        print(f"INACTIVE_DRIVERS_DICT_SIZE: {len(self.engine.model.inactive_drivers)}")
-
         for driver in self.engine.model.inactive_drivers.values():
             drivers_by_car_finished[driver.config.driver_type][driver.config.car_type] += 1
 
@@ -229,11 +263,11 @@ class Stats:
 
         return speed_changes
 
-    def _get_number_of_cars_accidented(self) -> Dict[DriverType, int]:
+    def _get_number_of_drvs_accidented(self) -> Dict[DriverType, int]:
         """
         Returns the number of cars accidented for each driver type.
         """
-        number_of_cars_accidented = {
+        number_of_drvs_accidented = {
             driver_type: 0 for driver_type in DriverType
         }
         trace_data = self.engine.trace.data
@@ -242,13 +276,13 @@ class Stats:
             for driver in trace_data[t].all_active_drivers():
                 if driver.config.id in driver_set:
                     continue
-                if driver.config.driver_type not in number_of_cars_accidented:
-                    number_of_cars_accidented[driver.config.driver_type] = 0
-                if driver.config.accidented:  # Car accidented
-                    number_of_cars_accidented[driver.config.driver_type] += 1
-                    # We don't want to count the same car twice
+                if driver.config.driver_type not in number_of_drvs_accidented:
+                    number_of_drvs_accidented[driver.config.driver_type] = 0
+                if driver.config.accidented:  # Driver accidented
+                    number_of_drvs_accidented[driver.config.driver_type] += 1
+                    # We don't want to count the same driver twice
                     driver_set.add(driver.config.id)
-        return number_of_cars_accidented
+        return number_of_drvs_accidented
 
     def _get_number_of_cars_by_drv_type(self) -> Dict[DriverType, int]:
         """
@@ -304,7 +338,7 @@ class Stats:
             'speed_changes' : Dict[DriverType, List[float]]
                 The speed changes for each driver type.
 
-            'cars_accidented_by_drv_type' : Dict[DriverType, int]
+            'drivers_accidented_by_drv_type' : Dict[DriverType, int]
                 The number of cars accidented for each driver type.
 
             'cars_by_drv_type' : Dict[DriverType, int]
@@ -321,9 +355,37 @@ class Stats:
         stats[StatsItems.DRIVERS_FINISHED_DRV_CAR_TYPE] =\
             self._get_drivers_finished_by_drv_car_type()
         stats[StatsItems.SPEED_CHANGES] = self._get_speed_changes()
-        stats[StatsItems.CARS_ACCIDENTED_BY_DRV_TYPE] =\
-            self._get_number_of_cars_accidented()
+        stats[StatsItems.DRIVERS_ACCIDENTED_BY_DRV_TYPE] =\
+            self._get_number_of_drvs_accidented()
         stats[StatsItems.CARS_BY_DRV_TYPE] =\
             self._get_number_of_cars_by_drv_type()
 
         return stats
+
+    @staticmethod
+    def append_simulation_results_to_file(
+            stats: Dict,
+            file_path: str,
+            simulation_number: int
+    ):
+        with open(file_path, 'a+') as f:
+            driver_types: List[DriverType] = list(DriverType)
+            if simulation_number == 0:
+                # Clear file
+                f.seek(0)
+                for driver_type in driver_types:
+                    f.write(f' | {driver_type}(avg.time)')
+                for driver_type in driver_types:
+                    f.write(f' | {driver_type}(n.accidents)')
+                for driver_type in driver_types:
+                    f.write(f' | {driver_type}(n.drivers)')
+                f.write('\n')
+
+            f.write(f'{simulation_number}')
+            for driver_type in driver_types:
+                f.write(f' | {stats[StatsItems.AVG_TIME_TAKEN][driver_type]}')
+            for driver_type in driver_types:
+                f.write(f' | {stats[StatsItems.DRIVERS_ACCIDENTED_BY_DRV_TYPE][driver_type]}')
+            for driver_type in driver_types:
+                f.write(f' | {stats[StatsItems.DRIVERS_FINISHED_DRV_TYPE][driver_type]}')
+            f.write('\n')

@@ -6,7 +6,7 @@ This module contains functions for plotting the model and its components.
 
 import logging
 import sys
-from typing import List
+from typing import Dict, List
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
@@ -16,6 +16,8 @@ from lib.engine import Model, RunConfig, Trace
 import lib.driver
 
 import seaborn as sns
+
+from lib.stats import Stats, StatsItems
 sns.set()
 
 from matplotlib import rc  # for LaTeX text rendering  # noqa: E402
@@ -459,3 +461,73 @@ def plot_locations_video(
 
     animation = camera.animate(blit=True)
     animation.save(fname, writer='ffmpeg')
+
+
+def plot_avg_time_and_accidents(
+        stats: List[Dict], fname: str,
+        pop_size: int, section_length: int,
+        road_length: int):
+    """
+    Bar plot the average time taken by each driver type to finish
+    (only the ones that have finished: inactive with accidented=False)
+    and a line plot of the number of accidents by driver type.
+    """
+
+    time_taken_by_driver_type = stats[0]
+    drivers_accident_by_type = stats[1]
+    drivers_finished_by_type = stats[2]
+
+    # Bar plot
+    figure = plt.figure(figsize=(14, 7))
+    ax = figure.add_subplot(111)  # type: ignore
+
+    X = np.arange(len(list(lib.driver.DriverType)))
+
+    values = np.array(list(time_taken_by_driver_type.values()),
+                        dtype=np.float32)
+    ax.bar(X, values, width=0.2, label='Average time taken')
+    # set ax y ticks between 10% less and 10% more than the min and max
+    # values
+    ax.set_ylim(
+        np.min(values) - np.min(values) * 0.1,
+        np.max(values) + np.max(values) * 0.1
+    )
+    # Show number of drivers that finished for each driver type
+    for i, v in enumerate(values):
+        ax.text(
+            i - 0.05,
+            v + 0.05,
+            f'{drivers_finished_by_type[list(lib.driver.DriverType)[i]]}',
+            fontsize=14
+        )
+
+    # Line plot
+    ax2 = ax.twinx()
+    ax2.plot(
+        X,
+        np.array(list(drivers_accident_by_type.values()), dtype=np.float32),
+        color='r',
+        label='Number of accidents',
+        marker='o',
+        linestyle='--',
+    )
+    # Set right y axis label
+    ax2.set_ylabel('Number of accidents', fontsize=18)
+    ax2.yaxis.tick_right()
+    ax2.yaxis.set_label_position("right")
+    # set ax2 yticks to be only integers
+    ax2.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
+    # Set minimum y value to 0
+    ax2.set_ylim(bottom=0)
+
+    style_set(
+        ax,
+        title=f'Average time taken by driver type @ [Pop. size / {section_length}m = {pop_size}; {road_length}m]',
+        ylabel='Average time taken (s)',
+        xlabels=[f'{d.name}' for d in list(lib.driver.DriverType)],
+        xticks=X,
+        legend=True,
+    )
+
+    figure.savefig(fname, dpi=300)
+    plt.close()

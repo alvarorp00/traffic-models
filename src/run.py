@@ -20,19 +20,7 @@ def run():
     config = Config()
     # run_config = RunConfig(**config.__dict__)
 
-    # Get all the members of the Config class
-    namespace = [
-        attr.lower() for attr in dir(config)
-        if not callable(getattr(config, attr)) and not attr.startswith("__")
-    ]
-
-    run_config_dict = dict(zip(
-        namespace,
-        [getattr(config, member.upper()) for member in namespace]
-    ))
-
-    # Create a RunConfig object with the dictionary
-    run_config = RunConfig(**run_config_dict)
+    run_config = RunConfig.get_run_config(config)
 
     if run_config.test:
         test(run_config=run_config)

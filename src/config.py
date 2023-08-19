@@ -23,23 +23,26 @@ from lib.driver import LanePriority
 class Config:
     N_LANES = 2  # Can't change this for now
 
-    TIME_STEPS = 1500
+    TIME_STEPS = 100
 
-    POPULATION_SIZE = 20
+    POPULATION_SIZE = 50
 
-    MINIMUM_LOAD_FACTOR = 0.2
+    MINIMUM_LOAD_FACTOR = 0.25
 
     START_WITH_POPULATION = False
 
     SPAWN_EVERY_N_STEPS = 100
 
-    ROAD_LENGTH = 1200  # In meters
+    ROAD_LENGTH = 500  # In meters
 
     SECTION_LENGTH = 100  # In meters
 
     ACCIDENTS = True
 
     ACCIDENT_CLEARANCE_TIME = 15  # In seconds
+
+    # Percentage threshold to validate a simulation
+    ACCIDENT_MAX_THRESHOLD = 0.05
 
     # Cars max speed
     CARS_MAX_SPEED = [80, 100, 120, 130]
@@ -91,4 +94,4 @@ class Config:
     TEST = False
 
     # Plot the simulation
-    PLOT = True
+    PLOT = False

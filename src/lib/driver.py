@@ -762,7 +762,6 @@ class Driver:
         return hash(self.config.id)
 
     def __repr__(self):
-        # Show the driver id
         # return self.show()
         return self.show_verbose()
 
@@ -770,10 +769,11 @@ class Driver:
         return f'driver@{driver.config.id}'
 
     def show_verbose(driver: 'Driver') -> str:
-        return f'driver@{driver.config.id} |'\
-               f'{driver.config.driver_type} | {driver.config.car_type} |'\
-               f'{driver.config.location} | {driver.config.speed} |'\
-               f'{driver.config.lane} | {driver.config.index}'
+        return f'driver@{driver.config.id} | '\
+               f'{driver.config.driver_type} | {driver.config.car_type} | '\
+               f'{driver.config.location} | {driver.config.speed} | '\
+               f'{driver.config.lane} | {driver.config.index} | '\
+               f'{driver.config.accidented}'
 
     @property
     def config(self) -> DriverConfig:
@@ -975,6 +975,10 @@ class Driver:
                 return None
             else:
                 # Yes, return the driver in front
+                try:
+                    drivers_in_lane[driver.config.index - 1]
+                except KeyError:
+                    raise KeyError
                 return drivers_in_lane[driver.config.index - 1]
 
     @staticmethod
@@ -1030,7 +1034,7 @@ class Driver:
         drivers_close = []
         for i in range(0, driver.config.index):
             try:
-                Driver.distance_between(driver, drivers_in_lane[i])
+                drivers_in_lane[i]
             except IndexError:
                 print(i)
                 print(driver.config.index)
