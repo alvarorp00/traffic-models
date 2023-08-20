@@ -39,7 +39,7 @@ def run():
     run_config = RunConfig.get_run_config(config)
 
     run_config.section_length = 500
-    run_config.road_length = 10000
+    run_config.road_length = 5000
     run_config.population_size = 10
     run_config.minimum_load_factor = 1.0
     run_config.n_lanes = 2
@@ -63,7 +63,12 @@ def run():
 
         for j in range(0, REPEATS):
             engine = Engine(run_config)
-            engine.run()
+            try:
+                engine.run()
+            except Exception as e:
+                print(f'\tSimulation {i+1} [{j+1} / {REPEATS}] failed. Discarding...')
+                print(e)
+                continue
 
             # Check if the simulation was valid
             if not engine.validate_simulation():

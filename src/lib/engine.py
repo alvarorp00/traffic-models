@@ -1266,6 +1266,8 @@ class Engine:
                 for __driver in __state[__lane].values():
                     if __driver.config.accidented:
                         continue  # Skip accidented drivers
+                    if __driver in self.model.inactive_drivers.values():
+                        continue  # Skip inactive drivers
                     # Update the time taken by the driver
                     self.model.time_taken[__driver.config.id] += 1
                     # Update the speed & location of the driver
