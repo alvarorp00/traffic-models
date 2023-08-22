@@ -24,7 +24,7 @@ import numpy as np
 import time
 
 
-REPEATS = 50  # Number of times to repeat the simulation for each configuration
+REPEATS = 100  # Number of times to repeat the simulation for each configuration
 
 
 def run():
@@ -95,6 +95,8 @@ def run():
     medians = {}
     for i in range(0, len(results)):
         sim_results = results[i]
+        if len(sim_results) == 0:
+            continue
         median_time_by_driver_type = {
             driver_type: [] for driver_type in DriverType
         }
@@ -130,14 +132,16 @@ def run():
 
     for i in range(0, len(results)):
         for j in range(0, len(results[i])):
-            sim_results = results[i][j]
+            stats_dict = results[i][j]
             Stats.append_simulation_results_to_file(
-                sim_results, f'runs/run_7/txt/results_{i}.txt',
+                stats_dict, f'runs/run_7/txt/results_{i}.txt',
                 j
             )
 
     for i in range(0, len(medians)):
         median = medians[i]
+        if len(median) == 0:
+            continue
         graphics.plot_avg_time_and_accidents(
             median, f'runs/run_7/img/avg_time_and_accidents_{i}.png',
             pop_size=population_sizes[i],

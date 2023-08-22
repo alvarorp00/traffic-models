@@ -29,7 +29,7 @@ import numpy as np
 import time
 
 
-REPEATS = 50  # Number of times to repeat the simulation for each configuration
+REPEATS = 100  # Number of times to repeat the simulation for each configuration
 
 
 def run():
