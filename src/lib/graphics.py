@@ -516,7 +516,7 @@ def plot_avg_time_and_accidents(
     ax2.yaxis.tick_right()
     ax2.yaxis.set_label_position("right")
     # set ax2 yticks to be only integers
-    ax2.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
+    # ax2.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
     # Set minimum y value to 0
     ax2.set_ylim(bottom=0)
 

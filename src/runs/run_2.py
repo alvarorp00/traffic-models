@@ -7,17 +7,18 @@ Run 1
 - 2 lanes
 - Population size: 10 -> 100 (step 10)
 - Drivers distribution:
-    · 40% cautious
-    · 30% normal
+    · 05% cautious
+    · 10% normal
     · 15% risky
-    · 10% aggressive
-    · 05% reckless
+    · 30% aggressive
+    · 40% reckless
 """
 
 import sys
 from typing import Dict, List
 # setting path
 sys.path.append('../src')
+
 
 from lib.engine import Engine, RunConfig
 from lib.stats import Stats, StatsItems
@@ -43,7 +44,7 @@ def run():
     run_config.minimum_load_factor = 1.0
     run_config.n_lanes = 2
     run_config.time_steps = 1000
-    run_config.driver_type_density = [.4, .3, .15, .1, .05]
+    run_config.driver_type_density = [.05, .1, .15, .3, .4]
     run_config.verbose = False
     run_config.start_with_population = False
     run_config.accident_max_threshold = 0.10
@@ -88,7 +89,7 @@ def run():
     # Print the time taken
     time_taken = end_time - start_time
     # Save the time taken to a file
-    with open('runs/run_1/txt/time_taken.txt', 'w') as f:
+    with open('runs/run_2/txt/time_taken.txt', 'w') as f:
         f.write(f'Time taken: {time_taken / 3600} hours')
         f.write('\n')
         f.write(f'Time taken: {(time_taken - (int(time_taken / 3600) * 3600)) / 60} minutes')
@@ -136,14 +137,14 @@ def run():
         for j in range(0, len(results[i])):
             sim_results = results[i][j]
             Stats.append_simulation_results_to_file(
-                sim_results, f'runs/run_1/txt/results_{i}.txt',
+                sim_results, f'runs/run_2/txt/results_{i}.txt',
                 j
             )
 
     for i in range(0, len(medians)):
         median = medians[i]
         graphics.plot_avg_time_and_accidents(
-            median, f'runs/run_1/img/avg_time_and_accidents_{i}.png',
+            median, f'runs/run_2/img/avg_time_and_accidents_{i}.png',
             pop_size=population_sizes[i],
             section_length=run_config.section_length,
             road_length=run_config.road_length,
@@ -151,6 +152,6 @@ def run():
 
 
 if __name__ == '__main__':
-    print('Running run_1.py')
+    print('Running run_2.py')
     run()
     print('Done')
