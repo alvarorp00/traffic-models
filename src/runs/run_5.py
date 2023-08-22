@@ -43,7 +43,7 @@ def run():
     run_config.minimum_load_factor = 1.0
     run_config.n_lanes = 2
     run_config.time_steps = 1000
-    run_config.driver_type_density = [.4, .3, .15, .1, .05]
+    run_config.driver_type_density = [0.0, 0.0, 0.0, .35, .65]
     run_config.verbose = False
     run_config.start_with_population = False
     run_config.accident_max_threshold = 0.10
