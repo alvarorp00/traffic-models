@@ -3,7 +3,7 @@ Driver 0 is a CAUTIOUS
 	Overtake distance: [25.55565366] m
 
 Driver 1 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.9675489459146 m/s
+	driver driving a CarType.VAN car @ 85.9675489459146 m/s
 	Overtake distance: [26.60789582] m
 
 Driver 2 is a CAUTIOUS
@@ -15,7 +15,7 @@ Driver 3 is a CAUTIOUS
 	Overtake distance: [25.38305437] m
 
 Driver 4 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.00279701327696 m/s
+	driver driving a CarType.VAN car @ 87.00279701327696 m/s
 	Overtake distance: [25.15675333] m
 
 Driver 5 is a CAUTIOUS
@@ -43,11 +43,11 @@ Driver 10 is a CAUTIOUS
 	Overtake distance: [25.17311645] m
 
 Driver 11 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.74814586265806 m/s
+	driver driving a CarType.VAN car @ 86.74814586265806 m/s
 	Overtake distance: [26.02021475] m
 
 Driver 12 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.12509021278198 m/s
+	driver driving a CarType.VAN car @ 85.12509021278198 m/s
 	Overtake distance: [25.53821355] m
 
 Driver 13 is a CAUTIOUS
@@ -55,11 +55,11 @@ Driver 13 is a CAUTIOUS
 	Overtake distance: [25.06692234] m
 
 Driver 14 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.89626505211993 m/s
+	driver driving a CarType.VAN car @ 86.89626505211993 m/s
 	Overtake distance: [26.20631559] m
 
 Driver 15 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.25921349003461 m/s
+	driver driving a CarType.VAN car @ 85.25921349003461 m/s
 	Overtake distance: [25.20835694] m
 
 Driver 16 is a CAUTIOUS
@@ -67,11 +67,11 @@ Driver 16 is a CAUTIOUS
 	Overtake distance: [26.54072769] m
 
 Driver 17 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.19947619209647 m/s
+	driver driving a CarType.VAN car @ 88.19947619209647 m/s
 	Overtake distance: [25.46526758] m
 
 Driver 18 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.02330346180939 m/s
+	driver driving a CarType.VAN car @ 86.02330346180939 m/s
 	Overtake distance: [26.34937907] m
 
 Driver 19 is a CAUTIOUS
@@ -79,11 +79,11 @@ Driver 19 is a CAUTIOUS
 	Overtake distance: [25.41447832] m
 
 Driver 20 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.25387078379994 m/s
+	driver driving a CarType.VAN car @ 86.25387078379994 m/s
 	Overtake distance: [26.74782996] m
 
 Driver 21 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.82049582691309 m/s
+	driver driving a CarType.VAN car @ 85.82049582691309 m/s
 	Overtake distance: [25.46978291] m
 
 Driver 22 is a CAUTIOUS
@@ -103,7 +103,7 @@ Driver 25 is a CAUTIOUS
 	Overtake distance: [25.33229368] m
 
 Driver 26 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.61898810891623 m/s
+	driver driving a CarType.VAN car @ 87.61898810891623 m/s
 	Overtake distance: [26.56054045] m
 
 Driver 27 is a CAUTIOUS
@@ -111,11 +111,11 @@ Driver 27 is a CAUTIOUS
 	Overtake distance: [26.72813118] m
 
 Driver 28 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.24661721669831 m/s
+	driver driving a CarType.VAN car @ 86.24661721669831 m/s
 	Overtake distance: [25.78105831] m
 
 Driver 29 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.80895063238593 m/s
+	driver driving a CarType.VAN car @ 86.80895063238593 m/s
 	Overtake distance: [27.14986394] m
 
 Driver 30 is a CAUTIOUS
@@ -135,11 +135,11 @@ Driver 33 is a CAUTIOUS
 	Overtake distance: [25.893774] m
 
 Driver 34 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.95983349252747 m/s
+	driver driving a CarType.VAN car @ 87.95983349252747 m/s
 	Overtake distance: [26.64861797] m
 
 Driver 35 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.40577232749554 m/s
+	driver driving a CarType.VAN car @ 86.40577232749554 m/s
 	Overtake distance: [25.12158967] m
 
 Driver 36 is a CAUTIOUS
@@ -147,7 +147,7 @@ Driver 36 is a CAUTIOUS
 	Overtake distance: [25.47026689] m
 
 Driver 37 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.55556660653541 m/s
+	driver driving a CarType.VAN car @ 87.55556660653541 m/s
 	Overtake distance: [25.05701095] m
 
 Driver 38 is a CAUTIOUS
@@ -159,11 +159,11 @@ Driver 39 is a CAUTIOUS
 	Overtake distance: [25.15633884] m
 
 Driver 40 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.76748940095688 m/s
+	driver driving a CarType.VAN car @ 86.76748940095688 m/s
 	Overtake distance: [25.50723216] m
 
 Driver 41 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.51327487170836 m/s
+	driver driving a CarType.VAN car @ 85.51327487170836 m/s
 	Overtake distance: [26.60748837] m
 
 Driver 42 is a CAUTIOUS
@@ -171,7 +171,7 @@ Driver 42 is a CAUTIOUS
 	Overtake distance: [25.72013178] m
 
 Driver 43 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.85449376726551 m/s
+	driver driving a CarType.VAN car @ 86.85449376726551 m/s
 	Overtake distance: [25.12041941] m
 
 Driver 44 is a CAUTIOUS
@@ -183,7 +183,7 @@ Driver 45 is a CAUTIOUS
 	Overtake distance: [25.8615592] m
 
 Driver 46 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.48783678064476 m/s
+	driver driving a CarType.VAN car @ 88.48783678064476 m/s
 	Overtake distance: [25.35852297] m
 
 Driver 47 is a CAUTIOUS
@@ -215,7 +215,7 @@ Driver 53 is a CAUTIOUS
 	Overtake distance: [25.78900458] m
 
 Driver 54 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.35345258078627 m/s
+	driver driving a CarType.VAN car @ 87.35345258078627 m/s
 	Overtake distance: [26.22331308] m
 
 Driver 55 is a CAUTIOUS
@@ -223,11 +223,11 @@ Driver 55 is a CAUTIOUS
 	Overtake distance: [25.54153552] m
 
 Driver 56 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.40319480499323 m/s
+	driver driving a CarType.VAN car @ 86.40319480499323 m/s
 	Overtake distance: [25.85630169] m
 
 Driver 57 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.05508709925888 m/s
+	driver driving a CarType.VAN car @ 85.05508709925888 m/s
 	Overtake distance: [26.78057586] m
 
 Driver 58 is a CAUTIOUS
@@ -247,11 +247,11 @@ Driver 61 is a CAUTIOUS
 	Overtake distance: [25.89478887] m
 
 Driver 62 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.83013553323114 m/s
+	driver driving a CarType.VAN car @ 86.83013553323114 m/s
 	Overtake distance: [26.95382783] m
 
 Driver 63 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.939696796119 m/s
+	driver driving a CarType.VAN car @ 86.939696796119 m/s
 	Overtake distance: [25.30741532] m
 
 Driver 64 is a CAUTIOUS
@@ -259,11 +259,11 @@ Driver 64 is a CAUTIOUS
 	Overtake distance: [25.41272561] m
 
 Driver 65 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.4674426378549 m/s
+	driver driving a CarType.VAN car @ 85.4674426378549 m/s
 	Overtake distance: [26.3895763] m
 
 Driver 66 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.52901742434867 m/s
+	driver driving a CarType.VAN car @ 86.52901742434867 m/s
 	Overtake distance: [25.64503319] m
 
 Driver 67 is a CAUTIOUS
@@ -271,7 +271,7 @@ Driver 67 is a CAUTIOUS
 	Overtake distance: [25.65342426] m
 
 Driver 68 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 84.94642769550096 m/s
+	driver driving a CarType.VAN car @ 84.94642769550096 m/s
 	Overtake distance: [25.08615842] m
 
 Driver 69 is a CAUTIOUS
@@ -279,7 +279,7 @@ Driver 69 is a CAUTIOUS
 	Overtake distance: [26.96069761] m
 
 Driver 70 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.56961704648413 m/s
+	driver driving a CarType.VAN car @ 86.56961704648413 m/s
 	Overtake distance: [25.71447037] m
 
 Driver 71 is a CAUTIOUS
@@ -307,15 +307,15 @@ Driver 76 is a CAUTIOUS
 	Overtake distance: [26.74149603] m
 
 Driver 77 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.44756292182652 m/s
+	driver driving a CarType.VAN car @ 86.44756292182652 m/s
 	Overtake distance: [26.13196049] m
 
 Driver 78 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.2824310027639 m/s
+	driver driving a CarType.VAN car @ 85.2824310027639 m/s
 	Overtake distance: [26.60833724] m
 
 Driver 79 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 84.89683962384716 m/s
+	driver driving a CarType.VAN car @ 84.89683962384716 m/s
 	Overtake distance: [25.32006748] m
 
 Driver 80 is a CAUTIOUS
@@ -343,7 +343,7 @@ Driver 85 is a CAUTIOUS
 	Overtake distance: [25.86083879] m
 
 Driver 86 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.4017840203269 m/s
+	driver driving a CarType.VAN car @ 87.4017840203269 m/s
 	Overtake distance: [25.7494422] m
 
 Driver 87 is a CAUTIOUS
@@ -351,7 +351,7 @@ Driver 87 is a CAUTIOUS
 	Overtake distance: [25.77117847] m
 
 Driver 88 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.46939354590103 m/s
+	driver driving a CarType.VAN car @ 86.46939354590103 m/s
 	Overtake distance: [25.1918129] m
 
 Driver 89 is a CAUTIOUS
@@ -363,7 +363,7 @@ Driver 90 is a CAUTIOUS
 	Overtake distance: [25.06291788] m
 
 Driver 91 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.08296281837869 m/s
+	driver driving a CarType.VAN car @ 86.08296281837869 m/s
 	Overtake distance: [25.7192309] m
 
 Driver 92 is a CAUTIOUS
@@ -407,7 +407,7 @@ Driver 101 is a CAUTIOUS
 	Overtake distance: [25.1674612] m
 
 Driver 102 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.66833483322257 m/s
+	driver driving a CarType.VAN car @ 88.66833483322257 m/s
 	Overtake distance: [26.99523194] m
 
 Driver 103 is a CAUTIOUS
@@ -415,7 +415,7 @@ Driver 103 is a CAUTIOUS
 	Overtake distance: [25.05517095] m
 
 Driver 104 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.99562688887342 m/s
+	driver driving a CarType.VAN car @ 85.99562688887342 m/s
 	Overtake distance: [25.69808366] m
 
 Driver 105 is a CAUTIOUS
@@ -427,11 +427,11 @@ Driver 106 is a CAUTIOUS
 	Overtake distance: [25.15624295] m
 
 Driver 107 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.75764198938737 m/s
+	driver driving a CarType.VAN car @ 87.75764198938737 m/s
 	Overtake distance: [25.48117929] m
 
 Driver 108 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.72731480267745 m/s
+	driver driving a CarType.VAN car @ 86.72731480267745 m/s
 	Overtake distance: [25.0973467] m
 
 Driver 109 is a CAUTIOUS
@@ -439,7 +439,7 @@ Driver 109 is a CAUTIOUS
 	Overtake distance: [25.91645582] m
 
 Driver 110 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.02072279892572 m/s
+	driver driving a CarType.VAN car @ 87.02072279892572 m/s
 	Overtake distance: [25.28838545] m
 
 Driver 111 is a CAUTIOUS
@@ -483,23 +483,23 @@ Driver 120 is a CAUTIOUS
 	Overtake distance: [25.03029453] m
 
 Driver 121 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.36059909535125 m/s
+	driver driving a CarType.VAN car @ 85.36059909535125 m/s
 	Overtake distance: [27.54468884] m
 
 Driver 122 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.32687701163444 m/s
+	driver driving a CarType.VAN car @ 86.32687701163444 m/s
 	Overtake distance: [26.14458262] m
 
 Driver 123 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.50840567155313 m/s
+	driver driving a CarType.VAN car @ 86.50840567155313 m/s
 	Overtake distance: [25.68780536] m
 
 Driver 124 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.30683572600978 m/s
+	driver driving a CarType.VAN car @ 87.30683572600978 m/s
 	Overtake distance: [25.82340411] m
 
 Driver 125 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.1195176710448 m/s
+	driver driving a CarType.VAN car @ 86.1195176710448 m/s
 	Overtake distance: [26.86443714] m
 
 Driver 126 is a CAUTIOUS
@@ -507,7 +507,7 @@ Driver 126 is a CAUTIOUS
 	Overtake distance: [25.88448678] m
 
 Driver 127 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.9516713280942 m/s
+	driver driving a CarType.VAN car @ 86.9516713280942 m/s
 	Overtake distance: [27.30903235] m
 
 Driver 128 is a CAUTIOUS
@@ -519,11 +519,11 @@ Driver 129 is a CAUTIOUS
 	Overtake distance: [26.01937331] m
 
 Driver 130 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.53019065833814 m/s
+	driver driving a CarType.VAN car @ 86.53019065833814 m/s
 	Overtake distance: [25.13554307] m
 
 Driver 131 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.32401901868671 m/s
+	driver driving a CarType.VAN car @ 87.32401901868671 m/s
 	Overtake distance: [27.01569198] m
 
 Driver 132 is a CAUTIOUS
@@ -535,7 +535,7 @@ Driver 133 is a CAUTIOUS
 	Overtake distance: [26.58625948] m
 
 Driver 134 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.3193463509841 m/s
+	driver driving a CarType.VAN car @ 88.3193463509841 m/s
 	Overtake distance: [26.52660753] m
 
 Driver 135 is a CAUTIOUS
@@ -555,11 +555,11 @@ Driver 138 is a CAUTIOUS
 	Overtake distance: [26.10515668] m
 
 Driver 139 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.10795435569332 m/s
+	driver driving a CarType.VAN car @ 87.10795435569332 m/s
 	Overtake distance: [26.9263423] m
 
 Driver 140 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.05217851666717 m/s
+	driver driving a CarType.VAN car @ 86.05217851666717 m/s
 	Overtake distance: [25.20625778] m
 
 Driver 141 is a CAUTIOUS
@@ -583,11 +583,11 @@ Driver 145 is a CAUTIOUS
 	Overtake distance: [26.83947107] m
 
 Driver 146 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.67977486113317 m/s
+	driver driving a CarType.VAN car @ 85.67977486113317 m/s
 	Overtake distance: [25.20364897] m
 
 Driver 147 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.45946344486214 m/s
+	driver driving a CarType.VAN car @ 86.45946344486214 m/s
 	Overtake distance: [25.95250493] m
 
 Driver 148 is a CAUTIOUS
@@ -619,7 +619,7 @@ Driver 154 is a CAUTIOUS
 	Overtake distance: [25.51695538] m
 
 Driver 155 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.49426209409772 m/s
+	driver driving a CarType.VAN car @ 87.49426209409772 m/s
 	Overtake distance: [26.39943204] m
 
 Driver 156 is a CAUTIOUS
@@ -627,15 +627,15 @@ Driver 156 is a CAUTIOUS
 	Overtake distance: [27.91701016] m
 
 Driver 157 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 84.8233429161358 m/s
+	driver driving a CarType.VAN car @ 84.8233429161358 m/s
 	Overtake distance: [26.82074776] m
 
 Driver 158 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.92643705015271 m/s
+	driver driving a CarType.VAN car @ 86.92643705015271 m/s
 	Overtake distance: [25.89849571] m
 
 Driver 159 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.2035622994799 m/s
+	driver driving a CarType.VAN car @ 88.2035622994799 m/s
 	Overtake distance: [26.34500678] m
 
 Driver 160 is a CAUTIOUS
@@ -651,7 +651,7 @@ Driver 162 is a CAUTIOUS
 	Overtake distance: [25.15034946] m
 
 Driver 163 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 89.89504703572617 m/s
+	driver driving a CarType.VAN car @ 89.89504703572617 m/s
 	Overtake distance: [25.60107861] m
 
 Driver 164 is a CAUTIOUS
@@ -679,11 +679,11 @@ Driver 169 is a CAUTIOUS
 	Overtake distance: [25.54269997] m
 
 Driver 170 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.8278780652406 m/s
+	driver driving a CarType.VAN car @ 85.8278780652406 m/s
 	Overtake distance: [27.1444477] m
 
 Driver 171 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.63155906190244 m/s
+	driver driving a CarType.VAN car @ 85.63155906190244 m/s
 	Overtake distance: [25.01507571] m
 
 Driver 172 is a CAUTIOUS
@@ -707,7 +707,7 @@ Driver 176 is a CAUTIOUS
 	Overtake distance: [25.09327951] m
 
 Driver 177 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.20330562542809 m/s
+	driver driving a CarType.VAN car @ 87.20330562542809 m/s
 	Overtake distance: [26.41021967] m
 
 Driver 178 is a CAUTIOUS
@@ -727,7 +727,7 @@ Driver 181 is a CAUTIOUS
 	Overtake distance: [26.36765895] m
 
 Driver 182 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.57323053666165 m/s
+	driver driving a CarType.VAN car @ 86.57323053666165 m/s
 	Overtake distance: [26.02373273] m
 
 Driver 183 is a CAUTIOUS
@@ -739,7 +739,7 @@ Driver 184 is a CAUTIOUS
 	Overtake distance: [27.10398519] m
 
 Driver 185 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.34763112553905 m/s
+	driver driving a CarType.VAN car @ 87.34763112553905 m/s
 	Overtake distance: [25.58494856] m
 
 Driver 186 is a CAUTIOUS
@@ -755,7 +755,7 @@ Driver 188 is a CAUTIOUS
 	Overtake distance: [26.62396592] m
 
 Driver 189 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.81702621095586 m/s
+	driver driving a CarType.VAN car @ 85.81702621095586 m/s
 	Overtake distance: [26.17301559] m
 
 Driver 190 is a CAUTIOUS
@@ -763,7 +763,7 @@ Driver 190 is a CAUTIOUS
 	Overtake distance: [25.69406065] m
 
 Driver 191 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.23398232567052 m/s
+	driver driving a CarType.VAN car @ 85.23398232567052 m/s
 	Overtake distance: [26.23420855] m
 
 Driver 192 is a CAUTIOUS
@@ -783,7 +783,7 @@ Driver 195 is a CAUTIOUS
 	Overtake distance: [25.21649369] m
 
 Driver 196 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.62369279822975 m/s
+	driver driving a CarType.VAN car @ 87.62369279822975 m/s
 	Overtake distance: [25.45441344] m
 
 Driver 197 is a CAUTIOUS
@@ -791,7 +791,7 @@ Driver 197 is a CAUTIOUS
 	Overtake distance: [25.10391727] m
 
 Driver 198 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.92768872522608 m/s
+	driver driving a CarType.VAN car @ 87.92768872522608 m/s
 	Overtake distance: [25.42860446] m
 
 Driver 199 is a CAUTIOUS
@@ -823,11 +823,11 @@ Driver 205 is a CAUTIOUS
 	Overtake distance: [25.43448538] m
 
 Driver 206 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.73121641770182 m/s
+	driver driving a CarType.VAN car @ 87.73121641770182 m/s
 	Overtake distance: [25.32316799] m
 
 Driver 207 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.23232497313663 m/s
+	driver driving a CarType.VAN car @ 86.23232497313663 m/s
 	Overtake distance: [26.34989797] m
 
 Driver 208 is a CAUTIOUS
@@ -835,7 +835,7 @@ Driver 208 is a CAUTIOUS
 	Overtake distance: [27.35599613] m
 
 Driver 209 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.73301002046196 m/s
+	driver driving a CarType.VAN car @ 87.73301002046196 m/s
 	Overtake distance: [25.59764949] m
 
 Driver 210 is a CAUTIOUS
@@ -847,11 +847,11 @@ Driver 211 is a CAUTIOUS
 	Overtake distance: [25.30370635] m
 
 Driver 212 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.28131163465775 m/s
+	driver driving a CarType.VAN car @ 88.28131163465775 m/s
 	Overtake distance: [25.83557631] m
 
 Driver 213 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.11568450755578 m/s
+	driver driving a CarType.VAN car @ 87.11568450755578 m/s
 	Overtake distance: [25.20875459] m
 
 Driver 214 is a CAUTIOUS
@@ -867,7 +867,7 @@ Driver 216 is a CAUTIOUS
 	Overtake distance: [25.1808004] m
 
 Driver 217 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.86559169767932 m/s
+	driver driving a CarType.VAN car @ 85.86559169767932 m/s
 	Overtake distance: [26.20876077] m
 
 Driver 218 is a CAUTIOUS
@@ -907,7 +907,7 @@ Driver 226 is a CAUTIOUS
 	Overtake distance: [26.93453651] m
 
 Driver 227 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.93956403533625 m/s
+	driver driving a CarType.VAN car @ 86.93956403533625 m/s
 	Overtake distance: [26.33272581] m
 
 Driver 228 is a CAUTIOUS
@@ -919,15 +919,15 @@ Driver 229 is a CAUTIOUS
 	Overtake distance: [25.11117148] m
 
 Driver 230 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.2739260745091 m/s
+	driver driving a CarType.VAN car @ 87.2739260745091 m/s
 	Overtake distance: [25.20846453] m
 
 Driver 231 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.28379977393462 m/s
+	driver driving a CarType.VAN car @ 88.28379977393462 m/s
 	Overtake distance: [25.76353659] m
 
 Driver 232 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.86653669605633 m/s
+	driver driving a CarType.VAN car @ 85.86653669605633 m/s
 	Overtake distance: [25.59438366] m
 
 Driver 233 is a CAUTIOUS
@@ -963,7 +963,7 @@ Driver 240 is a CAUTIOUS
 	Overtake distance: [26.41696872] m
 
 Driver 241 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.96373345725617 m/s
+	driver driving a CarType.VAN car @ 87.96373345725617 m/s
 	Overtake distance: [25.08661472] m
 
 Driver 242 is a CAUTIOUS
@@ -995,7 +995,7 @@ Driver 248 is a CAUTIOUS
 	Overtake distance: [26.02702087] m
 
 Driver 249 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.8825591265915 m/s
+	driver driving a CarType.VAN car @ 87.8825591265915 m/s
 	Overtake distance: [26.15956808] m
 
 Driver 250 is a CAUTIOUS
@@ -1003,7 +1003,7 @@ Driver 250 is a CAUTIOUS
 	Overtake distance: [25.9399278] m
 
 Driver 251 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.34089716680185 m/s
+	driver driving a CarType.VAN car @ 86.34089716680185 m/s
 	Overtake distance: [26.42192684] m
 
 Driver 252 is a CAUTIOUS
@@ -1019,7 +1019,7 @@ Driver 254 is a CAUTIOUS
 	Overtake distance: [25.97378769] m
 
 Driver 255 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.37029417940782 m/s
+	driver driving a CarType.VAN car @ 86.37029417940782 m/s
 	Overtake distance: [26.11332519] m
 
 Driver 256 is a CAUTIOUS
@@ -1051,7 +1051,7 @@ Driver 262 is a CAUTIOUS
 	Overtake distance: [25.11757132] m
 
 Driver 263 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.77494325682117 m/s
+	driver driving a CarType.VAN car @ 85.77494325682117 m/s
 	Overtake distance: [27.76484166] m
 
 Driver 264 is a CAUTIOUS
@@ -1071,7 +1071,7 @@ Driver 267 is a CAUTIOUS
 	Overtake distance: [25.43280764] m
 
 Driver 268 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.7901347420807 m/s
+	driver driving a CarType.VAN car @ 86.7901347420807 m/s
 	Overtake distance: [25.61794834] m
 
 Driver 269 is a CAUTIOUS
@@ -1079,7 +1079,7 @@ Driver 269 is a CAUTIOUS
 	Overtake distance: [27.34723023] m
 
 Driver 270 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.91864498850215 m/s
+	driver driving a CarType.VAN car @ 88.91864498850215 m/s
 	Overtake distance: [25.12930288] m
 
 Driver 271 is a CAUTIOUS
@@ -1095,7 +1095,7 @@ Driver 273 is a CAUTIOUS
 	Overtake distance: [25.76222166] m
 
 Driver 274 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.16870304668463 m/s
+	driver driving a CarType.VAN car @ 86.16870304668463 m/s
 	Overtake distance: [25.82575043] m
 
 Driver 275 is a CAUTIOUS
@@ -1103,7 +1103,7 @@ Driver 275 is a CAUTIOUS
 	Overtake distance: [25.25014868] m
 
 Driver 276 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.19514959753954 m/s
+	driver driving a CarType.VAN car @ 88.19514959753954 m/s
 	Overtake distance: [25.65839277] m
 
 Driver 277 is a CAUTIOUS
@@ -1131,7 +1131,7 @@ Driver 282 is a CAUTIOUS
 	Overtake distance: [25.23555405] m
 
 Driver 283 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.36641053099997 m/s
+	driver driving a CarType.VAN car @ 86.36641053099997 m/s
 	Overtake distance: [27.37101024] m
 
 Driver 284 is a CAUTIOUS
@@ -1147,11 +1147,11 @@ Driver 286 is a CAUTIOUS
 	Overtake distance: [25.3085028] m
 
 Driver 287 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.82816479181989 m/s
+	driver driving a CarType.VAN car @ 88.82816479181989 m/s
 	Overtake distance: [25.08224155] m
 
 Driver 288 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.55619842951792 m/s
+	driver driving a CarType.VAN car @ 86.55619842951792 m/s
 	Overtake distance: [26.36318384] m
 
 Driver 289 is a CAUTIOUS
@@ -1159,7 +1159,7 @@ Driver 289 is a CAUTIOUS
 	Overtake distance: [25.28895686] m
 
 Driver 290 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.05097327624824 m/s
+	driver driving a CarType.VAN car @ 86.05097327624824 m/s
 	Overtake distance: [25.60293672] m
 
 Driver 291 is a CAUTIOUS
@@ -1175,7 +1175,7 @@ Driver 293 is a CAUTIOUS
 	Overtake distance: [26.10059772] m
 
 Driver 294 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.51741386867553 m/s
+	driver driving a CarType.VAN car @ 86.51741386867553 m/s
 	Overtake distance: [25.28331461] m
 
 Driver 295 is a CAUTIOUS
@@ -1195,11 +1195,11 @@ Driver 298 is a CAUTIOUS
 	Overtake distance: [26.02478181] m
 
 Driver 299 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.2300231184311 m/s
+	driver driving a CarType.VAN car @ 87.2300231184311 m/s
 	Overtake distance: [25.12652534] m
 
 Driver 300 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.78423926843908 m/s
+	driver driving a CarType.VAN car @ 85.78423926843908 m/s
 	Overtake distance: [25.67776655] m
 
 Driver 301 is a CAUTIOUS
@@ -1207,7 +1207,7 @@ Driver 301 is a CAUTIOUS
 	Overtake distance: [25.05786659] m
 
 Driver 302 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.13960406620457 m/s
+	driver driving a CarType.VAN car @ 86.13960406620457 m/s
 	Overtake distance: [26.99272754] m
 
 Driver 303 is a CAUTIOUS
@@ -1219,7 +1219,7 @@ Driver 304 is a CAUTIOUS
 	Overtake distance: [26.18619402] m
 
 Driver 305 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.5121136328872 m/s
+	driver driving a CarType.VAN car @ 86.5121136328872 m/s
 	Overtake distance: [26.21811807] m
 
 Driver 306 is a CAUTIOUS
@@ -1231,7 +1231,7 @@ Driver 307 is a CAUTIOUS
 	Overtake distance: [25.42713336] m
 
 Driver 308 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 84.673763077916 m/s
+	driver driving a CarType.VAN car @ 84.673763077916 m/s
 	Overtake distance: [26.5343029] m
 
 Driver 309 is a CAUTIOUS
@@ -1255,11 +1255,11 @@ Driver 313 is a CAUTIOUS
 	Overtake distance: [25.64755177] m
 
 Driver 314 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.00379927060152 m/s
+	driver driving a CarType.VAN car @ 86.00379927060152 m/s
 	Overtake distance: [27.35045877] m
 
 Driver 315 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.72872257635511 m/s
+	driver driving a CarType.VAN car @ 87.72872257635511 m/s
 	Overtake distance: [25.22301405] m
 
 Driver 316 is a CAUTIOUS
@@ -1271,7 +1271,7 @@ Driver 317 is a CAUTIOUS
 	Overtake distance: [26.27690035] m
 
 Driver 318 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.32752752349344 m/s
+	driver driving a CarType.VAN car @ 87.32752752349344 m/s
 	Overtake distance: [25.98860477] m
 
 Driver 319 is a CAUTIOUS
@@ -1283,7 +1283,7 @@ Driver 320 is a CAUTIOUS
 	Overtake distance: [27.96400989] m
 
 Driver 321 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.58124671920986 m/s
+	driver driving a CarType.VAN car @ 87.58124671920986 m/s
 	Overtake distance: [25.21221339] m
 
 Driver 322 is a CAUTIOUS
@@ -1319,7 +1319,7 @@ Driver 329 is a CAUTIOUS
 	Overtake distance: [26.55749349] m
 
 Driver 330 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.43362860337965 m/s
+	driver driving a CarType.VAN car @ 87.43362860337965 m/s
 	Overtake distance: [25.34688002] m
 
 Driver 331 is a CAUTIOUS
@@ -1335,7 +1335,7 @@ Driver 333 is a CAUTIOUS
 	Overtake distance: [25.56285426] m
 
 Driver 334 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.6101039274915 m/s
+	driver driving a CarType.VAN car @ 87.6101039274915 m/s
 	Overtake distance: [27.34907998] m
 
 Driver 335 is a CAUTIOUS
@@ -1347,11 +1347,11 @@ Driver 336 is a CAUTIOUS
 	Overtake distance: [25.15669847] m
 
 Driver 337 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.91691001273128 m/s
+	driver driving a CarType.VAN car @ 85.91691001273128 m/s
 	Overtake distance: [25.43245828] m
 
 Driver 338 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.27430264464093 m/s
+	driver driving a CarType.VAN car @ 85.27430264464093 m/s
 	Overtake distance: [25.67057221] m
 
 Driver 339 is a CAUTIOUS
@@ -1363,19 +1363,19 @@ Driver 340 is a CAUTIOUS
 	Overtake distance: [25.46346518] m
 
 Driver 341 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.99866086139565 m/s
+	driver driving a CarType.VAN car @ 85.99866086139565 m/s
 	Overtake distance: [25.45181958] m
 
 Driver 342 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.5460014102814 m/s
+	driver driving a CarType.VAN car @ 86.5460014102814 m/s
 	Overtake distance: [26.1099462] m
 
 Driver 343 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 89.40759872096848 m/s
+	driver driving a CarType.VAN car @ 89.40759872096848 m/s
 	Overtake distance: [25.03932571] m
 
 Driver 344 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.72074655234874 m/s
+	driver driving a CarType.VAN car @ 87.72074655234874 m/s
 	Overtake distance: [25.26615024] m
 
 Driver 345 is a CAUTIOUS
@@ -1403,7 +1403,7 @@ Driver 350 is a CAUTIOUS
 	Overtake distance: [25.46724959] m
 
 Driver 351 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.94214073134866 m/s
+	driver driving a CarType.VAN car @ 86.94214073134866 m/s
 	Overtake distance: [26.46847967] m
 
 Driver 352 is a CAUTIOUS
@@ -1411,7 +1411,7 @@ Driver 352 is a CAUTIOUS
 	Overtake distance: [25.89973936] m
 
 Driver 353 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.90263927743787 m/s
+	driver driving a CarType.VAN car @ 87.90263927743787 m/s
 	Overtake distance: [26.4809563] m
 
 Driver 354 is a CAUTIOUS
@@ -1431,7 +1431,7 @@ Driver 357 is a CAUTIOUS
 	Overtake distance: [25.22667546] m
 
 Driver 358 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.62344527961714 m/s
+	driver driving a CarType.VAN car @ 86.62344527961714 m/s
 	Overtake distance: [25.26608941] m
 
 Driver 359 is a CAUTIOUS
@@ -1451,7 +1451,7 @@ Driver 362 is a CAUTIOUS
 	Overtake distance: [25.25199402] m
 
 Driver 363 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.01737512837424 m/s
+	driver driving a CarType.VAN car @ 87.01737512837424 m/s
 	Overtake distance: [26.71901575] m
 
 Driver 364 is a CAUTIOUS
@@ -1459,7 +1459,7 @@ Driver 364 is a CAUTIOUS
 	Overtake distance: [26.58289039] m
 
 Driver 365 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.7675571079489 m/s
+	driver driving a CarType.VAN car @ 87.7675571079489 m/s
 	Overtake distance: [25.63535891] m
 
 Driver 366 is a CAUTIOUS
@@ -1467,11 +1467,11 @@ Driver 366 is a CAUTIOUS
 	Overtake distance: [26.54815617] m
 
 Driver 367 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.72814152047314 m/s
+	driver driving a CarType.VAN car @ 87.72814152047314 m/s
 	Overtake distance: [25.77479033] m
 
 Driver 368 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.39968740822975 m/s
+	driver driving a CarType.VAN car @ 86.39968740822975 m/s
 	Overtake distance: [25.73201294] m
 
 Driver 369 is a CAUTIOUS
@@ -1479,7 +1479,7 @@ Driver 369 is a CAUTIOUS
 	Overtake distance: [26.57000862] m
 
 Driver 370 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.53775438377652 m/s
+	driver driving a CarType.VAN car @ 85.53775438377652 m/s
 	Overtake distance: [26.32497057] m
 
 Driver 371 is a CAUTIOUS
@@ -1491,7 +1491,7 @@ Driver 372 is a CAUTIOUS
 	Overtake distance: [28.19599667] m
 
 Driver 373 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.53619925032379 m/s
+	driver driving a CarType.VAN car @ 86.53619925032379 m/s
 	Overtake distance: [27.32761307] m
 
 Driver 374 is a CAUTIOUS
@@ -1507,7 +1507,7 @@ Driver 376 is a CAUTIOUS
 	Overtake distance: [26.18193832] m
 
 Driver 377 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.75220829157439 m/s
+	driver driving a CarType.VAN car @ 86.75220829157439 m/s
 	Overtake distance: [25.7493059] m
 
 Driver 378 is a CAUTIOUS
@@ -1527,15 +1527,15 @@ Driver 381 is a CAUTIOUS
 	Overtake distance: [25.83130125] m
 
 Driver 382 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.14324586491949 m/s
+	driver driving a CarType.VAN car @ 85.14324586491949 m/s
 	Overtake distance: [27.31910428] m
 
 Driver 383 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.13228842636526 m/s
+	driver driving a CarType.VAN car @ 87.13228842636526 m/s
 	Overtake distance: [25.26780757] m
 
 Driver 384 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.10252805881554 m/s
+	driver driving a CarType.VAN car @ 87.10252805881554 m/s
 	Overtake distance: [25.80978453] m
 
 Driver 385 is a CAUTIOUS
@@ -1547,7 +1547,7 @@ Driver 386 is a CAUTIOUS
 	Overtake distance: [25.41079442] m
 
 Driver 387 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.14360305271612 m/s
+	driver driving a CarType.VAN car @ 86.14360305271612 m/s
 	Overtake distance: [25.45423166] m
 
 Driver 388 is a CAUTIOUS
@@ -1563,7 +1563,7 @@ Driver 390 is a CAUTIOUS
 	Overtake distance: [25.86962222] m
 
 Driver 391 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.28907211256222 m/s
+	driver driving a CarType.VAN car @ 87.28907211256222 m/s
 	Overtake distance: [26.08021591] m
 
 Driver 392 is a CAUTIOUS
@@ -1583,7 +1583,7 @@ Driver 395 is a CAUTIOUS
 	Overtake distance: [25.52291082] m
 
 Driver 396 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.310694338556 m/s
+	driver driving a CarType.VAN car @ 85.310694338556 m/s
 	Overtake distance: [26.89668029] m
 
 Driver 397 is a CAUTIOUS
@@ -1635,7 +1635,7 @@ Driver 408 is a CAUTIOUS
 	Overtake distance: [27.70489846] m
 
 Driver 409 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.12710752823666 m/s
+	driver driving a CarType.VAN car @ 86.12710752823666 m/s
 	Overtake distance: [25.24813002] m
 
 Driver 410 is a CAUTIOUS
@@ -1659,7 +1659,7 @@ Driver 414 is a CAUTIOUS
 	Overtake distance: [25.03666189] m
 
 Driver 415 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.78226031520806 m/s
+	driver driving a CarType.VAN car @ 85.78226031520806 m/s
 	Overtake distance: [26.2930283] m
 
 Driver 416 is a CAUTIOUS
@@ -1679,7 +1679,7 @@ Driver 419 is a CAUTIOUS
 	Overtake distance: [25.25891357] m
 
 Driver 420 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.60787475542179 m/s
+	driver driving a CarType.VAN car @ 86.60787475542179 m/s
 	Overtake distance: [25.75130325] m
 
 Driver 421 is a CAUTIOUS
@@ -1687,11 +1687,11 @@ Driver 421 is a CAUTIOUS
 	Overtake distance: [25.07129036] m
 
 Driver 422 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.1420211535184 m/s
+	driver driving a CarType.VAN car @ 86.1420211535184 m/s
 	Overtake distance: [25.18384108] m
 
 Driver 423 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.3067905839272 m/s
+	driver driving a CarType.VAN car @ 86.3067905839272 m/s
 	Overtake distance: [25.08229368] m
 
 Driver 424 is a CAUTIOUS
@@ -1703,11 +1703,11 @@ Driver 425 is a CAUTIOUS
 	Overtake distance: [26.29510665] m
 
 Driver 426 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.32938357888003 m/s
+	driver driving a CarType.VAN car @ 86.32938357888003 m/s
 	Overtake distance: [27.38136118] m
 
 Driver 427 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.12519670153462 m/s
+	driver driving a CarType.VAN car @ 87.12519670153462 m/s
 	Overtake distance: [25.16136265] m
 
 Driver 428 is a CAUTIOUS
@@ -1727,7 +1727,7 @@ Driver 431 is a CAUTIOUS
 	Overtake distance: [25.14550618] m
 
 Driver 432 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.28054580349033 m/s
+	driver driving a CarType.VAN car @ 87.28054580349033 m/s
 	Overtake distance: [25.49260778] m
 
 Driver 433 is a CAUTIOUS
@@ -1739,7 +1739,7 @@ Driver 434 is a CAUTIOUS
 	Overtake distance: [26.25326008] m
 
 Driver 435 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.59709656217274 m/s
+	driver driving a CarType.VAN car @ 86.59709656217274 m/s
 	Overtake distance: [25.72334975] m
 
 Driver 436 is a CAUTIOUS
@@ -1771,11 +1771,11 @@ Driver 442 is a CAUTIOUS
 	Overtake distance: [26.00003899] m
 
 Driver 443 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.59000830075526 m/s
+	driver driving a CarType.VAN car @ 85.59000830075526 m/s
 	Overtake distance: [26.61557199] m
 
 Driver 444 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.07609776687246 m/s
+	driver driving a CarType.VAN car @ 88.07609776687246 m/s
 	Overtake distance: [27.85068698] m
 
 Driver 445 is a CAUTIOUS
@@ -1787,7 +1787,7 @@ Driver 446 is a CAUTIOUS
 	Overtake distance: [26.13962791] m
 
 Driver 447 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 87.35337895116515 m/s
+	driver driving a CarType.VAN car @ 87.35337895116515 m/s
 	Overtake distance: [26.48290336] m
 
 Driver 448 is a CAUTIOUS
@@ -1799,7 +1799,7 @@ Driver 449 is a CAUTIOUS
 	Overtake distance: [25.31409469] m
 
 Driver 450 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.27473202869622 m/s
+	driver driving a CarType.VAN car @ 86.27473202869622 m/s
 	Overtake distance: [27.29303661] m
 
 Driver 451 is a CAUTIOUS
@@ -1811,7 +1811,7 @@ Driver 452 is a CAUTIOUS
 	Overtake distance: [26.76608004] m
 
 Driver 453 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 89.87252226625915 m/s
+	driver driving a CarType.VAN car @ 89.87252226625915 m/s
 	Overtake distance: [25.06156418] m
 
 Driver 454 is a CAUTIOUS
@@ -1819,7 +1819,7 @@ Driver 454 is a CAUTIOUS
 	Overtake distance: [25.04249423] m
 
 Driver 455 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 85.19370630074525 m/s
+	driver driving a CarType.VAN car @ 85.19370630074525 m/s
 	Overtake distance: [25.04949535] m
 
 Driver 456 is a CAUTIOUS
@@ -1851,7 +1851,7 @@ Driver 462 is a CAUTIOUS
 	Overtake distance: [25.14855255] m
 
 Driver 463 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 88.66567226475993 m/s
+	driver driving a CarType.VAN car @ 88.66567226475993 m/s
 	Overtake distance: [25.0156358] m
 
 Driver 464 is a CAUTIOUS
@@ -1863,7 +1863,7 @@ Driver 465 is a CAUTIOUS
 	Overtake distance: [25.30854726] m
 
 Driver 466 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.15241433593752 m/s
+	driver driving a CarType.VAN car @ 86.15241433593752 m/s
 	Overtake distance: [25.39841578] m
 
 Driver 467 is a CAUTIOUS
@@ -1895,11 +1895,11 @@ Driver 473 is a CAUTIOUS
 	Overtake distance: [25.80308176] m
 
 Driver 474 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.86778504896665 m/s
+	driver driving a CarType.VAN car @ 86.86778504896665 m/s
 	Overtake distance: [25.42982894] m
 
 Driver 475 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 84.32903625434929 m/s
+	driver driving a CarType.VAN car @ 84.32903625434929 m/s
 	Overtake distance: [25.20004031] m
 
 Driver 476 is a CAUTIOUS
@@ -1907,7 +1907,7 @@ Driver 476 is a CAUTIOUS
 	Overtake distance: [26.64486435] m
 
 Driver 477 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.36626141883727 m/s
+	driver driving a CarType.VAN car @ 86.36626141883727 m/s
 	Overtake distance: [25.13475203] m
 
 Driver 478 is a CAUTIOUS
@@ -1947,7 +1947,7 @@ Driver 486 is a CAUTIOUS
 	Overtake distance: [25.54767606] m
 
 Driver 487 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.81909026572481 m/s
+	driver driving a CarType.VAN car @ 86.81909026572481 m/s
 	Overtake distance: [26.77916851] m
 
 Driver 488 is a CAUTIOUS
@@ -1979,7 +1979,7 @@ Driver 494 is a CAUTIOUS
 	Overtake distance: [25.99509785] m
 
 Driver 495 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.92099562073543 m/s
+	driver driving a CarType.VAN car @ 86.92099562073543 m/s
 	Overtake distance: [27.29356973] m
 
 Driver 496 is a CAUTIOUS
@@ -1995,7 +1995,7 @@ Driver 498 is a CAUTIOUS
 	Overtake distance: [25.40613254] m
 
 Driver 499 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.80238385463055 m/s
+	driver driving a CarType.VAN car @ 86.80238385463055 m/s
 	Overtake distance: [25.23654389] m
 
 Driver 500 is a CAUTIOUS
@@ -2011,7 +2011,7 @@ Driver 502 is a CAUTIOUS
 	Overtake distance: [25.87158599] m
 
 Driver 503 is a CAUTIOUS
-	driver driving a CarType.SUV car @ 86.14622334969489 m/s
+	driver driving a CarType.VAN car @ 86.14622334969489 m/s
 	Overtake distance: [25.41812899] m
 
 Driver 504 is a CAUTIOUS
@@ -2035,7 +2035,7 @@ Driver 508 is a NORMAL
 	Overtake distance: [21.92048128] m
 
 Driver 509 is a NORMAL
-	driver driving a CarType.SUV car @ 86.38093077704573 m/s
+	driver driving a CarType.VAN car @ 86.38093077704573 m/s
 	Overtake distance: [20.73716961] m
 
 Driver 510 is a NORMAL
@@ -2047,7 +2047,7 @@ Driver 511 is a NORMAL
 	Overtake distance: [20.46140914] m
 
 Driver 512 is a NORMAL
-	driver driving a CarType.SUV car @ 87.67235436817171 m/s
+	driver driving a CarType.VAN car @ 87.67235436817171 m/s
 	Overtake distance: [21.58002459] m
 
 Driver 513 is a NORMAL
@@ -2059,19 +2059,19 @@ Driver 514 is a NORMAL
 	Overtake distance: [20.77523018] m
 
 Driver 515 is a NORMAL
-	driver driving a CarType.SUV car @ 87.07599265304574 m/s
+	driver driving a CarType.VAN car @ 87.07599265304574 m/s
 	Overtake distance: [21.75672676] m
 
 Driver 516 is a NORMAL
-	driver driving a CarType.SUV car @ 84.88580204343813 m/s
+	driver driving a CarType.VAN car @ 84.88580204343813 m/s
 	Overtake distance: [21.68793457] m
 
 Driver 517 is a NORMAL
-	driver driving a CarType.SUV car @ 86.34749455754591 m/s
+	driver driving a CarType.VAN car @ 86.34749455754591 m/s
 	Overtake distance: [21.22479972] m
 
 Driver 518 is a NORMAL
-	driver driving a CarType.SUV car @ 88.89476091328262 m/s
+	driver driving a CarType.VAN car @ 88.89476091328262 m/s
 	Overtake distance: [20.77389343] m
 
 Driver 519 is a NORMAL
@@ -2087,7 +2087,7 @@ Driver 521 is a NORMAL
 	Overtake distance: [20.68580582] m
 
 Driver 522 is a NORMAL
-	driver driving a CarType.SUV car @ 85.81032376259243 m/s
+	driver driving a CarType.VAN car @ 85.81032376259243 m/s
 	Overtake distance: [21.05629807] m
 
 Driver 523 is a NORMAL
@@ -2107,15 +2107,15 @@ Driver 526 is a NORMAL
 	Overtake distance: [20.53720162] m
 
 Driver 527 is a NORMAL
-	driver driving a CarType.SUV car @ 87.87055519817844 m/s
+	driver driving a CarType.VAN car @ 87.87055519817844 m/s
 	Overtake distance: [20.74891892] m
 
 Driver 528 is a NORMAL
-	driver driving a CarType.SUV car @ 88.85549292155943 m/s
+	driver driving a CarType.VAN car @ 88.85549292155943 m/s
 	Overtake distance: [20.60075328] m
 
 Driver 529 is a NORMAL
-	driver driving a CarType.SUV car @ 89.40456623095045 m/s
+	driver driving a CarType.VAN car @ 89.40456623095045 m/s
 	Overtake distance: [20.0747549] m
 
 Driver 530 is a NORMAL
@@ -2139,15 +2139,15 @@ Driver 534 is a NORMAL
 	Overtake distance: [21.76886167] m
 
 Driver 535 is a NORMAL
-	driver driving a CarType.SUV car @ 87.21954165204309 m/s
+	driver driving a CarType.VAN car @ 87.21954165204309 m/s
 	Overtake distance: [20.14173629] m
 
 Driver 536 is a NORMAL
-	driver driving a CarType.SUV car @ 88.50622395183304 m/s
+	driver driving a CarType.VAN car @ 88.50622395183304 m/s
 	Overtake distance: [20.4149967] m
 
 Driver 537 is a NORMAL
-	driver driving a CarType.SUV car @ 86.6850615418865 m/s
+	driver driving a CarType.VAN car @ 86.6850615418865 m/s
 	Overtake distance: [21.21744311] m
 
 Driver 538 is a NORMAL
@@ -2163,7 +2163,7 @@ Driver 540 is a NORMAL
 	Overtake distance: [21.36793331] m
 
 Driver 541 is a NORMAL
-	driver driving a CarType.SUV car @ 87.67484604198768 m/s
+	driver driving a CarType.VAN car @ 87.67484604198768 m/s
 	Overtake distance: [21.97098113] m
 
 Driver 542 is a NORMAL
@@ -2199,15 +2199,15 @@ Driver 549 is a NORMAL
 	Overtake distance: [21.07568845] m
 
 Driver 550 is a NORMAL
-	driver driving a CarType.SUV car @ 85.58383580940719 m/s
+	driver driving a CarType.VAN car @ 85.58383580940719 m/s
 	Overtake distance: [20.87202777] m
 
 Driver 551 is a NORMAL
-	driver driving a CarType.SUV car @ 85.34660998873144 m/s
+	driver driving a CarType.VAN car @ 85.34660998873144 m/s
 	Overtake distance: [20.54418767] m
 
 Driver 552 is a NORMAL
-	driver driving a CarType.SUV car @ 86.55642613147057 m/s
+	driver driving a CarType.VAN car @ 86.55642613147057 m/s
 	Overtake distance: [20.04462513] m
 
 Driver 553 is a NORMAL
@@ -2219,7 +2219,7 @@ Driver 554 is a NORMAL
 	Overtake distance: [20.68467453] m
 
 Driver 555 is a NORMAL
-	driver driving a CarType.SUV car @ 86.52852670346796 m/s
+	driver driving a CarType.VAN car @ 86.52852670346796 m/s
 	Overtake distance: [20.93901622] m
 
 Driver 556 is a NORMAL
@@ -2267,7 +2267,7 @@ Driver 566 is a NORMAL
 	Overtake distance: [21.0347427] m
 
 Driver 567 is a NORMAL
-	driver driving a CarType.SUV car @ 84.65704379224383 m/s
+	driver driving a CarType.VAN car @ 84.65704379224383 m/s
 	Overtake distance: [21.29693192] m
 
 Driver 568 is a NORMAL
@@ -2275,7 +2275,7 @@ Driver 568 is a NORMAL
 	Overtake distance: [20.41629846] m
 
 Driver 569 is a NORMAL
-	driver driving a CarType.SUV car @ 86.32143112780977 m/s
+	driver driving a CarType.VAN car @ 86.32143112780977 m/s
 	Overtake distance: [20.31793247] m
 
 Driver 570 is a NORMAL
@@ -2323,7 +2323,7 @@ Driver 580 is a NORMAL
 	Overtake distance: [21.91036858] m
 
 Driver 581 is a NORMAL
-	driver driving a CarType.SUV car @ 86.59132413126363 m/s
+	driver driving a CarType.VAN car @ 86.59132413126363 m/s
 	Overtake distance: [20.44085228] m
 
 Driver 582 is a NORMAL
@@ -2339,7 +2339,7 @@ Driver 584 is a NORMAL
 	Overtake distance: [21.08986646] m
 
 Driver 585 is a NORMAL
-	driver driving a CarType.SUV car @ 87.2963441390764 m/s
+	driver driving a CarType.VAN car @ 87.2963441390764 m/s
 	Overtake distance: [21.68965958] m
 
 Driver 586 is a NORMAL
@@ -2351,7 +2351,7 @@ Driver 587 is a NORMAL
 	Overtake distance: [21.08750897] m
 
 Driver 588 is a NORMAL
-	driver driving a CarType.SUV car @ 86.58613359238245 m/s
+	driver driving a CarType.VAN car @ 86.58613359238245 m/s
 	Overtake distance: [20.53554403] m
 
 Driver 589 is a NORMAL
@@ -2375,7 +2375,7 @@ Driver 593 is a NORMAL
 	Overtake distance: [20.72952363] m
 
 Driver 594 is a NORMAL
-	driver driving a CarType.SUV car @ 86.87965159255843 m/s
+	driver driving a CarType.VAN car @ 86.87965159255843 m/s
 	Overtake distance: [21.67142169] m
 
 Driver 595 is a NORMAL
@@ -2383,7 +2383,7 @@ Driver 595 is a NORMAL
 	Overtake distance: [21.82610463] m
 
 Driver 596 is a NORMAL
-	driver driving a CarType.SUV car @ 85.50563460767302 m/s
+	driver driving a CarType.VAN car @ 85.50563460767302 m/s
 	Overtake distance: [20.08217823] m
 
 Driver 597 is a NORMAL
@@ -2403,7 +2403,7 @@ Driver 600 is a NORMAL
 	Overtake distance: [21.2997379] m
 
 Driver 601 is a NORMAL
-	driver driving a CarType.SUV car @ 87.11188925510253 m/s
+	driver driving a CarType.VAN car @ 87.11188925510253 m/s
 	Overtake distance: [20.70117749] m
 
 Driver 602 is a NORMAL
@@ -2423,7 +2423,7 @@ Driver 605 is a NORMAL
 	Overtake distance: [20.49451241] m
 
 Driver 606 is a NORMAL
-	driver driving a CarType.SUV car @ 88.13750741333055 m/s
+	driver driving a CarType.VAN car @ 88.13750741333055 m/s
 	Overtake distance: [20.26841115] m
 
 Driver 607 is a NORMAL
@@ -2431,11 +2431,11 @@ Driver 607 is a NORMAL
 	Overtake distance: [20.7251609] m
 
 Driver 608 is a NORMAL
-	driver driving a CarType.SUV car @ 87.00849688068857 m/s
+	driver driving a CarType.VAN car @ 87.00849688068857 m/s
 	Overtake distance: [20.00303335] m
 
 Driver 609 is a NORMAL
-	driver driving a CarType.SUV car @ 86.38071730714518 m/s
+	driver driving a CarType.VAN car @ 86.38071730714518 m/s
 	Overtake distance: [20.78989535] m
 
 Driver 610 is a NORMAL
@@ -2463,11 +2463,11 @@ Driver 615 is a NORMAL
 	Overtake distance: [20.97463159] m
 
 Driver 616 is a NORMAL
-	driver driving a CarType.SUV car @ 87.26199536519272 m/s
+	driver driving a CarType.VAN car @ 87.26199536519272 m/s
 	Overtake distance: [20.72769549] m
 
 Driver 617 is a NORMAL
-	driver driving a CarType.SUV car @ 85.36980897936024 m/s
+	driver driving a CarType.VAN car @ 85.36980897936024 m/s
 	Overtake distance: [21.39468409] m
 
 Driver 618 is a NORMAL
@@ -2487,7 +2487,7 @@ Driver 621 is a NORMAL
 	Overtake distance: [20.05428506] m
 
 Driver 622 is a NORMAL
-	driver driving a CarType.SUV car @ 85.23242579249967 m/s
+	driver driving a CarType.VAN car @ 85.23242579249967 m/s
 	Overtake distance: [20.06973249] m
 
 Driver 623 is a NORMAL
@@ -2499,7 +2499,7 @@ Driver 624 is a NORMAL
 	Overtake distance: [20.45105517] m
 
 Driver 625 is a NORMAL
-	driver driving a CarType.SUV car @ 87.18039156887372 m/s
+	driver driving a CarType.VAN car @ 87.18039156887372 m/s
 	Overtake distance: [20.94203998] m
 
 Driver 626 is a NORMAL
@@ -2507,7 +2507,7 @@ Driver 626 is a NORMAL
 	Overtake distance: [20.65616343] m
 
 Driver 627 is a NORMAL
-	driver driving a CarType.SUV car @ 86.94272228486625 m/s
+	driver driving a CarType.VAN car @ 86.94272228486625 m/s
 	Overtake distance: [20.09844196] m
 
 Driver 628 is a NORMAL
@@ -2515,7 +2515,7 @@ Driver 628 is a NORMAL
 	Overtake distance: [20.94118463] m
 
 Driver 629 is a NORMAL
-	driver driving a CarType.SUV car @ 86.40435805712974 m/s
+	driver driving a CarType.VAN car @ 86.40435805712974 m/s
 	Overtake distance: [20.87330873] m
 
 Driver 630 is a NORMAL
@@ -2535,19 +2535,19 @@ Driver 633 is a NORMAL
 	Overtake distance: [20.0116449] m
 
 Driver 634 is a NORMAL
-	driver driving a CarType.SUV car @ 86.22626031607552 m/s
+	driver driving a CarType.VAN car @ 86.22626031607552 m/s
 	Overtake distance: [21.86017335] m
 
 Driver 635 is a NORMAL
-	driver driving a CarType.SUV car @ 88.49761790477532 m/s
+	driver driving a CarType.VAN car @ 88.49761790477532 m/s
 	Overtake distance: [20.15000989] m
 
 Driver 636 is a NORMAL
-	driver driving a CarType.SUV car @ 87.01428687925716 m/s
+	driver driving a CarType.VAN car @ 87.01428687925716 m/s
 	Overtake distance: [21.02313424] m
 
 Driver 637 is a NORMAL
-	driver driving a CarType.SUV car @ 86.56897315179633 m/s
+	driver driving a CarType.VAN car @ 86.56897315179633 m/s
 	Overtake distance: [20.32067342] m
 
 Driver 638 is a NORMAL
@@ -2607,11 +2607,11 @@ Driver 651 is a NORMAL
 	Overtake distance: [20.39009927] m
 
 Driver 652 is a NORMAL
-	driver driving a CarType.SUV car @ 86.00675617592454 m/s
+	driver driving a CarType.VAN car @ 86.00675617592454 m/s
 	Overtake distance: [20.55453537] m
 
 Driver 653 is a NORMAL
-	driver driving a CarType.SUV car @ 87.64559211712034 m/s
+	driver driving a CarType.VAN car @ 87.64559211712034 m/s
 	Overtake distance: [21.45762597] m
 
 Driver 654 is a NORMAL
@@ -2639,7 +2639,7 @@ Driver 659 is a NORMAL
 	Overtake distance: [22.74757406] m
 
 Driver 660 is a NORMAL
-	driver driving a CarType.SUV car @ 88.84521091495857 m/s
+	driver driving a CarType.VAN car @ 88.84521091495857 m/s
 	Overtake distance: [20.57290354] m
 
 Driver 661 is a NORMAL
@@ -2659,7 +2659,7 @@ Driver 664 is a NORMAL
 	Overtake distance: [20.28290734] m
 
 Driver 665 is a NORMAL
-	driver driving a CarType.SUV car @ 86.33596480941141 m/s
+	driver driving a CarType.VAN car @ 86.33596480941141 m/s
 	Overtake distance: [20.61041962] m
 
 Driver 666 is a NORMAL
@@ -2687,7 +2687,7 @@ Driver 671 is a NORMAL
 	Overtake distance: [22.09835202] m
 
 Driver 672 is a NORMAL
-	driver driving a CarType.SUV car @ 86.65994904832624 m/s
+	driver driving a CarType.VAN car @ 86.65994904832624 m/s
 	Overtake distance: [21.14959113] m
 
 Driver 673 is a NORMAL
@@ -2707,7 +2707,7 @@ Driver 676 is a NORMAL
 	Overtake distance: [22.26917851] m
 
 Driver 677 is a NORMAL
-	driver driving a CarType.SUV car @ 87.66393773942998 m/s
+	driver driving a CarType.VAN car @ 87.66393773942998 m/s
 	Overtake distance: [20.71434916] m
 
 Driver 678 is a NORMAL
@@ -2723,11 +2723,11 @@ Driver 680 is a NORMAL
 	Overtake distance: [20.62547691] m
 
 Driver 681 is a NORMAL
-	driver driving a CarType.SUV car @ 86.10254619250878 m/s
+	driver driving a CarType.VAN car @ 86.10254619250878 m/s
 	Overtake distance: [20.65727999] m
 
 Driver 682 is a NORMAL
-	driver driving a CarType.SUV car @ 86.63080448397335 m/s
+	driver driving a CarType.VAN car @ 86.63080448397335 m/s
 	Overtake distance: [21.57025541] m
 
 Driver 683 is a NORMAL
@@ -2739,7 +2739,7 @@ Driver 684 is a NORMAL
 	Overtake distance: [20.34318999] m
 
 Driver 685 is a NORMAL
-	driver driving a CarType.SUV car @ 86.99631631756871 m/s
+	driver driving a CarType.VAN car @ 86.99631631756871 m/s
 	Overtake distance: [20.43088547] m
 
 Driver 686 is a NORMAL
@@ -2751,7 +2751,7 @@ Driver 687 is a NORMAL
 	Overtake distance: [20.80047344] m
 
 Driver 688 is a NORMAL
-	driver driving a CarType.SUV car @ 87.67181512185488 m/s
+	driver driving a CarType.VAN car @ 87.67181512185488 m/s
 	Overtake distance: [20.21324312] m
 
 Driver 689 is a NORMAL
@@ -2759,11 +2759,11 @@ Driver 689 is a NORMAL
 	Overtake distance: [21.53018213] m
 
 Driver 690 is a NORMAL
-	driver driving a CarType.SUV car @ 85.37464562438426 m/s
+	driver driving a CarType.VAN car @ 85.37464562438426 m/s
 	Overtake distance: [20.20433917] m
 
 Driver 691 is a NORMAL
-	driver driving a CarType.SUV car @ 87.1862251696163 m/s
+	driver driving a CarType.VAN car @ 87.1862251696163 m/s
 	Overtake distance: [20.08009606] m
 
 Driver 692 is a NORMAL
@@ -2771,7 +2771,7 @@ Driver 692 is a NORMAL
 	Overtake distance: [20.11015883] m
 
 Driver 693 is a NORMAL
-	driver driving a CarType.SUV car @ 88.25063892718794 m/s
+	driver driving a CarType.VAN car @ 88.25063892718794 m/s
 	Overtake distance: [20.34846389] m
 
 Driver 694 is a NORMAL
@@ -2783,7 +2783,7 @@ Driver 695 is a NORMAL
 	Overtake distance: [20.83294289] m
 
 Driver 696 is a NORMAL
-	driver driving a CarType.SUV car @ 86.5069927700127 m/s
+	driver driving a CarType.VAN car @ 86.5069927700127 m/s
 	Overtake distance: [20.09479798] m
 
 Driver 697 is a NORMAL
@@ -2791,7 +2791,7 @@ Driver 697 is a NORMAL
 	Overtake distance: [20.1885275] m
 
 Driver 698 is a NORMAL
-	driver driving a CarType.SUV car @ 85.68608844741532 m/s
+	driver driving a CarType.VAN car @ 85.68608844741532 m/s
 	Overtake distance: [21.71926275] m
 
 Driver 699 is a NORMAL
@@ -2815,11 +2815,11 @@ Driver 703 is a NORMAL
 	Overtake distance: [21.03364429] m
 
 Driver 704 is a NORMAL
-	driver driving a CarType.SUV car @ 88.22588961426669 m/s
+	driver driving a CarType.VAN car @ 88.22588961426669 m/s
 	Overtake distance: [20.94388102] m
 
 Driver 705 is a NORMAL
-	driver driving a CarType.SUV car @ 86.82367127396004 m/s
+	driver driving a CarType.VAN car @ 86.82367127396004 m/s
 	Overtake distance: [20.50732594] m
 
 Driver 706 is a NORMAL
@@ -2831,7 +2831,7 @@ Driver 707 is a NORMAL
 	Overtake distance: [21.62888782] m
 
 Driver 708 is a NORMAL
-	driver driving a CarType.SUV car @ 85.50406958765754 m/s
+	driver driving a CarType.VAN car @ 85.50406958765754 m/s
 	Overtake distance: [20.4903996] m
 
 Driver 709 is a NORMAL
@@ -2843,19 +2843,19 @@ Driver 710 is a NORMAL
 	Overtake distance: [20.55602727] m
 
 Driver 711 is a NORMAL
-	driver driving a CarType.SUV car @ 85.36524369634212 m/s
+	driver driving a CarType.VAN car @ 85.36524369634212 m/s
 	Overtake distance: [20.43481993] m
 
 Driver 712 is a NORMAL
-	driver driving a CarType.SUV car @ 85.29435970408802 m/s
+	driver driving a CarType.VAN car @ 85.29435970408802 m/s
 	Overtake distance: [20.88317048] m
 
 Driver 713 is a NORMAL
-	driver driving a CarType.SUV car @ 86.79299931169061 m/s
+	driver driving a CarType.VAN car @ 86.79299931169061 m/s
 	Overtake distance: [20.4553857] m
 
 Driver 714 is a NORMAL
-	driver driving a CarType.SUV car @ 86.81127920307352 m/s
+	driver driving a CarType.VAN car @ 86.81127920307352 m/s
 	Overtake distance: [20.18393275] m
 
 Driver 715 is a NORMAL
@@ -2863,7 +2863,7 @@ Driver 715 is a NORMAL
 	Overtake distance: [21.77723596] m
 
 Driver 716 is a NORMAL
-	driver driving a CarType.SUV car @ 87.24165536334463 m/s
+	driver driving a CarType.VAN car @ 87.24165536334463 m/s
 	Overtake distance: [24.04480599] m
 
 Driver 717 is a NORMAL
@@ -2899,7 +2899,7 @@ Driver 724 is a NORMAL
 	Overtake distance: [20.38979093] m
 
 Driver 725 is a NORMAL
-	driver driving a CarType.SUV car @ 85.85690772236711 m/s
+	driver driving a CarType.VAN car @ 85.85690772236711 m/s
 	Overtake distance: [20.18202003] m
 
 Driver 726 is a NORMAL
@@ -2919,7 +2919,7 @@ Driver 729 is a NORMAL
 	Overtake distance: [21.56050908] m
 
 Driver 730 is a NORMAL
-	driver driving a CarType.SUV car @ 86.11234799104652 m/s
+	driver driving a CarType.VAN car @ 86.11234799104652 m/s
 	Overtake distance: [20.70836856] m
 
 Driver 731 is a NORMAL
@@ -2951,7 +2951,7 @@ Driver 737 is a NORMAL
 	Overtake distance: [20.0331441] m
 
 Driver 738 is a NORMAL
-	driver driving a CarType.SUV car @ 84.84635002840594 m/s
+	driver driving a CarType.VAN car @ 84.84635002840594 m/s
 	Overtake distance: [20.40735237] m
 
 Driver 739 is a NORMAL
@@ -2983,7 +2983,7 @@ Driver 745 is a NORMAL
 	Overtake distance: [20.06986393] m
 
 Driver 746 is a NORMAL
-	driver driving a CarType.SUV car @ 87.50978036786634 m/s
+	driver driving a CarType.VAN car @ 87.50978036786634 m/s
 	Overtake distance: [20.06685461] m
 
 Driver 747 is a NORMAL
@@ -2991,7 +2991,7 @@ Driver 747 is a NORMAL
 	Overtake distance: [20.17172863] m
 
 Driver 748 is a NORMAL
-	driver driving a CarType.SUV car @ 88.06591738237591 m/s
+	driver driving a CarType.VAN car @ 88.06591738237591 m/s
 	Overtake distance: [20.36779649] m
 
 Driver 749 is a NORMAL
@@ -2999,7 +2999,7 @@ Driver 749 is a NORMAL
 	Overtake distance: [20.16688807] m
 
 Driver 750 is a NORMAL
-	driver driving a CarType.SUV car @ 86.1784756345029 m/s
+	driver driving a CarType.VAN car @ 86.1784756345029 m/s
 	Overtake distance: [20.37975765] m
 
 Driver 751 is a NORMAL
@@ -3047,19 +3047,19 @@ Driver 761 is a NORMAL
 	Overtake distance: [20.22539394] m
 
 Driver 762 is a NORMAL
-	driver driving a CarType.SUV car @ 85.13099275776925 m/s
+	driver driving a CarType.VAN car @ 85.13099275776925 m/s
 	Overtake distance: [21.14271345] m
 
 Driver 763 is a NORMAL
-	driver driving a CarType.SUV car @ 86.70582316219232 m/s
+	driver driving a CarType.VAN car @ 86.70582316219232 m/s
 	Overtake distance: [21.65304577] m
 
 Driver 764 is a NORMAL
-	driver driving a CarType.SUV car @ 84.72090709259648 m/s
+	driver driving a CarType.VAN car @ 84.72090709259648 m/s
 	Overtake distance: [20.2661013] m
 
 Driver 765 is a NORMAL
-	driver driving a CarType.SUV car @ 84.45071464389841 m/s
+	driver driving a CarType.VAN car @ 84.45071464389841 m/s
 	Overtake distance: [20.76084951] m
 
 Driver 766 is a NORMAL
@@ -3087,7 +3087,7 @@ Driver 771 is a NORMAL
 	Overtake distance: [22.30706782] m
 
 Driver 772 is a NORMAL
-	driver driving a CarType.SUV car @ 86.03651893506044 m/s
+	driver driving a CarType.VAN car @ 86.03651893506044 m/s
 	Overtake distance: [21.34486296] m
 
 Driver 773 is a NORMAL
@@ -3099,11 +3099,11 @@ Driver 774 is a NORMAL
 	Overtake distance: [20.44354179] m
 
 Driver 775 is a NORMAL
-	driver driving a CarType.SUV car @ 86.9037915524035 m/s
+	driver driving a CarType.VAN car @ 86.9037915524035 m/s
 	Overtake distance: [20.92681623] m
 
 Driver 776 is a NORMAL
-	driver driving a CarType.SUV car @ 86.08656590955428 m/s
+	driver driving a CarType.VAN car @ 86.08656590955428 m/s
 	Overtake distance: [22.25404608] m
 
 Driver 777 is a NORMAL
@@ -3123,15 +3123,15 @@ Driver 780 is a NORMAL
 	Overtake distance: [22.83074737] m
 
 Driver 781 is a NORMAL
-	driver driving a CarType.SUV car @ 87.18769238266026 m/s
+	driver driving a CarType.VAN car @ 87.18769238266026 m/s
 	Overtake distance: [21.13665423] m
 
 Driver 782 is a NORMAL
-	driver driving a CarType.SUV car @ 84.12466976699471 m/s
+	driver driving a CarType.VAN car @ 84.12466976699471 m/s
 	Overtake distance: [20.01905726] m
 
 Driver 783 is a NORMAL
-	driver driving a CarType.SUV car @ 86.74130926224554 m/s
+	driver driving a CarType.VAN car @ 86.74130926224554 m/s
 	Overtake distance: [20.39652103] m
 
 Driver 784 is a NORMAL
@@ -3147,11 +3147,11 @@ Driver 786 is a NORMAL
 	Overtake distance: [20.37711003] m
 
 Driver 787 is a NORMAL
-	driver driving a CarType.SUV car @ 87.64776249485566 m/s
+	driver driving a CarType.VAN car @ 87.64776249485566 m/s
 	Overtake distance: [22.50881648] m
 
 Driver 788 is a NORMAL
-	driver driving a CarType.SUV car @ 86.41767238322713 m/s
+	driver driving a CarType.VAN car @ 86.41767238322713 m/s
 	Overtake distance: [20.00866999] m
 
 Driver 789 is a NORMAL
@@ -3159,7 +3159,7 @@ Driver 789 is a NORMAL
 	Overtake distance: [20.12078357] m
 
 Driver 790 is a NORMAL
-	driver driving a CarType.SUV car @ 86.45857505200972 m/s
+	driver driving a CarType.VAN car @ 86.45857505200972 m/s
 	Overtake distance: [20.24955406] m
 
 Driver 791 is a NORMAL
@@ -3199,11 +3199,11 @@ Driver 799 is a NORMAL
 	Overtake distance: [20.3221506] m
 
 Driver 800 is a NORMAL
-	driver driving a CarType.SUV car @ 87.98709280745643 m/s
+	driver driving a CarType.VAN car @ 87.98709280745643 m/s
 	Overtake distance: [21.28058683] m
 
 Driver 801 is a NORMAL
-	driver driving a CarType.SUV car @ 86.05361130833971 m/s
+	driver driving a CarType.VAN car @ 86.05361130833971 m/s
 	Overtake distance: [21.5742201] m
 
 Driver 802 is a NORMAL
@@ -3211,7 +3211,7 @@ Driver 802 is a NORMAL
 	Overtake distance: [20.25041879] m
 
 Driver 803 is a NORMAL
-	driver driving a CarType.SUV car @ 88.81527416427608 m/s
+	driver driving a CarType.VAN car @ 88.81527416427608 m/s
 	Overtake distance: [20.14214661] m
 
 Driver 804 is a NORMAL
@@ -3223,7 +3223,7 @@ Driver 805 is a NORMAL
 	Overtake distance: [21.8321176] m
 
 Driver 806 is a NORMAL
-	driver driving a CarType.SUV car @ 84.81271696137522 m/s
+	driver driving a CarType.VAN car @ 84.81271696137522 m/s
 	Overtake distance: [21.58900615] m
 
 Driver 807 is a NORMAL
@@ -3247,11 +3247,11 @@ Driver 811 is a NORMAL
 	Overtake distance: [21.34158153] m
 
 Driver 812 is a NORMAL
-	driver driving a CarType.SUV car @ 86.0583581283524 m/s
+	driver driving a CarType.VAN car @ 86.0583581283524 m/s
 	Overtake distance: [22.46834121] m
 
 Driver 813 is a NORMAL
-	driver driving a CarType.SUV car @ 87.68715615320738 m/s
+	driver driving a CarType.VAN car @ 87.68715615320738 m/s
 	Overtake distance: [23.98225999] m
 
 Driver 814 is a NORMAL
@@ -3259,11 +3259,11 @@ Driver 814 is a NORMAL
 	Overtake distance: [20.17051286] m
 
 Driver 815 is a NORMAL
-	driver driving a CarType.SUV car @ 86.69078729808821 m/s
+	driver driving a CarType.VAN car @ 86.69078729808821 m/s
 	Overtake distance: [20.16489314] m
 
 Driver 816 is a NORMAL
-	driver driving a CarType.SUV car @ 87.84557996761403 m/s
+	driver driving a CarType.VAN car @ 87.84557996761403 m/s
 	Overtake distance: [20.791968] m
 
 Driver 817 is a NORMAL
@@ -3271,15 +3271,15 @@ Driver 817 is a NORMAL
 	Overtake distance: [20.81674255] m
 
 Driver 818 is a NORMAL
-	driver driving a CarType.SUV car @ 87.7639671752826 m/s
+	driver driving a CarType.VAN car @ 87.7639671752826 m/s
 	Overtake distance: [21.05404012] m
 
 Driver 819 is a NORMAL
-	driver driving a CarType.SUV car @ 86.95127836086581 m/s
+	driver driving a CarType.VAN car @ 86.95127836086581 m/s
 	Overtake distance: [20.76151681] m
 
 Driver 820 is a NORMAL
-	driver driving a CarType.SUV car @ 86.90757699244685 m/s
+	driver driving a CarType.VAN car @ 86.90757699244685 m/s
 	Overtake distance: [21.56324862] m
 
 Driver 821 is a NORMAL
@@ -3323,7 +3323,7 @@ Driver 830 is a NORMAL
 	Overtake distance: [20.44686546] m
 
 Driver 831 is a NORMAL
-	driver driving a CarType.SUV car @ 86.31987467204736 m/s
+	driver driving a CarType.VAN car @ 86.31987467204736 m/s
 	Overtake distance: [20.90153301] m
 
 Driver 832 is a NORMAL
@@ -3335,11 +3335,11 @@ Driver 833 is a NORMAL
 	Overtake distance: [20.13968137] m
 
 Driver 834 is a NORMAL
-	driver driving a CarType.SUV car @ 85.18618556187205 m/s
+	driver driving a CarType.VAN car @ 85.18618556187205 m/s
 	Overtake distance: [20.29610411] m
 
 Driver 835 is a NORMAL
-	driver driving a CarType.SUV car @ 86.21472174193981 m/s
+	driver driving a CarType.VAN car @ 86.21472174193981 m/s
 	Overtake distance: [20.0286249] m
 
 Driver 836 is a NORMAL
@@ -3363,7 +3363,7 @@ Driver 840 is a NORMAL
 	Overtake distance: [21.45747607] m
 
 Driver 841 is a NORMAL
-	driver driving a CarType.SUV car @ 86.22302126523282 m/s
+	driver driving a CarType.VAN car @ 86.22302126523282 m/s
 	Overtake distance: [20.59929528] m
 
 Driver 842 is a NORMAL
@@ -3375,11 +3375,11 @@ Driver 843 is a NORMAL
 	Overtake distance: [20.80562419] m
 
 Driver 844 is a NORMAL
-	driver driving a CarType.SUV car @ 86.89726153765875 m/s
+	driver driving a CarType.VAN car @ 86.89726153765875 m/s
 	Overtake distance: [21.8727529] m
 
 Driver 845 is a NORMAL
-	driver driving a CarType.SUV car @ 87.5756173716593 m/s
+	driver driving a CarType.VAN car @ 87.5756173716593 m/s
 	Overtake distance: [21.17853627] m
 
 Driver 846 is a NORMAL
@@ -3391,7 +3391,7 @@ Driver 847 is a NORMAL
 	Overtake distance: [20.07537531] m
 
 Driver 848 is a NORMAL
-	driver driving a CarType.SUV car @ 86.7168357243507 m/s
+	driver driving a CarType.VAN car @ 86.7168357243507 m/s
 	Overtake distance: [21.03630714] m
 
 Driver 849 is a NORMAL
@@ -3399,7 +3399,7 @@ Driver 849 is a NORMAL
 	Overtake distance: [20.11990487] m
 
 Driver 850 is a NORMAL
-	driver driving a CarType.SUV car @ 86.14787875473029 m/s
+	driver driving a CarType.VAN car @ 86.14787875473029 m/s
 	Overtake distance: [20.2419416] m
 
 Driver 851 is a NORMAL
@@ -3411,7 +3411,7 @@ Driver 852 is a NORMAL
 	Overtake distance: [21.42609976] m
 
 Driver 853 is a NORMAL
-	driver driving a CarType.SUV car @ 86.34352269635427 m/s
+	driver driving a CarType.VAN car @ 86.34352269635427 m/s
 	Overtake distance: [20.18133418] m
 
 Driver 854 is a NORMAL
@@ -3423,7 +3423,7 @@ Driver 855 is a NORMAL
 	Overtake distance: [20.42887619] m
 
 Driver 856 is a NORMAL
-	driver driving a CarType.SUV car @ 88.87407797059477 m/s
+	driver driving a CarType.VAN car @ 88.87407797059477 m/s
 	Overtake distance: [20.7588604] m
 
 Driver 857 is a NORMAL
@@ -3443,7 +3443,7 @@ Driver 860 is a NORMAL
 	Overtake distance: [22.21101615] m
 
 Driver 861 is a NORMAL
-	driver driving a CarType.SUV car @ 86.998298483397 m/s
+	driver driving a CarType.VAN car @ 86.998298483397 m/s
 	Overtake distance: [22.5845727] m
 
 Driver 862 is a NORMAL
@@ -3451,7 +3451,7 @@ Driver 862 is a NORMAL
 	Overtake distance: [22.97607446] m
 
 Driver 863 is a NORMAL
-	driver driving a CarType.SUV car @ 87.15293451229189 m/s
+	driver driving a CarType.VAN car @ 87.15293451229189 m/s
 	Overtake distance: [20.50234718] m
 
 Driver 864 is a NORMAL
@@ -3459,7 +3459,7 @@ Driver 864 is a NORMAL
 	Overtake distance: [20.70462398] m
 
 Driver 865 is a RISKY
-	driver driving a CarType.SUV car @ 85.5586491705957 m/s
+	driver driving a CarType.VAN car @ 85.5586491705957 m/s
 	Overtake distance: [15.08946841] m
 
 Driver 866 is a RISKY
@@ -3471,7 +3471,7 @@ Driver 867 is a RISKY
 	Overtake distance: [18.80825612] m
 
 Driver 868 is a RISKY
-	driver driving a CarType.SUV car @ 85.58688917614434 m/s
+	driver driving a CarType.VAN car @ 85.58688917614434 m/s
 	Overtake distance: [15.16898171] m
 
 Driver 869 is a RISKY
@@ -3483,11 +3483,11 @@ Driver 870 is a RISKY
 	Overtake distance: [15.85141967] m
 
 Driver 871 is a RISKY
-	driver driving a CarType.SUV car @ 87.05813681503265 m/s
+	driver driving a CarType.VAN car @ 87.05813681503265 m/s
 	Overtake distance: [16.07386297] m
 
 Driver 872 is a RISKY
-	driver driving a CarType.SUV car @ 87.63330823465819 m/s
+	driver driving a CarType.VAN car @ 87.63330823465819 m/s
 	Overtake distance: [15.60131347] m
 
 Driver 873 is a RISKY
@@ -3495,15 +3495,15 @@ Driver 873 is a RISKY
 	Overtake distance: [16.44513046] m
 
 Driver 874 is a RISKY
-	driver driving a CarType.SUV car @ 87.16742099969512 m/s
+	driver driving a CarType.VAN car @ 87.16742099969512 m/s
 	Overtake distance: [15.63735461] m
 
 Driver 875 is a RISKY
-	driver driving a CarType.SUV car @ 85.73317741441481 m/s
+	driver driving a CarType.VAN car @ 85.73317741441481 m/s
 	Overtake distance: [15.34201161] m
 
 Driver 876 is a RISKY
-	driver driving a CarType.SUV car @ 86.40669444501813 m/s
+	driver driving a CarType.VAN car @ 86.40669444501813 m/s
 	Overtake distance: [15.73076337] m
 
 Driver 877 is a RISKY
@@ -3519,15 +3519,15 @@ Driver 879 is a RISKY
 	Overtake distance: [16.99893904] m
 
 Driver 880 is a RISKY
-	driver driving a CarType.SUV car @ 84.14685758454449 m/s
+	driver driving a CarType.VAN car @ 84.14685758454449 m/s
 	Overtake distance: [15.74329725] m
 
 Driver 881 is a RISKY
-	driver driving a CarType.SUV car @ 86.95475353015733 m/s
+	driver driving a CarType.VAN car @ 86.95475353015733 m/s
 	Overtake distance: [16.16939477] m
 
 Driver 882 is a RISKY
-	driver driving a CarType.SUV car @ 85.7966278457632 m/s
+	driver driving a CarType.VAN car @ 85.7966278457632 m/s
 	Overtake distance: [15.14088861] m
 
 Driver 883 is a RISKY
@@ -3567,7 +3567,7 @@ Driver 891 is a RISKY
 	Overtake distance: [15.02220781] m
 
 Driver 892 is a RISKY
-	driver driving a CarType.SUV car @ 89.51030408336558 m/s
+	driver driving a CarType.VAN car @ 89.51030408336558 m/s
 	Overtake distance: [15.6678065] m
 
 Driver 893 is a RISKY
@@ -3603,11 +3603,11 @@ Driver 900 is a RISKY
 	Overtake distance: [15.90152529] m
 
 Driver 901 is a RISKY
-	driver driving a CarType.SUV car @ 86.7358104849013 m/s
+	driver driving a CarType.VAN car @ 86.7358104849013 m/s
 	Overtake distance: [15.11100223] m
 
 Driver 902 is a RISKY
-	driver driving a CarType.SUV car @ 87.9050523158652 m/s
+	driver driving a CarType.VAN car @ 87.9050523158652 m/s
 	Overtake distance: [15.36117998] m
 
 Driver 903 is a RISKY
@@ -3615,11 +3615,11 @@ Driver 903 is a RISKY
 	Overtake distance: [15.74202693] m
 
 Driver 904 is a RISKY
-	driver driving a CarType.SUV car @ 86.26574641723003 m/s
+	driver driving a CarType.VAN car @ 86.26574641723003 m/s
 	Overtake distance: [15.10939875] m
 
 Driver 905 is a RISKY
-	driver driving a CarType.SUV car @ 87.70359852981146 m/s
+	driver driving a CarType.VAN car @ 87.70359852981146 m/s
 	Overtake distance: [15.09168381] m
 
 Driver 906 is a RISKY
@@ -3627,7 +3627,7 @@ Driver 906 is a RISKY
 	Overtake distance: [16.64435328] m
 
 Driver 907 is a RISKY
-	driver driving a CarType.SUV car @ 86.04257450736523 m/s
+	driver driving a CarType.VAN car @ 86.04257450736523 m/s
 	Overtake distance: [15.1740585] m
 
 Driver 908 is a RISKY
@@ -3655,7 +3655,7 @@ Driver 913 is a RISKY
 	Overtake distance: [15.56902329] m
 
 Driver 914 is a RISKY
-	driver driving a CarType.SUV car @ 86.77407023275869 m/s
+	driver driving a CarType.VAN car @ 86.77407023275869 m/s
 	Overtake distance: [15.20351951] m
 
 Driver 915 is a RISKY
@@ -3663,7 +3663,7 @@ Driver 915 is a RISKY
 	Overtake distance: [15.05121386] m
 
 Driver 916 is a RISKY
-	driver driving a CarType.SUV car @ 84.64233108028469 m/s
+	driver driving a CarType.VAN car @ 84.64233108028469 m/s
 	Overtake distance: [15.80828583] m
 
 Driver 917 is a RISKY
@@ -3683,7 +3683,7 @@ Driver 920 is a RISKY
 	Overtake distance: [15.25548158] m
 
 Driver 921 is a RISKY
-	driver driving a CarType.SUV car @ 86.63040353227835 m/s
+	driver driving a CarType.VAN car @ 86.63040353227835 m/s
 	Overtake distance: [15.41223695] m
 
 Driver 922 is a RISKY
@@ -3695,7 +3695,7 @@ Driver 923 is a RISKY
 	Overtake distance: [15.8341413] m
 
 Driver 924 is a RISKY
-	driver driving a CarType.SUV car @ 86.9541140548242 m/s
+	driver driving a CarType.VAN car @ 86.9541140548242 m/s
 	Overtake distance: [16.10014889] m
 
 Driver 925 is a RISKY
@@ -3707,11 +3707,11 @@ Driver 926 is a RISKY
 	Overtake distance: [15.17323195] m
 
 Driver 927 is a RISKY
-	driver driving a CarType.SUV car @ 86.9105450467867 m/s
+	driver driving a CarType.VAN car @ 86.9105450467867 m/s
 	Overtake distance: [15.23457492] m
 
 Driver 928 is a RISKY
-	driver driving a CarType.SUV car @ 88.53307104380039 m/s
+	driver driving a CarType.VAN car @ 88.53307104380039 m/s
 	Overtake distance: [17.1932322] m
 
 Driver 929 is a RISKY
@@ -3727,7 +3727,7 @@ Driver 931 is a RISKY
 	Overtake distance: [15.90711727] m
 
 Driver 932 is a RISKY
-	driver driving a CarType.SUV car @ 85.57050535122784 m/s
+	driver driving a CarType.VAN car @ 85.57050535122784 m/s
 	Overtake distance: [17.93260104] m
 
 Driver 933 is a RISKY
@@ -3783,11 +3783,11 @@ Driver 945 is a RISKY
 	Overtake distance: [16.11462504] m
 
 Driver 946 is a RISKY
-	driver driving a CarType.SUV car @ 85.06644424649618 m/s
+	driver driving a CarType.VAN car @ 85.06644424649618 m/s
 	Overtake distance: [15.22441477] m
 
 Driver 947 is a RISKY
-	driver driving a CarType.SUV car @ 86.73181702133662 m/s
+	driver driving a CarType.VAN car @ 86.73181702133662 m/s
 	Overtake distance: [17.80517956] m
 
 Driver 948 is a RISKY
@@ -3815,7 +3815,7 @@ Driver 953 is a RISKY
 	Overtake distance: [15.72522042] m
 
 Driver 954 is a RISKY
-	driver driving a CarType.SUV car @ 87.98769149982814 m/s
+	driver driving a CarType.VAN car @ 87.98769149982814 m/s
 	Overtake distance: [15.72402575] m
 
 Driver 955 is a RISKY
@@ -3847,7 +3847,7 @@ Driver 961 is a RISKY
 	Overtake distance: [15.00987012] m
 
 Driver 962 is a RISKY
-	driver driving a CarType.SUV car @ 87.34110279300644 m/s
+	driver driving a CarType.VAN car @ 87.34110279300644 m/s
 	Overtake distance: [15.33141822] m
 
 Driver 963 is a RISKY
@@ -3855,11 +3855,11 @@ Driver 963 is a RISKY
 	Overtake distance: [15.83555512] m
 
 Driver 964 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.9031437774511 m/s
+	driver driving a CarType.VAN car @ 85.9031437774511 m/s
 	Overtake distance: [11.46383126] m
 
 Driver 965 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.35202278011666 m/s
+	driver driving a CarType.VAN car @ 85.35202278011666 m/s
 	Overtake distance: [11.98557662] m
 
 Driver 966 is a AGGRESSIVE
@@ -3867,7 +3867,7 @@ Driver 966 is a AGGRESSIVE
 	Overtake distance: [12.12697116] m
 
 Driver 967 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.43058199623057 m/s
+	driver driving a CarType.VAN car @ 85.43058199623057 m/s
 	Overtake distance: [10.82267304] m
 
 Driver 968 is a AGGRESSIVE
@@ -3891,7 +3891,7 @@ Driver 972 is a AGGRESSIVE
 	Overtake distance: [10.22519667] m
 
 Driver 973 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 86.34254188913157 m/s
+	driver driving a CarType.VAN car @ 86.34254188913157 m/s
 	Overtake distance: [11.37315776] m
 
 Driver 974 is a AGGRESSIVE
@@ -3903,7 +3903,7 @@ Driver 975 is a AGGRESSIVE
 	Overtake distance: [10.00477413] m
 
 Driver 976 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.22598041174018 m/s
+	driver driving a CarType.VAN car @ 85.22598041174018 m/s
 	Overtake distance: [10.77104857] m
 
 Driver 977 is a AGGRESSIVE
@@ -3911,7 +3911,7 @@ Driver 977 is a AGGRESSIVE
 	Overtake distance: [11.88691514] m
 
 Driver 978 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.67204967999723 m/s
+	driver driving a CarType.VAN car @ 85.67204967999723 m/s
 	Overtake distance: [12.6983885] m
 
 Driver 979 is a AGGRESSIVE
@@ -3919,7 +3919,7 @@ Driver 979 is a AGGRESSIVE
 	Overtake distance: [10.3495219] m
 
 Driver 980 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 86.48296272894225 m/s
+	driver driving a CarType.VAN car @ 86.48296272894225 m/s
 	Overtake distance: [11.26853465] m
 
 Driver 981 is a AGGRESSIVE
@@ -3935,11 +3935,11 @@ Driver 983 is a AGGRESSIVE
 	Overtake distance: [11.23434355] m
 
 Driver 984 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 87.43789027598258 m/s
+	driver driving a CarType.VAN car @ 87.43789027598258 m/s
 	Overtake distance: [12.30891168] m
 
 Driver 985 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 85.81301475904202 m/s
+	driver driving a CarType.VAN car @ 85.81301475904202 m/s
 	Overtake distance: [10.10534292] m
 
 Driver 986 is a AGGRESSIVE
@@ -3947,11 +3947,11 @@ Driver 986 is a AGGRESSIVE
 	Overtake distance: [11.43339405] m
 
 Driver 987 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 86.47530773480892 m/s
+	driver driving a CarType.VAN car @ 86.47530773480892 m/s
 	Overtake distance: [11.26469947] m
 
 Driver 988 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 87.3431007610822 m/s
+	driver driving a CarType.VAN car @ 87.3431007610822 m/s
 	Overtake distance: [10.32128561] m
 
 Driver 989 is a AGGRESSIVE
@@ -3959,11 +3959,11 @@ Driver 989 is a AGGRESSIVE
 	Overtake distance: [11.20245638] m
 
 Driver 990 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 86.7876777835125 m/s
+	driver driving a CarType.VAN car @ 86.7876777835125 m/s
 	Overtake distance: [10.20514047] m
 
 Driver 991 is a AGGRESSIVE
-	driver driving a CarType.SUV car @ 86.4052713674111 m/s
+	driver driving a CarType.VAN car @ 86.4052713674111 m/s
 	Overtake distance: [10.6407939] m
 
 Driver 992 is a RECKLESS
@@ -3975,11 +3975,11 @@ Driver 993 is a RECKLESS
 	Overtake distance: [7.11414192] m
 
 Driver 994 is a RECKLESS
-	driver driving a CarType.SUV car @ 86.58241442859095 m/s
+	driver driving a CarType.VAN car @ 86.58241442859095 m/s
 	Overtake distance: [6.96404199] m
 
 Driver 995 is a RECKLESS
-	driver driving a CarType.SUV car @ 86.10988859509082 m/s
+	driver driving a CarType.VAN car @ 86.10988859509082 m/s
 	Overtake distance: [5.33397459] m
 
 Driver 996 is a RECKLESS
@@ -3987,11 +3987,11 @@ Driver 996 is a RECKLESS
 	Overtake distance: [6.30885377] m
 
 Driver 997 is a RECKLESS
-	driver driving a CarType.SUV car @ 86.22703794895347 m/s
+	driver driving a CarType.VAN car @ 86.22703794895347 m/s
 	Overtake distance: [5.00863669] m
 
 Driver 998 is a RECKLESS
-	driver driving a CarType.SUV car @ 84.52805505414014 m/s
+	driver driving a CarType.VAN car @ 84.52805505414014 m/s
 	Overtake distance: [5.03404524] m
 
 Driver 999 is a RECKLESS

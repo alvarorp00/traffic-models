@@ -21,7 +21,7 @@ from lib.driver import LanePriority
 
 
 class Config:
-    N_LANES = 2  # Can't change this for now
+    N_LANES = 2
 
     TIME_STEPS = 100
 
@@ -67,7 +67,7 @@ class Config:
     DRIVER_REACTION_DENSITY = [.075, .25, .35, .25, .075]
 
     # Car types
-    CAR_TYPE_DENSITY = [.4, .3, .2, .1]
+    CAR_TYPE_DENSITY = [.10, .15, .55, .20]
 
     # Safe distance
     SAFE_DISTANCE = 25.0  # In meters
@@ -89,9 +89,6 @@ class Config:
 
     # Print info
     VERBOSE = False
-
-    # Test the simulation
-    TEST = False
 
     # Plot the simulation
     PLOT = False

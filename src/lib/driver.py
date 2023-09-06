@@ -70,12 +70,15 @@ class CarType(enum.Enum):
     Enum for the type of car. 4 types are defined:
     """
     TRUCK = 1
-    SUV = 2
+    VAN = 2
     SEDAN = 3
     MOTORCYCLE = 4
 
     @staticmethod
-    def random(size=1) -> list['CarType']:
+    def random(
+        probs: List[float] = [.2, .4, .3, .1],
+        size=1
+    ) -> list['CarType']:
         """
         Returns a random car type.
 
@@ -89,7 +92,7 @@ class CarType(enum.Enum):
         """
         choice = random.choices(
             population=list(CarType),
-            weights=[.2, .4, .3, .1],
+            weights=probs,
             k=size
         )
 
@@ -188,7 +191,7 @@ class CarType(enum.Enum):
             return 2
         elif car_type == CarType.SEDAN:
             return 3.5
-        elif car_type == CarType.SUV:
+        elif car_type == CarType.VAN:
             return 4.5
         elif car_type == CarType.TRUCK:
             return 8

@@ -6,8 +6,8 @@ Run 1
 - 1000 time steps
 - 2 lanes
 - Population size: 10 -> 100 (step 10)
-- Drivers distribution: (full reckless)
-    · 50% normal
+- Drivers distribution:
+    · 50% risky
     · 50% aggressive
 """
 
@@ -40,7 +40,7 @@ def run():
     run_config.minimum_load_factor = 1.0
     run_config.n_lanes = 2
     run_config.time_steps = 1000
-    run_config.driver_type_density = [0.0, 0.5, 0.0, 0.5, 0.0]
+    run_config.driver_type_density = [0.0, 0.0, 0.5, 0.5, 0.0]
     run_config.verbose = False
     run_config.start_with_population = False
     run_config.accident_max_threshold = 0.10
@@ -85,7 +85,7 @@ def run():
     # Print the time taken
     time_taken = end_time - start_time
     # Save the time taken to a file
-    with open('runs/run_7/txt/time_taken.txt', 'w+') as f:
+    with open('runs/run_11/txt/time_taken.txt', 'w+') as f:
         f.write(f'Time taken: {time_taken / 3600} hours')
         f.write('\n')
         f.write(f'Time taken: {(time_taken - (int(time_taken / 3600) * 3600)) / 60} minutes')
@@ -134,9 +134,9 @@ def run():
 
     for i in range(0, len(results)):
         for j in range(0, len(results[i])):
-            stats_dict = results[i][j]
+            sim_results = results[i][j]
             Stats.append_simulation_results_to_file(
-                stats_dict, f'runs/run_7/txt/results_{i}.txt',
+                sim_results, f'runs/run_11/txt/results_{i}.txt',
                 j
             )
 
@@ -145,7 +145,7 @@ def run():
         if len(median) == 0:
             continue
         graphics.plot_avg_time_and_accidents(
-            median, f'runs/run_7/img/avg_time_and_accidents_{i}.png',
+            median, f'runs/run_11/img/avg_time_and_accidents_{i}.png',
             pop_size=population_sizes[i],
             section_length=run_config.section_length,
             road_length=run_config.road_length,
@@ -153,6 +153,6 @@ def run():
 
 
 if __name__ == '__main__':
-    print('Running run_7.py')
+    print('Running run_11.py')
     run()
     print('Done')

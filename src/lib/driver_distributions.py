@@ -1120,30 +1120,3 @@ def speed_lane_update(
     new_driver.config.location += speed / 3.6
 
     return new_driver
-
-
-def collision_wait_time(
-        n: int,
-        center_loc: int,
-) -> int:
-    """
-    Returns a random sample from a normal distribution
-    that represents the time that drivers will wait
-    after a collision (time that the drivers will be
-    accidented).
-
-    Parameters
-    ----------
-    n : int
-        The number of drivers involved in the collision.
-
-    NOTE: not tested, might change in the future.
-    """
-
-    wait_time = int(
-        tfp.distributions.HalfNormal(
-            scale=n
-        ).sample(sample_shape=1).numpy().flatten()
-    ) + center_loc
-
-    return wait_time

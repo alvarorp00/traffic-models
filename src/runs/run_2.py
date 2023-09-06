@@ -7,11 +7,7 @@ Run 1
 - 2 lanes
 - Population size: 10 -> 100 (step 10)
 - Drivers distribution:
-    · 05% cautious
-    · 10% normal
-    · 15% risky
-    · 30% aggressive
-    · 40% reckless
+    · 100% normal
 """
 
 import sys
@@ -29,7 +25,7 @@ import numpy as np
 import time
 
 
-REPEATS = 100  # Number of times to repeat the simulation for each configuration
+REPEATS = 200  # Number of times to repeat the simulation for each configuration
 
 
 def run():
@@ -44,7 +40,7 @@ def run():
     run_config.minimum_load_factor = 1.0
     run_config.n_lanes = 2
     run_config.time_steps = 1000
-    run_config.driver_type_density = [.05, .1, .15, .3, .4]
+    run_config.driver_type_density = [0.0, 1.0, 0.0, 0.0, 0.0]
     run_config.verbose = False
     run_config.start_with_population = False
     run_config.accident_max_threshold = 0.10
@@ -89,7 +85,7 @@ def run():
     # Print the time taken
     time_taken = end_time - start_time
     # Save the time taken to a file
-    with open('runs/run_2/txt/time_taken.txt', 'w') as f:
+    with open('runs/run_2/txt/time_taken.txt', 'w+') as f:
         f.write(f'Time taken: {time_taken / 3600} hours')
         f.write('\n')
         f.write(f'Time taken: {(time_taken - (int(time_taken / 3600) * 3600)) / 60} minutes')
@@ -97,9 +93,12 @@ def run():
         f.write(f'Time taken: {(time_taken - (int(time_taken / 60) * 60))} seconds')
 
     # Process results
-    medians = {}
+    medians = []
     for i in range(0, len(results)):
         sim_results = results[i]
+        if len(sim_results) == 0:
+            medians.append([])
+            continue
         median_time_by_driver_type = {
             driver_type: [] for driver_type in DriverType
         }
@@ -127,11 +126,11 @@ def run():
         median_completed_by_driver_type = {
             driver_type: np.median(median_completed_by_driver_type[driver_type]) for driver_type in DriverType
         }
-        medians[i] = [
+        medians.append([
             median_time_by_driver_type,
             median_accidents_by_driver_type,
             median_completed_by_driver_type
-        ]
+        ])
 
     for i in range(0, len(results)):
         for j in range(0, len(results[i])):
@@ -143,6 +142,9 @@ def run():
 
     for i in range(0, len(medians)):
         median = medians[i]
+        if len(sim_results) == 0:
+            medians.append([])
+            continue
         graphics.plot_avg_time_and_accidents(
             median, f'runs/run_2/img/avg_time_and_accidents_{i}.png',
             pop_size=population_sizes[i],

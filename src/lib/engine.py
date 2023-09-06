@@ -113,7 +113,9 @@ def initialize_drivers(run_config: 'RunConfig',
         locations_array.extend(locations_lane[k].tolist())
 
     for i in range(len(driver_types)):
-        car_type = CarType.random()[0]
+        car_type = CarType.random(
+            probs=run_config.car_type_density
+        )[0]
         dconfig = DriverConfig(
             id=i,
             road=Road(
@@ -198,6 +200,9 @@ class RunConfig:
         driver_reaction_density : List[float]
             The density of the drivers in each driver reaction time.
             Defaults to equal distribution.
+        car_type_density : List[float]
+            The density of the drivers in each car type.
+            Defaults to equal distribution.
         cars_max_speed : List[float]
             The maximum speed of the cars in each car type.
             Defaults to 100 km/h for all car types.
@@ -236,10 +241,6 @@ class RunConfig:
             If True, the simulation will plot the simulation
             after it is done. Defaults to False. This includes
             different graphs & video of the simulation.
-        test : bool
-            If True, the simulation will run in test mode.
-            Defaults to False. This is used for testing the
-            simulation.
         """
 
         if 'population_size' in kwargs:
@@ -274,7 +275,7 @@ class RunConfig:
             self.accident_clearance_time = kwargs['accident_clearance_time']
         else:
             self.accident_clearance_time = 1
-            
+
         if 'accident_max_threshold' in kwargs:
             assert isinstance(kwargs['accident_max_threshold'], float)
             self.accident_max_threshold = kwargs['accident_max_threshold']
@@ -377,6 +378,17 @@ class RunConfig:
                 DriverReactionTime
             )
 
+        if 'car_type_density' in kwargs:
+            assert isinstance(kwargs['car_type_density'], list)
+            assert np.isclose(np.sum(kwargs['car_type_density']), 1.0)
+            self.car_type_density = kwargs['car_type_density']
+        else:
+            self.car_type_density = [1.0 / len(
+                CarType
+            )] * len(
+                CarType
+            )
+
         if 'cars_max_speeds' in kwargs:
             assert isinstance(kwargs['cars_max_speeds'], list) or \
                     isinstance(kwargs['cars_max_speeds'], np.ndarray)
@@ -433,12 +445,6 @@ class RunConfig:
             self.plot = kwargs['plot']
         else:
             self.plot = False
-
-        if 'test' in kwargs:
-            assert isinstance(kwargs['test'], bool)
-            self.test = kwargs['test']
-        else:
-            self.test = False
 
         # add the rest of parameters here without checking
         # if they are valid or not
@@ -938,7 +944,9 @@ class Model:
         Spawns a new driver in the simulation.
         Location will be 0 (start of the road).
         """
-        car_type = CarType.random()[0]
+        car_type = CarType.random(
+            probs=self.run_config.car_type_density,
+        )[0]
         drv_type = DriverType.random(
             size=1,
             probs=self.run_config.driver_type_density

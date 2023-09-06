@@ -241,7 +241,7 @@ def plot_locations_frame(
     # and different shapes for each car type
     shapes = {
         lib.driver.CarType.SEDAN: 'd',
-        lib.driver.CarType.SUV: 'p',
+        lib.driver.CarType.VAN: 'p',
         lib.driver.CarType.TRUCK: 's',
         lib.driver.CarType.MOTORCYCLE: '^'
     }

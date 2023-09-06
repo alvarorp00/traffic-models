@@ -214,33 +214,33 @@ Drivers that finished:
         Driver 14 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [102.91594] m/s
         Driver 26 finished @ RECKLESS driver driving a CarType.SEDAN car @ [106.95643] m/s
         Driver 12 finished @ RISKY driver driving a CarType.SEDAN car @ [94.382744] m/s
-        Driver 7 finished @ RISKY driver driving a CarType.SUV car @ [88.319756] m/s
+        Driver 7 finished @ RISKY driver driving a CarType.VAN car @ [88.319756] m/s
         Driver 67 finished @ AGGRESSIVE driver driving a CarType.MOTORCYCLE car @ [123.38206] m/s
         Driver 34 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.40162] m/s
         Driver 48 finished @ RISKY driver driving a CarType.MOTORCYCLE car @ [108.62325] m/s
-        Driver 1 finished @ NORMAL driver driving a CarType.SUV car @ [84.46971] m/s
+        Driver 1 finished @ NORMAL driver driving a CarType.VAN car @ [84.46971] m/s
         Driver 4 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.67306] m/s
-        Driver 0 finished @ NORMAL driver driving a CarType.SUV car @ [82.93598] m/s
+        Driver 0 finished @ NORMAL driver driving a CarType.VAN car @ [82.93598] m/s
         Driver 21 finished @ NORMAL driver driving a CarType.SEDAN car @ [91.21285] m/s
         Driver 3 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.737686] m/s
-        Driver 10 finished @ CAUTIOUS driver driving a CarType.SUV car @ [85.69937] m/s
-        Driver 8 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.280106] m/s
+        Driver 10 finished @ CAUTIOUS driver driving a CarType.VAN car @ [85.69937] m/s
+        Driver 8 finished @ CAUTIOUS driver driving a CarType.VAN car @ [84.280106] m/s
         Driver 9 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.10079] m/s
-        Driver 11 finished @ NORMAL driver driving a CarType.SUV car @ [84.1175] m/s
+        Driver 11 finished @ NORMAL driver driving a CarType.VAN car @ [84.1175] m/s
         Driver 46 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.74186] m/s
         Driver 30 finished @ NORMAL driver driving a CarType.SEDAN car @ [92.17096] m/s
         Driver 13 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.34737] m/s
         Driver 15 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.8135] m/s
         Driver 35 finished @ RISKY driver driving a CarType.SEDAN car @ [92.67758] m/s
-        Driver 16 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.75567] m/s
-        Driver 17 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.02335] m/s
-        Driver 23 finished @ NORMAL driver driving a CarType.SUV car @ [86.23652] m/s
+        Driver 16 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.75567] m/s
+        Driver 17 finished @ CAUTIOUS driver driving a CarType.VAN car @ [84.02335] m/s
+        Driver 23 finished @ NORMAL driver driving a CarType.VAN car @ [86.23652] m/s
         Driver 70 finished @ RISKY driver driving a CarType.MOTORCYCLE car @ [111.58864] m/s
-        Driver 19 finished @ RISKY driver driving a CarType.SUV car @ [84.506424] m/s
+        Driver 19 finished @ RISKY driver driving a CarType.VAN car @ [84.506424] m/s
         Driver 18 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.22307] m/s
-        Driver 20 finished @ NORMAL driver driving a CarType.SUV car @ [83.72033] m/s
+        Driver 20 finished @ NORMAL driver driving a CarType.VAN car @ [83.72033] m/s
         Driver 47 finished @ RISKY driver driving a CarType.SEDAN car @ [95.627914] m/s
-        Driver 22 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.45336] m/s
+        Driver 22 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.45336] m/s
         Driver 28 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.57638] m/s
         Driver 24 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.88552] m/s
         Driver 40 finished @ NORMAL driver driving a CarType.SEDAN car @ [89.310486] m/s
@@ -248,33 +248,33 @@ Drivers that finished:
         Driver 27 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.52114] m/s
         Driver 38 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [86.5305] m/s
         Driver 55 finished @ RISKY driver driving a CarType.SEDAN car @ [93.98668] m/s
-        Driver 44 finished @ NORMAL driver driving a CarType.SUV car @ [87.88431] m/s
-        Driver 36 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [84.154045] m/s
-        Driver 37 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.63121] m/s
+        Driver 44 finished @ NORMAL driver driving a CarType.VAN car @ [87.88431] m/s
+        Driver 36 finished @ AGGRESSIVE driver driving a CarType.VAN car @ [84.154045] m/s
+        Driver 37 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.63121] m/s
         Driver 39 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.063095] m/s
         Driver 66 finished @ NORMAL driver driving a CarType.SEDAN car @ [96.595924] m/s
-        Driver 42 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.14722] m/s
+        Driver 42 finished @ CAUTIOUS driver driving a CarType.VAN car @ [84.14722] m/s
         Driver 54 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.21446] m/s
-        Driver 43 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.12412] m/s
+        Driver 43 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.12412] m/s
         Driver 62 finished @ NORMAL driver driving a CarType.SEDAN car @ [91.33862] m/s
         Driver 69 finished @ RISKY driver driving a CarType.SEDAN car @ [94.68695] m/s
-        Driver 45 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.62505] m/s
-        Driver 51 finished @ RISKY driver driving a CarType.SUV car @ [84.705376] m/s
-        Driver 52 finished @ RISKY driver driving a CarType.SUV car @ [84.53205] m/s
+        Driver 45 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.62505] m/s
+        Driver 51 finished @ RISKY driver driving a CarType.VAN car @ [84.705376] m/s
+        Driver 52 finished @ RISKY driver driving a CarType.VAN car @ [84.53205] m/s
         Driver 50 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.428276] m/s
         Driver 64 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [89.950676] m/s
-        Driver 53 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.92269] m/s
-        Driver 56 finished @ NORMAL driver driving a CarType.SUV car @ [83.313576] m/s
+        Driver 53 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.92269] m/s
+        Driver 56 finished @ NORMAL driver driving a CarType.VAN car @ [83.313576] m/s
         Driver 58 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.914696] m/s
         Driver 59 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.455734] m/s
-        Driver 73 finished @ RECKLESS driver driving a CarType.SUV car @ [89.4843] m/s
-        Driver 61 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.14382] m/s
-        Driver 71 finished @ RISKY driver driving a CarType.SUV car @ [86.1557] m/s
-        Driver 60 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.95041] m/s
-        Driver 63 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.52611] m/s
-        Driver 68 finished @ NORMAL driver driving a CarType.SUV car @ [83.981544] m/s
-        Driver 74 finished @ NORMAL driver driving a CarType.SUV car @ [84.59916] m/s
-        Driver 72 finished @ NORMAL driver driving a CarType.SUV car @ [81.983246] m/s
+        Driver 73 finished @ RECKLESS driver driving a CarType.VAN car @ [89.4843] m/s
+        Driver 61 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.14382] m/s
+        Driver 71 finished @ RISKY driver driving a CarType.VAN car @ [86.1557] m/s
+        Driver 60 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.95041] m/s
+        Driver 63 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.52611] m/s
+        Driver 68 finished @ NORMAL driver driving a CarType.VAN car @ [83.981544] m/s
+        Driver 74 finished @ NORMAL driver driving a CarType.VAN car @ [84.59916] m/s
+        Driver 72 finished @ NORMAL driver driving a CarType.VAN car @ [81.983246] m/s
         Driver 29 finished @ NORMAL driver driving a CarType.TRUCK car @ [65.43279] m/s
         Driver 32 finished @ NORMAL driver driving a CarType.TRUCK car @ [65.654785] m/s
         Driver 65 finished @ NORMAL driver driving a CarType.TRUCK car @ [72.42077] m/s
@@ -282,8 +282,8 @@ Drivers that finished:
         Driver 6 finished @ RISKY driver driving a CarType.TRUCK car @ [47.634457] m/s
         Driver 104 finished @ AGGRESSIVE driver driving a CarType.MOTORCYCLE car @ [122.88026] m/s
         Driver 31 finished @ RISKY driver driving a CarType.TRUCK car @ [50.037807] m/s
-        Driver 75 finished @ RISKY driver driving a CarType.SUV car @ [84.4851] m/s
-        Driver 76 finished @ NORMAL driver driving a CarType.SUV car @ [84.8096] m/s
+        Driver 75 finished @ RISKY driver driving a CarType.VAN car @ [84.4851] m/s
+        Driver 76 finished @ NORMAL driver driving a CarType.VAN car @ [84.8096] m/s
         Driver 78 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [86.87801] m/s
         Driver 89 finished @ RISKY driver driving a CarType.SEDAN car @ [99.02168] m/s
         Driver 79 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.599846] m/s
@@ -291,54 +291,54 @@ Drivers that finished:
         Driver 97 finished @ NORMAL driver driving a CarType.MOTORCYCLE car @ [97.4063] m/s
         Driver 82 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.65581] m/s
         Driver 86 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.615456] m/s
-        Driver 85 finished @ RISKY driver driving a CarType.SUV car @ [86.16006] m/s
-        Driver 90 finished @ RECKLESS driver driving a CarType.SUV car @ [87.25161] m/s
+        Driver 85 finished @ RISKY driver driving a CarType.VAN car @ [86.16006] m/s
+        Driver 90 finished @ RECKLESS driver driving a CarType.VAN car @ [87.25161] m/s
         Driver 111 finished @ RISKY driver driving a CarType.SEDAN car @ [96.374664] m/s
         Driver 118 finished @ AGGRESSIVE driver driving a CarType.SEDAN car @ [100.65899] m/s
         Driver 91 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.96066] m/s
-        Driver 88 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.95303] m/s
-        Driver 93 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.48683] m/s
+        Driver 88 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.95303] m/s
+        Driver 93 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.48683] m/s
         Driver 95 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.2446] m/s
-        Driver 94 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.19341] m/s
-        Driver 96 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.67209] m/s
-        Driver 92 finished @ CAUTIOUS driver driving a CarType.SUV car @ [81.48321] m/s
-        Driver 103 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [85.751076] m/s
-        Driver 99 finished @ NORMAL driver driving a CarType.SUV car @ [83.56376] m/s
+        Driver 94 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.19341] m/s
+        Driver 96 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.67209] m/s
+        Driver 92 finished @ CAUTIOUS driver driving a CarType.VAN car @ [81.48321] m/s
+        Driver 103 finished @ AGGRESSIVE driver driving a CarType.VAN car @ [85.751076] m/s
+        Driver 99 finished @ NORMAL driver driving a CarType.VAN car @ [83.56376] m/s
         Driver 101 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.751724] m/s
-        Driver 105 finished @ RISKY driver driving a CarType.SUV car @ [84.99019] m/s
-        Driver 102 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.629] m/s
-        Driver 108 finished @ RISKY driver driving a CarType.SUV car @ [84.60815] m/s
-        Driver 107 finished @ RISKY driver driving a CarType.SUV car @ [84.08017] m/s
-        Driver 106 finished @ CAUTIOUS driver driving a CarType.SUV car @ [83.00415] m/s
-        Driver 109 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.30293] m/s
+        Driver 105 finished @ RISKY driver driving a CarType.VAN car @ [84.99019] m/s
+        Driver 102 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.629] m/s
+        Driver 108 finished @ RISKY driver driving a CarType.VAN car @ [84.60815] m/s
+        Driver 107 finished @ RISKY driver driving a CarType.VAN car @ [84.08017] m/s
+        Driver 106 finished @ CAUTIOUS driver driving a CarType.VAN car @ [83.00415] m/s
+        Driver 109 finished @ CAUTIOUS driver driving a CarType.VAN car @ [84.30293] m/s
         Driver 110 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.44454] m/s
         Driver 77 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.20774] m/s
         Driver 112 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [84.197136] m/s
-        Driver 116 finished @ CAUTIOUS driver driving a CarType.SUV car @ [86.42117] m/s
+        Driver 116 finished @ CAUTIOUS driver driving a CarType.VAN car @ [86.42117] m/s
         Driver 113 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.74424] m/s
         Driver 114 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [83.89369] m/s
-        Driver 115 finished @ CAUTIOUS driver driving a CarType.SUV car @ [84.40305] m/s
+        Driver 115 finished @ CAUTIOUS driver driving a CarType.VAN car @ [84.40305] m/s
         Driver 123 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.67635] m/s
         Driver 131 finished @ RISKY driver driving a CarType.SEDAN car @ [94.20315] m/s
-        Driver 124 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [88.16064] m/s
+        Driver 124 finished @ AGGRESSIVE driver driving a CarType.VAN car @ [88.16064] m/s
         Driver 117 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.603] m/s
         Driver 128 finished @ NORMAL driver driving a CarType.SEDAN car @ [88.35953] m/s
         Driver 120 finished @ CAUTIOUS driver driving a CarType.MOTORCYCLE car @ [83.41327] m/s
         Driver 127 finished @ CAUTIOUS driver driving a CarType.TRUCK car @ [84.630714] m/s
         Driver 135 finished @ NORMAL driver driving a CarType.SEDAN car @ [89.717896] m/s
         Driver 81 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.94509] m/s
-        Driver 134 finished @ AGGRESSIVE driver driving a CarType.SUV car @ [87.734604] m/s
+        Driver 134 finished @ AGGRESSIVE driver driving a CarType.VAN car @ [87.734604] m/s
         Driver 83 finished @ NORMAL driver driving a CarType.TRUCK car @ [66.43564] m/s
-        Driver 125 finished @ CAUTIOUS driver driving a CarType.SUV car @ [81.127686] m/s
+        Driver 125 finished @ CAUTIOUS driver driving a CarType.VAN car @ [81.127686] m/s
         Driver 129 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.77146] m/s
         Driver 130 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.92936] m/s
-        Driver 133 finished @ NORMAL driver driving a CarType.SUV car @ [83.14817] m/s
-        Driver 132 finished @ CAUTIOUS driver driving a CarType.SUV car @ [82.12787] m/s
-        Driver 138 finished @ NORMAL driver driving a CarType.SUV car @ [85.061646] m/s
+        Driver 133 finished @ NORMAL driver driving a CarType.VAN car @ [83.14817] m/s
+        Driver 132 finished @ CAUTIOUS driver driving a CarType.VAN car @ [82.12787] m/s
+        Driver 138 finished @ NORMAL driver driving a CarType.VAN car @ [85.061646] m/s
         Driver 137 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [83.965965] m/s
-        Driver 139 finished @ RISKY driver driving a CarType.SUV car @ [84.20504] m/s
+        Driver 139 finished @ RISKY driver driving a CarType.VAN car @ [84.20504] m/s
         Driver 136 finished @ CAUTIOUS driver driving a CarType.SEDAN car @ [82.640755] m/s
-        Driver 140 finished @ CAUTIOUS driver driving a CarType.SUV car @ [86.469185] m/s
+        Driver 140 finished @ CAUTIOUS driver driving a CarType.VAN car @ [86.469185] m/s
 131 drivers finished
 75 drivers still active
 Average time:
